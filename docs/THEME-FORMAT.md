@@ -27,6 +27,20 @@ valid theme**; every role it does not mention keeps the built-in value. That
 also means a theme written for an older build keeps working when new roles are
 added.
 
+## Choosing one
+
+**Settings → Theme**. Press A to step to the next theme on the card; the list
+cycles through the built-in look and every folder under `themes/`, so there is
+no separate picker screen to open.
+
+**Colours change the moment you press A.** A theme's font, background, mascot
+and music are opened once when the client starts, so those appear at the next
+launch. The row says so, and it shows the first warning from a theme that
+half-applied rather than leaving you to guess.
+
+Your choice is saved as the folder name, so renaming a theme's folder
+deselects it, while renaming the theme *inside* `theme.json` does not.
+
 ## A minimal theme
 
 ```json
