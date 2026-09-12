@@ -1,0 +1,35 @@
+{
+  "name": "Midnight Borb",
+  "author": "Aramaki",
+  "version": "1.0.0",
+
+  "colors": {
+    "bg":             "#07080F",
+    "surface":        "#0D101C",
+    "surface_raised": "#141A2C",
+    "surface_hover":  "#1E263F",
+    "border":         "#2C3654",
+
+    "text":           "#E4E9F7",
+    "text_strong":    "#FFFFFF",
+    "text_muted":     "#8C97B8",
+    "text_disabled":  "#525C7A",
+    "text_on_accent": "#07080F",
+
+    "accent":         "#4C8DFF",
+    "accent_hover":   "#79A9FF",
+    "accent_alt":     "#8A6BFF",
+    "focus_ring":     "#9CC2FF",
+
+    "success":        "#4FC08D",
+    "warning":        "#E8B04B",
+    "danger":         "#E4605A",
+    "info":           "#5AA9E6",
+
+    "scrim":          "#03040ACC"
+  },
+
+  "background": {
+    "motion": { "kind": "drift", "speed": 0.3, "amount": 20 }
+  }
+}

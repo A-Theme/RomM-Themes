@@ -1,0 +1,23 @@
+{
+  "format": 1,
+  "repo": "A-Theme/RomM-Themes",
+  "count": 1,
+  "themes": [
+    {
+      "id": "midnight-borb",
+      "folder": "Midnight Borb",
+      "name": "Midnight Borb",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Midnight Borb",
+      "roles_set": 19,
+      "has_background": false,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 813,
+      "screenshot": null
+    }
+  ]
+}
