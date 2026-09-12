@@ -1,10 +1,33 @@
-# RomM-Themes
+<div align="center">
 
-Themes for the RomM Switch client — recolour it, give it a background, its own
-font, mascot art, and music.
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:4C8DFF,50:8A6BFF,100:9CC2FF&height=190&section=header&text=RomM-Themes&fontSize=56&fontColor=07080F&animation=fadeIn&fontAlignY=38&desc=themes%20for%20the%20RomM%20Switch%20client&descAlignY=58&descSize=18" width="100%"/>
+
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1200&color=4C8DFF&center=true&vCenter=true&width=640&lines=19+semantic+colour+roles.;Backgrounds%2C+motion%2C+sprite-sheet+animation.;Your+own+font%2C+mascot+and+music.;One+folder+on+the+SD+card.;Validated+in+CI+before+it+ever+boots.)](#)
+
+<img src="assets/hero.svg" alt="The RomM client library screen in the Midnight Borb theme, with the focus ring travelling between cards" width="100%"/>
+
+<br/>
+
+[![themes](https://img.shields.io/badge/dynamic/json?label=themes&query=%24.count&url=https%3A%2F%2Fraw.githubusercontent.com%2FA-Theme%2FRomM-Themes%2Fmain%2Fmanifest.json&style=for-the-badge&color=4C8DFF&labelColor=141A2C)](manifest.json)
+[![colour roles](https://img.shields.io/badge/colour%20roles-19-8A6BFF?style=for-the-badge&labelColor=141A2C)](#the-format)
+[![validated in CI](https://img.shields.io/github/actions/workflow/status/A-Theme/RomM-Themes/validate.yml?branch=main&label=validated&style=for-the-badge&color=4FC08D&labelColor=141A2C)](../../actions/workflows/validate.yml)
+[![editor](https://img.shields.io/badge/visual-editor-9CC2FF?style=for-the-badge&labelColor=141A2C)](https://github.com/A-Theme/Theme-App/blob/main/romm-theme-editor.html)
+[![licence](https://img.shields.io/badge/licence-MIT-5AA9E6?style=for-the-badge&labelColor=141A2C)](LICENSE)
+
+</div>
+
+---
+
+Themes for the **RomM Switch client** — recolour it, give it a background, its
+own font, mascot art, and music. A theme is a folder on the SD card, and the
+smallest useful one is a single file.
+
+<div align="center">
 
 <!-- SCREENSHOTS:START -->
 <!-- SCREENSHOTS:END -->
+
+</div>
 
 ## Install a theme
 
@@ -85,6 +108,12 @@ a copy of the client's own theme documentation, kept here so theme authors have
 it to hand. `source/ui/theme_spec.h` in the client is the normative
 implementation this repo validates against.
 
+<div align="center">
+
+<img src="assets/palette.svg" alt="The 19 semantic colour roles, shown with the Midnight Borb values" width="100%"/>
+
+</div>
+
 Quick reference:
 
 | block | what it sets |
@@ -123,3 +152,15 @@ Individual themes may bundle fonts, music and artwork under their own terms —
 each theme's `theme.json` credits its author. **Only submit assets you have the
 right to redistribute.** Fonts and music are the usual traps: plenty of both
 are free to *use* but not to *bundle and redistribute*.
+
+<div align="center">
+
+<br/>
+
+[![A-Theme](https://img.shields.io/badge/A--Theme-org-8A6BFF?style=for-the-badge&labelColor=141A2C)](https://github.com/A-Theme)
+[![Theme-App](https://img.shields.io/badge/Theme--App-editors-4C8DFF?style=for-the-badge&labelColor=141A2C)](https://github.com/A-Theme/Theme-App)
+[![Tinfoil-Themes](https://img.shields.io/badge/Tinfoil--Themes-tinfoil%20database-5AA9E6?style=for-the-badge&labelColor=141A2C)](https://github.com/A-Theme/Tinfoil-Themes)
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:9CC2FF,50:8A6BFF,100:4C8DFF&height=110&section=footer" width="100%"/>
+
+</div>

@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1290 366" width="1290" height="366" role="img" aria-label="The 19 semantic colour roles a RomM theme can set, shown with the Midnight Borb values">
+  <title>The 19 colour roles</title>
+  <desc>Every semantic colour role a RomM theme can override, with the Midnight Borb value for each. Generated from themes/Midnight Borb/theme.json.</desc>
+  <defs><clipPath id="card"><rect x="0" y="0" width="1290" height="366" rx="14"/></clipPath>
+    <pattern id="checker" width="12" height="12" patternUnits="userSpaceOnUse">
+      <rect width="12" height="12" fill="#2C3654"/>
+      <rect width="6" height="6" fill="#1E263F"/>
+      <rect x="6" y="6" width="6" height="6" fill="#1E263F"/>
+    </pattern>
+  </defs>
+  <g clip-path="url(#card)">
+    <rect width="1290" height="366" fill="#07080F"/>
+    <rect x="0.5" y="0.5" width="1289" height="365" rx="14" fill="none" stroke="#2C3654"/>
+    <text x="24" y="40" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#FFFFFF">19 colour roles</text>
+    <text x="24" y="62" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#8C97B8">semantic, not raw slots &#8212; a theme stays coherent as screens get added</text>
+    <text x="24" y="78" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11" letter-spacing="1.2" fill="#525C7A">SURFACES</text>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1;1;1" keyTimes="0;0.08;0.9;1" dur="4.7s" begin="0.00s" repeatCount="indefinite"/>
+      <rect x="24" y="94" width="34" height="34" rx="8" fill="#07080F" stroke="#2C3654"/>
+      <text x="70" y="109" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#E4E9F7">bg</text>
+      <text x="70" y="124" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11.5" fill="#8C97B8">#07080F</text>
+    </g>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1;1;1" keyTimes="0;0.08;0.9;1" dur="4.7s" begin="0.12s" repeatCount="indefinite"/>
+      <rect x="24" y="146" width="34" height="34" rx="8" fill="#0D101C" stroke="#2C3654"/>
+      <text x="70" y="161" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#E4E9F7">surface</text>
+      <text x="70" y="176" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11.5" fill="#8C97B8">#0D101C</text>
+    </g>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1;1;1" keyTimes="0;0.08;0.9;1" dur="4.7s" begin="0.24s" repeatCount="indefinite"/>
+      <rect x="24" y="198" width="34" height="34" rx="8" fill="#141A2C" stroke="#2C3654"/>
+      <text x="70" y="213" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#E4E9F7">surface_raised</text>
+      <text x="70" y="228" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11.5" fill="#8C97B8">#141A2C</text>
+    </g>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1;1;1" keyTimes="0;0.08;0.9;1" dur="4.7s" begin="0.36s" repeatCount="indefinite"/>
+      <rect x="24" y="250" width="34" height="34" rx="8" fill="#1E263F" stroke="#2C3654"/>
+      <text x="70" y="265" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#E4E9F7">surface_hover</text>
+      <text x="70" y="280" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11.5" fill="#8C97B8">#1E263F</text>
+    </g>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1;1;1" keyTimes="0;0.08;0.9;1" dur="4.7s" begin="0.48s" repeatCount="indefinite"/>
+      <rect x="24" y="302" width="34" height="34" rx="8" fill="#2C3654" stroke="#2C3654"/>
+      <text x="70" y="317" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#E4E9F7">border</text>
+      <text x="70" y="332" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11.5" fill="#8C97B8">#2C3654</text>
+    </g>
+    <text x="274" y="78" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11" letter-spacing="1.2" fill="#525C7A">TEXT</text>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1;1;1" keyTimes="0;0.08;0.9;1" dur="4.7s" begin="0.60s" repeatCount="indefinite"/>
+      <rect x="274" y="94" width="34" height="34" rx="8" fill="#E4E9F7" stroke="#2C3654"/>
+      <text x="320" y="109" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#E4E9F7">text</text>
+      <text x="320" y="124" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11.5" fill="#8C97B8">#E4E9F7</text>
+    </g>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1;1;1" keyTimes="0;0.08;0.9;1" dur="4.7s" begin="0.72s" repeatCount="indefinite"/>
+      <rect x="274" y="146" width="34" height="34" rx="8" fill="#FFFFFF" stroke="#2C3654"/>
+      <text x="320" y="161" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#E4E9F7">text_strong</text>
+      <text x="320" y="176" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11.5" fill="#8C97B8">#FFFFFF</text>
+    </g>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1;1;1" keyTimes="0;0.08;0.9;1" dur="4.7s" begin="0.84s" repeatCount="indefinite"/>
+      <rect x="274" y="198" width="34" height="34" rx="8" fill="#8C97B8" stroke="#2C3654"/>
+      <text x="320" y="213" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#E4E9F7">text_muted</text>
+      <text x="320" y="228" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11.5" fill="#8C97B8">#8C97B8</text>
+    </g>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1;1;1" keyTimes="0;0.08;0.9;1" dur="4.7s" begin="0.96s" repeatCount="indefinite"/>
+      <rect x="274" y="250" width="34" height="34" rx="8" fill="#525C7A" stroke="#2C3654"/>
+      <text x="320" y="265" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#E4E9F7">text_disabled</text>
+      <text x="320" y="280" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11.5" fill="#8C97B8">#525C7A</text>
+    </g>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1;1;1" keyTimes="0;0.08;0.9;1" dur="4.7s" begin="1.08s" repeatCount="indefinite"/>
+      <rect x="274" y="302" width="34" height="34" rx="8" fill="#07080F" stroke="#2C3654"/>
+      <text x="320" y="317" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#E4E9F7">text_on_accent</text>
+      <text x="320" y="332" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11.5" fill="#8C97B8">#07080F</text>
+    </g>
+    <text x="524" y="78" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11" letter-spacing="1.2" fill="#525C7A">BRAND</text>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1;1;1" keyTimes="0;0.08;0.9;1" dur="4.7s" begin="1.20s" repeatCount="indefinite"/>
+      <rect x="524" y="94" width="34" height="34" rx="8" fill="#4C8DFF" stroke="#2C3654"/>
+      <text x="570" y="109" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#E4E9F7">accent</text>
+      <text x="570" y="124" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11.5" fill="#8C97B8">#4C8DFF</text>
+    </g>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1;1;1" keyTimes="0;0.08;0.9;1" dur="4.7s" begin="1.32s" repeatCount="indefinite"/>
+      <rect x="524" y="146" width="34" height="34" rx="8" fill="#79A9FF" stroke="#2C3654"/>
+      <text x="570" y="161" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#E4E9F7">accent_hover</text>
+      <text x="570" y="176" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11.5" fill="#8C97B8">#79A9FF</text>
+    </g>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1;1;1" keyTimes="0;0.08;0.9;1" dur="4.7s" begin="1.44s" repeatCount="indefinite"/>
+      <rect x="524" y="198" width="34" height="34" rx="8" fill="#8A6BFF" stroke="#2C3654"/>
+      <text x="570" y="213" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#E4E9F7">accent_alt</text>
+      <text x="570" y="228" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11.5" fill="#8C97B8">#8A6BFF</text>
+    </g>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1;1;1" keyTimes="0;0.08;0.9;1" dur="4.7s" begin="1.56s" repeatCount="indefinite"/>
+      <rect x="524" y="250" width="34" height="34" rx="8" fill="#9CC2FF" stroke="#2C3654"/>
+      <text x="570" y="265" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#E4E9F7">focus_ring</text>
+      <text x="570" y="280" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11.5" fill="#8C97B8">#9CC2FF</text>
+    </g>
+    <text x="774" y="78" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11" letter-spacing="1.2" fill="#525C7A">STATUS</text>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1;1;1" keyTimes="0;0.08;0.9;1" dur="4.7s" begin="1.68s" repeatCount="indefinite"/>
+      <rect x="774" y="94" width="34" height="34" rx="8" fill="#4FC08D" stroke="#2C3654"/>
+      <text x="820" y="109" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#E4E9F7">success</text>
+      <text x="820" y="124" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11.5" fill="#8C97B8">#4FC08D</text>
+    </g>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1;1;1" keyTimes="0;0.08;0.9;1" dur="4.7s" begin="1.80s" repeatCount="indefinite"/>
+      <rect x="774" y="146" width="34" height="34" rx="8" fill="#E8B04B" stroke="#2C3654"/>
+      <text x="820" y="161" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#E4E9F7">warning</text>
+      <text x="820" y="176" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11.5" fill="#8C97B8">#E8B04B</text>
+    </g>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1;1;1" keyTimes="0;0.08;0.9;1" dur="4.7s" begin="1.92s" repeatCount="indefinite"/>
+      <rect x="774" y="198" width="34" height="34" rx="8" fill="#E4605A" stroke="#2C3654"/>
+      <text x="820" y="213" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#E4E9F7">danger</text>
+      <text x="820" y="228" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11.5" fill="#8C97B8">#E4605A</text>
+    </g>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1;1;1" keyTimes="0;0.08;0.9;1" dur="4.7s" begin="2.04s" repeatCount="indefinite"/>
+      <rect x="774" y="250" width="34" height="34" rx="8" fill="#5AA9E6" stroke="#2C3654"/>
+      <text x="820" y="265" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#E4E9F7">info</text>
+      <text x="820" y="280" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11.5" fill="#8C97B8">#5AA9E6</text>
+    </g>
+    <text x="1024" y="78" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11" letter-spacing="1.2" fill="#525C7A">OVERLAY</text>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1;1;1" keyTimes="0;0.08;0.9;1" dur="4.7s" begin="2.16s" repeatCount="indefinite"/>
+      <rect x="1024" y="94" width="34" height="34" rx="8" fill="url(#checker)"/>
+      <rect x="1024" y="94" width="34" height="34" rx="8" fill="#03040ACC" stroke="#2C3654"/>
+      <text x="1070" y="109" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#E4E9F7">scrim</text>
+      <text x="1070" y="124" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11.5" fill="#8C97B8">#03040ACC</text>
+    </g>
+  </g>
+</svg>
