@@ -65,10 +65,10 @@ background you forgot to commit is caught before it reaches anyone's console.
 
 ## The format
 
-The full format reference is
-[`docs/THEMES.md` in the client repo](https://github.com/A-Theme/romm-switch-client/blob/main/docs/THEMES.md),
-which is normative — `source/ui/theme_spec.h` there is the implementation this
-repo validates against.
+The full format reference is [`docs/THEME-FORMAT.md`](docs/THEME-FORMAT.md) —
+a copy of the client's own theme documentation, kept here so theme authors have
+it to hand. `source/ui/theme_spec.h` in the client is the normative
+implementation this repo validates against.
 
 Quick reference:
 

@@ -92,6 +92,8 @@ ln -sf ../../scripts/pre-commit .git/hooks/pre-commit
 
 ## If the validator disagrees with the client
 
-`source/ui/theme_spec.h` in the client repo is normative. The validator mirrors
-it, and the mirror can drift — if you hit a case where they disagree, the
-client is right and the validator needs fixing. Please report it.
+`source/ui/theme_spec.h` in the client is normative, and
+[`docs/THEME-FORMAT.md`](docs/THEME-FORMAT.md) is a copy of its documentation.
+The validator mirrors those rules, and a mirror can drift — if you hit a case
+where they disagree, the client is right and the validator needs fixing. Please
+report it.
