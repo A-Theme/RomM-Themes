@@ -50,6 +50,21 @@ tint one thing without restating the other eighteen colours.
 See [`manifest.json`](manifest.json) for the machine-readable index — it is
 generated, one entry per theme, with what each one changes and how big it is.
 
+## Make one without writing JSON
+
+There is a visual editor for this format:
+**[RomM Theme Editor](https://github.com/A-Theme/Theme-App/blob/main/romm-theme-editor.html)**
+(in [Theme-App](https://github.com/A-Theme/Theme-App) — runs in a browser,
+installs as an app, works offline).
+
+It previews the real client screens at the console's actual 1280×720, checks
+your colours for readability, shows the animated-background memory budget live,
+and exports either a `theme.json` or a ready-to-drop `.zip` pack.
+
+Worth using even if you are comfortable with JSON, for two reasons it can catch
+and a text editor cannot: whether `focus_ring` is actually visible against the
+card it outlines, and whether an animated background fits in the texture budget.
+
 ## Contributing a theme
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md). The short version:
@@ -89,6 +104,16 @@ Two things worth knowing before you build something ambitious:
   Always ship a still `image` as the fallback.
 - **`motion` is free.** Drift, pan or zoom on a still image costs no extra
   memory at all and often looks better than a short loop.
+
+## Part of the A-Theme project
+
+| repo | what it is |
+|---|---|
+| **RomM-Themes** | you are here — themes for the RomM Switch client |
+| [Theme-App](https://github.com/A-Theme/Theme-App) | the visual editors, for this format and for Tinfoil |
+| [Tinfoil-Themes](https://github.com/A-Theme/Tinfoil-Themes) | the Tinfoil theme database (a separate format) |
+| [Switch-Theme-Installer](https://github.com/A-Theme/Switch-Theme-Installer) | on-console installer for Tinfoil themes |
+| [A-Theme](https://github.com/A-Theme) | the org |
 
 ## Licence
 
