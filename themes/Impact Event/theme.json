@@ -1,0 +1,35 @@
+{
+  "name": "Impact Event",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#0F0708",
+    "surface": "#1C1112",
+    "surface_raised": "#2B1E1F",
+    "surface_hover": "#402E2F",
+    "border": "#574243",
+    "text": "#F1EBEB",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#ADA5A6",
+    "text_disabled": "#736D6D",
+    "text_on_accent": "#0F0808",
+    "accent": "#EF887C",
+    "accent_hover": "#FFABA0",
+    "accent_alt": "#D2954D",
+    "focus_ring": "#FFCBC3",
+    "success": "#94C171",
+    "warning": "#E1A358",
+    "danger": "#F39389",
+    "info": "#6CB9F7",
+    "scrim": "#070303CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.27,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 22
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Godfall",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#120B09",
+    "surface": "#1F1513",
+    "surface_raised": "#2F221F",
+    "surface_hover": "#43332F",
+    "border": "#5B4743",
+    "text": "#F1EBEA",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#ADA6A4",
+    "text_disabled": "#736D6C",
+    "text_on_accent": "#0F0907",
+    "accent": "#EC8D6D",
+    "accent_hover": "#FFAD92",
+    "accent_alt": "#CC984D",
+    "focus_ring": "#FFCCBB",
+    "success": "#95C172",
+    "warning": "#DFA458",
+    "danger": "#F29487",
+    "info": "#6DB9F6",
+    "scrim": "#080303CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.42,
+    "motion": {
+      "kind": "zoom",
+      "speed": 0.3,
+      "amount": 8
+    }
+  }
+}

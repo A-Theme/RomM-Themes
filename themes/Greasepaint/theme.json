@@ -1,0 +1,35 @@
+{
+  "name": "Greasepaint",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#0D0D07",
+    "surface": "#181910",
+    "surface_raised": "#25261C",
+    "surface_hover": "#37392B",
+    "border": "#4C4E3D",
+    "text": "#EDEDE9",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A7A8A2",
+    "text_disabled": "#6E6F6B",
+    "text_on_accent": "#0B0B05",
+    "accent": "#B1AF52",
+    "accent_hover": "#CBCA7C",
+    "accent_alt": "#D08AB9",
+    "focus_ring": "#DEDEA2",
+    "success": "#8BC37B",
+    "warning": "#D5AA55",
+    "danger": "#F0977A",
+    "info": "#4AC2E3",
+    "scrim": "#050502CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.47,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 24
+    }
+  }
+}

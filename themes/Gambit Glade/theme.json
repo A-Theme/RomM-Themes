@@ -1,0 +1,35 @@
+{
+  "name": "Gambit Glade",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#110A02",
+    "surface": "#1E1408",
+    "surface_raised": "#2D2111",
+    "surface_hover": "#42321D",
+    "border": "#5A472E",
+    "text": "#F1ECE5",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#ADA69E",
+    "text_disabled": "#736E67",
+    "text_on_accent": "#0D0905",
+    "accent": "#D89200",
+    "accent_hover": "#FBAB00",
+    "accent_alt": "#83AE00",
+    "focus_ring": "#FFD090",
+    "success": "#8DC467",
+    "warning": "#E0A53D",
+    "danger": "#FB8F76",
+    "info": "#11C4EC",
+    "scrim": "#080300CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.15,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 23
+    }
+  }
+}

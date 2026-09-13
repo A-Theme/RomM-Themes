@@ -1,0 +1,35 @@
+{
+  "name": "Galley Rat",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#05080F",
+    "surface": "#0E131B",
+    "surface_raised": "#1A212B",
+    "surface_hover": "#2A3240",
+    "border": "#3D4758",
+    "text": "#EAEDF1",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A4A8AE",
+    "text_disabled": "#6C6F73",
+    "text_on_accent": "#0E0906",
+    "accent": "#E69246",
+    "accent_hover": "#FBB173",
+    "accent_alt": "#06BAB4",
+    "focus_ring": "#FFCEA7",
+    "success": "#94C170",
+    "warning": "#DDA653",
+    "danger": "#F39381",
+    "info": "#42C3E5",
+    "scrim": "#020307CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.31,
+    "motion": {
+      "kind": "zoom",
+      "speed": 0.3,
+      "amount": 8
+    }
+  }
+}

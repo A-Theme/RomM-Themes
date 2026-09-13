@@ -1,0 +1,35 @@
+{
+  "name": "Lantern Bloom",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#0B070E",
+    "surface": "#17101B",
+    "surface_raised": "#251D2A",
+    "surface_hover": "#382D3F",
+    "border": "#4E4156",
+    "text": "#EFEBF1",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#AAA6AD",
+    "text_disabled": "#706D73",
+    "text_on_accent": "#0F0809",
+    "accent": "#FC718B",
+    "accent_hover": "#FFA1AF",
+    "accent_alt": "#BC81E6",
+    "focus_ring": "#FFC9CF",
+    "success": "#92C26A",
+    "warning": "#E7A050",
+    "danger": "#F88F8A",
+    "info": "#64B9FC",
+    "scrim": "#050207CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.38,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 22
+    }
+  }
+}

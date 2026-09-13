@@ -1,0 +1,35 @@
+{
+  "name": "Hexapod",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#150C0E",
+    "surface": "#221719",
+    "surface_raised": "#322427",
+    "surface_hover": "#473438",
+    "border": "#5F494D",
+    "text": "#F1EBEC",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#ADA5A7",
+    "text_disabled": "#736D6E",
+    "text_on_accent": "#0F080A",
+    "accent": "#ED82A0",
+    "accent_hover": "#FFA5BC",
+    "accent_alt": "#C489D1",
+    "focus_ring": "#FFC8D5",
+    "success": "#94C170",
+    "warning": "#E4A15A",
+    "danger": "#F3928E",
+    "info": "#6BB9F7",
+    "scrim": "#090405CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.4,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 29
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Iron Saint",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#0D0807",
+    "surface": "#191211",
+    "surface_raised": "#281F1D",
+    "surface_hover": "#3C302E",
+    "border": "#534441",
+    "text": "#F0ECEB",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#ACA6A5",
+    "text_disabled": "#726E6D",
+    "text_on_accent": "#0D0A05",
+    "accent": "#CDA568",
+    "accent_hover": "#E4C18D",
+    "accent_alt": "#D3957F",
+    "focus_ring": "#F0D5AD",
+    "success": "#94C179",
+    "warning": "#D7A85D",
+    "danger": "#EE9783",
+    "info": "#53C1E0",
+    "scrim": "#060303CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.4,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 24
+    }
+  }
+}

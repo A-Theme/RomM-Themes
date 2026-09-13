@@ -1,0 +1,35 @@
+{
+  "name": "Glass Cascade",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#04080E",
+    "surface": "#0C121A",
+    "surface_raised": "#18202A",
+    "surface_hover": "#27313F",
+    "border": "#3A4657",
+    "text": "#EAEDF2",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A4A8AE",
+    "text_disabled": "#6C6F73",
+    "text_on_accent": "#060B0F",
+    "accent": "#42B2F7",
+    "accent_hover": "#82CCFF",
+    "accent_alt": "#64B875",
+    "focus_ring": "#B4E0FF",
+    "success": "#68C893",
+    "warning": "#CEAE4E",
+    "danger": "#F3909B",
+    "info": "#56BEF1",
+    "scrim": "#020307CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.15,
+    "motion": {
+      "kind": "zoom",
+      "speed": 0.3,
+      "amount": 8
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Mossling",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#090905",
+    "surface": "#14140E",
+    "surface_raised": "#22221A",
+    "surface_hover": "#343429",
+    "border": "#49493C",
+    "text": "#EDEDEA",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A8A8A3",
+    "text_disabled": "#6F6F6C",
+    "text_on_accent": "#0A0B05",
+    "accent": "#B2B16E",
+    "accent_hover": "#CCCC92",
+    "accent_alt": "#88B487",
+    "focus_ring": "#DCDDB1",
+    "success": "#8DC27F",
+    "warning": "#D3AB5C",
+    "danger": "#EC997E",
+    "info": "#54C1E0",
+    "scrim": "#040402CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.54,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 26
+    }
+  }
+}

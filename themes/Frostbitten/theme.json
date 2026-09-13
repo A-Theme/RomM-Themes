@@ -1,0 +1,35 @@
+{
+  "name": "Frostbitten",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#060A0D",
+    "surface": "#0F1519",
+    "surface_raised": "#1B2228",
+    "surface_hover": "#2B343C",
+    "border": "#3E4952",
+    "text": "#EAEDF0",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A4A8AB",
+    "text_disabled": "#6C6F71",
+    "text_on_accent": "#060B0F",
+    "accent": "#78B4E1",
+    "accent_hover": "#9BCEF6",
+    "accent_alt": "#D49294",
+    "focus_ring": "#B8DFFD",
+    "success": "#72C696",
+    "warning": "#CBAE5B",
+    "danger": "#ED949D",
+    "info": "#64BDEB",
+    "scrim": "#020406CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.28,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 25
+    }
+  }
+}
