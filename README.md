@@ -84,6 +84,14 @@ It previews the real client screens at the console's actual 1280×720, checks
 your colours for readability, shows the animated-background memory budget live,
 and exports either a `theme.json` or a ready-to-drop `.zip` pack.
 
+**It reads this repo directly.** "Browse the catalog" lists every theme in
+`manifest.json` — the same index the client reads on the console — and opens one
+into the editor with its background, font, mascot and music downloaded, so the
+quickest way to start a new theme is usually to open the nearest one here and
+change what you want. It also imports a theme folder, a `.zip` pack, or a bare
+`theme.json`, and ships 20 starting palettes if you would rather begin from
+scratch.
+
 Worth using even if you are comfortable with JSON, for two reasons it can catch
 and a text editor cannot: whether `focus_ring` is actually visible against the
 card it outlines, and whether an animated background fits in the texture budget.
