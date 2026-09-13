@@ -1,0 +1,35 @@
+{
+  "name": "Nebula Cat",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#120A08",
+    "surface": "#1E1512",
+    "surface_raised": "#2E211E",
+    "surface_hover": "#42322E",
+    "border": "#5A4642",
+    "text": "#F1EBEA",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#ADA6A4",
+    "text_disabled": "#736D6C",
+    "text_on_accent": "#0D0A05",
+    "accent": "#D49F49",
+    "accent_hover": "#EABC75",
+    "accent_alt": "#DD8C6E",
+    "focus_ring": "#F7D39E",
+    "success": "#92C175",
+    "warning": "#D9A755",
+    "danger": "#F1957F",
+    "info": "#48C2E3",
+    "scrim": "#080303CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.29,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 22
+    }
+  }
+}

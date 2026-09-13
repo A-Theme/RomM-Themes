@@ -1,0 +1,35 @@
+{
+  "name": "Specimen",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#0D0706",
+    "surface": "#19110F",
+    "surface_raised": "#271E1B",
+    "surface_hover": "#3B2F2B",
+    "border": "#52433F",
+    "text": "#F0ECEA",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#ACA6A5",
+    "text_disabled": "#726E6C",
+    "text_on_accent": "#0E0906",
+    "accent": "#DD9A77",
+    "accent_hover": "#F3B899",
+    "accent_alt": "#B3A767",
+    "focus_ring": "#FCCEB6",
+    "success": "#97C076",
+    "warning": "#DBA65E",
+    "danger": "#EE9688",
+    "info": "#72B8F2",
+    "scrim": "#060302CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.43,
+    "motion": {
+      "kind": "pan",
+      "speed": 0.25,
+      "amount": 18
+    }
+  }
+}

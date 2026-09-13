@@ -1,0 +1,35 @@
+{
+  "name": "Orbital Lance",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#0D060B",
+    "surface": "#190F16",
+    "surface_raised": "#291B24",
+    "surface_hover": "#3D2B38",
+    "border": "#543E4E",
+    "text": "#F1EBEF",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#ADA5AA",
+    "text_disabled": "#736D71",
+    "text_on_accent": "#0E0906",
+    "accent": "#EB8B00",
+    "accent_hover": "#FFAB56",
+    "accent_alt": "#F0746F",
+    "focus_ring": "#FFCFA3",
+    "success": "#92C26B",
+    "warning": "#E0A549",
+    "danger": "#F7917D",
+    "info": "#30C3E8",
+    "scrim": "#060205CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.37,
+    "motion": {
+      "kind": "pan",
+      "speed": 0.25,
+      "amount": 18
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "The Crowd",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#0B0C07",
+    "surface": "#151711",
+    "surface_raised": "#23251D",
+    "surface_hover": "#34372D",
+    "border": "#494C40",
+    "text": "#ECEDEA",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A7A8A4",
+    "text_disabled": "#6E6F6C",
+    "text_on_accent": "#0A0B06",
+    "accent": "#A8B577",
+    "accent_hover": "#C3CF99",
+    "accent_alt": "#83ABD5",
+    "focus_ring": "#D5DFB6",
+    "success": "#8BC281",
+    "warning": "#D1AB5D",
+    "danger": "#EC997E",
+    "info": "#55C1DF",
+    "scrim": "#040402CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.25,
+    "motion": {
+      "kind": "zoom",
+      "speed": 0.25,
+      "amount": 6
+    }
+  }
+}

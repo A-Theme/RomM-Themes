@@ -1,0 +1,35 @@
+{
+  "name": "Sugar Skull Night",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#180D08",
+    "surface": "#251712",
+    "surface_raised": "#36241D",
+    "surface_hover": "#4C352B",
+    "border": "#65493E",
+    "text": "#F3EBE8",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#AFA5A1",
+    "text_disabled": "#746D6A",
+    "text_on_accent": "#0E0906",
+    "accent": "#FB7B06",
+    "accent_hover": "#FFA771",
+    "accent_alt": "#639CFF",
+    "focus_ring": "#FFCDB1",
+    "success": "#91C368",
+    "warning": "#E3A346",
+    "danger": "#F98F7E",
+    "info": "#61B9FE",
+    "scrim": "#0B0402CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.35,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 26
+    }
+  }
+}

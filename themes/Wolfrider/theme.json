@@ -1,0 +1,35 @@
+{
+  "name": "Wolfrider",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#130C08",
+    "surface": "#1F1711",
+    "surface_raised": "#2F241C",
+    "surface_hover": "#44362B",
+    "border": "#5B4A3E",
+    "text": "#F0ECE8",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#ACA6A2",
+    "text_disabled": "#726E6A",
+    "text_on_accent": "#0C0A05",
+    "accent": "#CEA233",
+    "accent_hover": "#E4BE68",
+    "accent_alt": "#E38477",
+    "focus_ring": "#F3D696",
+    "success": "#8FC275",
+    "warning": "#D9A852",
+    "danger": "#F2957C",
+    "info": "#43C2E4",
+    "scrim": "#080402CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.47,
+    "motion": {
+      "kind": "pan",
+      "speed": 0.25,
+      "amount": 18
+    }
+  }
+}

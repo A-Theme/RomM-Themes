@@ -1,0 +1,35 @@
+{
+  "name": "Prism Mind",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#180F0E",
+    "surface": "#251A19",
+    "surface_raised": "#352726",
+    "surface_hover": "#4B3737",
+    "border": "#634C4B",
+    "text": "#F1EBEB",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#AEA5A5",
+    "text_disabled": "#736D6D",
+    "text_on_accent": "#0D0905",
+    "accent": "#DC9935",
+    "accent_hover": "#F1B769",
+    "accent_alt": "#E58180",
+    "focus_ring": "#FED096",
+    "success": "#92C271",
+    "warning": "#DBA752",
+    "danger": "#F3947F",
+    "info": "#42C3E5",
+    "scrim": "#0B0404CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.48,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 26
+    }
+  }
+}

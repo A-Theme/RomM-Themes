@@ -1,0 +1,35 @@
+{
+  "name": "Neon Jaws",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#060A11",
+    "surface": "#0F151D",
+    "surface_raised": "#1B222D",
+    "surface_hover": "#2A3443",
+    "border": "#3D495B",
+    "text": "#EAEDF2",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A4A8AF",
+    "text_disabled": "#6C6F74",
+    "text_on_accent": "#050C0C",
+    "accent": "#00BFC0",
+    "accent_hover": "#3ADBDD",
+    "accent_alt": "#41ABEB",
+    "focus_ring": "#85EEEE",
+    "success": "#6FC88C",
+    "warning": "#CFAE4B",
+    "danger": "#F39576",
+    "info": "#48C0EC",
+    "scrim": "#020408CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.47,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 25
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Troll Hollow",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#0D0906",
+    "surface": "#19140F",
+    "surface_raised": "#28211B",
+    "surface_hover": "#3B332A",
+    "border": "#51473D",
+    "text": "#EFECEA",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#ABA7A3",
+    "text_disabled": "#716E6B",
+    "text_on_accent": "#0E0906",
+    "accent": "#D6A06E",
+    "accent_hover": "#ECBD92",
+    "accent_alt": "#A6AC6F",
+    "focus_ring": "#F7D1B1",
+    "success": "#97C077",
+    "warning": "#D9A75D",
+    "danger": "#EE9785",
+    "info": "#53C1E0",
+    "scrim": "#060402CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.12,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 26
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Witching Whiskers",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#100808",
+    "surface": "#1D1212",
+    "surface_raised": "#2C1F1E",
+    "surface_hover": "#412F2E",
+    "border": "#594342",
+    "text": "#F1EBEB",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#AEA5A5",
+    "text_disabled": "#736D6D",
+    "text_on_accent": "#0F0808",
+    "accent": "#EF8688",
+    "accent_hover": "#FFA9A9",
+    "accent_alt": "#67A8E9",
+    "focus_ring": "#FFCAC9",
+    "success": "#94C171",
+    "warning": "#E2A359",
+    "danger": "#F3928B",
+    "info": "#6CB9F7",
+    "scrim": "#070303CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.5,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 24
+    }
+  }
+}

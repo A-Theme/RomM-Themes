@@ -1,0 +1,35 @@
+{
+  "name": "Teardown",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#170F15",
+    "surface": "#231921",
+    "surface_raised": "#332630",
+    "surface_hover": "#483744",
+    "border": "#5F4B5A",
+    "text": "#F0EBEF",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#ACA5AA",
+    "text_disabled": "#726D71",
+    "text_on_accent": "#080A0F",
+    "accent": "#74A6FF",
+    "accent_hover": "#A0C2FF",
+    "accent_alt": "#D57DC3",
+    "focus_ring": "#C5DAFF",
+    "success": "#65C992",
+    "warning": "#E7A055",
+    "danger": "#F58F9A",
+    "info": "#59BCF5",
+    "scrim": "#0A0408CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.56,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 25
+    }
+  }
+}

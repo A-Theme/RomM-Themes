@@ -1,0 +1,35 @@
+{
+  "name": "Twilight March",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#110C05",
+    "surface": "#1E170E",
+    "surface_raised": "#2D2419",
+    "surface_hover": "#413626",
+    "border": "#584A38",
+    "text": "#F0ECE7",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#ACA7A0",
+    "text_disabled": "#726E69",
+    "text_on_accent": "#0D0905",
+    "accent": "#E39323",
+    "accent_hover": "#F8B25F",
+    "accent_alt": "#99AC40",
+    "focus_ring": "#FFCF9C",
+    "success": "#93C26E",
+    "warning": "#DDA64E",
+    "danger": "#F5937E",
+    "info": "#3BC3E6",
+    "scrim": "#070401CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.46,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 25
+    }
+  }
+}

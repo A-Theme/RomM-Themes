@@ -1,0 +1,35 @@
+{
+  "name": "Two Blades",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#13110D",
+    "surface": "#1F1D17",
+    "surface_raised": "#2E2A24",
+    "surface_hover": "#413C34",
+    "border": "#575248",
+    "text": "#EEEDEA",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A9A7A4",
+    "text_disabled": "#706E6C",
+    "text_on_accent": "#0D0A05",
+    "accent": "#C5AA77",
+    "accent_hover": "#DEC699",
+    "accent_alt": "#CC9B84",
+    "focus_ring": "#E9D7B5",
+    "success": "#94C07C",
+    "warning": "#D5A961",
+    "danger": "#EB9984",
+    "info": "#59C1DE",
+    "scrim": "#070604CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.61,
+    "motion": {
+      "kind": "pan",
+      "speed": 0.25,
+      "amount": 18
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Sands of War",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#150D09",
+    "surface": "#221812",
+    "surface_raised": "#32251E",
+    "surface_hover": "#47372D",
+    "border": "#5F4B3F",
+    "text": "#F1ECE8",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#ADA6A2",
+    "text_disabled": "#736D6A",
+    "text_on_accent": "#0E0906",
+    "accent": "#E98F3F",
+    "accent_hover": "#FEAE6E",
+    "accent_alt": "#A9A73A",
+    "focus_ring": "#FFCEA9",
+    "success": "#93C16F",
+    "warning": "#DEA551",
+    "danger": "#F49381",
+    "info": "#3EC3E5",
+    "scrim": "#0A0402CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.45,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 25
+    }
+  }
+}
