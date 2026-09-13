@@ -1,0 +1,35 @@
+{
+  "name": "Emberwing",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#180C09",
+    "surface": "#261613",
+    "surface_raised": "#36231E",
+    "surface_hover": "#4D332D",
+    "border": "#664740",
+    "text": "#F3EBE8",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#B1A5A2",
+    "text_disabled": "#756C6A",
+    "text_on_accent": "#0F0807",
+    "accent": "#FF7145",
+    "accent_hover": "#FFA286",
+    "accent_alt": "#C29600",
+    "focus_ring": "#FFCCBC",
+    "success": "#90C366",
+    "warning": "#E6A143",
+    "danger": "#FB8E80",
+    "info": "#60B9FF",
+    "scrim": "#0C0302CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.43,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 29
+    }
+  }
+}

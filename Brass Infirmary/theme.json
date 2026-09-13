@@ -1,0 +1,35 @@
+{
+  "name": "Brass Infirmary",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#100906",
+    "surface": "#1C1310",
+    "surface_raised": "#2C201C",
+    "surface_hover": "#41302B",
+    "border": "#58453E",
+    "text": "#F1EBEA",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#ADA6A3",
+    "text_disabled": "#736D6B",
+    "text_on_accent": "#0E0906",
+    "accent": "#E69255",
+    "accent_hover": "#FBB17E",
+    "accent_alt": "#B4A548",
+    "focus_ring": "#FFCEAD",
+    "success": "#95C171",
+    "warning": "#DDA555",
+    "danger": "#F29483",
+    "info": "#45C2E4",
+    "scrim": "#070302CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.44,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 20
+    }
+  }
+}

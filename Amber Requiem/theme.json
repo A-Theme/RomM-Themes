@@ -1,0 +1,35 @@
+{
+  "name": "Amber Requiem",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#141108",
+    "surface": "#201D11",
+    "surface_raised": "#2F2B1C",
+    "surface_hover": "#433D29",
+    "border": "#59523B",
+    "text": "#EEEDE7",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#AAA89F",
+    "text_disabled": "#706F69",
+    "text_on_accent": "#0C0A05",
+    "accent": "#C6A300",
+    "accent_hover": "#E0BE45",
+    "accent_alt": "#DF8827",
+    "focus_ring": "#F1D883",
+    "success": "#8BC472",
+    "warning": "#DAA848",
+    "danger": "#F69377",
+    "info": "#34C3E8",
+    "scrim": "#080601CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.54,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 21
+    }
+  }
+}
