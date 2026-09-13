@@ -1,0 +1,35 @@
+{
+  "name": "Crimson Thicket",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#130C07",
+    "surface": "#201610",
+    "surface_raised": "#30241B",
+    "surface_hover": "#45352A",
+    "border": "#5C493C",
+    "text": "#F1ECE8",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#ADA6A1",
+    "text_disabled": "#736D6A",
+    "text_on_accent": "#0D0905",
+    "accent": "#DF9622",
+    "accent_hover": "#F4B45F",
+    "accent_alt": "#E87F6E",
+    "focus_ring": "#FFD095",
+    "success": "#92C270",
+    "warning": "#DCA64F",
+    "danger": "#F4937E",
+    "info": "#3DC3E6",
+    "scrim": "#090402CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.3,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 28
+    }
+  }
+}
