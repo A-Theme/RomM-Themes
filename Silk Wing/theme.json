@@ -1,0 +1,35 @@
+{
+  "name": "Silk Wing",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#040B0B",
+    "surface": "#0C1616",
+    "surface_raised": "#182424",
+    "surface_hover": "#263737",
+    "border": "#394C4C",
+    "text": "#E9EEEE",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A2A9A9",
+    "text_disabled": "#6B7070",
+    "text_on_accent": "#090B06",
+    "accent": "#9CB76B",
+    "accent_hover": "#B9D18F",
+    "accent_alt": "#66B896",
+    "focus_ring": "#CFE2AF",
+    "success": "#88C380",
+    "warning": "#D1AC57",
+    "danger": "#EE987C",
+    "info": "#4EC2E2",
+    "scrim": "#010505CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.22,
+    "motion": {
+      "kind": "zoom",
+      "speed": 0.3,
+      "amount": 8
+    }
+  }
+}

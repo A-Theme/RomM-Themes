@@ -1,0 +1,35 @@
+{
+  "name": "Snaptrap",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#0B0E08",
+    "surface": "#161912",
+    "surface_raised": "#23271E",
+    "surface_hover": "#34392D",
+    "border": "#494F41",
+    "text": "#ECEDEA",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A6A9A4",
+    "text_disabled": "#6E6F6C",
+    "text_on_accent": "#090B06",
+    "accent": "#97B870",
+    "accent_hover": "#B4D293",
+    "accent_alt": "#DA8D8C",
+    "focus_ring": "#CBE3B2",
+    "success": "#87C381",
+    "warning": "#D1AC57",
+    "danger": "#EE987C",
+    "info": "#4EC2E1",
+    "scrim": "#040502CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.39,
+    "motion": {
+      "kind": "zoom",
+      "speed": 0.25,
+      "amount": 6
+    }
+  }
+}

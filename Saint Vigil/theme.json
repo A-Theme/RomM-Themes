@@ -1,0 +1,35 @@
+{
+  "name": "Saint Vigil",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#070B12",
+    "surface": "#10161F",
+    "surface_raised": "#1C232F",
+    "surface_hover": "#2B3544",
+    "border": "#3F4A5C",
+    "text": "#EAEDF2",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A4A8AF",
+    "text_disabled": "#6C6F74",
+    "text_on_accent": "#0F0808",
+    "accent": "#F67D87",
+    "accent_hover": "#FFA6AB",
+    "accent_alt": "#6CA2F4",
+    "focus_ring": "#FFCACB",
+    "success": "#93C26E",
+    "warning": "#E4A254",
+    "danger": "#F5918A",
+    "info": "#68B9F9",
+    "scrim": "#020409CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.02,
+    "motion": {
+      "kind": "zoom",
+      "speed": 0.25,
+      "amount": 6
+    }
+  }
+}

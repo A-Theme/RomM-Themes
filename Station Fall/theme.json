@@ -1,0 +1,35 @@
+{
+  "name": "Station Fall",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#050D14",
+    "surface": "#0C1921",
+    "surface_raised": "#172731",
+    "surface_hover": "#243948",
+    "border": "#364F60",
+    "text": "#E7EEF2",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A0A9AF",
+    "text_disabled": "#697074",
+    "text_on_accent": "#0F0807",
+    "accent": "#FF744B",
+    "accent_hover": "#FFA489",
+    "accent_alt": "#00ACE8",
+    "focus_ring": "#FFCCBC",
+    "success": "#91C369",
+    "warning": "#E4A248",
+    "danger": "#F98F82",
+    "info": "#62B9FE",
+    "scrim": "#01050ACC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.38,
+    "motion": {
+      "kind": "zoom",
+      "speed": 0.25,
+      "amount": 6
+    }
+  }
+}

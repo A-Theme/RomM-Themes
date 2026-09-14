@@ -1,0 +1,35 @@
+{
+  "name": "The Overseer",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#07080E",
+    "surface": "#11131A",
+    "surface_raised": "#1D2029",
+    "surface_hover": "#2E323E",
+    "border": "#424755",
+    "text": "#EBEDF0",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A6A7AD",
+    "text_disabled": "#6D6E72",
+    "text_on_accent": "#0E0905",
+    "accent": "#D89E5E",
+    "accent_hover": "#EEBB85",
+    "accent_alt": "#87A4E1",
+    "focus_ring": "#F9D1A8",
+    "success": "#95C075",
+    "warning": "#DAA75A",
+    "danger": "#F09683",
+    "info": "#4DC2E2",
+    "scrim": "#030306CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.52,
+    "motion": {
+      "kind": "pan",
+      "speed": 0.25,
+      "amount": 18
+    }
+  }
+}

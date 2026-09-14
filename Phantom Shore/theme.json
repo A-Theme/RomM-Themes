@@ -1,0 +1,35 @@
+{
+  "name": "Phantom Shore",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#0A0911",
+    "surface": "#14131E",
+    "surface_raised": "#21202E",
+    "surface_hover": "#333244",
+    "border": "#47465C",
+    "text": "#ECECF2",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A7A7AF",
+    "text_disabled": "#6E6E74",
+    "text_on_accent": "#0E0906",
+    "accent": "#F48340",
+    "accent_hover": "#FFAA7C",
+    "accent_alt": "#9294F7",
+    "focus_ring": "#FFCDB3",
+    "success": "#93C26C",
+    "warning": "#E1A44E",
+    "danger": "#F69182",
+    "info": "#66B9FB",
+    "scrim": "#040308CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.26,
+    "motion": {
+      "kind": "zoom",
+      "speed": 0.3,
+      "amount": 8
+    }
+  }
+}
