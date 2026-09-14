@@ -1,0 +1,35 @@
+{
+  "name": "Luckdragon",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#190F0C",
+    "surface": "#261916BE",
+    "surface_raised": "#372623CE",
+    "surface_hover": "#4D3732D8",
+    "border": "#664B469C",
+    "text": "#F2EBE9",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#AFA5A3",
+    "text_disabled": "#756E6C",
+    "text_on_accent": "#0F0907",
+    "accent": "#FB7C4F",
+    "accent_hover": "#FFA789",
+    "accent_alt": "#82B141",
+    "focus_ring": "#FFCCBB",
+    "success": "#92C26B",
+    "warning": "#E3A34D",
+    "danger": "#F79083",
+    "info": "#65B9FC",
+    "scrim": "#0C0403D2"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.32,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 26
+    }
+  }
+}

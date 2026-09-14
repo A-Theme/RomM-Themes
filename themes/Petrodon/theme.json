@@ -1,0 +1,35 @@
+{
+  "name": "Petrodon",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#0C1312",
+    "surface": "#161F1DD7",
+    "surface_raised": "#222E2BE7",
+    "surface_hover": "#32413DF1",
+    "border": "#455753B0",
+    "text": "#E9EEED",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A3A9A8",
+    "text_disabled": "#6B706F",
+    "text_on_accent": "#0D0A05",
+    "accent": "#CBA55E",
+    "accent_hover": "#E3C185",
+    "accent_alt": "#71B791",
+    "focus_ring": "#EFD6A8",
+    "success": "#92C178",
+    "warning": "#D7A85A",
+    "danger": "#EE9781",
+    "info": "#50C1E1",
+    "scrim": "#030706D2"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.51,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 26
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Rotten Porch",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#160909",
+    "surface": "#231213B8",
+    "surface_raised": "#341F1FC8",
+    "surface_hover": "#4B2E30D2",
+    "border": "#64424397",
+    "text": "#F4EAEA",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#B1A4A4",
+    "text_disabled": "#766C6C",
+    "text_on_accent": "#0F0807",
+    "accent": "#FF705B",
+    "accent_hover": "#FFA08F",
+    "accent_alt": "#00A5F8",
+    "focus_ring": "#FFCBC1",
+    "success": "#8FC364",
+    "warning": "#E8A042",
+    "danger": "#FC8D82",
+    "info": "#60B9FF",
+    "scrim": "#0B0203D2"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.22,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 24
+    }
+  }
+}

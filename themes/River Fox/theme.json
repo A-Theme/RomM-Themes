@@ -1,0 +1,35 @@
+{
+  "name": "River Fox",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#0D130A",
+    "surface": "#171F14BA",
+    "surface_raised": "#242E1FC9",
+    "surface_hover": "#34412ED4",
+    "border": "#48574199",
+    "text": "#EAEEE8",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A4AAA2",
+    "text_disabled": "#70746E",
+    "text_on_accent": "#0E0906",
+    "accent": "#FD811B",
+    "accent_hover": "#FFA771",
+    "accent_alt": "#C89500",
+    "focus_ring": "#FFCDB0",
+    "success": "#91C269",
+    "warning": "#E2A347",
+    "danger": "#F9907F",
+    "info": "#62B9FE",
+    "scrim": "#040702D2"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.28,
+    "motion": {
+      "kind": "pan",
+      "speed": 0.25,
+      "amount": 18
+    }
+  }
+}

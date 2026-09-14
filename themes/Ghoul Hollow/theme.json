@@ -1,0 +1,35 @@
+{
+  "name": "Ghoul Hollow",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#150808",
+    "surface": "#231112BC",
+    "surface_raised": "#341D1ECB",
+    "surface_hover": "#4B2D2ED6",
+    "border": "#6440419A",
+    "text": "#F4EAEA",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#B2A4A4",
+    "text_disabled": "#766C6C",
+    "text_on_accent": "#0F0808",
+    "accent": "#FF6E63",
+    "accent_hover": "#FF9D91",
+    "accent_alt": "#E77900",
+    "focus_ring": "#FFCBC4",
+    "success": "#8EC462",
+    "warning": "#E99F3E",
+    "danger": "#FE8B81",
+    "info": "#60B9FF",
+    "scrim": "#0B0203D2"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.3,
+    "motion": {
+      "kind": "zoom",
+      "speed": 0.25,
+      "amount": 6
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Contract Work",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#1A0D10",
+    "surface": "#28171BD0",
+    "surface_raised": "#392429DF",
+    "surface_hover": "#50343BE9",
+    "border": "#694850AA",
+    "text": "#F3EAEC",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#B0A4A6",
+    "text_disabled": "#756C6E",
+    "text_on_accent": "#0F080A",
+    "accent": "#FF6495",
+    "accent_hover": "#FF9BB4",
+    "accent_alt": "#00A9E7",
+    "focus_ring": "#FFC8D4",
+    "success": "#90C365",
+    "warning": "#EB9E48",
+    "danger": "#FC8C89",
+    "info": "#60B9FF",
+    "scrim": "#0D0405D2"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.48,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 27
+    }
+  }
+}
