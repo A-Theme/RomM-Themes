@@ -1,0 +1,35 @@
+{
+  "name": "Wobbegong",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#0A0C05",
+    "surface": "#15170EE9",
+    "surface_raised": "#222519F8",
+    "surface_hover": "#333828FA",
+    "border": "#484D3ABF",
+    "text": "#ECEDE8",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A7A9A2",
+    "text_disabled": "#6E6F6A",
+    "text_on_accent": "#0A0B06",
+    "accent": "#A6B243",
+    "accent_hover": "#C1CC71",
+    "accent_alt": "#18B5D0",
+    "focus_ring": "#D7E19C",
+    "success": "#87C47A",
+    "warning": "#D5AA50",
+    "danger": "#F29678",
+    "info": "#42C2E5",
+    "scrim": "#040502D2"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.6,
+    "motion": {
+      "kind": "pan",
+      "speed": 0.25,
+      "amount": 18
+    }
+  }
+}
