@@ -1,0 +1,35 @@
+{
+  "name": "Borb's Lair",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#0C0705",
+    "surface": "#150D0A",
+    "surface_raised": "#20150F",
+    "surface_hover": "#312017",
+    "border": "#4A3123",
+    "text": "#F2E4D6",
+    "text_strong": "#FFF6EC",
+    "text_muted": "#BE9C88",
+    "text_disabled": "#846653",
+    "text_on_accent": "#120806",
+    "accent": "#E2543C",
+    "accent_hover": "#FF7A5C",
+    "accent_alt": "#EFA24A",
+    "focus_ring": "#FFB067",
+    "success": "#6FBF7A",
+    "warning": "#E8B84B",
+    "danger": "#FF6152",
+    "info": "#77ADD9",
+    "scrim": "#0A0503D8"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.18,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 28
+    }
+  }
+}

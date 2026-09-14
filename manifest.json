@@ -1,7 +1,7 @@
 {
   "format": 1,
   "repo": "A-Theme/RomM-Themes",
-  "count": 101,
+  "count": 102,
   "themes": [
     {
       "id": "abyssal-lantern",
@@ -161,6 +161,22 @@
       "has_music": false,
       "animated": false,
       "bytes": 1365053,
+      "screenshot": null
+    },
+    {
+      "id": "borbs-lair",
+      "folder": "Borbs Lair",
+      "name": "Borb's Lair",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Borbs Lair",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 285030,
       "screenshot": null
     },
     {
