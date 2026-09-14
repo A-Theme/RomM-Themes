@@ -1,0 +1,35 @@
+{
+  "name": "Kitchen Fire",
+  "author": "Aramaki",
+  "version": "1.1.0",
+  "colors": {
+    "bg": "#150E0A",
+    "surface": "#221914D1",
+    "surface_raised": "#312620E0",
+    "surface_hover": "#46382FEA",
+    "border": "#5E4C42AB",
+    "text": "#F0ECE9",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#ADA6A3",
+    "text_disabled": "#726E6B",
+    "text_on_accent": "#0E0906",
+    "accent": "#E1964E",
+    "accent_hover": "#F7B479",
+    "accent_alt": "#A4AA51",
+    "focus_ring": "#FFCEA5",
+    "success": "#95C172",
+    "warning": "#DCA655",
+    "danger": "#F29482",
+    "info": "#46C2E4",
+    "scrim": "#090503D2"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.55,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 24
+    }
+  }
+}

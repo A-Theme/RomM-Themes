@@ -1,35 +1,35 @@
 {
   "name": "Silk Wing",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
-    "bg": "#040B0B",
-    "surface": "#0C1616",
-    "surface_raised": "#182424",
-    "surface_hover": "#263737",
-    "border": "#394C4C",
-    "text": "#E9EEEE",
+    "bg": "#16100B",
+    "surface": "#231B15",
+    "surface_raised": "#322821",
+    "surface_hover": "#473A30",
+    "border": "#5E4F43",
+    "text": "#F0ECE9",
     "text_strong": "#FDFDFD",
-    "text_muted": "#A2A9A9",
-    "text_disabled": "#6B7070",
-    "text_on_accent": "#090B06",
-    "accent": "#9CB76B",
-    "accent_hover": "#B9D18F",
-    "accent_alt": "#66B896",
-    "focus_ring": "#CFE2AF",
-    "success": "#88C380",
-    "warning": "#D1AC57",
-    "danger": "#EE987C",
-    "info": "#4EC2E2",
-    "scrim": "#010505CC"
+    "text_muted": "#ACA6A2",
+    "text_disabled": "#726E6B",
+    "text_on_accent": "#0E0906",
+    "accent": "#E2965A",
+    "accent_hover": "#F7B482",
+    "accent_alt": "#4FB1D8",
+    "focus_ring": "#FFCEAA",
+    "success": "#95C173",
+    "warning": "#DCA657",
+    "danger": "#F19584",
+    "info": "#49C2E3",
+    "scrim": "#090503CC"
   },
   "background": {
     "image": "bg.png",
-    "dim": 0.22,
+    "dim": 0.55,
     "motion": {
-      "kind": "zoom",
+      "kind": "drift",
       "speed": 0.3,
-      "amount": 8
+      "amount": 24
     }
   }
 }

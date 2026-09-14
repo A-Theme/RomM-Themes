@@ -1,0 +1,35 @@
+{
+  "name": "Storybook",
+  "author": "Aramaki",
+  "version": "1.1.0",
+  "colors": {
+    "bg": "#100C08",
+    "surface": "#1C1711DE",
+    "surface_raised": "#2B241DED",
+    "surface_hover": "#3E362CF7",
+    "border": "#554B3FB6",
+    "text": "#EFECE9",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#ABA7A3",
+    "text_disabled": "#716E6B",
+    "text_on_accent": "#0D0905",
+    "accent": "#D3A162",
+    "accent_hover": "#EABE88",
+    "accent_alt": "#9CAF6E",
+    "focus_ring": "#F5D3AA",
+    "success": "#95C077",
+    "warning": "#D9A85B",
+    "danger": "#EF9683",
+    "info": "#50C1E1",
+    "scrim": "#070402D2"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.5,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 27
+    }
+  }
+}

@@ -1,35 +1,35 @@
 {
   "name": "Starborn Cat",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
-    "bg": "#110907",
-    "surface": "#1E1311",
-    "surface_raised": "#2E201D",
-    "surface_hover": "#43312C",
-    "border": "#5B4540",
-    "text": "#F1EBEA",
+    "bg": "#14100A",
+    "surface": "#211B14",
+    "surface_raised": "#30281F",
+    "surface_hover": "#443A2E",
+    "border": "#5B4F41",
+    "text": "#EFECE8",
     "text_strong": "#FDFDFD",
-    "text_muted": "#AEA6A4",
-    "text_disabled": "#736D6C",
-    "text_on_accent": "#0E0906",
-    "accent": "#E89047",
-    "accent_hover": "#FDAF74",
-    "accent_alt": "#B5A33B",
-    "focus_ring": "#FFCEAA",
-    "success": "#94C170",
-    "warning": "#DEA552",
-    "danger": "#F39382",
-    "info": "#41C3E5",
-    "scrim": "#080302CC"
+    "text_muted": "#ABA7A2",
+    "text_disabled": "#716E6A",
+    "text_on_accent": "#0C0A05",
+    "accent": "#CDA349",
+    "accent_hover": "#E4BF75",
+    "accent_alt": "#88B26C",
+    "focus_ring": "#F2D59E",
+    "success": "#91C276",
+    "warning": "#D8A855",
+    "danger": "#F1967E",
+    "info": "#49C2E3",
+    "scrim": "#080502CC"
   },
   "background": {
     "image": "bg.png",
-    "dim": 0.4,
+    "dim": 0.63,
     "motion": {
       "kind": "drift",
       "speed": 0.3,
-      "amount": 23
+      "amount": 27
     }
   }
 }

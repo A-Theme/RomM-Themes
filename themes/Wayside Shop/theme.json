@@ -1,0 +1,35 @@
+{
+  "name": "Wayside Shop",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#0B0A06",
+    "surface": "#16150EDB",
+    "surface_raised": "#23231AEA",
+    "surface_hover": "#353529F5",
+    "border": "#4A4A3CB4",
+    "text": "#EDEDE9",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A8A8A3",
+    "text_disabled": "#6F6F6B",
+    "text_on_accent": "#0C0A05",
+    "accent": "#C2AA62",
+    "accent_hover": "#DBC588",
+    "accent_alt": "#9D9FDB",
+    "focus_ring": "#E9D8AA",
+    "success": "#91C17B",
+    "warning": "#D6A95B",
+    "danger": "#EE987F",
+    "info": "#51C1E1",
+    "scrim": "#040402D2"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.54,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 24
+    }
+  }
+}

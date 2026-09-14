@@ -1,35 +1,35 @@
 {
   "name": "Duat",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
-    "bg": "#120A05",
-    "surface": "#1E140D",
-    "surface_raised": "#2E2118",
-    "surface_hover": "#433226",
-    "border": "#5A4738",
-    "text": "#F1ECE8",
+    "bg": "#14110D",
+    "surface": "#1F1D17",
+    "surface_raised": "#2E2A24",
+    "surface_hover": "#413C34",
+    "border": "#575247",
+    "text": "#EEEDEA",
     "text_strong": "#FDFDFD",
-    "text_muted": "#ADA6A1",
-    "text_disabled": "#736D69",
-    "text_on_accent": "#0C0A05",
-    "accent": "#CBA100",
-    "accent_hover": "#E4BD4B",
-    "accent_alt": "#E18738",
-    "focus_ring": "#F4D686",
-    "success": "#8CC372",
-    "warning": "#DBA74A",
-    "danger": "#F59378",
-    "info": "#37C3E7",
-    "scrim": "#080301CC"
+    "text_muted": "#A9A7A4",
+    "text_disabled": "#706E6C",
+    "text_on_accent": "#0D0A05",
+    "accent": "#C5AA76",
+    "accent_hover": "#DEC599",
+    "accent_alt": "#97B185",
+    "focus_ring": "#E9D7B4",
+    "success": "#94C07C",
+    "warning": "#D5A960",
+    "danger": "#EB9983",
+    "info": "#58C1DF",
+    "scrim": "#080604CC"
   },
   "background": {
     "image": "bg.png",
-    "dim": 0.42,
+    "dim": 0.66,
     "motion": {
       "kind": "drift",
       "speed": 0.3,
-      "amount": 24
+      "amount": 26
     }
   }
 }

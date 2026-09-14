@@ -1,35 +1,35 @@
 {
   "name": "Falling Worlds",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
-    "bg": "#05080F",
-    "surface": "#0E131B",
-    "surface_raised": "#1A212B",
-    "surface_hover": "#2A3240",
-    "border": "#3D4757",
-    "text": "#EAEDF1",
+    "bg": "#090F11",
+    "surface": "#121B1D",
+    "surface_raised": "#1E292C",
+    "surface_hover": "#2D3C40",
+    "border": "#405256",
+    "text": "#E9EEEF",
     "text_strong": "#FDFDFD",
-    "text_muted": "#A4A8AE",
-    "text_disabled": "#6C6F73",
-    "text_on_accent": "#060B0F",
-    "accent": "#5DB0F7",
-    "accent_hover": "#90CAFF",
-    "accent_alt": "#41BA99",
-    "focus_ring": "#BADEFF",
-    "success": "#6AC894",
-    "warning": "#CEAE50",
-    "danger": "#F2919B",
-    "info": "#5BBDF1",
-    "scrim": "#020307CC"
+    "text_muted": "#A3A9AA",
+    "text_disabled": "#6B6F71",
+    "text_on_accent": "#0D0A05",
+    "accent": "#CBA562",
+    "accent_hover": "#E3C288",
+    "accent_alt": "#6EAED5",
+    "focus_ring": "#EFD5AA",
+    "success": "#93C179",
+    "warning": "#D7A85B",
+    "danger": "#EE9781",
+    "info": "#51C1E1",
+    "scrim": "#020607CC"
   },
   "background": {
     "image": "bg.png",
-    "dim": 0.2,
+    "dim": 0.43,
     "motion": {
       "kind": "drift",
       "speed": 0.3,
-      "amount": 23
+      "amount": 28
     }
   }
 }

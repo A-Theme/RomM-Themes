@@ -1,0 +1,35 @@
+{
+  "name": "Paper Dragon",
+  "author": "Aramaki",
+  "version": "1.1.0",
+  "colors": {
+    "bg": "#171007",
+    "surface": "#241B10CA",
+    "surface_raised": "#34281AD9",
+    "surface_hover": "#493A27E3",
+    "border": "#614F39A6",
+    "text": "#F1ECE6",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#ADA69F",
+    "text_disabled": "#736E68",
+    "text_on_accent": "#0F0807",
+    "accent": "#FF744F",
+    "accent_hover": "#FFA48C",
+    "accent_alt": "#D78C00",
+    "focus_ring": "#FFCBBD",
+    "success": "#91C368",
+    "warning": "#E5A248",
+    "danger": "#F98F82",
+    "info": "#61B9FE",
+    "scrim": "#0A0501D2"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.53,
+    "motion": {
+      "kind": "pan",
+      "speed": 0.25,
+      "amount": 18
+    }
+  }
+}

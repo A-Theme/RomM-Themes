@@ -1,35 +1,35 @@
 {
   "name": "Phantom Shore",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
-    "bg": "#0A0911",
-    "surface": "#14131E",
-    "surface_raised": "#21202E",
-    "surface_hover": "#333244",
-    "border": "#47465C",
-    "text": "#ECECF2",
+    "bg": "#0F0E09",
+    "surface": "#1A1912",
+    "surface_raised": "#28271E",
+    "surface_hover": "#3B392E",
+    "border": "#504E41",
+    "text": "#EDEDE9",
     "text_strong": "#FDFDFD",
-    "text_muted": "#A7A7AF",
-    "text_disabled": "#6E6E74",
-    "text_on_accent": "#0E0906",
-    "accent": "#F48340",
-    "accent_hover": "#FFAA7C",
-    "accent_alt": "#9294F7",
-    "focus_ring": "#FFCDB3",
-    "success": "#93C26C",
-    "warning": "#E1A44E",
-    "danger": "#F69182",
-    "info": "#66B9FB",
-    "scrim": "#040308CC"
+    "text_muted": "#A8A8A3",
+    "text_disabled": "#6F6F6B",
+    "text_on_accent": "#0B0A05",
+    "accent": "#B9AE67",
+    "accent_hover": "#D3C98C",
+    "accent_alt": "#92B17B",
+    "focus_ring": "#E2DBAD",
+    "success": "#8FC27D",
+    "warning": "#D4AA5B",
+    "danger": "#ED987E",
+    "info": "#52C1E0",
+    "scrim": "#060502CC"
   },
   "background": {
     "image": "bg.png",
-    "dim": 0.26,
+    "dim": 0.59,
     "motion": {
-      "kind": "zoom",
+      "kind": "drift",
       "speed": 0.3,
-      "amount": 8
+      "amount": 27
     }
   }
 }

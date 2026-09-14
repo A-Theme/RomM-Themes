@@ -1,35 +1,35 @@
 {
   "name": "Lure Machine",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
-    "bg": "#080914",
-    "surface": "#121322",
-    "surface_raised": "#1F2033",
-    "surface_hover": "#2F324A",
-    "border": "#434663",
-    "text": "#EBECF4",
+    "bg": "#12120D",
+    "surface": "#1E1D18",
+    "surface_raised": "#2C2B24",
+    "surface_hover": "#3E3E35",
+    "border": "#545348",
+    "text": "#EDEDEA",
     "text_strong": "#FDFDFD",
-    "text_muted": "#A5A7B2",
-    "text_disabled": "#6D6E76",
-    "text_on_accent": "#0F0807",
-    "accent": "#FF6C57",
-    "accent_hover": "#FF9E8D",
-    "accent_alt": "#9A84FF",
-    "focus_ring": "#FFCBC1",
-    "success": "#8FC363",
-    "warning": "#E8A03F",
-    "danger": "#FD8C81",
-    "info": "#60B9FF",
-    "scrim": "#03030BCC"
+    "text_muted": "#A8A8A4",
+    "text_disabled": "#6F6F6C",
+    "text_on_accent": "#0B0A05",
+    "accent": "#B5B179",
+    "accent_hover": "#CFCC9B",
+    "accent_alt": "#86B595",
+    "focus_ring": "#DEDBB6",
+    "success": "#8FC180",
+    "warning": "#D2AB60",
+    "danger": "#EA9A80",
+    "info": "#59C1DE",
+    "scrim": "#060604CC"
   },
   "background": {
     "image": "bg.png",
-    "dim": 0.11,
+    "dim": 0.65,
     "motion": {
       "kind": "drift",
       "speed": 0.3,
-      "amount": 29
+      "amount": 26
     }
   }
 }

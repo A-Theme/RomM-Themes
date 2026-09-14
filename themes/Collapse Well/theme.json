@@ -1,35 +1,35 @@
 {
   "name": "Collapse Well",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
-    "bg": "#07080C",
-    "surface": "#111218",
-    "surface_raised": "#1E1F26",
-    "surface_hover": "#30313A",
-    "border": "#444551",
-    "text": "#ECECEF",
+    "bg": "#131109",
+    "surface": "#1F1C12",
+    "surface_raised": "#2D2A1D",
+    "surface_hover": "#413C2C",
+    "border": "#57523E",
+    "text": "#EEEDE8",
     "text_strong": "#FDFDFD",
-    "text_muted": "#A7A7AB",
-    "text_disabled": "#6E6E71",
-    "text_on_accent": "#0D0905",
-    "accent": "#CCA673",
-    "accent_hover": "#E4C296",
-    "accent_alt": "#96A5D5",
-    "focus_ring": "#EFD5B3",
-    "success": "#96C07A",
-    "warning": "#D7A85F",
-    "danger": "#EC9884",
-    "info": "#56C1DF",
-    "scrim": "#030305CC"
+    "text_muted": "#A9A8A1",
+    "text_disabled": "#706F6A",
+    "text_on_accent": "#0F0807",
+    "accent": "#F18768",
+    "accent_hover": "#FFAB92",
+    "accent_alt": "#BBA13A",
+    "focus_ring": "#FFCCBC",
+    "success": "#94C170",
+    "warning": "#E0A455",
+    "danger": "#F49286",
+    "info": "#6AB9F8",
+    "scrim": "#070602CC"
   },
   "background": {
     "image": "bg.png",
-    "dim": 0.41,
+    "dim": 0.49,
     "motion": {
-      "kind": "zoom",
-      "speed": 0.25,
-      "amount": 6
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 27
     }
   }
 }

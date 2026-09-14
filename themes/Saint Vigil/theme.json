@@ -1,35 +1,35 @@
 {
   "name": "Saint Vigil",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
-    "bg": "#070B12",
-    "surface": "#10161F",
-    "surface_raised": "#1C232F",
-    "surface_hover": "#2B3544",
-    "border": "#3F4A5C",
-    "text": "#EAEDF2",
+    "bg": "#0F0606",
+    "surface": "#1B100F",
+    "surface_raised": "#2B1C1B",
+    "surface_hover": "#402C2B",
+    "border": "#58403E",
+    "text": "#F2EBEA",
     "text_strong": "#FDFDFD",
-    "text_muted": "#A4A8AF",
-    "text_disabled": "#6C6F74",
-    "text_on_accent": "#0F0808",
-    "accent": "#F67D87",
-    "accent_hover": "#FFA6AB",
-    "accent_alt": "#6CA2F4",
-    "focus_ring": "#FFCACB",
-    "success": "#93C26E",
-    "warning": "#E4A254",
-    "danger": "#F5918A",
-    "info": "#68B9F9",
-    "scrim": "#020409CC"
+    "text_muted": "#AEA5A4",
+    "text_disabled": "#736D6C",
+    "text_on_accent": "#0E0906",
+    "accent": "#F0884F",
+    "accent_hover": "#FFAB80",
+    "accent_alt": "#B7A12F",
+    "focus_ring": "#FFCDB3",
+    "success": "#93C16F",
+    "warning": "#E0A451",
+    "danger": "#F59283",
+    "info": "#69B9F9",
+    "scrim": "#070202CC"
   },
   "background": {
     "image": "bg.png",
-    "dim": 0.02,
+    "dim": 0.46,
     "motion": {
-      "kind": "zoom",
-      "speed": 0.25,
-      "amount": 6
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 28
     }
   }
 }

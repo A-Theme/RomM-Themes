@@ -1,35 +1,35 @@
 {
   "name": "Mandala Neon",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
-    "bg": "#0C0C18",
-    "surface": "#171726",
-    "surface_raised": "#242438",
-    "surface_hover": "#35354F",
-    "border": "#4A4A69",
-    "text": "#EBECF5",
+    "bg": "#150B09",
+    "surface": "#221512",
+    "surface_raised": "#33221E",
+    "surface_hover": "#49332D",
+    "border": "#614740",
+    "text": "#F2EBE9",
     "text_strong": "#FDFDFD",
-    "text_muted": "#A6A6B2",
-    "text_disabled": "#6D6E77",
-    "text_on_accent": "#0E080C",
-    "accent": "#F05ECB",
-    "accent_hover": "#FF8BDE",
-    "accent_alt": "#FA5E4D",
-    "focus_ring": "#FFC4EB",
-    "success": "#8DC45F",
-    "warning": "#EF9C3F",
-    "danger": "#FF898D",
-    "info": "#60B9FF",
-    "scrim": "#04040DCC"
+    "text_muted": "#AFA5A3",
+    "text_disabled": "#746D6B",
+    "text_on_accent": "#0F0807",
+    "accent": "#FB7A5C",
+    "accent_hover": "#FFA791",
+    "accent_alt": "#D29200",
+    "focus_ring": "#FFCBBE",
+    "success": "#92C26B",
+    "warning": "#E3A24E",
+    "danger": "#F79084",
+    "info": "#65B9FC",
+    "scrim": "#0A0302CC"
   },
   "background": {
     "image": "bg.png",
-    "dim": 0.41,
+    "dim": 0.47,
     "motion": {
       "kind": "drift",
       "speed": 0.3,
-      "amount": 25
+      "amount": 27
     }
   }
 }

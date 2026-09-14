@@ -1,35 +1,35 @@
 {
   "name": "Rift Mouth",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
-    "bg": "#0A0811",
-    "surface": "#15121D",
-    "surface_raised": "#231F2D",
-    "surface_hover": "#353043",
-    "border": "#4A455A",
-    "text": "#EDECF2",
+    "bg": "#0F080C",
+    "surface": "#1B1217",
+    "surface_raised": "#2B1E25",
+    "surface_hover": "#3F2E37",
+    "border": "#56424D",
+    "text": "#F1EBEE",
     "text_strong": "#FDFDFD",
-    "text_muted": "#A8A6AE",
-    "text_disabled": "#6F6E74",
-    "text_on_accent": "#0E080B",
-    "accent": "#EC78BB",
-    "accent_hover": "#FF9CD3",
-    "accent_alt": "#689FFA",
-    "focus_ring": "#FFC6E4",
-    "success": "#92C26C",
-    "warning": "#E7A054",
-    "danger": "#F68F90",
-    "info": "#66B9FB",
-    "scrim": "#040308CC"
+    "text_muted": "#ADA5A9",
+    "text_disabled": "#726D70",
+    "text_on_accent": "#0F0807",
+    "accent": "#F28667",
+    "accent_hover": "#FFAA92",
+    "accent_alt": "#C19D35",
+    "focus_ring": "#FFCCBD",
+    "success": "#94C16F",
+    "warning": "#E1A454",
+    "danger": "#F49286",
+    "info": "#6AB9F8",
+    "scrim": "#070305CC"
   },
   "background": {
     "image": "bg.png",
-    "dim": 0.45,
+    "dim": 0.37,
     "motion": {
       "kind": "zoom",
-      "speed": 0.3,
-      "amount": 8
+      "speed": 0.25,
+      "amount": 6
     }
   }
 }

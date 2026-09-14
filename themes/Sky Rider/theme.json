@@ -1,0 +1,35 @@
+{
+  "name": "Sky Rider",
+  "author": "Aramaki",
+  "version": "1.1.0",
+  "colors": {
+    "bg": "#0F130E",
+    "surface": "#1A1E19C0",
+    "surface_raised": "#272D26CF",
+    "surface_hover": "#384036DA",
+    "border": "#4D554B9D",
+    "text": "#EBEDEB",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A6A9A5",
+    "text_disabled": "#6D6F6D",
+    "text_on_accent": "#0C0A05",
+    "accent": "#C4A96A",
+    "accent_hover": "#DDC58F",
+    "accent_alt": "#CD9A76",
+    "focus_ring": "#EAD7AE",
+    "success": "#92C17B",
+    "warning": "#D6A95D",
+    "danger": "#ED9881",
+    "info": "#54C1E0",
+    "scrim": "#050704D2"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.61,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 26
+    }
+  }
+}

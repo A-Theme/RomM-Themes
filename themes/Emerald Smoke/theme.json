@@ -1,35 +1,35 @@
 {
   "name": "Emerald Smoke",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
-    "bg": "#050D06",
-    "surface": "#0D1910",
-    "surface_raised": "#18271C",
-    "surface_hover": "#273A2B",
-    "border": "#39503E",
-    "text": "#E9EFEA",
+    "bg": "#0E0B06",
+    "surface": "#1A150F",
+    "surface_raised": "#28231A",
+    "surface_hover": "#3C3429",
+    "border": "#52493B",
+    "text": "#EFECE9",
     "text_strong": "#FDFDFD",
-    "text_muted": "#A2AAA3",
-    "text_disabled": "#6A706B",
-    "text_on_accent": "#070B07",
-    "accent": "#44C154",
-    "accent_hover": "#75DA7D",
-    "accent_alt": "#00B4B5",
-    "focus_ring": "#A4EFA7",
-    "success": "#78C77C",
-    "warning": "#D3AC40",
-    "danger": "#F89271",
-    "info": "#25C4EA",
-    "scrim": "#010502CC"
+    "text_muted": "#AAA7A2",
+    "text_disabled": "#716E6B",
+    "text_on_accent": "#0D0A05",
+    "accent": "#CCA456",
+    "accent_hover": "#E3C17F",
+    "accent_alt": "#8DB272",
+    "focus_ring": "#F0D6A4",
+    "success": "#92C177",
+    "warning": "#D8A858",
+    "danger": "#EF9680",
+    "info": "#4DC2E2",
+    "scrim": "#060402CC"
   },
   "background": {
     "image": "bg.png",
-    "dim": 0.4,
+    "dim": 0.48,
     "motion": {
-      "kind": "drift",
-      "speed": 0.3,
-      "amount": 24
+      "kind": "zoom",
+      "speed": 0.25,
+      "amount": 6
     }
   }
 }
