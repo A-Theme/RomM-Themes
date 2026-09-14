@@ -4,9 +4,9 @@
   "version": "1.0.0",
   "colors": {
     "bg": "#120A08",
-    "surface": "#1E1512B8",
-    "surface_raised": "#2E211ECC",
-    "surface_hover": "#42322EDB",
+    "surface": "#1E1512",
+    "surface_raised": "#2E211E",
+    "surface_hover": "#42322E",
     "border": "#5A4642",
     "text": "#F1EBEA",
     "text_strong": "#FDFDFD",
