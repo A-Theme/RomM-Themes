@@ -1,0 +1,35 @@
+{
+  "name": "Gold at the End",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#07110B",
+    "surface": "#101D15",
+    "surface_raised": "#1B2B21",
+    "surface_hover": "#293F31",
+    "border": "#3C5545",
+    "text": "#E8EFEA",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A1AAA4",
+    "text_disabled": "#6A716C",
+    "text_on_accent": "#0C0A05",
+    "accent": "#C3A100",
+    "accent_hover": "#E1BC27",
+    "accent_alt": "#EA7D27",
+    "focus_ring": "#F3D878",
+    "success": "#89C46F",
+    "warning": "#DCA743",
+    "danger": "#F79275",
+    "info": "#29C4E9",
+    "scrim": "#010703CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.5,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 26
+    }
+  }
+}

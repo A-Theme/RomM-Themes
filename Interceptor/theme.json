@@ -1,0 +1,35 @@
+{
+  "name": "Interceptor",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#060B0E",
+    "surface": "#0F161A",
+    "surface_raised": "#1B2429",
+    "surface_hover": "#2A363C",
+    "border": "#3D4B53",
+    "text": "#EAEDEF",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A4A8AB",
+    "text_disabled": "#6C6F71",
+    "text_on_accent": "#050B0E",
+    "accent": "#5FBAD5",
+    "accent_hover": "#88D4EB",
+    "accent_alt": "#7FA9DA",
+    "focus_ring": "#ABE4F5",
+    "success": "#72C695",
+    "warning": "#CBAE5A",
+    "danger": "#EE939D",
+    "info": "#5EBEE9",
+    "scrim": "#020406CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.49,
+    "motion": {
+      "kind": "pan",
+      "speed": 0.25,
+      "amount": 18
+    }
+  }
+}

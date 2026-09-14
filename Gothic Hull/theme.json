@@ -1,0 +1,35 @@
+{
+  "name": "Gothic Hull",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#090810",
+    "surface": "#14121C",
+    "surface_raised": "#221F2C",
+    "surface_hover": "#343041",
+    "border": "#494459",
+    "text": "#EDECF2",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A8A6AE",
+    "text_disabled": "#6F6E73",
+    "text_on_accent": "#0C090D",
+    "accent": "#D084E3",
+    "accent_hover": "#E7A5F8",
+    "accent_alt": "#8D96F6",
+    "focus_ring": "#F4C6FF",
+    "success": "#65C992",
+    "warning": "#E7A055",
+    "danger": "#F58F97",
+    "info": "#67B9FA",
+    "scrim": "#040308CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.47,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 21
+    }
+  }
+}
