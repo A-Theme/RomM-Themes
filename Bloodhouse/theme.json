@@ -1,0 +1,35 @@
+{
+  "name": "Bloodhouse",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#15080C",
+    "surface": "#231217B5",
+    "surface_raised": "#331E25C4",
+    "surface_hover": "#4A2D37CE",
+    "border": "#63404C94",
+    "text": "#F5E9ED",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#B3A3A7",
+    "text_disabled": "#7D7175",
+    "text_on_accent": "#0F0808",
+    "accent": "#FF7975",
+    "accent_hover": "#FF948E",
+    "accent_alt": "#CE8B10",
+    "focus_ring": "#FFCAC6",
+    "success": "#8CC55B",
+    "warning": "#ED9D30",
+    "danger": "#FF8A81",
+    "info": "#60B9FF",
+    "scrim": "#0B0204D2"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.05,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 26
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Healing Hands",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#0F110A",
+    "surface": "#1A1D13E1",
+    "surface_raised": "#272B1FF0",
+    "surface_hover": "#393E2EFA",
+    "border": "#4E5341B8",
+    "text": "#ECEDE9",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A7A9A2",
+    "text_disabled": "#6E6F6B",
+    "text_on_accent": "#0B0A05",
+    "accent": "#BEAA39",
+    "accent_hover": "#D6C56B",
+    "accent_alt": "#7EB46A",
+    "focus_ring": "#E7DB98",
+    "success": "#8CC378",
+    "warning": "#D7A951",
+    "danger": "#F1967A",
+    "info": "#44C2E4",
+    "scrim": "#050602D2"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.57,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 25
+    }
+  }
+}

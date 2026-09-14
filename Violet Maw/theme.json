@@ -1,0 +1,35 @@
+{
+  "name": "Violet Maw",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#100C17",
+    "surface": "#1B1724B2",
+    "surface_raised": "#2A2434C2",
+    "surface_hover": "#3C354BCC",
+    "border": "#524A6392",
+    "text": "#EEEBF2",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A9A6AF",
+    "text_disabled": "#716F76",
+    "text_on_accent": "#0D080D",
+    "accent": "#E674DF",
+    "accent_hover": "#F895F1",
+    "accent_alt": "#AF81F7",
+    "focus_ring": "#FFC2F9",
+    "success": "#91C367",
+    "warning": "#EA9E4D",
+    "danger": "#F98C93",
+    "info": "#60B9FF",
+    "scrim": "#06040BD2"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.04,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 28
+    }
+  }
+}

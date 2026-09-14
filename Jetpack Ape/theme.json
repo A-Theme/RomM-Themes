@@ -1,0 +1,35 @@
+{
+  "name": "Jetpack Ape",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#0F0705",
+    "surface": "#1C110EE5",
+    "surface_raised": "#2C1E19F4",
+    "surface_hover": "#412E29FA",
+    "border": "#58423BBC",
+    "text": "#F2EBE9",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#AEA6A3",
+    "text_disabled": "#736D6B",
+    "text_on_accent": "#0C0A05",
+    "accent": "#D19F16",
+    "accent_hover": "#E7BC5B",
+    "accent_alt": "#E28752",
+    "focus_ring": "#F6D58F",
+    "success": "#8EC373",
+    "warning": "#DAA74E",
+    "danger": "#F4947B",
+    "info": "#3DC3E6",
+    "scrim": "#070302D2"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.58,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 22
+    }
+  }
+}

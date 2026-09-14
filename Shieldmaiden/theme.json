@@ -1,0 +1,35 @@
+{
+  "name": "Shieldmaiden",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#170E0D",
+    "surface": "#241917DD",
+    "surface_raised": "#342624EC",
+    "surface_hover": "#493734F7",
+    "border": "#614B48B5",
+    "text": "#F1EBEA",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#AEA6A4",
+    "text_disabled": "#736D6C",
+    "text_on_accent": "#0F0808",
+    "accent": "#F0867A",
+    "accent_hover": "#FFAA9F",
+    "accent_alt": "#CB9943",
+    "focus_ring": "#FFCBC3",
+    "success": "#94C171",
+    "warning": "#E1A357",
+    "danger": "#F39389",
+    "info": "#6BB9F7",
+    "scrim": "#0A0404D2"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.54,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 24
+    }
+  }
+}

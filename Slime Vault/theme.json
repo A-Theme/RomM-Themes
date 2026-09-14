@@ -1,0 +1,35 @@
+{
+  "name": "Slime Vault",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#160908",
+    "surface": "#231312C4",
+    "surface_raised": "#341F1ED3",
+    "surface_hover": "#4B2F2EDD",
+    "border": "#644341A1",
+    "text": "#F4EAEA",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#B1A4A3",
+    "text_disabled": "#756C6B",
+    "text_on_accent": "#0F0808",
+    "accent": "#FF6B74",
+    "accent_hover": "#FF9E9F",
+    "accent_alt": "#B99A00",
+    "focus_ring": "#FFCAC9",
+    "success": "#90C365",
+    "warning": "#E9A045",
+    "danger": "#FC8D85",
+    "info": "#60B9FF",
+    "scrim": "#0B0302D2"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.38,
+    "motion": {
+      "kind": "zoom",
+      "speed": 0.25,
+      "amount": 6
+    }
+  }
+}
