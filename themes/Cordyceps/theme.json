@@ -1,0 +1,35 @@
+{
+  "name": "Cordyceps",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#0C100C",
+    "surface": "#171B17",
+    "surface_raised": "#242924",
+    "surface_hover": "#353C34",
+    "border": "#495249",
+    "text": "#EBEDEB",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A6A9A5",
+    "text_disabled": "#6D6F6D",
+    "text_on_accent": "#0B0A05",
+    "accent": "#B6B077",
+    "accent_hover": "#D0CB9A",
+    "accent_alt": "#CC9B81",
+    "focus_ring": "#DFDBB5",
+    "success": "#90C17F",
+    "warning": "#D2AA5F",
+    "danger": "#EB9980",
+    "info": "#58C1DF",
+    "scrim": "#040604CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.42,
+    "motion": {
+      "kind": "zoom",
+      "speed": 0.25,
+      "amount": 6
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Chrome Clerk",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#150F19",
+    "surface": "#211926",
+    "surface_raised": "#302637",
+    "surface_hover": "#44374D",
+    "border": "#5B4B65",
+    "text": "#EFEBF2",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#ABA5AF",
+    "text_disabled": "#716D74",
+    "text_on_accent": "#0C090E",
+    "accent": "#CC75FD",
+    "accent_hover": "#DCA1FF",
+    "accent_alt": "#7C92FF",
+    "focus_ring": "#EACBFF",
+    "success": "#59CB8F",
+    "warning": "#EB9E48",
+    "danger": "#FB8B96",
+    "info": "#60B9FF",
+    "scrim": "#09040CCC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.49,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 28
+    }
+  }
+}

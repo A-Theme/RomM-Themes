@@ -1,0 +1,35 @@
+{
+  "name": "Carapace",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#100C07",
+    "surface": "#1C1710",
+    "surface_raised": "#2B251B",
+    "surface_hover": "#3E362A",
+    "border": "#554B3C",
+    "text": "#EFECE8",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#ABA7A2",
+    "text_disabled": "#716E6A",
+    "text_on_accent": "#0D0A05",
+    "accent": "#D2A14E",
+    "accent_hover": "#E9BD79",
+    "accent_alt": "#91B168",
+    "focus_ring": "#F5D4A0",
+    "success": "#92C175",
+    "warning": "#D9A857",
+    "danger": "#F09680",
+    "info": "#4AC2E3",
+    "scrim": "#070402CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.31,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 23
+    }
+  }
+}

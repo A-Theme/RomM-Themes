@@ -1,0 +1,35 @@
+{
+  "name": "Gnaw",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#0E0A04",
+    "surface": "#1A140B",
+    "surface_raised": "#292216",
+    "surface_hover": "#3C3324",
+    "border": "#534836",
+    "text": "#EFECE8",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#ABA7A1",
+    "text_disabled": "#716E69",
+    "text_on_accent": "#0D0A05",
+    "accent": "#D79C28",
+    "accent_hover": "#EDB962",
+    "accent_alt": "#89B158",
+    "focus_ring": "#FAD392",
+    "success": "#90C272",
+    "warning": "#DBA750",
+    "danger": "#F3947D",
+    "info": "#40C3E5",
+    "scrim": "#060401CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.49,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 25
+    }
+  }
+}

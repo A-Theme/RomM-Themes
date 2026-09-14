@@ -1,0 +1,35 @@
+{
+  "name": "Mandala Neon",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#0C0C18",
+    "surface": "#171726",
+    "surface_raised": "#242438",
+    "surface_hover": "#35354F",
+    "border": "#4A4A69",
+    "text": "#EBECF5",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A6A6B2",
+    "text_disabled": "#6D6E77",
+    "text_on_accent": "#0E080C",
+    "accent": "#F05ECB",
+    "accent_hover": "#FF8BDE",
+    "accent_alt": "#FA5E4D",
+    "focus_ring": "#FFC4EB",
+    "success": "#8DC45F",
+    "warning": "#EF9C3F",
+    "danger": "#FF898D",
+    "info": "#60B9FF",
+    "scrim": "#04040DCC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.41,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 25
+    }
+  }
+}

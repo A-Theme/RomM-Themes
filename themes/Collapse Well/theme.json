@@ -1,0 +1,35 @@
+{
+  "name": "Collapse Well",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#07080C",
+    "surface": "#111218",
+    "surface_raised": "#1E1F26",
+    "surface_hover": "#30313A",
+    "border": "#444551",
+    "text": "#ECECEF",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A7A7AB",
+    "text_disabled": "#6E6E71",
+    "text_on_accent": "#0D0905",
+    "accent": "#CCA673",
+    "accent_hover": "#E4C296",
+    "accent_alt": "#96A5D5",
+    "focus_ring": "#EFD5B3",
+    "success": "#96C07A",
+    "warning": "#D7A85F",
+    "danger": "#EC9884",
+    "info": "#56C1DF",
+    "scrim": "#030305CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.41,
+    "motion": {
+      "kind": "zoom",
+      "speed": 0.25,
+      "amount": 6
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Fern Prism",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#09120B",
+    "surface": "#131D16",
+    "surface_raised": "#1E2C22",
+    "surface_hover": "#2D3F32",
+    "border": "#405646",
+    "text": "#E9EEEA",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A2AAA4",
+    "text_disabled": "#6B706C",
+    "text_on_accent": "#070C08",
+    "accent": "#40C274",
+    "accent_hover": "#74DB96",
+    "accent_alt": "#CB9604",
+    "focus_ring": "#A2EEB8",
+    "success": "#79C680",
+    "warning": "#D0AD48",
+    "danger": "#F59475",
+    "info": "#36C3E7",
+    "scrim": "#020703CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.39,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 24
+    }
+  }
+}

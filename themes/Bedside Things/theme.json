@@ -1,0 +1,35 @@
+{
+  "name": "Bedside Things",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#10080B",
+    "surface": "#1C1116",
+    "surface_raised": "#2B1E24",
+    "surface_hover": "#402E36",
+    "border": "#57424B",
+    "text": "#F1EBED",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#ADA5A8",
+    "text_disabled": "#736D6F",
+    "text_on_accent": "#0F0807",
+    "accent": "#F4836F",
+    "accent_hover": "#FFA999",
+    "accent_alt": "#DD7EAB",
+    "focus_ring": "#FFCBC1",
+    "success": "#94C16F",
+    "warning": "#E2A354",
+    "danger": "#F49287",
+    "info": "#69B9F9",
+    "scrim": "#070304CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.0,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 23
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Circuit Dawn",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#100B15",
+    "surface": "#1B1522",
+    "surface_raised": "#2A2233",
+    "surface_hover": "#3D3349",
+    "border": "#534762",
+    "text": "#EEEBF2",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#AAA5AF",
+    "text_disabled": "#706D74",
+    "text_on_accent": "#0D080D",
+    "accent": "#DE6EE9",
+    "accent_hover": "#F392FD",
+    "accent_alt": "#00B3B1",
+    "focus_ring": "#FAC3FF",
+    "success": "#5ACB8F",
+    "warning": "#EB9E49",
+    "danger": "#FB8B93",
+    "info": "#60B9FF",
+    "scrim": "#06030ACC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.57,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 25
+    }
+  }
+}

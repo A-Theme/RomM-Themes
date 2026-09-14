@@ -1,0 +1,35 @@
+{
+  "name": "Archive Violet",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#0D0814",
+    "surface": "#181221",
+    "surface_raised": "#271F31",
+    "surface_hover": "#392F48",
+    "border": "#4F4361",
+    "text": "#EEEBF4",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#AAA5B1",
+    "text_disabled": "#706D76",
+    "text_on_accent": "#0C090E",
+    "accent": "#C672FF",
+    "accent_hover": "#D59EFF",
+    "accent_alt": "#F25A95",
+    "focus_ring": "#E8CCFF",
+    "success": "#4FCC8C",
+    "warning": "#EF9C3D",
+    "danger": "#FF8795",
+    "info": "#60B9FF",
+    "scrim": "#05030ACC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.38,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 28
+    }
+  }
+}

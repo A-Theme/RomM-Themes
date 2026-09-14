@@ -1,0 +1,35 @@
+{
+  "name": "Cold Beacon",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#070B10",
+    "surface": "#11161C",
+    "surface_raised": "#1D232C",
+    "surface_hover": "#2D3541",
+    "border": "#414A58",
+    "text": "#EAEDF1",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A4A8AD",
+    "text_disabled": "#6C6F73",
+    "text_on_accent": "#050C0C",
+    "accent": "#31C0C6",
+    "accent_hover": "#6ED9DE",
+    "accent_alt": "#69ABE1",
+    "focus_ring": "#9CE9ED",
+    "success": "#73C68F",
+    "warning": "#CDAE55",
+    "danger": "#EF977A",
+    "info": "#54BFE9",
+    "scrim": "#020407CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.46,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 22
+    }
+  }
+}

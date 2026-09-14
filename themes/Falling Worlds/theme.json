@@ -1,0 +1,35 @@
+{
+  "name": "Falling Worlds",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#05080F",
+    "surface": "#0E131B",
+    "surface_raised": "#1A212B",
+    "surface_hover": "#2A3240",
+    "border": "#3D4757",
+    "text": "#EAEDF1",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A4A8AE",
+    "text_disabled": "#6C6F73",
+    "text_on_accent": "#060B0F",
+    "accent": "#5DB0F7",
+    "accent_hover": "#90CAFF",
+    "accent_alt": "#41BA99",
+    "focus_ring": "#BADEFF",
+    "success": "#6AC894",
+    "warning": "#CEAE50",
+    "danger": "#F2919B",
+    "info": "#5BBDF1",
+    "scrim": "#020307CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.2,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 23
+    }
+  }
+}

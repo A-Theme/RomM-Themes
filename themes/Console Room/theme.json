@@ -1,0 +1,35 @@
+{
+  "name": "Console Room",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#080A10",
+    "surface": "#12151D",
+    "surface_raised": "#1E222C",
+    "surface_hover": "#2E3441",
+    "border": "#424959",
+    "text": "#EBEDF1",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A5A8AD",
+    "text_disabled": "#6D6F73",
+    "text_on_accent": "#060B0E",
+    "accent": "#52B5EB",
+    "accent_hover": "#7FCFFF",
+    "accent_alt": "#DA8F64",
+    "focus_ring": "#B0E1FF",
+    "success": "#6CC794",
+    "warning": "#CDAE53",
+    "danger": "#F1919C",
+    "info": "#5BBDEE",
+    "scrim": "#030408CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.4,
+    "motion": {
+      "kind": "zoom",
+      "speed": 0.25,
+      "amount": 6
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Brood",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#100A07",
+    "surface": "#1C1511",
+    "surface_raised": "#2B221D",
+    "surface_hover": "#3F332C",
+    "border": "#56483F",
+    "text": "#F0ECEA",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#ACA6A3",
+    "text_disabled": "#726E6B",
+    "text_on_accent": "#0E0906",
+    "accent": "#DD9A69",
+    "accent_hover": "#F3B88E",
+    "accent_alt": "#D98F85",
+    "focus_ring": "#FDCFAE",
+    "success": "#96C075",
+    "warning": "#DBA65B",
+    "danger": "#EF9685",
+    "info": "#4FC2E1",
+    "scrim": "#070402CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.46,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 27
+    }
+  }
+}

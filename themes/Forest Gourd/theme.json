@@ -1,0 +1,35 @@
+{
+  "name": "Forest Gourd",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#0C0F0A",
+    "surface": "#161B14",
+    "surface_raised": "#232920",
+    "surface_hover": "#343B30",
+    "border": "#485144",
+    "text": "#EBEEEA",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A6A9A4",
+    "text_disabled": "#6D6F6C",
+    "text_on_accent": "#080B07",
+    "accent": "#8EBA76",
+    "accent_hover": "#ADD498",
+    "accent_alt": "#55B8AD",
+    "focus_ring": "#C6E4B6",
+    "success": "#85C482",
+    "warning": "#D0AC57",
+    "danger": "#EE987C",
+    "info": "#4EC2E2",
+    "scrim": "#040603CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.34,
+    "motion": {
+      "kind": "zoom",
+      "speed": 0.25,
+      "amount": 6
+    }
+  }
+}

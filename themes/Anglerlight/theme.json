@@ -1,0 +1,35 @@
+{
+  "name": "Anglerlight",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#0C0911",
+    "surface": "#17131E",
+    "surface_raised": "#25202D",
+    "surface_hover": "#373143",
+    "border": "#4D455A",
+    "text": "#EDECF1",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A9A6AE",
+    "text_disabled": "#6F6D73",
+    "text_on_accent": "#0F0808",
+    "accent": "#FA7975",
+    "accent_hover": "#FFA6A0",
+    "accent_alt": "#4FA6F5",
+    "focus_ring": "#FFCAC6",
+    "success": "#93C26C",
+    "warning": "#E4A251",
+    "danger": "#F69088",
+    "info": "#66B9FB",
+    "scrim": "#050308CC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.37,
+    "motion": {
+      "kind": "zoom",
+      "speed": 0.3,
+      "amount": 8
+    }
+  }
+}

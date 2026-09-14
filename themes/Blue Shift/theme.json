@@ -1,0 +1,35 @@
+{
+  "name": "Blue Shift",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#0A0F17",
+    "surface": "#141B24",
+    "surface_raised": "#202935",
+    "surface_hover": "#303B4B",
+    "border": "#435064",
+    "text": "#E9EDF2",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A3A8AF",
+    "text_disabled": "#6B6F74",
+    "text_on_accent": "#070A0F",
+    "accent": "#6AA7FF",
+    "accent_hover": "#9AC4FF",
+    "accent_alt": "#E478A3",
+    "focus_ring": "#C2DBFF",
+    "success": "#64C992",
+    "warning": "#CFAD48",
+    "danger": "#F58E9A",
+    "info": "#57BDF5",
+    "scrim": "#03050BCC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.32,
+    "motion": {
+      "kind": "pan",
+      "speed": 0.25,
+      "amount": 18
+    }
+  }
+}

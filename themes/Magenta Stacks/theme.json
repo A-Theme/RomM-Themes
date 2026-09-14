@@ -1,0 +1,35 @@
+{
+  "name": "Magenta Stacks",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#120B17",
+    "surface": "#1E1624",
+    "surface_raised": "#2D2234",
+    "surface_hover": "#41334B",
+    "border": "#574763",
+    "text": "#EFEBF3",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#ABA5AF",
+    "text_disabled": "#716D74",
+    "text_on_accent": "#0D080D",
+    "accent": "#E266E6",
+    "accent_hover": "#F78CF9",
+    "accent_alt": "#FA5B70",
+    "focus_ring": "#FFC0FF",
+    "success": "#8EC461",
+    "warning": "#ED9D42",
+    "danger": "#FE8991",
+    "info": "#60B9FF",
+    "scrim": "#07030BCC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.4,
+    "motion": {
+      "kind": "zoom",
+      "speed": 0.25,
+      "amount": 6
+    }
+  }
+}
