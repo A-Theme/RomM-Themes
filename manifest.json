@@ -1,7 +1,7 @@
 {
   "format": 1,
   "repo": "A-Theme/RomM-Themes",
-  "count": 132,
+  "count": 133,
   "themes": [
     {
       "id": "abyssal-lantern",
@@ -1409,6 +1409,22 @@
       "has_music": false,
       "animated": false,
       "bytes": 1543218,
+      "screenshot": null
+    },
+    {
+      "id": "pulse",
+      "folder": "Pulse",
+      "name": "Pulse",
+      "author": "Aramaki",
+      "version": "1.1.0",
+      "path": "themes/Pulse",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": true,
+      "has_mascot": true,
+      "has_music": false,
+      "animated": false,
+      "bytes": 759299,
       "screenshot": null
     },
     {
