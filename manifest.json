@@ -1,7 +1,7 @@
 {
   "format": 1,
   "repo": "A-Theme/RomM-Themes",
-  "count": 102,
+  "count": 131,
   "themes": [
     {
       "id": "abyssal-lantern",
@@ -49,6 +49,38 @@
       "has_music": false,
       "animated": false,
       "bytes": 1084868,
+      "screenshot": null
+    },
+    {
+      "id": "ant-war",
+      "folder": "Ant War",
+      "name": "Ant War",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Ant War",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1252358,
+      "screenshot": null
+    },
+    {
+      "id": "ape-orbit",
+      "folder": "Ape Orbit",
+      "name": "Ape Orbit",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Ape Orbit",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1330062,
       "screenshot": null
     },
     {
@@ -132,6 +164,22 @@
       "screenshot": null
     },
     {
+      "id": "bloodhouse",
+      "folder": "Bloodhouse",
+      "name": "Bloodhouse",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Bloodhouse",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1125605,
+      "screenshot": null
+    },
+    {
       "id": "bloomcrown",
       "folder": "Bloomcrown",
       "name": "Bloomcrown",
@@ -161,22 +209,6 @@
       "has_music": false,
       "animated": false,
       "bytes": 1365053,
-      "screenshot": null
-    },
-    {
-      "id": "borbs-lair",
-      "folder": "Borbs Lair",
-      "name": "Borb's Lair",
-      "author": "Aramaki",
-      "version": "1.0.0",
-      "path": "themes/Borbs Lair",
-      "roles_set": 19,
-      "has_background": true,
-      "has_font": false,
-      "has_mascot": false,
-      "has_music": false,
-      "animated": false,
-      "bytes": 285036,
       "screenshot": null
     },
     {
@@ -256,7 +288,7 @@
       "has_mascot": false,
       "has_music": false,
       "animated": false,
-      "bytes": 1210375,
+      "bytes": 1210369,
       "screenshot": null
     },
     {
@@ -288,7 +320,7 @@
       "has_mascot": false,
       "has_music": false,
       "animated": false,
-      "bytes": 1152466,
+      "bytes": 1152460,
       "screenshot": null
     },
     {
@@ -320,7 +352,7 @@
       "has_mascot": false,
       "has_music": false,
       "animated": false,
-      "bytes": 1356885,
+      "bytes": 1356879,
       "screenshot": null
     },
     {
@@ -328,7 +360,7 @@
       "folder": "Cold Beacon",
       "name": "Cold Beacon",
       "author": "Aramaki",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "themes/Cold Beacon",
       "roles_set": 19,
       "has_background": true,
@@ -336,7 +368,7 @@
       "has_mascot": false,
       "has_music": false,
       "animated": false,
-      "bytes": 1144753,
+      "bytes": 1624100,
       "screenshot": null
     },
     {
@@ -344,7 +376,7 @@
       "folder": "Collapse Well",
       "name": "Collapse Well",
       "author": "Aramaki",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "themes/Collapse Well",
       "roles_set": 19,
       "has_background": true,
@@ -352,7 +384,7 @@
       "has_mascot": false,
       "has_music": false,
       "animated": false,
-      "bytes": 1328073,
+      "bytes": 1815869,
       "screenshot": null
     },
     {
@@ -369,6 +401,22 @@
       "has_music": false,
       "animated": false,
       "bytes": 1756987,
+      "screenshot": null
+    },
+    {
+      "id": "contract-work",
+      "folder": "Contract Work",
+      "name": "Contract Work",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Contract Work",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1559163,
       "screenshot": null
     },
     {
@@ -400,7 +448,7 @@
       "has_mascot": false,
       "has_music": false,
       "animated": false,
-      "bytes": 1442928,
+      "bytes": 1442922,
       "screenshot": null
     },
     {
@@ -468,11 +516,27 @@
       "screenshot": null
     },
     {
+      "id": "dragon-cut",
+      "folder": "Dragon Cut",
+      "name": "Dragon Cut",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Dragon Cut",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1494244,
+      "screenshot": null
+    },
+    {
       "id": "duat",
       "folder": "Duat",
       "name": "Duat",
       "author": "Aramaki",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "themes/Duat",
       "roles_set": 19,
       "has_background": true,
@@ -480,7 +544,7 @@
       "has_mascot": false,
       "has_music": false,
       "animated": false,
-      "bytes": 1277079,
+      "bytes": 1389024,
       "screenshot": null
     },
     {
@@ -536,7 +600,7 @@
       "folder": "Emerald Smoke",
       "name": "Emerald Smoke",
       "author": "Aramaki",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "themes/Emerald Smoke",
       "roles_set": 19,
       "has_background": true,
@@ -544,7 +608,7 @@
       "has_mascot": false,
       "has_music": false,
       "animated": false,
-      "bytes": 1021525,
+      "bytes": 1594489,
       "screenshot": null
     },
     {
@@ -568,7 +632,7 @@
       "folder": "Falling Worlds",
       "name": "Falling Worlds",
       "author": "Aramaki",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "themes/Falling Worlds",
       "roles_set": 19,
       "has_background": true,
@@ -576,7 +640,7 @@
       "has_mascot": false,
       "has_music": false,
       "animated": false,
-      "bytes": 1259038,
+      "bytes": 2034323,
       "screenshot": null
     },
     {
@@ -692,6 +756,22 @@
       "screenshot": null
     },
     {
+      "id": "ghoul-hollow",
+      "folder": "Ghoul Hollow",
+      "name": "Ghoul Hollow",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Ghoul Hollow",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1141046,
+      "screenshot": null
+    },
+    {
       "id": "glass-cascade",
       "folder": "Glass Cascade",
       "name": "Glass Cascade",
@@ -784,7 +864,7 @@
       "has_mascot": false,
       "has_music": false,
       "animated": false,
-      "bytes": 1463333,
+      "bytes": 1463327,
       "screenshot": null
     },
     {
@@ -816,7 +896,39 @@
       "has_mascot": false,
       "has_music": false,
       "animated": false,
-      "bytes": 1149378,
+      "bytes": 1149372,
+      "screenshot": null
+    },
+    {
+      "id": "hatchling",
+      "folder": "Hatchling",
+      "name": "Hatchling",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Hatchling",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1306489,
+      "screenshot": null
+    },
+    {
+      "id": "healing-hands",
+      "folder": "Healing Hands",
+      "name": "Healing Hands",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Healing Hands",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1728196,
       "screenshot": null
     },
     {
@@ -833,6 +945,22 @@
       "has_music": false,
       "animated": false,
       "bytes": 1375688,
+      "screenshot": null
+    },
+    {
+      "id": "hookah-snail",
+      "folder": "Hookah Snail",
+      "name": "Hookah Snail",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Hookah Snail",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1326365,
       "screenshot": null
     },
     {
@@ -900,6 +1028,38 @@
       "screenshot": null
     },
     {
+      "id": "jetpack-ape",
+      "folder": "Jetpack Ape",
+      "name": "Jetpack Ape",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Jetpack Ape",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1341719,
+      "screenshot": null
+    },
+    {
+      "id": "kitchen-fire",
+      "folder": "Kitchen Fire",
+      "name": "Kitchen Fire",
+      "author": "Aramaki",
+      "version": "1.1.0",
+      "path": "themes/Kitchen Fire",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1700704,
+      "screenshot": null
+    },
+    {
       "id": "lantern-bloom",
       "folder": "Lantern Bloom",
       "name": "Lantern Bloom",
@@ -916,11 +1076,27 @@
       "screenshot": null
     },
     {
+      "id": "luckdragon",
+      "folder": "Luckdragon",
+      "name": "Luckdragon",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Luckdragon",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1325920,
+      "screenshot": null
+    },
+    {
       "id": "lure-machine",
       "folder": "Lure Machine",
       "name": "Lure Machine",
       "author": "Aramaki",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "themes/Lure Machine",
       "roles_set": 19,
       "has_background": true,
@@ -928,7 +1104,7 @@
       "has_mascot": false,
       "has_music": false,
       "animated": false,
-      "bytes": 1286563,
+      "bytes": 1451192,
       "screenshot": null
     },
     {
@@ -952,7 +1128,7 @@
       "folder": "Mandala Neon",
       "name": "Mandala Neon",
       "author": "Aramaki",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "themes/Mandala Neon",
       "roles_set": 19,
       "has_background": true,
@@ -960,7 +1136,7 @@
       "has_mascot": false,
       "has_music": false,
       "animated": false,
-      "bytes": 1592319,
+      "bytes": 2016672,
       "screenshot": null
     },
     {
@@ -1028,6 +1204,22 @@
       "screenshot": null
     },
     {
+      "id": "mystic-ninja",
+      "folder": "Mystic Ninja",
+      "name": "Mystic Ninja",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Mystic Ninja",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1985749,
+      "screenshot": null
+    },
+    {
       "id": "nebula-cat",
       "folder": "Nebula Cat",
       "name": "Nebula Cat",
@@ -1040,7 +1232,7 @@
       "has_mascot": false,
       "has_music": false,
       "animated": false,
-      "bytes": 1476937,
+      "bytes": 1476931,
       "screenshot": null
     },
     {
@@ -1056,7 +1248,7 @@
       "has_mascot": false,
       "has_music": false,
       "animated": false,
-      "bytes": 1257055,
+      "bytes": 1257049,
       "screenshot": null
     },
     {
@@ -1076,6 +1268,22 @@
       "screenshot": null
     },
     {
+      "id": "neon-simian",
+      "folder": "Neon Simian",
+      "name": "Neon Simian",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Neon Simian",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1476678,
+      "screenshot": null
+    },
+    {
       "id": "orbital-lance",
       "folder": "Orbital Lance",
       "name": "Orbital Lance",
@@ -1092,11 +1300,43 @@
       "screenshot": null
     },
     {
+      "id": "paper-dragon",
+      "folder": "Paper Dragon",
+      "name": "Paper Dragon",
+      "author": "Aramaki",
+      "version": "1.1.0",
+      "path": "themes/Paper Dragon",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1583462,
+      "screenshot": null
+    },
+    {
+      "id": "petrodon",
+      "folder": "Petrodon",
+      "name": "Petrodon",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Petrodon",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1415614,
+      "screenshot": null
+    },
+    {
       "id": "phantom-shore",
       "folder": "Phantom Shore",
       "name": "Phantom Shore",
       "author": "Aramaki",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "themes/Phantom Shore",
       "roles_set": 19,
       "has_background": true,
@@ -1104,7 +1344,7 @@
       "has_mascot": false,
       "has_music": false,
       "animated": false,
-      "bytes": 1287247,
+      "bytes": 1681594,
       "screenshot": null
     },
     {
@@ -1120,7 +1360,23 @@
       "has_mascot": false,
       "has_music": false,
       "animated": false,
-      "bytes": 1249252,
+      "bytes": 1249246,
+      "screenshot": null
+    },
+    {
+      "id": "planet-eater",
+      "folder": "Planet Eater",
+      "name": "Planet Eater",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Planet Eater",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1615749,
       "screenshot": null
     },
     {
@@ -1160,7 +1416,7 @@
       "folder": "Rift Mouth",
       "name": "Rift Mouth",
       "author": "Aramaki",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "themes/Rift Mouth",
       "roles_set": 19,
       "has_background": true,
@@ -1168,7 +1424,39 @@
       "has_mascot": false,
       "has_music": false,
       "animated": false,
-      "bytes": 1261295,
+      "bytes": 1463971,
+      "screenshot": null
+    },
+    {
+      "id": "river-fox",
+      "folder": "River Fox",
+      "name": "River Fox",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/River Fox",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1332888,
+      "screenshot": null
+    },
+    {
+      "id": "rotten-porch",
+      "folder": "Rotten Porch",
+      "name": "Rotten Porch",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Rotten Porch",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1373508,
       "screenshot": null
     },
     {
@@ -1184,7 +1472,7 @@
       "has_mascot": false,
       "has_music": false,
       "animated": false,
-      "bytes": 1446770,
+      "bytes": 1446764,
       "screenshot": null
     },
     {
@@ -1192,7 +1480,7 @@
       "folder": "Saint Vigil",
       "name": "Saint Vigil",
       "author": "Aramaki",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "themes/Saint Vigil",
       "roles_set": 19,
       "has_background": true,
@@ -1200,7 +1488,7 @@
       "has_mascot": false,
       "has_music": false,
       "animated": false,
-      "bytes": 1126425,
+      "bytes": 1369951,
       "screenshot": null
     },
     {
@@ -1236,6 +1524,38 @@
       "screenshot": null
     },
     {
+      "id": "sewer-feast",
+      "folder": "Sewer Feast",
+      "name": "Sewer Feast",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Sewer Feast",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1306164,
+      "screenshot": null
+    },
+    {
+      "id": "shieldmaiden",
+      "folder": "Shieldmaiden",
+      "name": "Shieldmaiden",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Shieldmaiden",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1580913,
+      "screenshot": null
+    },
+    {
       "id": "siege-red",
       "folder": "Siege Red",
       "name": "Siege Red",
@@ -1256,7 +1576,7 @@
       "folder": "Silk Wing",
       "name": "Silk Wing",
       "author": "Aramaki",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "themes/Silk Wing",
       "roles_set": 19,
       "has_background": true,
@@ -1264,7 +1584,7 @@
       "has_mascot": false,
       "has_music": false,
       "animated": false,
-      "bytes": 1033520,
+      "bytes": 1668243,
       "screenshot": null
     },
     {
@@ -1284,6 +1604,38 @@
       "screenshot": null
     },
     {
+      "id": "sinister-claus",
+      "folder": "Sinister Claus",
+      "name": "Sinister Claus",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Sinister Claus",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1393309,
+      "screenshot": null
+    },
+    {
+      "id": "sky-rider",
+      "folder": "Sky Rider",
+      "name": "Sky Rider",
+      "author": "Aramaki",
+      "version": "1.1.0",
+      "path": "themes/Sky Rider",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1263098,
+      "screenshot": null
+    },
+    {
       "id": "sleigh-drive",
       "folder": "Sleigh Drive",
       "name": "Sleigh Drive",
@@ -1297,6 +1649,22 @@
       "has_music": false,
       "animated": false,
       "bytes": 1288503,
+      "screenshot": null
+    },
+    {
+      "id": "slime-vault",
+      "folder": "Slime Vault",
+      "name": "Slime Vault",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Slime Vault",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1626253,
       "screenshot": null
     },
     {
@@ -1336,7 +1704,7 @@
       "folder": "Starborn Cat",
       "name": "Starborn Cat",
       "author": "Aramaki",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "themes/Starborn Cat",
       "roles_set": 19,
       "has_background": true,
@@ -1344,7 +1712,7 @@
       "has_mascot": false,
       "has_music": false,
       "animated": false,
-      "bytes": 1657810,
+      "bytes": 1484812,
       "screenshot": null
     },
     {
@@ -1361,6 +1729,22 @@
       "has_music": false,
       "animated": false,
       "bytes": 1323049,
+      "screenshot": null
+    },
+    {
+      "id": "storybook",
+      "folder": "Storybook",
+      "name": "Storybook",
+      "author": "Aramaki",
+      "version": "1.1.0",
+      "path": "themes/Storybook",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1488023,
       "screenshot": null
     },
     {
@@ -1460,6 +1844,22 @@
       "screenshot": null
     },
     {
+      "id": "torch-tree",
+      "folder": "Torch Tree",
+      "name": "Torch Tree",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Torch Tree",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1109627,
+      "screenshot": null
+    },
+    {
       "id": "troll-hollow",
       "folder": "Troll Hollow",
       "name": "Troll Hollow",
@@ -1508,6 +1908,22 @@
       "screenshot": null
     },
     {
+      "id": "understudy",
+      "folder": "Understudy",
+      "name": "Understudy",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Understudy",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1561432,
+      "screenshot": null
+    },
+    {
       "id": "verdant-pearl",
       "folder": "Verdant Pearl",
       "name": "Verdant Pearl",
@@ -1524,6 +1940,22 @@
       "screenshot": null
     },
     {
+      "id": "violet-maw",
+      "folder": "Violet Maw",
+      "name": "Violet Maw",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Violet Maw",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1348469,
+      "screenshot": null
+    },
+    {
       "id": "violet-stacks",
       "folder": "Violet Stacks",
       "name": "Violet Stacks",
@@ -1536,7 +1968,23 @@
       "has_mascot": false,
       "has_music": false,
       "animated": false,
-      "bytes": 1190250,
+      "bytes": 1190244,
+      "screenshot": null
+    },
+    {
+      "id": "wayside-shop",
+      "folder": "Wayside Shop",
+      "name": "Wayside Shop",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Wayside Shop",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1670487,
       "screenshot": null
     },
     {
@@ -1601,6 +2049,22 @@
       "has_music": false,
       "animated": false,
       "bytes": 1116463,
+      "screenshot": null
+    },
+    {
+      "id": "wobbegong",
+      "folder": "Wobbegong",
+      "name": "Wobbegong",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Wobbegong",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1381475,
       "screenshot": null
     },
     {
