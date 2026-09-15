@@ -18,6 +18,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Pillow is optional to the validator - without it the sheet brightness
+      # check is skipped rather than failing - but CI is exactly where it should
+      # run, so install it here.
+      - name: Install Pillow, for the sheet brightness check
+        run: python3 -m pip install --quiet pillow
+
       # On a pull request a stale manifest is the contributor's to fix, and
       # --check fails so they see it before it lands.
       - name: Validate every theme and check the manifest is current

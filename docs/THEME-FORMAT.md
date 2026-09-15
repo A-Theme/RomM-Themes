@@ -188,6 +188,13 @@ a 30-frame 720p GIF is 105 MB and will be refused.
 **Always ship a still `image` alongside an animation.** It is the fallback for
 an over-budget animation, a missing file, or a build without GIF support.
 
+**Sheet frames are checked for brightness, not just the still.** `dim` is
+normally tuned against `background.image`, but the frames are what text
+actually sits on, and a sheet can be calm on frame 1 and far too bright ninety
+frames later. The validator samples frames across the sheet, dims them, and
+warns if any is brighter than anything in the catalogue today. It needs Pillow;
+without it the check is skipped rather than failing.
+
 **The numbers are checked against the file, not taken on trust.** The validator
 reads a gif's real dimensions and frame count out of the file and costs the
 budget on those, and checks that a sheet is actually large enough to hold the

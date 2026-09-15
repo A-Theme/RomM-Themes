@@ -31,6 +31,11 @@ MANIFEST = os.path.join(REPO, "manifest.json")
 SHOTS_DIR = "screenshots"
 
 # --- Limits, mirroring theme_spec.h -----------------------------------------
+try:
+    from PIL import Image
+except ImportError:          # the brightness check is skipped without Pillow
+    Image = None
+
 MAX_ANIMATION_BYTES = 48 * 1024 * 1024
 MAX_ANIMATION_FRAMES = 240
 MAX_ANIMATION_FPS = 60
@@ -80,6 +85,54 @@ class Problem:
     def __str__(self):
         tag = "ERROR" if self.fatal else "warn "
         return f"  [{tag}] {self.theme}: {self.message}"
+
+
+# Brightness ceilings for a dimmed background, as luminance percentiles.
+#
+# docs/THEME-FORMAT.md quotes the targets the generator aimed at (0.095 / 0.165
+# / 0.115). The shipped catalogue misses those narrowly almost everywhere - 120
+# of 134 themes exceed at least one - so enforcing them would be 120 warnings of
+# noise. These are the catalogue's own observed ceiling, rounded up: every theme
+# in the repo today passes silently, and only art genuinely worse than anything
+# shipped gets flagged.
+BRIGHTNESS_LIMITS = (
+    ("90th percentile", 90, 1.00, 0.105),
+    ("97th percentile", 97, 1.00, 0.210),
+    ("95th percentile of the left 42%", 95, 0.42, 0.145),
+)
+MAX_FRAMES_SAMPLED = 16
+
+_LINEAR = [(c / 255.0) / 12.92 if c / 255.0 <= 0.04045
+           else (((c / 255.0) + 0.055) / 1.055) ** 2.4 for c in range(256)]
+
+
+def _percentile(values, q):
+    values = sorted(values)
+    k = (len(values) - 1) * q / 100.0
+    lo = int(k)
+    hi = min(lo + 1, len(values) - 1)
+    return values[lo] + (values[hi] - values[lo]) * (k - lo)
+
+
+def frame_brightness(image, dim):
+    """The percentiles of BRIGHTNESS_LIMITS for one frame, dimmed.
+
+    dim is a straight sRGB multiply, as render_theme_background does it, so the
+    multiply happens on the channel values before linearising.
+    """
+    keep = 1.0 - dim
+    px = list(image.convert("RGB").getdata())
+    width = image.size[0]
+    full, left = [], []
+    for i, (r, g, b) in enumerate(px):
+        y = (0.2126 * _LINEAR[int(r * keep)]
+             + 0.7152 * _LINEAR[int(g * keep)]
+             + 0.0722 * _LINEAR[int(b * keep)])
+        full.append(y)
+        if (i % width) < int(width * 0.42):
+            left.append(y)
+    return [_percentile(left if frac < 1.0 else full, q)
+            for _, q, frac, _ in BRIGHTNESS_LIMITS]
 
 
 def read_png_size(path):
@@ -178,6 +231,47 @@ def check_asset(problems, theme, folder, value, field, exts=None):
                        f'{ext or "(none)"} - expected one of '
                        f'{", ".join(sorted(exts))}', fatal=False))
     return value
+
+
+def check_sheet_brightness(problems, folder_name, sheet_path, fw, fh, frames, dim):
+    """Sample frames out of a sprite sheet and check how bright they dim to.
+
+    dim is tuned against background.image, but the frames are what is actually
+    on screen. A sheet can be calm on frame 1 and blow past the ceiling ninety
+    frames later, and nothing looked at that until now.
+    """
+    if Image is None or not os.path.isfile(sheet_path):
+        return
+    try:
+        sheet = Image.open(sheet_path)
+        sheet.load()
+    except Exception:
+        return                       # unreadable art is the asset check's problem
+
+    across = sheet.size[0] // fw if fw else 0
+    if not across or not frames:
+        return
+
+    step = max(1, frames // MAX_FRAMES_SAMPLED)
+    worst = {}
+    for index in range(0, frames, step):
+        row, col = divmod(index, across)
+        box = (col * fw, row * fh, (col + 1) * fw, (row + 1) * fh)
+        if box[2] > sheet.size[0] or box[3] > sheet.size[1]:
+            break
+        for (label, _, _, limit), value in zip(BRIGHTNESS_LIMITS,
+                                               frame_brightness(sheet.crop(box), dim)):
+            if value > limit and value > worst.get(label, (0, 0))[0]:
+                worst[label] = (value, index)
+
+    for label, _, _, limit in BRIGHTNESS_LIMITS:
+        if label in worst:
+            value, index = worst[label]
+            problems.append(Problem(
+                folder_name,
+                f"background.animation: frame {index} dims to {value:.4f} at the "
+                f"{label}, over {limit} - dim {dim} suits the still image but not "
+                f"the frames, and text sits on the frames", fatal=False))
 
 
 def validate_theme(folder_name):
@@ -338,6 +432,10 @@ def validate_theme(folder_name):
                                     f"{fw}x{fh} frames, not the {frames} "
                                     f"declared"))
                                 animated = False
+                        check_sheet_brightness(
+                            problems, folder_name, os.path.join(folder, anim_file),
+                            fw, fh, frames, dim if isinstance(dim, (int, float))
+                            and not isinstance(dim, bool) else 0.0)
                         cost = fw * fh * frames * 4
                         if cost > MAX_ANIMATION_BYTES:
                             problems.append(Problem(
