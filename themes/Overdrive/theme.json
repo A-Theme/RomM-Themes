@@ -1,0 +1,39 @@
+{
+  "name": "Overdrive",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#100908",
+    "surface": "#1D1412",
+    "surface_raised": "#2C201F",
+    "surface_hover": "#41312F",
+    "border": "#584542",
+    "text": "#F1EBEB",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#ADA6A5",
+    "text_disabled": "#726D6C",
+    "text_on_accent": "#060B0F",
+    "accent": "#6AB1ED",
+    "accent_hover": "#91CCFF",
+    "accent_alt": "#DD8A84",
+    "focus_ring": "#B9DEFF",
+    "success": "#6DC795",
+    "warning": "#CDAE55",
+    "danger": "#F0929C",
+    "info": "#5FBDEE",
+    "scrim": "#070303D4"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.55,
+    "animation": {
+      "kind": "sheet",
+      "file": "sheet.png",
+      "frame_width": 320,
+      "frame_height": 180,
+      "frames": 180,
+      "fps": 30,
+      "loop": true
+    }
+  }
+}

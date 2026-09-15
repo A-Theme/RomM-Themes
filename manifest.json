@@ -1,7 +1,7 @@
 {
   "format": 1,
   "repo": "A-Theme/RomM-Themes",
-  "count": 133,
+  "count": 134,
   "themes": [
     {
       "id": "abyssal-lantern",
@@ -1313,6 +1313,22 @@
       "has_music": false,
       "animated": false,
       "bytes": 1233631,
+      "screenshot": null
+    },
+    {
+      "id": "overdrive",
+      "folder": "Overdrive",
+      "name": "Overdrive",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Overdrive",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": true,
+      "bytes": 13593145,
       "screenshot": null
     },
     {
