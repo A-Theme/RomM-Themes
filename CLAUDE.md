@@ -27,17 +27,21 @@ same commit:
 git add themes/ manifest.json    # commit both together
 ```
 
-CI runs `--check`, which fails if the manifest is stale. This has broken
-`main` twice: once when `Borb's Lair` was added as a folder, and again when
-an `effects` block was added to it. Adding a theme *looks* like a complete
-change; it isn't.
+This broke `main` twice: once when `Borb's Lair` was added as a folder, and
+again when an `effects` block was added to it. Adding a theme *looks* like a
+complete change; it isn't.
 
-Git also does not install hooks on clone. Every fresh clone needs:
+Both breaks are now caught in two places, so neither should recur:
 
-```bash
-ln -sf ../../scripts/pre-commit .git/hooks/pre-commit   # macOS/Linux
-copy scripts\pre-commit .git\hooks\pre-commit           # Windows
-```
+- **The pre-commit hook** regenerates a stale manifest and stages it, so a
+  local commit touching `themes/` always carries its index. Git does not
+  copy hooks on clone, so a fresh clone needs `./scripts/install-hooks.sh`
+  once.
+- **CI regenerates and commits it on `main`.** Both historical breaks came
+  from the GitHub web UI (`Add files via upload`, `Delete <theme> directory`),
+  where no local hook can run — the hook alone would not have caught either.
+  On a pull request CI still fails instead, so a contributor fixes their own
+  branch.
 
 ## Other things worth knowing
 

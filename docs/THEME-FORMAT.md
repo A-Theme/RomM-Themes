@@ -191,6 +191,43 @@ an over-budget animation, a missing file, or a build without GIF support.
 `loop` defaults to `true`; `false` plays the sequence once and holds the last
 frame.
 
+## Effects — per-element particles
+
+Motion and animation act on the background. **Effects** act on a single UI
+element, and live at the top level of `theme.json`, beside `background`:
+
+```json
+"effects": {
+  "focus": { "kind": "embers", "speed": 1.2, "amount": 65, "color": "accent_alt" }
+}
+```
+
+| slot | where it draws |
+|---|---|
+| `focus` | around the currently selected element |
+
+| kind | effect |
+|---|---|
+| `embers` | drifting sparks that rise and fade |
+| `none` | nothing (the default) |
+
+`speed` multiplies the cycle rate (clamped 0.1–8.0). `amount` sets particle
+density (clamped 0–256); the client caps what it will actually draw at **48
+particles per element** and clips them to a 26px band, so very large values
+buy nothing. On `Borb's Lair`, `amount: 65` yields about 21 particles around a
+library card.
+
+`color` takes **either a colour role or a hex value**. Prefer the role — a
+role follows the palette if the theme is ever recoloured, where a hex does
+not. A role that the theme does not set is a warning; a name that is neither
+a role nor a hex is an error.
+
+> The validator mirrors the slots and kinds above from `source/ui/theme_spec.h`
+> in the client, and can fall back behind it. An unknown slot or kind is
+> therefore reported as a *warning*, not an error, so a theme using something
+> newer than the validator still lands. Structural mistakes — a bad type, an
+> out-of-range number, a colour that names nothing — are always errors.
+
 ## Font
 
 ```json

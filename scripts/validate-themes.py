@@ -47,6 +47,17 @@ ROLES = [
 MOTION_KINDS = {"none", "drift", "pan", "zoom"}
 ANIMATION_KINDS = {"none", "sheet", "gif"}
 
+# Effects are drawn per UI element rather than over the whole screen.
+#
+# The normative list of slots and kinds lives in source/ui/theme_spec.h in
+# romm-switch-client; this is a mirror of it and can fall behind. An
+# unrecognised slot or kind is therefore a WARNING, not an error - a theme
+# should not fail CI for using something the client gained after the last sync.
+# Everything structural below (types, ranges, colour references) is still fatal,
+# because those are wrong against any version of the spec.
+EFFECT_SLOTS = {"focus"}
+EFFECT_KINDS = {"none", "embers"}
+
 HEX_RE = re.compile(r"^#?(?:[0-9a-fA-F]{3,4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$")
 
 # retro::sanitize_component's allowed set: alnum, dash, underscore, period,
@@ -298,6 +309,69 @@ def validate_theme(folder_name):
     elif bg is not None:
         problems.append(Problem(
             folder_name, "background must be an object or a file name"))
+
+    # --- effects -----------------------------------------------------------
+    effects = doc.get("effects")
+    if isinstance(effects, dict):
+        for slot, spec in effects.items():
+            if slot not in EFFECT_SLOTS:
+                problems.append(Problem(
+                    folder_name,
+                    f'effects: "{slot}" is not an effect slot the validator '
+                    f'knows ({", ".join(sorted(EFFECT_SLOTS))}) - it will do '
+                    f'nothing unless the client has gained it since',
+                    fatal=False))
+                continue
+            if not isinstance(spec, dict):
+                problems.append(Problem(
+                    folder_name, f"effects.{slot} must be an object"))
+                continue
+
+            kind = spec.get("kind", "none")
+            if not isinstance(kind, str):
+                problems.append(Problem(
+                    folder_name, f"effects.{slot}.kind must be a string"))
+            elif kind not in EFFECT_KINDS:
+                problems.append(Problem(
+                    folder_name,
+                    f'effects.{slot}.kind: "{kind}" is not one of '
+                    f'{", ".join(sorted(EFFECT_KINDS))} - if the client has '
+                    f'gained it, add it to EFFECT_KINDS', fatal=False))
+
+            for field, lo, hi in (("speed", 0.1, 8.0), ("amount", 0.0, 256.0)):
+                value = spec.get(field)
+                if value is None:
+                    continue
+                if not isinstance(value, (int, float)) or isinstance(value, bool):
+                    problems.append(Problem(
+                        folder_name, f"effects.{slot}.{field} must be a number"))
+                elif not lo <= value <= hi:
+                    problems.append(Problem(
+                        folder_name,
+                        f"effects.{slot}.{field} {value} is outside {lo}-{hi} "
+                        f"and will be clamped", fatal=False))
+
+            # A role name here follows the palette if the theme is recoloured,
+            # which is the point of writing "accent_alt" instead of a hex. A
+            # role that does not exist is silently nothing, so it is fatal.
+            color = spec.get("color")
+            if color is not None:
+                if not isinstance(color, str):
+                    problems.append(Problem(
+                        folder_name, f"effects.{slot}.color must be a string"))
+                elif color not in ROLES and not HEX_RE.match(color):
+                    problems.append(Problem(
+                        folder_name,
+                        f'effects.{slot}.color: "{color}" is neither a colour '
+                        f'role nor a hex colour'))
+                elif color in ROLES and isinstance(colors, dict) \
+                        and color not in colors:
+                    problems.append(Problem(
+                        folder_name,
+                        f'effects.{slot}.color references role "{color}", '
+                        f'which this theme does not set', fatal=False))
+    elif effects is not None:
+        problems.append(Problem(folder_name, "effects must be an object"))
 
     # --- font, assets, audio ----------------------------------------------
     has_font = False

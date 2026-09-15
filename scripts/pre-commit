@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
-# Pre-commit hook: block commits that would leak a token, key, or credential file.
+# Pre-commit hook: keep the generated index in step with themes/, and block
+# commits that would leak a token, key, or credential file.
 #
-# Install:
+# Install:  ./scripts/install-hooks.sh
+#
+# or by hand:
 #   ln -sf ../../scripts/pre-commit .git/hooks/pre-commit     # macOS/Linux/WSL
 #   copy scripts\pre-commit .git\hooks\pre-commit             # Windows
 #
@@ -37,6 +40,28 @@ while IFS= read -r f; do
         echo "${RED}BLOCKED${RST}: $f contains a private key block"; FAIL=1
     fi
 done <<< "$STAGED"
+
+# --- the generated index ------------------------------------------------
+# Changing a theme without regenerating manifest.json has broken main twice.
+# Rather than just complaining about it, bring the index up to date and stage
+# it, so a commit that touches themes/ always carries the index describing it.
+if grep -qE '^themes/' <<< "$STAGED"; then
+    PY=$(command -v python3 || command -v python)
+    if [[ -z "$PY" ]]; then
+        echo "${RED}BLOCKED${RST}: themes/ changed but no python found to regenerate manifest.json"
+        FAIL=1
+    else
+        VALIDATE_OUT=$("$PY" scripts/validate-themes.py 2>&1)
+        if [[ $? -ne 0 ]]; then
+            echo "${RED}BLOCKED${RST}: theme validation failed"
+            echo "$VALIDATE_OUT" | grep -E '^\[|FAILED' | head -20
+            FAIL=1
+        elif ! git diff --quiet -- manifest.json; then
+            git add manifest.json
+            echo "note: manifest.json was stale - regenerated and staged it."
+        fi
+    fi
+fi
 
 if [[ $FAIL -ne 0 ]]; then
     echo

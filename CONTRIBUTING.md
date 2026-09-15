@@ -82,13 +82,19 @@ what you were going for and where the assets came from.
 | `scripts/validate-themes.py` | validate every theme, rebuild `manifest.json` |
 | `scripts/validate-themes.py --check` | validate only; fails on a stale manifest (what CI runs) |
 | `scripts/scan-secrets.sh` | check nothing credential-shaped is about to be committed |
-| `scripts/pre-commit` | the same check as a git hook |
+| `scripts/pre-commit` | git hook: regenerates a stale manifest, blocks credentials |
+| `scripts/install-hooks.sh` | install that hook into this clone |
 
-Install the hook once:
+Git never copies hooks when you clone, so every fresh clone starts without
+them. Install them once:
 
 ```bash
-ln -sf ../../scripts/pre-commit .git/hooks/pre-commit
+./scripts/install-hooks.sh
 ```
+
+With the hook in place, committing a change under `themes/` regenerates
+`manifest.json` and stages it for you, so the index can't fall behind the
+themes it describes.
 
 ## If the validator disagrees with the client
 

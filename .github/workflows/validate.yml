@@ -13,13 +13,41 @@ jobs:
   themes:
     name: theme format
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
 
-      # --check also fails on a stale manifest.json, so a contributor cannot
-      # land a theme without the generated index that describes it.
+      # On a pull request a stale manifest is the contributor's to fix, and
+      # --check fails so they see it before it lands.
       - name: Validate every theme and check the manifest is current
+        if: github.event_name == 'pull_request'
         run: python3 scripts/validate-themes.py --check
+
+      # On main it is too late for that: the commit is already in, and a red
+      # main helps nobody. Both breaks in this repo's history came from the
+      # GitHub web UI ("Add files via upload", "Delete <theme> directory"),
+      # where no local pre-commit hook can run and no PR check gets a say.
+      # So regenerate the index and commit it.
+      #
+      # This never papers over a real problem: validate-themes.py exits
+      # non-zero when a theme is actually invalid, and the step fails there
+      # without committing anything. It only commits when the themes are all
+      # valid and the sole difference is the generated file.
+      - name: Regenerate the manifest if a theme changed without it
+        if: github.event_name != 'pull_request'
+        run: |
+          python3 scripts/validate-themes.py
+          if git diff --quiet -- manifest.json; then
+            echo "manifest was already current"
+            exit 0
+          fi
+          echo "manifest was stale - committing the regenerated index"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add manifest.json
+          git commit -m "Regenerate manifest.json [skip ci]"
+          git push
 
   secrets:
     name: secret scan
