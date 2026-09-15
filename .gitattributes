@@ -1,0 +1,3 @@
+# manifest.json is generated; pin it to LF so regenerating on Windows
+# does not flip every line and bury the real change in a whole-file diff.
+manifest.json text eol=lf

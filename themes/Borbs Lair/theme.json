@@ -1,7 +1,7 @@
 {
   "name": "Borb's Lair",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "colors": {
     "bg": "#0C0705",
     "surface": "#150D0AB8",
@@ -13,7 +13,7 @@
     "text_muted": "#BE9C88",
     "text_disabled": "#846653",
     "text_on_accent": "#120806",
-    "accent": "#E2543C",
+    "accent": "#EE5F46",
     "accent_hover": "#FF7A5C",
     "accent_alt": "#EFA24A",
     "focus_ring": "#FFB067",
