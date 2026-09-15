@@ -1,0 +1,47 @@
+{
+  "name": "Bloomcrown",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#04121C",
+    "surface": "#071C2A",
+    "surface_raised": "#0A2536",
+    "surface_hover": "#103349",
+    "border": "#17475F",
+    "text": "#D4EDF7",
+    "text_strong": "#FFFFFF",
+    "text_muted": "#83B1C7",
+    "text_disabled": "#547F92",
+    "text_on_accent": "#03101A",
+    "accent": "#20D4D4",
+    "accent_hover": "#5FE8E8",
+    "accent_alt": "#4FA8FF",
+    "focus_ring": "#7FF0F0",
+    "success": "#35D19B",
+    "warning": "#E0B451",
+    "danger": "#EE7C83",
+    "info": "#5FB4FF",
+    "scrim": "#020A11D4"
+  },
+  "background": {
+    "image": "215650.gif",
+    "dim": 0.34,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 28
+    },
+    "animation": {
+      "kind": "gif",
+      "file": "logo1.gif",
+      "frames": 8,
+      "fps": 12
+    }
+  },
+  "font": {
+    "file": "SF New Republic SC Bold Italic.ttf"
+  },
+  "assets": {
+    "mascot": "22aramaki_a_3d_isometric_vector_illustration_of_a_stylized_lett_ebb47101-4040-458e-844d-1372378b9350_1.png"
+  }
+}
