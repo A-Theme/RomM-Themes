@@ -82,6 +82,65 @@ class Problem:
         return f"  [{tag}] {self.theme}: {self.message}"
 
 
+def read_png_size(path):
+    """(width, height) from a PNG's IHDR, or None if it is not readable."""
+    try:
+        with open(path, "rb") as f:
+            head = f.read(24)
+    except OSError:
+        return None
+    if len(head) < 24 or head[:8] != b"\x89PNG\r\n\x1a\n" or head[12:16] != b"IHDR":
+        return None
+    return (int.from_bytes(head[16:20], "big"), int.from_bytes(head[20:24], "big"))
+
+
+def read_gif_info(path):
+    """(width, height, frames) read from the GIF itself, or None.
+
+    Declared frame counts have been wrong by 15x in this repo, and the client
+    decodes the file, not the JSON - so the file is what the budget is judged
+    on. Walked by hand rather than with Pillow, which CI does not install.
+    """
+    try:
+        with open(path, "rb") as f:
+            data = f.read()
+    except OSError:
+        return None
+    n = len(data)
+    if n < 13 or data[:6] not in (b"GIF87a", b"GIF89a"):
+        return None
+    width = int.from_bytes(data[6:8], "little")
+    height = int.from_bytes(data[8:10], "little")
+    i = 13
+    if data[10] & 0x80:                      # global colour table
+        i += 3 * (1 << ((data[10] & 0x07) + 1))
+
+    def skip_sub_blocks(j):
+        while j < n and data[j]:
+            j += data[j] + 1
+        return j + 1
+
+    frames = 0
+    while 0 <= i < n:
+        block = data[i]
+        if block == 0x3B:                    # trailer
+            break
+        if block == 0x21:                    # extension
+            i = skip_sub_blocks(i + 2)
+        elif block == 0x2C:                  # image descriptor: one frame
+            frames += 1
+            if i + 9 >= n:
+                break
+            local = data[i + 9]
+            i += 10
+            if local & 0x80:
+                i += 3 * (1 << ((local & 0x07) + 1))
+            i = skip_sub_blocks(i + 1)       # past the LZW code-size byte
+        else:
+            return None                      # not a structure we can walk
+    return (width, height, frames)
+
+
 def is_safe_asset_name(name):
     """Plain file name inside the theme folder, nothing else."""
     if not name or len(name) > 180:
@@ -266,6 +325,19 @@ def validate_theme(folder_name):
                             "background.animation: a sheet needs frames"))
                         animated = False
                     else:
+                        size = (read_png_size(os.path.join(folder, anim_file))
+                                if anim_file else None)
+                        if size:
+                            sw, sh = size
+                            capacity = (sw // fw) * (sh // fh)
+                            if capacity < frames:
+                                problems.append(Problem(
+                                    folder_name,
+                                    f"background.animation: {anim_file} is "
+                                    f"{sw}x{sh}, which holds {capacity} "
+                                    f"{fw}x{fh} frames, not the {frames} "
+                                    f"declared"))
+                                animated = False
                         cost = fw * fh * frames * 4
                         if cost > MAX_ANIMATION_BYTES:
                             problems.append(Problem(
@@ -276,13 +348,30 @@ def validate_theme(folder_name):
                                 f"client will refuse it and use the still image"))
                             animated = False
                 elif kind == "gif":
-                    # Billed at full screen per frame, as the client does.
-                    cost = 1280 * 720 * frames * 4
+                    # The client decodes the file, so measure the file. A theme
+                    # once declared 8 frames for a gif holding 125, which priced
+                    # a 48.8 MB animation at 29 MB and let it through.
+                    info = (read_gif_info(os.path.join(folder, anim_file))
+                            if anim_file else None)
+                    if info:
+                        gw, gh, real_frames = info
+                        if real_frames and frames and frames != real_frames:
+                            problems.append(Problem(
+                                folder_name,
+                                f"background.animation.frames says {frames}, but "
+                                f"{anim_file} holds {real_frames} - the file is "
+                                f"what the client decodes"))
+                        if real_frames:
+                            frames = real_frames
+                    else:
+                        # Unreadable: fall back to billing at full screen.
+                        gw, gh = 1280, 720
+                    cost = gw * gh * frames * 4
                     if frames and cost > MAX_ANIMATION_BYTES:
                         problems.append(Problem(
                             folder_name,
-                            f"background.animation: {frames} full-screen gif "
-                            f"frames is {cost // 1048576} MB, over the "
+                            f"background.animation: {frames} gif frames at "
+                            f"{gw}x{gh} is {cost // 1048576} MB, over the "
                             f"{MAX_ANIMATION_BYTES // 1048576} MB budget"))
                         animated = False
                     problems.append(Problem(

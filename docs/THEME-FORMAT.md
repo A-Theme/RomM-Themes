@@ -188,6 +188,14 @@ a 30-frame 720p GIF is 105 MB and will be refused.
 **Always ship a still `image` alongside an animation.** It is the fallback for
 an over-budget animation, a missing file, or a build without GIF support.
 
+**The numbers are checked against the file, not taken on trust.** The validator
+reads a gif's real dimensions and frame count out of the file and costs the
+budget on those, and checks that a sheet is actually large enough to hold the
+frames it declares. A `frames` that disagrees with the file is an error: the
+client decodes the file, so a wrong count does not make an animation cheaper,
+it just hides that it is too expensive. One theme here declared 8 frames for a
+gif holding 125, which priced a 48.8 MB animation at 29 MB and passed.
+
 `loop` defaults to `true`; `false` plays the sequence once and holds the last
 frame.
 
