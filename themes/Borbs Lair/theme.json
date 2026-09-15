@@ -31,5 +31,13 @@
       "speed": 0.3,
       "amount": 28
     }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.2,
+      "amount": 65,
+      "color": "accent_alt"
+    }
   }
 }
