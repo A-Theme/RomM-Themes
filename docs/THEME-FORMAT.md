@@ -185,6 +185,11 @@ frames; at 640x360, ~50.
 and falls back to the still image. A GIF is billed at full-screen per frame, so
 a 30-frame 720p GIF is 105 MB and will be refused.
 
+[`tools/spritesheet-maker`](../tools/spritesheet-maker) packs a sheet the way
+the client reads it — tight grid, no padding, no margin — costs it against the
+budget as you change the frame size, and writes this block out to match the
+sheet it produced. It slices an existing sheet back into frames too.
+
 **Always ship a still `image` alongside an animation.** It is the fallback for
 an over-budget animation, a missing file, or a build without GIF support.
 

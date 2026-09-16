@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sprite Sheet Maker</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%2314161a'/%3E%3Crect x='2' y='2' width='5' height='5' fill='%2358a6ff'/%3E%3Crect x='9' y='2' width='5' height='5' fill='%233fb950'/%3E%3Crect x='2' y='9' width='5' height='5' fill='%23d29922'/%3E%3Crect x='9' y='9' width='5' height='5' fill='%23f85149'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header>
+  <h1>Sprite Sheet Maker</h1>
+  <span class="sub">local tool &middot; gif / video / still &rarr; sheet &rarr; preview &rarr; export</span>
+  <span class="sub" id="health-tag"></span>
+</header>
+
+<div id="ffmpeg-banner" class="banner warn" hidden></div>
+<div id="error-banner" class="banner error" hidden></div>
+
+<main>
+  <div class="col-left">
+
+    <section class="panel">
+      <h2>1 &middot; Source</h2>
+      <div id="drop">
+        <strong>Drop a file</strong> or click to choose<br>
+        <span class="hint">gif, apng, animated webp, png, jpg, mp4, webm, mov, avi &mdash; up to 250MB</span>
+      </div>
+      <input type="file" id="file-input" hidden>
+      <div id="source-info" class="meta" style="margin-top:10px"></div>
+    </section>
+
+    <section class="panel">
+      <h2>2 &middot; Frames</h2>
+      <div class="row">
+        <label for="fps">Target FPS</label>
+        <input type="number" id="fps" min="0" max="120" step="0.5" placeholder="source">
+        <span class="hint" style="margin:0">blank = keep source timing</span>
+      </div>
+      <div class="row">
+        <label for="max-frames">Max frames</label>
+        <input type="number" id="max-frames" min="1" step="1" placeholder="all">
+      </div>
+      <div class="row">
+        <label for="trim-mode">Trim by</label>
+        <select id="trim-mode">
+          <option value="none">no trim</option>
+          <option value="seconds">seconds</option>
+          <option value="frames">frame index</option>
+        </select>
+        <input type="number" id="trim-start" step="0.01" min="0" placeholder="start" disabled>
+        <input type="number" id="trim-end" step="0.01" min="0" placeholder="end" disabled>
+      </div>
+      <div class="row">
+        <label for="scale-mode">Scale</label>
+        <select id="scale-mode">
+          <option value="none">none</option>
+          <option value="percent">percent</option>
+          <option value="exact">exact WxH</option>
+        </select>
+        <input type="number" id="scale-percent" min="1" max="800" step="1" value="100" hidden>
+        <input type="number" id="scale-w" min="1" step="1" placeholder="W" hidden>
+        <input type="number" id="scale-h" min="1" step="1" placeholder="H" hidden>
+      </div>
+      <div class="row">
+        <label for="nearest">Pixel art</label>
+        <input type="checkbox" id="nearest">
+        <span class="hint" style="margin:0">nearest-neighbour resampling</span>
+      </div>
+      <button id="btn-extract" disabled>Extract frames</button>
+      <span id="frames-tag" class="tag" style="margin-left:8px">no frames</span>
+    </section>
+
+    <section class="panel" id="generate-panel">
+      <h2>2b &middot; Still &rarr; animation</h2>
+      <div class="hint" id="generate-hint">Upload a single still image to turn it into frames.</div>
+      <div class="row">
+        <label for="gen-transform">Transform</label>
+        <select id="gen-transform">
+          <option value="pan">pan</option>
+          <option value="rotate">rotate</option>
+          <option value="scale">scale / pulse</option>
+          <option value="flip">flip / mirror cycle</option>
+          <option value="bounce">bounce</option>
+          <option value="opacity">opacity fade</option>
+        </select>
+      </div>
+      <div class="row">
+        <label for="gen-frames">Frames</label>
+        <input type="number" id="gen-frames" min="1" max="512" step="1" value="12">
+        <label for="gen-ms" style="flex:0 0 auto">ms each</label>
+        <input type="number" id="gen-ms" min="1" step="1" value="80">
+      </div>
+      <div class="row">
+        <label for="gen-easing">Easing</label>
+        <select id="gen-easing">
+          <option value="linear">linear</option>
+          <option value="ease-in-out">ease-in-out</option>
+          <option value="bounce">bounce</option>
+        </select>
+        <select id="gen-loop">
+          <option value="loop">loop</option>
+          <option value="ping-pong">ping-pong</option>
+        </select>
+      </div>
+      <div class="row gen-opt" data-for="pan">
+        <label for="gen-direction">Direction</label>
+        <select id="gen-direction">
+          <option value="left">left</option>
+          <option value="right">right</option>
+          <option value="up">up</option>
+          <option value="down">down</option>
+        </select>
+        <label for="gen-distance" style="flex:0 0 auto">px</label>
+        <input type="number" id="gen-distance" step="1" value="32">
+      </div>
+      <div class="row gen-opt" data-for="rotate">
+        <label for="gen-degrees">Total degrees</label>
+        <input type="number" id="gen-degrees" step="1" value="360">
+      </div>
+      <div class="row gen-opt" data-for="scale">
+        <label for="gen-scale-min">Scale % min/max</label>
+        <input type="number" id="gen-scale-min" min="1" step="1" value="100">
+        <input type="number" id="gen-scale-max" min="1" step="1" value="150">
+      </div>
+      <div class="row gen-opt" data-for="flip">
+        <label for="gen-flip-axis">Mirror axis</label>
+        <select id="gen-flip-axis">
+          <option value="horizontal">horizontal</option>
+          <option value="vertical">vertical</option>
+          <option value="both">both</option>
+        </select>
+      </div>
+      <div class="row gen-opt" data-for="bounce">
+        <label for="gen-bounce">Bounce height px</label>
+        <input type="number" id="gen-bounce" step="1" value="24">
+      </div>
+      <div class="row gen-opt" data-for="opacity">
+        <label for="gen-op-min">Opacity % min/max</label>
+        <input type="number" id="gen-op-min" min="0" max="100" step="1" value="0">
+        <input type="number" id="gen-op-max" min="0" max="100" step="1" value="100">
+      </div>
+      <button id="btn-generate" disabled>Generate frames</button>
+    </section>
+
+    <section class="panel">
+      <h2>3 &middot; Layout</h2>
+      <div class="row">
+        <label for="auto-square">Columns</label>
+        <input type="checkbox" id="auto-square" checked>
+        <span class="hint" style="margin:0">auto square</span>
+        <input type="number" id="cols" min="1" step="1" value="4" disabled>
+      </div>
+      <div class="row">
+        <label for="padding">Padding</label>
+        <input type="number" id="padding" min="0" step="1" value="0">
+        <label for="margin" style="flex:0 0 auto">Margin</label>
+        <input type="number" id="margin" min="0" step="1" value="0">
+      </div>
+      <div class="row">
+        <label for="bg-transparent">Background</label>
+        <input type="checkbox" id="bg-transparent" checked>
+        <span class="hint" style="margin:0">transparent</span>
+        <input type="color" id="bg-color" value="#204060" disabled>
+      </div>
+      <div class="row">
+        <label for="pot">Power of two</label>
+        <input type="checkbox" id="pot">
+        <span class="hint" style="margin:0">pad canvas to next POT</span>
+      </div>
+      <div class="row">
+        <label for="want-webp">Also WebP</label>
+        <input type="checkbox" id="want-webp">
+      </div>
+      <button id="btn-sheet" disabled>Build sheet</button>
+    </section>
+
+    <section class="panel" id="romm-panel">
+      <h2>3b &middot; RomM theme (animated background)</h2>
+      <div class="hint">
+        The RomM Switch client slices a sheet as a tight grid from the top-left
+        &mdash; <code>cols = sheet_w / frame_width</code>, no padding, no margin &mdash;
+        and stretches one cell over the whole 1280&times;720 screen.
+      </div>
+      <div class="row">
+        <label for="romm-kind">Animation kind</label>
+        <select id="romm-kind">
+          <option value="sheet">sheet &mdash; one texture, always supported</option>
+          <option value="gif">gif &mdash; needs SDL2_image 2.6+</option>
+        </select>
+      </div>
+      <div class="row" id="romm-cell-row">
+        <label for="romm-cell">Frame size</label>
+        <select id="romm-cell">
+          <option value="320x180">320&times;180</option>
+          <option value="426x240">426&times;240</option>
+          <option value="640x360">640&times;360</option>
+          <option value="1280x720">1280&times;720</option>
+          <option value="keep">keep current frame size</option>
+        </select>
+        <span class="tag" id="romm-cap">&mdash;</span>
+      </div>
+      <div class="row">
+        <label for="romm-fps">Animation FPS</label>
+        <input type="number" id="romm-fps" min="1" max="60" step="1" value="12">
+        <label for="romm-loop" style="flex:0 0 auto">loop</label>
+        <input type="checkbox" id="romm-loop" checked>
+      </div>
+      <div class="row">
+        <label for="romm-file">Sheet file name</label>
+        <input type="text" id="romm-file" value="sheet.png">
+      </div>
+      <div class="row">
+        <label for="romm-still">Still fallback</label>
+        <input type="text" id="romm-still" placeholder="background.png">
+        <label for="romm-dim" style="flex:0 0 auto">dim</label>
+        <input type="number" id="romm-dim" min="0" max="1" step="0.05" placeholder="none"
+               title="Set dim to check the frames against the catalogue's brightness ceiling">
+      </div>
+      <div class="row">
+        <label for="romm-name">Theme / author</label>
+        <input type="text" id="romm-name" placeholder="theme name">
+        <input type="text" id="romm-author" placeholder="author">
+      </div>
+      <button id="btn-romm-preset" class="secondary">Tune layout for RomM</button>
+      <div id="romm-budget" class="meta" style="margin-top:8px"></div>
+      <div id="romm-checks" style="margin-top:8px"></div>
+    </section>
+
+    <section class="panel">
+      <h2>4 &middot; Atlas metadata</h2>
+      <div class="row">
+        <label for="atlas-format">Format</label>
+        <select id="atlas-format">
+          <option value="plain">plain JSON</option>
+          <option value="phaser-hash">Phaser 3 JSON Hash</option>
+          <option value="phaser-array">Phaser 3 JSON Array</option>
+          <option value="godot">Godot .tres SpriteFrames</option>
+          <option value="texturepacker">TexturePacker JSON</option>
+          <option value="romm">RomM theme.json (animated background)</option>
+        </select>
+      </div>
+      <div class="row">
+        <label for="atlas-with-sheet">With sheet</label>
+        <input type="checkbox" id="atlas-with-sheet" checked>
+        <span class="hint" style="margin:0">write the sidecar whenever a sheet is built</span>
+      </div>
+      <div class="row">
+        <label for="atlas-anim-name">Animation name</label>
+        <input type="text" id="atlas-anim-name" value="animation">
+      </div>
+      <button id="btn-atlas" class="secondary" disabled>Write metadata for current sheet</button>
+      <div class="files" id="atlas-files"></div>
+    </section>
+    <section class="panel">
+      <h2>Sheet &rarr; frames</h2>
+      <div id="slice-drop" class="hint" style="border:2px dashed var(--line);border-radius:8px;padding:16px;text-align:center;cursor:pointer">
+        Drop an existing sprite sheet here (or click) to slice and preview it
+      </div>
+      <input type="file" id="slice-input" hidden accept="image/*">
+      <div class="row" style="margin-top:10px">
+        <label for="slice-mode">Geometry</label>
+        <select id="slice-mode">
+          <option value="grid">rows &amp; cols</option>
+          <option value="cell">cell W&times;H</option>
+        </select>
+      </div>
+      <div class="row" id="slice-grid-row">
+        <label for="slice-cols">Cols &times; rows</label>
+        <input type="number" id="slice-cols" min="1" step="1" value="4">
+        <input type="number" id="slice-rows" min="1" step="1" value="4">
+      </div>
+      <div class="row" id="slice-cell-row" hidden>
+        <label for="slice-cell-w">Cell W&times;H</label>
+        <input type="number" id="slice-cell-w" min="1" step="1" value="64">
+        <input type="number" id="slice-cell-h" min="1" step="1" value="64">
+      </div>
+      <div class="row">
+        <label for="slice-padding">Pad / margin</label>
+        <input type="number" id="slice-padding" min="0" step="1" value="0">
+        <input type="number" id="slice-margin" min="0" step="1" value="0">
+      </div>
+      <div class="row">
+        <label for="slice-count">Frame count</label>
+        <input type="number" id="slice-count" min="1" step="1" placeholder="all cells">
+        <label for="slice-drop-empty" style="flex:0 0 auto">skip empty</label>
+        <input type="checkbox" id="slice-drop-empty">
+      </div>
+      <div class="row">
+        <label for="slice-duration">Frame ms</label>
+        <input type="number" id="slice-duration" min="1" step="1" value="100">
+      </div>
+      <button id="btn-slice" class="secondary">Slice &amp; load into preview</button>
+      <div id="slice-info" class="meta" style="margin-top:8px"></div>
+    </section>
+    <section class="panel">
+      <h2>Export frames</h2>
+      <div class="row">
+        <label for="export-format">Format</label>
+        <select id="export-format">
+          <option value="gif">animated gif</option>
+          <option value="webm">webm (ffmpeg)</option>
+          <option value="apng">apng</option>
+          <option value="zip">zip of PNG frames</option>
+        </select>
+      </div>
+      <div class="row">
+        <label for="export-fps">FPS</label>
+        <input type="number" id="export-fps" min="1" max="120" step="1" placeholder="source timing">
+        <label for="export-loop" style="flex:0 0 auto">loops</label>
+        <input type="number" id="export-loop" min="0" step="1" value="0">
+        <span class="hint" style="margin:0">0 = forever</span>
+      </div>
+      <div class="row" id="export-gif-row">
+        <label for="export-dither">Dither</label>
+        <input type="checkbox" id="export-dither" checked>
+        <label for="export-colors" style="flex:0 0 auto">palette</label>
+        <input type="number" id="export-colors" min="2" max="256" step="1" value="256">
+      </div>
+      <button id="btn-export" disabled>Export</button>
+      <div class="files" id="export-files"></div>
+    </section>
+
+  </div>
+
+  <div class="col-right">
+    <section class="panel">
+      <h2>Sheet</h2>
+      <div id="sheet-meta" class="meta">No sheet yet.</div>
+      <div class="files" id="sheet-files"></div>
+      <div id="sheet-wrap" hidden><img id="sheet-img" alt="sprite sheet"></div>
+      <div class="scroll-160" id="rect-table"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Preview</h2>
+      <div class="row">
+        <canvas id="stage" width="256" height="256"></canvas>
+      </div>
+      <div class="row">
+        <button id="btn-play" class="secondary" disabled>&#9654; Play</button>
+        <span class="meta">frame <b id="frame-index">0</b> / <span id="frame-total">0</span></span>
+        <span class="tag" id="frame-ms">—</span>
+      </div>
+      <div class="row">
+        <label for="preview-fps">FPS</label>
+        <input type="range" id="preview-fps" min="1" max="60" step="1" value="12">
+        <span class="meta"><b id="preview-fps-val">12</b> fps</span>
+      </div>
+      <div class="row">
+        <label for="scrubber">Frame</label>
+        <input type="range" id="scrubber" min="0" max="0" step="1" value="0">
+      </div>
+      <div class="row">
+        <label for="onion">Onion skin</label>
+        <input type="checkbox" id="onion">
+        <span class="hint" style="margin:0">ghost the previous frame under the current one</span>
+      </div>
+      <div class="row">
+        <label for="preview-zoom">Zoom</label>
+        <input type="range" id="preview-zoom" min="1" max="8" step="1" value="1">
+        <span class="meta"><b id="preview-zoom-val">1</b>&times;</span>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div id="busy" hidden>
+  <span id="busy-msg">Working…</span>
+  <div id="bar"><div></div></div>
+  <span id="busy-pct">0%</span>
+</div>
+
+<script type="module" src="/static/app.js"></script>
+</body>
+</html>

@@ -52,7 +52,9 @@ commit is the single most common failure. The validator catches it.
 **Sizes.** Backgrounds are 1280x720 — that is the Switch framebuffer in both
 handheld and docked. Keep a theme under ~10 MB unless it ships music; if it
 needs a sprite sheet, keep frames small (320x180 gives you ~200 frames inside
-budget; 640x360 gives you ~50).
+budget; 640x360 gives you ~50). [`tools/spritesheet-maker`](tools/spritesheet-maker)
+packs the sheet, keeps the layout to what the client can read, and shows the
+budget as you go.
 
 **Readability is not optional.** `focus_ring` is how someone on a controller
 knows where they are — it must stand out against `surface` and

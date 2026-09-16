@@ -12,6 +12,7 @@
 [![colour roles](https://img.shields.io/badge/colour%20roles-19-8A6BFF?style=for-the-badge&labelColor=141A2C)](#the-format)
 [![validated in CI](https://img.shields.io/github/actions/workflow/status/A-Theme/RomM-Themes/validate.yml?branch=main&label=validated&style=for-the-badge&color=4FC08D&labelColor=141A2C)](../../actions/workflows/validate.yml)
 [![editor](https://img.shields.io/badge/visual-editor-9CC2FF?style=for-the-badge&labelColor=141A2C)](https://github.com/A-Theme/Theme-App/blob/main/romm-theme-editor.html)
+[![sprite sheet maker](https://img.shields.io/badge/sprite%20sheet-maker-8A6BFF?style=for-the-badge&labelColor=141A2C)](tools/spritesheet-maker)
 [![licence](https://img.shields.io/badge/licence-MIT-5AA9E6?style=for-the-badge&labelColor=141A2C)](LICENSE)
 
 </div>
@@ -88,6 +89,53 @@ Worth using even if you are comfortable with JSON, for two reasons it can catch
 and a text editor cannot: whether `focus_ring` is actually visible against the
 card it outlines, and whether an animated background fits in the texture budget.
 
+## Make an animated background
+
+A sprite sheet is the cheap way to animate a background, but it has to be laid
+out exactly the way the client reads it, and a sheet hand-cropped in an image
+editor usually is not. **[`tools/spritesheet-maker`](tools/spritesheet-maker)**
+builds one:
+
+```bash
+cd tools/spritesheet-maker
+pip install -r requirements.txt
+python3 -m uvicorn app.main:app        # then open http://127.0.0.1:8000
+```
+
+Drop in a GIF, an MP4/WebM, an animated WebP or APNG, or a single still image,
+and it packs the frames into a sheet and writes the matching
+`background.animation` block for your `theme.json`. It runs entirely on your own
+machine — nothing is uploaded anywhere.
+
+What makes it worth using rather than a generic packer:
+
+- **It packs the way the client reads.** The client slices
+  `cols = sheet_w / frame_width` from the top-left corner, so a sheet with
+  padding between cells or an outer margin misaligns every frame after the
+  first. **Tune layout for RomM** sets the frame size, zeroes padding and
+  margin, and picks a grid with no spare cells.
+- **It tells you what the client will refuse** before the console does: the
+  48 MB texture budget (320×180 gives you 218 frames, 640×360 gives you 54,
+  720p gives you 13), the 240-frame and 60 fps ceilings, a cell that is not 16:9
+  and would be stretched, and a frame count the sheet cannot hold.
+- **It checks the frames for brightness**, the same way
+  [`scripts/validate-themes.py`](scripts/validate-themes.py) does — `dim` is
+  tuned against the still image, but the frames are what your text sits on.
+- **It writes the `theme.json` block from the sheet it just packed**, so the
+  numbers describe the file rather than your intentions.
+
+It also slices an existing sheet back into frames and plays them, and exports a
+frame set as GIF, WebM, APNG or a zip of PNGs — so it doubles as a way to check
+a sheet someone sent you.
+
+There is a still-image mode too: pan, rotate, pulse, mirror, bounce or fade a
+single image into an N-frame loop, for when you want motion and have one piece
+of art.
+
+Two themes here already use a sheet, if you want something to compare against or
+to open in the slicer: [`themes/Pulse`](themes/Pulse) and
+[`themes/Overdrive`](themes/Overdrive).
+
 ## Contributing a theme
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md). The short version:
@@ -131,6 +179,8 @@ Two things worth knowing before you build something ambitious:
   texture no matter how many frames and is the cheap path; an animated GIF is
   billed at full screen per frame, and 30 frames already busts the budget.
   Always ship a still `image` as the fallback.
+  [`tools/spritesheet-maker`](tools/spritesheet-maker) packs the sheet and works
+  the budget out for you.
 - **`motion` is free.** Drift, pan or zoom on a still image costs no extra
   memory at all and often looks better than a short loop.
 
