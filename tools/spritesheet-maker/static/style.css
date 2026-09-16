@@ -35,7 +35,8 @@ header .sub { color: var(--muted); font-size: 12px; }
 
 main {
   display: grid;
-  grid-template-columns: minmax(0, 2.1fr) minmax(330px, 1fr);
+  /* two columns of controls on the left, the rest to the sheet and the player */
+  grid-template-columns: minmax(0, 1fr) minmax(460px, 0.95fr);
   gap: 14px;
   padding: 14px 22px 56px;
   align-items: start;
@@ -44,7 +45,7 @@ main {
    holes under the short ones, while columns flow the panels and balance the
    heights themselves. Reading order stays 1, 2, 3 down a column. */
 .col-left {
-  column-width: 310px;
+  column-count: 2;
   column-gap: 12px;
 }
 .col-left > .panel {
@@ -54,9 +55,12 @@ main {
 }
 /* the sheet and the player stay put while the controls are worked through */
 .col-right { position: sticky; top: 14px; }
-@media (max-width: 1100px) {
+@media (max-width: 1280px) {
   main { grid-template-columns: 1fr; }
   .col-right { position: static; }
+}
+@media (max-width: 720px) {
+  .col-left { column-count: 1; }
 }
 @media (max-width: 960px) { main { grid-template-columns: 1fr; } }
 
@@ -97,20 +101,21 @@ section.panel > h2 {
 .chip.done { color: var(--accent-2); border-color: #2a4b34; }
 
 .row { display: flex; gap: 8px; align-items: center; margin-bottom: 7px; flex-wrap: wrap; }
-.row > label { flex: 0 0 122px; color: var(--muted); font-size: 12px; }
+.row > label { flex: 0 0 104px; color: var(--muted); font-size: 12px; }
 .row.stack { align-items: flex-start; }
 .hint { color: var(--muted); font-size: 11px; margin: 2px 0 10px; }
 
 input[type=number], input[type=text], select {
+  min-width: 0;
   background: var(--panel-2);
   color: var(--text);
   border: 1px solid var(--line);
   border-radius: 5px;
   padding: 5px 7px;
   font: inherit;
-  min-width: 72px;
 }
-input[type=number] { width: 88px; }
+select, input[type=text] { flex: 1 1 120px; }
+input[type=number] { width: 74px; }
 input[type=color] {
   background: var(--panel-2); border: 1px solid var(--line);
   border-radius: 5px; width: 40px; height: 28px; padding: 2px;
@@ -171,16 +176,20 @@ button:disabled { opacity: .45; cursor: not-allowed; }
 }
 .files a:hover { border-color: var(--accent); }
 
+#preview-stage-row { display: block; margin-bottom: 9px; }
 #sheet-wrap {
   background: #0e1014 repeating-conic-gradient(#191c22 0 25%, transparent 0 50%) 0 0 / 18px 18px;
   border: 1px solid var(--line); border-radius: 6px; padding: 8px;
-  max-height: 460px; overflow: auto; text-align: center;
+  max-height: 520px; overflow: auto; text-align: center;
 }
 #sheet-img { max-width: 100%; image-rendering: pixelated; }
 
 canvas#stage {
   background: #0e1014 repeating-conic-gradient(#191c22 0 25%, transparent 0 50%) 0 0 / 18px 18px;
-  border: 1px solid var(--line); border-radius: 6px; max-width: 100%;
+  border: 1px solid var(--line); border-radius: 6px;
+  /* the canvas keeps its pixel size for accuracy and is scaled up to fill the
+     panel, so a 320x180 frame is inspectable rather than a thumbnail */
+  width: 100%; height: auto;
 }
 canvas#stage.smooth { image-rendering: auto; }
 canvas#stage { image-rendering: pixelated; }
