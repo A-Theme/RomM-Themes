@@ -23,6 +23,11 @@ Themes for the **RomM Switch client** — recolour it, give it a background, its
 own font, mascot art, and music. A theme is a folder on the SD card, and the
 smallest useful one is a single file.
 
+This is where the A-Theme project's theming work happens now. The older
+[Tinfoil](https://github.com/A-Theme/Tinfoil-Themes) side is stable and still
+served, but the RomM client does far more with a theme — and everything here is
+validated in CI against the rules the client itself enforces.
+
 <div align="center">
 
 <!-- SCREENSHOTS:START -->
@@ -202,13 +207,14 @@ Two things worth knowing before you build something ambitious:
 
 ## Part of the A-Theme project
 
-| repo | what it is |
-|---|---|
-| **RomM-Themes** | you are here — themes for the RomM Switch client |
-| [Theme-App](https://github.com/A-Theme/Theme-App) | the visual editors, for this format and for Tinfoil |
-| [Tinfoil-Themes](https://github.com/A-Theme/Tinfoil-Themes) | the Tinfoil theme database (a separate format) |
-| [Switch-Theme-Installer](https://github.com/A-Theme/Switch-Theme-Installer) | on-console installer for Tinfoil themes |
-| [A-Theme](https://github.com/A-Theme) | the org |
+| repo | what it is | |
+|---|---|---|
+| **RomM-Themes** | you are here — themes for the RomM Switch client | **active** |
+| [`tools/spritesheet-maker`](tools/spritesheet-maker) | builds the animated backgrounds in this repo | **active** |
+| [Theme-App](https://github.com/A-Theme/Theme-App) | the visual editors — [the RomM one](https://github.com/A-Theme/Theme-App/blob/main/romm-theme-editor.html) is the one for this format | active |
+| [Tinfoil-Themes](https://github.com/A-Theme/Tinfoil-Themes) | the Tinfoil theme database, a separate and older format | stable |
+| [Switch-Theme-Installer](https://github.com/A-Theme/Switch-Theme-Installer) | on-console installer for Tinfoil themes | stable |
+| [A-Theme](https://github.com/A-Theme) | the org | |
 
 ## Licence
 
