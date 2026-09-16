@@ -44,7 +44,7 @@ def main():
         page.fill("#scale-percent", "50")
         page.check("#nearest")
         page.click("#btn-extract")
-        page.wait_for_function("document.getElementById('frames-tag').textContent === '4 frames'", timeout=30000)
+        page.wait_for_function("document.getElementById('frames-tag').textContent.startsWith('4 frames')", timeout=30000)
         print("PASS frame controls (trim 1-5, 50% nearest) -> 4 frames extracted")
 
         page.wait_for_function("document.getElementById('frame-total').textContent === '4'")
@@ -139,7 +139,7 @@ def main():
         page.select_option("#gen-easing", "bounce")
         page.select_option("#gen-loop", "ping-pong")
         page.click("#btn-generate")
-        page.wait_for_function("document.getElementById('frames-tag').textContent === '10 frames'", timeout=30000)
+        page.wait_for_function("document.getElementById('frames-tag').textContent.startsWith('10 frames')", timeout=30000)
         page.wait_for_function("document.getElementById('frame-total').textContent === '10'")
         print("PASS still -> bounce transform, 10 frames, ping-pong + bounce easing, loaded into preview")
 
@@ -175,7 +175,7 @@ def main():
         page.select_option("#trim-mode", "none")
         page.select_option("#scale-mode", "none")
         page.click("#btn-extract")
-        page.wait_for_function("document.getElementById('frames-tag').textContent === '8 frames'", timeout=60000)
+        page.wait_for_function("document.getElementById('frames-tag').textContent.startsWith('8 frames')", timeout=60000)
 
         page.select_option("#romm-cell", "320x180")
         page.fill("#romm-fps", "12")

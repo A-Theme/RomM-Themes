@@ -21,7 +21,7 @@
   <div class="col-left">
 
     <section class="panel">
-      <h2>1 &middot; Source</h2>
+      <h2>1 &middot; Source<span class="chip" id="src-chip"></span></h2>
       <div id="drop">
         <strong>Drop a file</strong> or click to choose<br>
         <span class="hint">gif, apng, animated webp, png, jpg, mp4, webm, mov, avi &mdash; up to 250MB</span>
@@ -31,7 +31,7 @@
     </section>
 
     <section class="panel">
-      <h2>2 &middot; Frames</h2>
+      <h2>2 &middot; Frames<span class="chip" id="frames-tag"></span></h2>
       <div class="row">
         <label for="fps">Target FPS</label>
         <input type="number" id="fps" min="0" max="120" step="0.5" placeholder="source">
@@ -68,11 +68,10 @@
         <span class="hint" style="margin:0">nearest-neighbour resampling</span>
       </div>
       <button id="btn-extract" disabled>Extract frames</button>
-      <span id="frames-tag" class="tag" style="margin-left:8px">no frames</span>
     </section>
 
     <section class="panel" id="generate-panel">
-      <h2>2b &middot; Still &rarr; animation</h2>
+      <h2>2b &middot; Still &rarr; frames<span class="chip" id="gen-chip"></span></h2>
       <div class="hint" id="generate-hint">Upload a single still image to turn it into frames.</div>
       <div class="row">
         <label for="gen-transform">Transform</label>
@@ -144,7 +143,7 @@
     </section>
 
     <section class="panel">
-      <h2>3 &middot; Layout</h2>
+      <h2>3 &middot; Layout<span class="chip" id="layout-chip"></span></h2>
       <div class="row">
         <label for="auto-square">Columns</label>
         <input type="checkbox" id="auto-square" checked>
@@ -176,7 +175,7 @@
     </section>
 
     <section class="panel" id="romm-panel">
-      <h2>3b &middot; RomM theme (animated background)</h2>
+      <h2>3b &middot; RomM theme<span class="chip" id="romm-chip"></span></h2>
       <div class="hint">
         The RomM Switch client slices a sheet as a tight grid from the top-left
         &mdash; <code>cols = sheet_w / frame_width</code>, no padding, no margin &mdash;
@@ -228,7 +227,7 @@
     </section>
 
     <section class="panel">
-      <h2>4 &middot; Atlas metadata</h2>
+      <h2>4 &middot; Metadata<span class="chip" id="atlas-chip"></span></h2>
       <div class="row">
         <label for="atlas-format">Format</label>
         <select id="atlas-format">
@@ -253,7 +252,7 @@
       <div class="files" id="atlas-files"></div>
     </section>
     <section class="panel">
-      <h2>Sheet &rarr; frames</h2>
+      <h2>Open an existing sheet<span class="chip" id="slice-chip"></span></h2>
       <div id="slice-drop" class="hint" style="border:2px dashed var(--line);border-radius:8px;padding:16px;text-align:center;cursor:pointer">
         Drop an existing sprite sheet here (or click) to slice and preview it
       </div>
@@ -294,7 +293,7 @@
       <div id="slice-info" class="meta" style="margin-top:8px"></div>
     </section>
     <section class="panel">
-      <h2>Export frames</h2>
+      <h2>Export frames<span class="chip" id="export-chip"></span></h2>
       <div class="row">
         <label for="export-format">Format</label>
         <select id="export-format">

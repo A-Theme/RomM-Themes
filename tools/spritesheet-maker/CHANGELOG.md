@@ -4,6 +4,43 @@ Notable changes per release. The build workflow reads the section matching the
 version being released and uses it as the release body, so this file is the one
 place release notes are written.
 
+## 1.1.0
+
+### ffmpeg, included
+
+Each platform now also has a `-with-ffmpeg.zip`: the app with an ffmpeg beside
+it, which is where it already looks, so video input and WebM export work with
+nothing installed and nothing configured.
+
+It is a folder rather than one fatter executable on purpose — a one-file build
+unpacks its whole payload to a temp directory on **every** launch, and ~140 MB
+of ffmpeg would be paid for on every start. The lean download stays for anyone
+who has ffmpeg already or only needs GIF, APNG and stills.
+
+The bundle ships ffmpeg only, not ffprobe: that is another ~140 MB for three
+numbers, which `probe_video()` now reads out of ffmpeg's own report instead,
+matching ffprobe on size, duration and frame rate.
+
+LGPL builds, unmodified, with the licence text and a source link in the zip —
+so this stays an aggregation of two programs rather than a source obligation on
+the whole repo. macOS keeps the lean download, since no LGPL macOS build is
+published; the in-app steps cover `brew install ffmpeg`.
+
+### When ffmpeg is missing, the way back is short
+
+The banner used to state the problem and stop. It now gives the steps for the
+platform you are on, links the builds, and has a **Check again** button that
+re-probes without a restart — drop the binary in the folder, click, it lights
+up. It also says what still works, which is most of the tool.
+
+### A page you can see at once
+
+The controls were one column of eight panels, about 3000px tall. They now flow
+into balanced columns beside the sheet and the player, which stay put while you
+work — a little over a third of the height, with nothing hidden behind a
+disclosure triangle. Each panel header carries a small status chip: the frame
+count and size, the sheet dimensions, the RomM verdict.
+
 ## 1.0.0
 
 First release. A local tool that packs an animation into a sprite sheet the RomM

@@ -47,14 +47,20 @@ jobs:
             label: windows
             binary: dist/spritesheet-maker.exe
             artifact: spritesheet-maker-windows
+            ffmpeg_url: https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-lgpl.zip
           - os: ubuntu-latest
             label: linux
             binary: dist/spritesheet-maker
             artifact: spritesheet-maker-linux
+            ffmpeg_url: https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-linux64-lgpl.tar.xz
           - os: macos-latest
             label: macos
             binary: dist/spritesheet-maker
             artifact: spritesheet-maker-macos
+            # No LGPL macOS build is published by BtbN, and shipping a GPL one
+            # would put a source obligation on this repo, so macOS keeps the
+            # lean download and the in-app "brew install ffmpeg" steps.
+            ffmpeg_url: ""
 
     steps:
       - uses: actions/checkout@v4
@@ -104,10 +110,93 @@ jobs:
           kill $pid || true
           echo "the packaged build serves the page and its assets"
 
+      # A second download that needs nothing installed: the app with ffmpeg
+      # sitting beside it, which is where it already looks. LGPL builds, so
+      # this stays an aggregation of two programs under a permissive notice
+      # rather than a GPL obligation on the whole repo; the licence text ships
+      # in the zip. Not baked into the one-file exe on purpose - that would
+      # unpack ~170MB to temp on every launch.
+      - name: Bundle with ffmpeg
+        if: matrix.ffmpeg_url != ''
+        shell: bash
+        run: |
+          mkdir -p bundle
+          cp "${{ matrix.binary }}" bundle/
+          curl -fsSL "${{ matrix.ffmpeg_url }}" -o ffmpeg-dist.archive
+          mkdir -p ffmpeg-extract
+          case "${{ matrix.ffmpeg_url }}" in
+            *.zip)
+              # unzip is not on the Windows runners; 7z is
+              if command -v unzip > /dev/null; then
+                unzip -q ffmpeg-dist.archive -d ffmpeg-extract
+              else
+                7z x ffmpeg-dist.archive -offmpeg-extract > /dev/null
+              fi
+              ;;
+            *.tar.xz) tar -xJf ffmpeg-dist.archive -C ffmpeg-extract ;;
+          esac
+          # ffmpeg only: ffprobe is another ~140MB for three numbers that
+          # app/extract.py reads out of ffmpeg's own report when it is absent.
+          find ffmpeg-extract \( -name 'ffmpeg' -o -name 'ffmpeg.exe' \) \
+               -type f -exec cp {} bundle/ \;
+          find ffmpeg-extract \( -iname 'LICENSE*' -o -iname 'COPYING*' \) \
+               -type f -exec cp {} bundle/FFMPEG-LICENSE.txt \; -quit
+          # printf rather than a heredoc: a YAML block indents every line, and an
+          # indented terminator does not end a quoted heredoc.
+          printf '%s\n' \
+            "Sprite Sheet Maker, with ffmpeg included." \
+            "" \
+            "Run the spritesheet-maker program in this folder. Keep ffmpeg next to" \
+            "it - that is where the app looks for it, so video input and WebM export" \
+            "work with nothing else installed. The page opens by itself." \
+            "" \
+            "ffmpeg is a separate program, included here under the LGPL, unmodified." \
+            "Its licence is in FFMPEG-LICENSE.txt and its source is at" \
+            "https://github.com/BtbN/FFmpeg-Builds and https://ffmpeg.org/download.html" \
+            > bundle/README.txt
+          ls -la bundle
+
+      - name: Zip the bundle
+        if: matrix.ffmpeg_url != ''
+        shell: bash
+        run: |
+          cd bundle
+          if command -v 7z > /dev/null; then
+            7z a -tzip "../${{ matrix.artifact }}-with-ffmpeg.zip" ./* > /dev/null
+          else
+            zip -qr "../${{ matrix.artifact }}-with-ffmpeg.zip" ./*
+          fi
+          cd ..
+          ls -la "${{ matrix.artifact }}-with-ffmpeg.zip"
+
+      # Proves the bundle is self-sufficient: run it with an empty PATH, so the
+      # only ffmpeg it can possibly find is the one in the folder beside it.
+      - name: Check the bundle finds its own ffmpeg
+        if: matrix.ffmpeg_url != ''
+        shell: bash
+        run: |
+          cd bundle
+          PATH="/nonexistent" ./$(basename "${{ matrix.binary }}") --no-browser --port 8792 &
+          pid=$!
+          for i in $(seq 1 40); do
+            if curl -fsS http://127.0.0.1:8792/health > h.json 2>/dev/null; then break; fi
+            sleep 1
+          done
+          cat h.json
+          python -c "import json; d=json.load(open('h.json')); assert d['ffmpeg'] is True, d; print('bundled ffmpeg found at', d['ffmpeg_path'])"
+          kill $pid || true
+
       - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.artifact }}
           path: tools/spritesheet-maker/${{ matrix.binary }}
+          if-no-files-found: error
+
+      - uses: actions/upload-artifact@v4
+        if: matrix.ffmpeg_url != ''
+        with:
+          name: ${{ matrix.artifact }}-with-ffmpeg
+          path: tools/spritesheet-maker/${{ matrix.artifact }}-with-ffmpeg.zip
           if-no-files-found: error
 
   # Cutting a release is pushing a tag: the binaries the matrix just built and
@@ -140,6 +229,8 @@ jobs:
           cp ../../artifacts/spritesheet-maker-macos/spritesheet-maker       release/spritesheet-maker-macos
           cp ../../artifacts/spritesheet-maker-linux/spritesheet-maker       release/spritesheet-maker-linux
           chmod +x release/spritesheet-maker-macos release/spritesheet-maker-linux
+          cp ../../artifacts/spritesheet-maker-windows-with-ffmpeg/*.zip release/
+          cp ../../artifacts/spritesheet-maker-linux-with-ffmpeg/*.zip   release/
           ls -la release
 
       # awk rather than a heredoc'd script: a YAML block indents every line it

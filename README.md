@@ -102,15 +102,20 @@ pip install -r requirements.txt
 python3 launcher.py                    # opens http://127.0.0.1:8753 in your browser
 ```
 
-Or skip Python entirely: grab a single-file build for Windows, macOS or Linux
-from the [latest release](../../releases/latest) — every push also builds one,
-if you want a version newer than the last release
-([build workflow](../../actions/workflows/build-spritesheet-maker.yml) → newest
-green run → **Artifacts**). Double-click it and the page opens; the black console
-window it leaves behind is how you close it again. Video input and WebM export
-want [ffmpeg](https://ffmpeg.org/download.html) as well — on PATH, or the
-`ffmpeg.exe` dropped in the same folder as the tool. Everything else works
-without it, and the page says so rather than failing.
+Or skip Python entirely — the [latest release](../../releases/latest) carries
+two downloads per platform:
+
+| download | what it is |
+|---|---|
+| `spritesheet-maker-<os>-with-ffmpeg.zip` | **the one to take.** Unzip, run it, done — ffmpeg is in the folder, so video input and WebM export work with nothing installed. |
+| `spritesheet-maker-<os>` | ~20 MB instead of ~80 MB, for when ffmpeg is already on your machine or you only need GIF, APNG and stills. |
+
+Double-click it and the page opens; the black console
+window it leaves behind is how you close it again. The app uses whatever ffmpeg it finds on PATH, and otherwise the one sitting in
+its own folder — which is why the bundled zip needs no setup. Without ffmpeg at
+all it still does GIF, APNG, animated WebP, stills, every sheet and slice
+operation, and GIF/APNG/ZIP export; the page says what is missing, links the
+download, and picks it up when you click **Check again**, no restart.
 
 Drop in a GIF, an MP4/WebM, an animated WebP or APNG, or a single still image,
 and it packs the frames into a sheet and writes the matching

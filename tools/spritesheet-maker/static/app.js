@@ -66,6 +66,20 @@ const postJSON = (url, body) =>
     body: JSON.stringify(body || {}),
   });
 
+// A collapsed panel is only acceptable if its header still reports state, so
+// each summary carries a chip and every action that changes state updates it.
+function chip(id, text, done) {
+  const el = $(id);
+  if (!el) return;
+  el.textContent = text || "";
+  el.classList.toggle("done", !!done);
+}
+
+function openPanel(id) {
+  const el = $(id);
+  if (el && el.tagName === "DETAILS") el.open = true;
+}
+
 function bytes(n) {
   if (n < 1024) return `${n} B`;
   if (n < 1024 * 1024) return `${(n / 1024).toFixed(1)} KB`;
@@ -130,7 +144,8 @@ async function uploadFile(file) {
       (i.fps ? ` · ${Number(i.fps).toFixed(2)} fps` : "");
     $("btn-extract").disabled = false;
     $("btn-sheet").disabled = true;
-    $("frames-tag").textContent = "no frames";
+    chip("src-chip", `${res.name} · ${bytes(res.size_bytes)}`, true);
+    chip("frames-tag", "no frames");
     onSourceLoaded(i);
     if (i.kind === "video" && !state.ffmpeg) {
       showError("ffmpeg is missing — video input cannot be decoded.");
@@ -165,7 +180,10 @@ async function doExtract() {
 function adoptFrames(res) {
   state.frameCount = res.frame_count;
   state.frames = res.frames || [];
-  $("frames-tag").textContent = `${res.frame_count} frames`;
+  const first = state.frames[0];
+  chip("frames-tag",
+       first ? `${res.frame_count} frames · ${first.w}×${first.h}` : `${res.frame_count} frames`,
+       res.frame_count > 0);
   $("btn-sheet").disabled = res.frame_count === 0;
   $("btn-export").disabled = res.frame_count === 0;
   updateRommBudget();
@@ -213,6 +231,7 @@ function renderSheet(res) {
     a.textContent = `download ${kind}`;
     files.appendChild(a);
   }
+  chip("layout-chip", `${L.width}×${L.height} · ${L.cols}×${L.rows}`, true);
   const img = $("sheet-img");
   img.src = `${res.urls.png}?t=${Date.now()}`;
   $("sheet-wrap").hidden = false;
@@ -371,7 +390,8 @@ async function doSlice(file) {
     $("slice-info").innerHTML =
       `Sliced <b>${res.frame_count}</b> frames from a <b>${res.sheet.width}×${res.sheet.height}</b> ` +
       `sheet · grid <b>${L.cols}×${L.rows}</b> · cell <b>${L.cell_w}×${L.cell_h}</b>`;
-    $("frames-tag").textContent = `${res.frame_count} frames (sliced)`;
+    chip("frames-tag", `${res.frame_count} frames (sliced)`, true);
+    chip("slice-chip", `${res.frame_count} frames from ${res.sheet.width}×${res.sheet.height}`, true);
     $("btn-sheet").disabled = res.frame_count === 0;
     $("btn-export").disabled = res.frame_count === 0;
     onFramesChanged();
@@ -450,6 +470,7 @@ async function doGenerate() {
       frame: frameOptions(),
     });
     adoptFrames(res);
+    chip("gen-chip", `${generateOptions().transform} · ${res.frame_count} frames`, true);
   } catch (e) {
     showError(e.message);
   } finally {
@@ -502,6 +523,7 @@ async function doExport() {
     a.download = "";
     a.textContent = `download ${res.file} (${(res.size_bytes / 1024).toFixed(1)} KB, ${res.frame_count} frames)`;
     files.prepend(a);
+    chip("export-chip", `${res.file} · ${(res.size_bytes / 1024).toFixed(0)} KB`, true);
   } catch (e) {
     showError(e.message);
   } finally {
@@ -553,6 +575,7 @@ function addAtlasLink(res) {
     ? "the client would refuse this sheet — see the checks"
     : "verified against the sheet";
   a.textContent = `download ${res.file} (${res.frame_count} frames, ${verdict})`;
+  chip("atlas-chip", res.file, res.verified !== false);
   $("atlas-files").prepend(a);
 }
 
@@ -695,6 +718,14 @@ function renderRommChecks(checks) {
   const box = $("romm-checks");
   box.innerHTML = "";
   if (!checks || !checks.length) return;
+  const errors = checks.filter((c) => c.level === "error").length;
+  const warnings = checks.filter((c) => c.level === "warning").length;
+  if (errors) {
+    chip("romm-chip", `${errors} blocking`, false);
+    openPanel("romm-panel");
+  } else {
+    chip("romm-chip", warnings ? `ok · ${warnings} warning` : "ok", true);
+  }
   const colors = { error: "error", warning: "warn", info: "ok" };
   for (const c of checks) {
     const div = document.createElement("div");
@@ -759,22 +790,94 @@ function wireControls() {
   $("btn-sheet").addEventListener("click", doSheet);
 }
 
+// ------------------------------------------------------------ ffmpeg banner
+
+// ffmpeg is not bundled (licence, size, and the CVE treadmill that comes with
+// shipping someone else's binary), so the one thing that has to be good is the
+// path back from "not found" - real steps for the platform you are on, and a
+// re-check that does not need a restart, because the app looks for ffmpeg
+// beside itself and shutil.which is re-run on every probe.
+function ffmpegHelp() {
+  const ua = navigator.userAgent;
+  const site = '<a href="https://ffmpeg.org/download.html" target="_blank" rel="noopener">ffmpeg.org</a>';
+  const zip = '<a href="https://github.com/A-Theme/RomM-Themes/releases/latest" target="_blank" rel="noopener">' +
+              "the with-ffmpeg download</a>";
+  if (ua.includes("Win")) {
+    return {
+      os: "Windows",
+      steps: [
+        `Easiest: grab ${zip} \u2014 it is this app with ffmpeg already beside it.`,
+        `Or get a build from ${site}, and drag <code>ffmpeg.exe</code> out of its ` +
+          "<code>bin</code> folder into the folder holding <code>spritesheet-maker.exe</code>.",
+        "Then click <b>Check again</b> \u2014 no restart, no PATH editing.",
+      ],
+    };
+  }
+  if (ua.includes("Mac")) {
+    return {
+      os: "macOS",
+      steps: [
+        "Run <code>brew install ffmpeg</code> in Terminal.",
+        `Or take a build from ${site} and put the <code>ffmpeg</code> binary beside this app.`,
+        "Then click <b>Check again</b> \u2014 no restart needed.",
+      ],
+    };
+  }
+  return {
+    os: "Linux",
+    steps: [
+      "Install it: <code>sudo apt install ffmpeg</code>, <code>sudo dnf install ffmpeg</code>, " +
+        "or <code>sudo pacman -S ffmpeg</code>.",
+      `Or grab ${zip}, or a build from ${site}, and put <code>ffmpeg</code> beside this app.`,
+      "Then click <b>Check again</b> \u2014 no restart needed.",
+    ],
+  };
+}
+
+function renderFfmpegBanner() {
+  const banner = $("ffmpeg-banner");
+  const help = ffmpegHelp();
+  banner.className = "banner warn";
+  banner.innerHTML =
+    "<b>ffmpeg was not found.</b> Video input (mp4, webm, mov, avi) and WebM export " +
+    "are off until it is installed. GIF, APNG, animated WebP, still images, every " +
+    "sheet and slice operation, and GIF/APNG/ZIP export all work without it." +
+    `<ol style="margin:8px 0 8px 18px;padding:0">${help.steps.map((t) => `<li>${t}</li>`).join("")}</ol>` +
+    '<button id="ffmpeg-recheck" class="secondary">Check again</button> ' +
+    `<span class="hint" id="ffmpeg-recheck-note" style="margin:0">looking for ${help.os} instructions</span>`;
+  banner.hidden = false;
+  $("ffmpeg-recheck").addEventListener("click", async () => {
+    $("ffmpeg-recheck-note").textContent = "checking\u2026";
+    const ok = await checkHealth();
+    if (!ok) {
+      $("ffmpeg-recheck-note").textContent =
+        "still not found \u2014 check the file is named exactly ffmpeg" +
+        (help.os === "Windows" ? ".exe" : "") + " and sits beside the app";
+    }
+  });
+}
+
 async function checkHealth() {
   try {
     const h = await api("/health");
     state.ffmpeg = !!h.ffmpeg;
     $("health-tag").textContent = h.ffmpeg
-      ? `ffmpeg ready · max ${h.max_upload_mb}MB`
-      : `no ffmpeg · max ${h.max_upload_mb}MB`;
-    if (!h.ffmpeg) {
-      const b = $("ffmpeg-banner");
-      b.textContent =
-        "ffmpeg was not found on this machine. GIF, APNG, WebP and still-image work fine; " +
-        "video input and WebM export are disabled until ffmpeg is installed and the server restarted.";
-      b.hidden = false;
+      ? `ffmpeg ready \u00b7 max ${h.max_upload_mb}MB`
+      : `no ffmpeg \u00b7 max ${h.max_upload_mb}MB`;
+    if (h.ffmpeg) {
+      const banner = $("ffmpeg-banner");
+      if (!banner.hidden) {
+        banner.className = "banner ok";
+        banner.textContent = `ffmpeg found at ${h.ffmpeg_path} \u2014 video input and WebM export are on.`;
+        setTimeout(() => { banner.hidden = true; }, 6000);
+      }
+      return true;
     }
+    renderFfmpegBanner();
+    return false;
   } catch (e) {
     showError(`Could not reach the server: ${e.message}`);
+    return false;
   }
 }
 

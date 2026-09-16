@@ -35,10 +35,28 @@ header .sub { color: var(--muted); font-size: 12px; }
 
 main {
   display: grid;
-  grid-template-columns: minmax(340px, 420px) 1fr;
-  gap: 18px;
-  padding: 18px 22px 60px;
+  grid-template-columns: minmax(0, 2.1fr) minmax(330px, 1fr);
+  gap: 14px;
+  padding: 14px 22px 56px;
   align-items: start;
+}
+/* Columns rather than a grid: grid rows align to the tallest panel and leave
+   holes under the short ones, while columns flow the panels and balance the
+   heights themselves. Reading order stays 1, 2, 3 down a column. */
+.col-left {
+  column-width: 310px;
+  column-gap: 12px;
+}
+.col-left > .panel {
+  break-inside: avoid;
+  page-break-inside: avoid;
+  margin: 0 0 12px;
+}
+/* the sheet and the player stay put while the controls are worked through */
+.col-right { position: sticky; top: 14px; }
+@media (max-width: 1100px) {
+  main { grid-template-columns: 1fr; }
+  .col-right { position: static; }
 }
 @media (max-width: 960px) { main { grid-template-columns: 1fr; } }
 
@@ -46,18 +64,39 @@ section.panel {
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 8px;
-  padding: 14px 16px;
-  margin-bottom: 16px;
+  padding: 10px 14px;
+  margin-bottom: 10px;
 }
 section.panel > h2 {
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: .6px;
   color: var(--muted);
-  margin: 0 0 12px;
+  margin: 0 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.row { display: flex; gap: 10px; align-items: center; margin-bottom: 9px; flex-wrap: wrap; }
+.chip {
+  margin-left: auto;
+  font-size: 11px;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--muted);
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1px 8px;
+  max-width: 55%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.chip:empty { display: none; }
+.chip.done { color: var(--accent-2); border-color: #2a4b34; }
+
+.row { display: flex; gap: 8px; align-items: center; margin-bottom: 7px; flex-wrap: wrap; }
 .row > label { flex: 0 0 122px; color: var(--muted); font-size: 12px; }
 .row.stack { align-items: flex-start; }
 .hint { color: var(--muted); font-size: 11px; margin: 2px 0 10px; }

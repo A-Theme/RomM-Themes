@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -143,8 +144,12 @@ def _tool(name: str) -> str | None:
     found = shutil.which(name)
     if found:
         return found
-    roots = {Path(sys.executable).resolve().parent,
-             Path(__file__).resolve().parent.parent}
+    # Beside the app itself, and - only in a packaged build - beside the
+    # executable. Outside one, sys.executable is the Python interpreter, so
+    # /usr/bin/python3 would make every tool in /usr/bin look bundled.
+    roots = [Path(__file__).resolve().parent.parent]
+    if getattr(sys, "frozen", False):
+        roots.append(Path(sys.executable).resolve().parent)
     for base in roots:
         for candidate in (base / f"{name}.exe", base / name):
             if candidate.is_file() and os.access(candidate, os.X_OK):
@@ -160,11 +165,49 @@ def ffprobe_exe() -> str | None:
     return _tool("ffprobe")
 
 
+def _probe_with_ffmpeg(path: Path) -> dict:
+    """Video metadata from ffmpeg itself, for when ffprobe is not around.
+
+    The packaged bundle ships ffmpeg alone - ffprobe is another 140MB for three
+    numbers - so the same numbers are read out of ffmpeg's own report, which it
+    writes to stderr and then exits non-zero for having no output file.
+    """
+    exe = ffmpeg_exe()
+    if not exe:
+        return {}
+    try:
+        out = subprocess.run([exe, "-hide_banner", "-i", str(path)],
+                             capture_output=True, text=True, timeout=60)
+    except Exception:  # noqa: BLE001
+        return {}
+    text = out.stderr or ""
+    info: dict = {}
+
+    m = re.search(r"Duration:\s*(\d+):(\d\d):(\d\d(?:\.\d+)?)", text)
+    if m:
+        h, mnt, sec = int(m.group(1)), int(m.group(2)), float(m.group(3))
+        info["duration"] = h * 3600 + mnt * 60 + sec
+
+    video = re.search(r"Stream #\d+:\d+.*?: Video: .*", text)
+    if video:
+        line = video.group(0)
+        size = re.search(r"(?<![\d])(\d{2,5})x(\d{2,5})(?![\d])", line)
+        if size:
+            info["width"], info["height"] = int(size.group(1)), int(size.group(2))
+        rate = re.search(r"([\d.]+)\s+fps", line) or re.search(r"([\d.]+)\s+tbr", line)
+        if rate:
+            try:
+                info["fps"] = float(rate.group(1))
+            except ValueError:
+                pass
+    return info
+
+
 def probe_video(path: Path) -> dict:
     """Return {width, height, duration, fps} for a video, best effort."""
     exe = ffprobe_exe()
     if not exe:
-        return {}
+        return _probe_with_ffmpeg(path)
     cmd = [
         exe, "-v", "error", "-select_streams", "v:0",
         "-show_entries", "stream=width,height,avg_frame_rate,nb_frames",
@@ -174,7 +217,7 @@ def probe_video(path: Path) -> dict:
         out = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
         data = json.loads(out.stdout or "{}")
     except Exception:
-        return {}
+        return _probe_with_ffmpeg(path)
     stream = (data.get("streams") or [{}])[0]
     fmt = data.get("format") or {}
     fps = None
