@@ -4,6 +4,41 @@ Notable changes per release. The build workflow reads the section matching the
 version being released and uses it as the release body, so this file is the one
 place release notes are written.
 
+## 1.2.0
+
+### Drop a file, get a sheet
+
+The page used to open with eight panels of settings, every one of them live,
+and no indication of which button came first. Extract, then pack, then write
+metadata — obvious once you know, invisible before.
+
+Now dropping a file does all three. The sheet, the preview and the
+`theme.json` are built from the defaults as soon as the file lands, so the
+first thing on screen is the thing you came for, and the settings become ways
+to adjust a result you can see rather than a form to fill in first.
+
+Around that:
+
+- **A three-step strip at the top** — drop, adjust, download — that moves as the
+  work does, so there is always one obvious next thing.
+- **The panels that need a file look like it.** Before one is loaded they are
+  inert rather than offering controls that quietly do nothing.
+- **The two files you actually want are buttons**, `sheet.png` and
+  `theme.json`, with a line saying what to do with them. The RomM sidecar is
+  now named `theme.json` rather than `atlas-romm.json`, because that is what it
+  is and the old name invited renaming it wrongly.
+- **Plainer headings.** "Will the console accept it?" rather than "RomM theme";
+  "Animate a single image" rather than "Still → animation".
+- **The frame-size list resizes.** It used to only *declare* a frame size, so
+  picking 320×180 for 64×64 art produced a blocking "nothing will play" on a
+  perfectly good sheet. It now resizes the frames and rebuilds, and defaults to
+  "your frames, as they are".
+- **Trim resets when a new file is dropped**, since a trim is expressed in this
+  file's seconds or frame numbers — carrying it over is how a fresh drop ended
+  up reporting zero frames selected.
+- **One job at a time.** Controls go inert while a rebuild is in flight, so a
+  second click cannot race the answer that is already coming.
+
 ## 1.1.0
 
 ### ffmpeg, included

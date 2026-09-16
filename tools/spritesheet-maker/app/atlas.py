@@ -206,12 +206,19 @@ def build(rects: list[FrameRect], layout: Layout, opts: AtlasOptions | None = No
     return writer(rects, layout, opts)
 
 
+def sidecar_name(fmt: str) -> str:
+    """What the emitted file is called. The RomM one is a theme.json, and
+    calling it anything else invites someone to rename it wrongly."""
+    if fmt == "romm":
+        return "theme.json"
+    return f"atlas-{fmt}{FORMATS[fmt][1]}"
+
+
 def write(rects: list[FrameRect], layout: Layout, out_dir: Path,
           opts: AtlasOptions | None = None) -> Path:
     opts = opts or AtlasOptions()
     out_dir.mkdir(parents=True, exist_ok=True)
-    suffix = FORMATS[opts.format][1]
-    path = out_dir / f"atlas-{opts.format}{suffix}"
+    path = out_dir / sidecar_name(opts.format)
     path.write_text(build(rects, layout, opts), encoding="utf-8")
     return path
 

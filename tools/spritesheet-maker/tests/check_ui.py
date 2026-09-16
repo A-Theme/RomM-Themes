@@ -10,6 +10,12 @@ TMP = Path(__file__).resolve().parent.parent / "tmp"
 TMP.mkdir(parents=True, exist_ok=True)
 
 
+def idle(page):
+    """Wait for the page to stop working; it refuses clicks while it does."""
+    page.wait_for_selector("#busy", state="hidden", timeout=90000)
+    page.wait_for_function("!document.body.classList.contains('working')", timeout=90000)
+
+
 def main():
     errors, console = [], []
     with sync_playwright() as pw:
@@ -22,6 +28,8 @@ def main():
         page = browser.new_page(viewport={"width": 1400, "height": 1200})
         page.on("pageerror", lambda e: errors.append(str(e)))
         page.on("console", lambda m: console.append(f"{m.type}: {m.text}") if m.type in ("error", "warning") else None)
+        page.on("response", lambda r: console.append(f"HTTP {r.status} {r.request.method} {r.url}")
+                if r.status >= 400 else None)
         page.goto(BASE, wait_until="networkidle")
 
         assert page.title() == "Sprite Sheet Maker"
@@ -31,6 +39,7 @@ def main():
         print(f"PASS page loads, health probed live: '{tag}', no ffmpeg banner")
 
         # --- GIF: upload -> frame controls -> extract -> preview player
+        idle(page)
         page.set_input_files("#file-input", str(TMP / "check_extract.gif"))
         page.wait_for_function("document.getElementById('source-info').textContent.includes('frames')")
         print("PASS drop-zone upload ->", page.inner_text("#source-info"))
@@ -43,6 +52,7 @@ def main():
         assert page.is_visible("#scale-percent"), "percent input did not appear"
         page.fill("#scale-percent", "50")
         page.check("#nearest")
+        idle(page)
         page.click("#btn-extract")
         page.wait_for_function("document.getElementById('frames-tag').textContent.startsWith('4 frames')", timeout=30000)
         print("PASS frame controls (trim 1-5, 50% nearest) -> 4 frames extracted")
@@ -58,10 +68,12 @@ def main():
         print("PASS preview: 4 frames loaded, readout '%s', scrubber repaints canvas"
               % page.inner_text("#frame-ms"))
 
+        idle(page)
         page.click("#btn-play")
         assert "Pause" in page.inner_text("#btn-play")
         page.wait_for_timeout(700)
         moved = page.inner_text("#frame-index")
+        idle(page)
         page.click("#btn-play")
         assert "Play" in page.inner_text("#btn-play")
         print(f"PASS play/pause advances frames (stopped on frame {moved})")
@@ -92,22 +104,32 @@ def main():
         page.check("#pot")
         page.check("#want-webp")
         page.select_option("#atlas-format", "phaser-hash")
+        idle(page)
         page.click("#btn-sheet")
-        page.wait_for_function("!document.getElementById('sheet-wrap').hidden", timeout=30000)
+        # a sheet is already on screen from the drop, so wait for THESE numbers
+        page.wait_for_function(
+            "document.getElementById('sheet-meta').textContent.includes('128×128')", timeout=30000)
         meta = page.inner_text("#sheet-meta")
         # 2 cols * 32 + 1*6 padding + 2*4 margin = 78 -> POT padding rounds both axes to 128
         assert "128×128 px · grid 2×2 · cell 32×32 · padding 6 · margin 4" in meta, meta
         print("PASS layout controls ->", meta)
+        # the two files people came for are buttons; the rest stay as links
+        primary = page.eval_on_selector_all(
+            ".primary-dl", "els => els.filter(e => !e.hidden).map(e => e.textContent.trim())")
+        assert any("sheet.png" in t for t in primary), primary
+        assert any("theme.json" in t or ".json" in t for t in primary), primary
         files = page.inner_text("#sheet-files")
-        assert "download png" in files and "download webp" in files, files
+        assert "download webp" in files, files
         assert page.locator("#rect-table tbody tr").count() == 4
         atlas_links = page.inner_text("#atlas-files")
         assert "atlas-phaser-hash.json" in atlas_links and "verified" in atlas_links, atlas_links
-        print(f"PASS sheet files: {files.strip()} | atlas: {atlas_links.strip()}")
+        print(f"PASS downloads: {', '.join(primary)} | extras: {files.strip()} | "
+              f"atlas: {atlas_links.strip()[:60]}")
 
         # --- atlas format switch
         page.select_option("#atlas-format", "godot")
         page.fill("#atlas-anim-name", "walk")
+        idle(page)
         page.click("#btn-atlas")
         page.wait_for_function("document.getElementById('atlas-files').textContent.includes('atlas-godot.tres')", timeout=20000)
         print("PASS atlas format switch -> atlas-godot.tres written for the same sheet")
@@ -121,6 +143,7 @@ def main():
                 page.fill("#export-colors", "32")
             page.fill("#export-fps", "15")
             page.fill("#export-loop", "0")
+            idle(page)
             page.click("#btn-export")
             page.wait_for_function(
                 f"document.getElementById('export-files').textContent.includes('{fmt}')", timeout=60000)
@@ -130,6 +153,7 @@ def main():
         print("PASS all four exports produced from the UI:", " | ".join(exports.split("\n")))
 
         # --- still image -> generated frames
+        idle(page)
         page.set_input_files("#file-input", str(TMP / "check_generate_src.png"))
         page.wait_for_function("document.getElementById('source-info').textContent.includes('image')")
         page.select_option("#gen-transform", "bounce")
@@ -138,6 +162,7 @@ def main():
         page.fill("#gen-frames", "10")
         page.select_option("#gen-easing", "bounce")
         page.select_option("#gen-loop", "ping-pong")
+        idle(page)
         page.click("#btn-generate")
         page.wait_for_function("document.getElementById('frames-tag').textContent.startsWith('10 frames')", timeout=30000)
         page.wait_for_function("document.getElementById('frame-total').textContent === '10'")
@@ -149,8 +174,9 @@ def main():
         page.fill("#margin", "0")
         page.check("#bg-transparent")
         page.uncheck("#pot")
+        idle(page)
         page.click("#btn-sheet")
-        page.wait_for_function("document.getElementById('sheet-meta').textContent.includes('grid 4×3')", timeout=30000)
+        page.wait_for_function("document.getElementById('sheet-meta').textContent.includes('grid 4×3')", timeout=60000)
         sheet_url = page.get_attribute("#sheet-img", "src")
         page.evaluate("""async (url) => {
             const blob = await (await fetch(url)).blob();
@@ -168,12 +194,14 @@ def main():
         print("PASS sheet -> frames:", page.inner_text("#slice-info"))
 
         # --- RomM mode: preset drives the other panels, checks come back from the client's rules
+        idle(page)
         page.set_input_files("#file-input", str(TMP / "check_video.mp4"))
         page.wait_for_function("document.getElementById('source-info').textContent.includes('video')")
         page.fill("#fps", "8")
         page.fill("#max-frames", "8")
         page.select_option("#trim-mode", "none")
         page.select_option("#scale-mode", "none")
+        idle(page)
         page.click("#btn-extract")
         page.wait_for_function("document.getElementById('frames-tag').textContent.startsWith('8 frames')", timeout=60000)
 
@@ -182,6 +210,7 @@ def main():
         page.fill("#romm-file", "sheet.png")
         page.fill("#romm-still", "background.png")
         page.fill("#romm-name", "Test Theme")
+        idle(page)
         page.click("#btn-romm-preset")
         assert page.input_value("#padding") == "0" and page.input_value("#margin") == "0"
         assert page.input_value("#scale-w") == "320" and page.input_value("#scale-h") == "180"
@@ -196,10 +225,11 @@ def main():
 
         # re-extract so the 320x180 scale the preset set is actually applied; the frame
         # count does not change, so wait on the busy bar rather than on the count
+        idle(page)
         page.click("#btn-extract")
-        page.wait_for_selector("#busy", state="visible")
-        page.wait_for_selector("#busy", state="hidden", timeout=60000)
+        idle(page)
         assert page.inner_text("#frame-ms").endswith("320×180"), page.inner_text("#frame-ms")
+        idle(page)
         page.click("#btn-sheet")
         page.wait_for_function("document.getElementById('sheet-meta').textContent.includes('640×720')", timeout=60000)
         checks = page.inner_text("#romm-checks")
@@ -210,6 +240,7 @@ def main():
 
         page.fill("#padding", "4")
         page.fill("#margin", "8")
+        idle(page)
         page.click("#btn-sheet")
         page.wait_for_function("document.getElementById('romm-checks').textContent.includes('padding')", timeout=60000)
         bad = page.inner_text("#romm-checks")
@@ -220,11 +251,13 @@ def main():
         # --- RomM gif kind: no sheet involved, billed at full screen per frame
         page.select_option("#romm-kind", "gif")
         assert page.is_hidden("#romm-cell-row"), "frame-size row should vanish for a gif"
+        idle(page)
         page.click("#btn-romm-preset")
         assert page.input_value("#export-format") == "gif"
         assert page.input_value("#romm-file") == "background.gif"
         budget_gif = page.inner_text("#romm-budget")
         assert "1280×720 per frame" in budget_gif, budget_gif
+        idle(page)
         page.click("#btn-atlas")
         page.wait_for_function("document.getElementById('romm-checks').textContent.includes('SDL2_image')", timeout=30000)
         print(f"PASS RomM gif kind: {budget_gif} | {page.inner_text('#romm-checks').splitlines()[0]}")

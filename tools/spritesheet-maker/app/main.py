@@ -256,7 +256,7 @@ def build_romm_gif(job: Job, opts: AtlasOptions) -> dict:
     frames = len(job.frames)
     checks = romm_mod.check(settings, frames, 0, 0)
     checks += romm_mod.brightness_checks([f.image for f in job.frames], settings.dim)
-    path = job.dir / "atlas-romm.json"
+    path = job.dir / atlas_mod.sidecar_name("romm")
     path.write_text(romm_mod.theme_json(settings, frames), encoding="utf-8")
     verified = not any(c["level"] == "error" for c in checks)
     return {"format": "romm", "file": path.name, "checks": checks, "verified": verified}

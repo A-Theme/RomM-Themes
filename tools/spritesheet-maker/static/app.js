@@ -23,6 +23,9 @@ function showError(msg) {
 let pollTimer = null;
 function busy(on, msg = "Working…") {
   $("busy").hidden = !on;
+  // While a rebuild is in flight, a second click would race it and show the
+  // losing answer, so the controls go inert until it lands.
+  document.body.classList.toggle("working", on);
   $("busy-msg").textContent = msg;
   if (!on) {
     setBar(0);
@@ -68,6 +71,25 @@ const postJSON = (url, body) =>
 
 // A collapsed panel is only acceptable if its header still reports state, so
 // each summary carries a chip and every action that changes state updates it.
+// The strip at the top is the answer to "what do I do" - it moves as the work
+// does, so the page always has exactly one obvious next thing.
+function flowStep(n) {
+  for (let i = 1; i <= 3; i++) {
+    const li = $(`flow-${i}`);
+    if (!li) continue;
+    li.classList.toggle("on", i === n);
+    li.classList.toggle("done", i < n);
+  }
+}
+
+// Everything past the source is meaningless until a file is loaded, so it says
+// so instead of offering controls that quietly do nothing.
+function setReady(ready) {
+  document.querySelectorAll(".needs-file").forEach((el) => {
+    el.classList.toggle("disabled-block", !ready);
+  });
+}
+
 function chip(id, text, done) {
   const el = $(id);
   if (!el) return;
@@ -146,14 +168,37 @@ async function uploadFile(file) {
     $("btn-sheet").disabled = true;
     chip("src-chip", `${res.name} · ${bytes(res.size_bytes)}`, true);
     chip("frames-tag", "no frames");
+    setReady(true);
+    flowStep(2);
+    resetPerFileControls(i);
     onSourceLoaded(i);
     if (i.kind === "video" && !state.ffmpeg) {
       showError("ffmpeg is missing — video input cannot be decoded.");
+      return;
     }
   } catch (e) {
     showError(e.message);
+    return;
   } finally {
     busy(false);
+  }
+  // Build the thing they came for straight away: a first result beats an empty
+  // page and six panels of settings whose effect you cannot see yet.
+  await doExtract();
+  if (state.frameCount) await doSheet();
+}
+
+// Trim is expressed in this file's seconds or frame numbers, so carrying it to
+// the next file is how a fresh drop ends up reporting "zero frames selected".
+function resetPerFileControls(info) {
+  $("trim-mode").value = "none";
+  $("trim-mode").dispatchEvent(new Event("change"));
+  $("trim-start").value = "";
+  $("trim-end").value = "";
+  if (!info.animated) {
+    // one still image: a frame cap and a source FPS have nothing to act on
+    $("max-frames").value = "";
+    $("fps").value = "";
   }
 }
 
@@ -218,6 +263,23 @@ export function setSheetHook(fn) { onSheetBuilt = fn; }
 
 function renderSheet(res) {
   const L = res.layout;
+  $("sheet-empty").hidden = true;
+  $("sheet-result").hidden = false;
+  $("dl-sheet").href = `${res.urls.png}?t=${Date.now()}`;
+  $("dl-sheet").textContent = `\u2193 ${res.files.png}`;
+  const themeUrl = res.urls.atlas;
+  const isRomm = $("atlas-format").value === "romm";
+  $("dl-theme").hidden = !themeUrl;
+  if (themeUrl) {
+    $("dl-theme").href = `${themeUrl}?t=${Date.now()}`;
+    $("dl-theme").textContent = `\u2193 ${res.files.atlas}`;
+  }
+  $("take-these-hint").innerHTML = isRomm
+    ? "Put <code>sheet.png</code> in your theme folder and copy the " +
+      "<code>background.animation</code> block out of <code>theme.json</code>."
+    : "The sidecar describes this sheet's frame rects for your engine.";
+  chip("sheet-chip", `${L.width}\u00d7${L.height}`, true);
+  flowStep(3);
   $("sheet-meta").innerHTML =
     `<b>${L.width}×${L.height}</b> px · grid <b>${L.cols}×${L.rows}</b> · cell ` +
     `<b>${L.cell_w}×${L.cell_h}</b> · padding ${L.padding} · margin ${L.margin} · ` +
@@ -225,6 +287,7 @@ function renderSheet(res) {
   const files = $("sheet-files");
   files.innerHTML = "";
   for (const [kind, url] of Object.entries(res.urls)) {
+    if (kind === "png" || kind === "atlas") continue;   // shown as buttons above
     const a = document.createElement("a");
     a.href = url;
     a.download = "";
@@ -265,6 +328,8 @@ async function loadPreviewFrames() {
   stopPlayback();
   player.images = [];
   player.meta = state.frames.slice();
+  $("preview-empty").hidden = !!state.frameCount;
+  $("preview-stage-row").hidden = !state.frameCount;
   if (!state.jobId || !state.frameCount) {
     $("btn-play").disabled = true;
     $("frame-total").textContent = "0";
@@ -285,6 +350,7 @@ async function loadPreviewFrames() {
   $("scrubber").max = Math.max(state.frameCount - 1, 0);
   $("scrubber").value = 0;
   $("frame-total").textContent = String(state.frameCount);
+  chip("preview-chip", `${state.frameCount} frames`, true);
   $("btn-play").disabled = state.frameCount < 1;
   // Adopt the source timing as the default preview rate.
   const ms = player.meta[0] ? player.meta[0].duration_ms : 100;
@@ -743,12 +809,22 @@ async function loadRommLimits() {
   } catch { /* the panel still works, it just cannot show the budget */ }
 }
 
+async function rommCellChanged() {
+  updateRommBudget();
+  if ($("romm-cell").value === "keep" || !state.jobId) return;
+  // The control says "resize to", so it resizes - declaring a frame size the
+  // sheet does not have would just produce a blocking check on good art.
+  applyRommPreset();
+  await doExtract();
+  if (state.frameCount) await doSheet();
+}
+
 function wireRomm() {
   $("btn-romm-preset").addEventListener("click", applyRommPreset);
   ["romm-cell", "romm-fps"].forEach((id) =>
     $(id).addEventListener("input", updateRommBudget));
-  ["romm-cell", "romm-kind"].forEach((id) =>
-    $(id).addEventListener("change", updateRommBudget));
+  $("romm-kind").addEventListener("change", updateRommBudget);
+  $("romm-cell").addEventListener("change", rommCellChanged);
   loadRommLimits();
 }
 
@@ -883,6 +959,8 @@ async function checkHealth() {
 
 export { state, api, postJSON, busy, setBar, pollProgress, showError, adoptFrames, $ };
 
+setReady(false);
+flowStep(1);
 wireControls();
 wirePreview();
 wireSlice();

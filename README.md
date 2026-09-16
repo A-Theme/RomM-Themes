@@ -117,10 +117,11 @@ all it still does GIF, APNG, animated WebP, stills, every sheet and slice
 operation, and GIF/APNG/ZIP export; the page says what is missing, links the
 download, and picks it up when you click **Check again**, no restart.
 
-Drop in a GIF, an MP4/WebM, an animated WebP or APNG, or a single still image,
-and it packs the frames into a sheet and writes the matching
-`background.animation` block for your `theme.json`. It runs entirely on your own
-machine — nothing is uploaded anywhere.
+Drop in a GIF, an MP4/WebM, an animated WebP or APNG, or a single still image.
+The sheet, a playable preview and the matching `theme.json` are built as soon as
+the file lands — the settings are there to adjust a result you can already see,
+not a form to fill in first. It runs entirely on your own machine; nothing is
+uploaded anywhere.
 
 What makes it worth using rather than a generic packer:
 

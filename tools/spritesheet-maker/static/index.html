@@ -17,21 +17,28 @@
 <div id="ffmpeg-banner" class="banner warn" hidden></div>
 <div id="error-banner" class="banner error" hidden></div>
 
+<ol id="flow">
+  <li id="flow-1" class="on"><b>1</b> Drop a GIF, a video, or one image</li>
+  <li id="flow-2"><b>2</b> The sheet builds itself &mdash; adjust below if you want</li>
+  <li id="flow-3"><b>3</b> Download the sheet and its <code>theme.json</code></li>
+</ol>
+
 <main>
   <div class="col-left">
 
     <section class="panel">
-      <h2>1 &middot; Source<span class="chip" id="src-chip"></span></h2>
+      <h2>1 &middot; Your art<span class="chip" id="src-chip"></span></h2>
       <div id="drop">
-        <strong>Drop a file</strong> or click to choose<br>
-        <span class="hint">gif, apng, animated webp, png, jpg, mp4, webm, mov, avi &mdash; up to 250MB</span>
+        <strong>Drop a file here</strong> or click to choose<br>
+        <span class="hint">gif, apng, animated webp, png, jpg, mp4, webm, mov, avi &mdash; up to 250MB<br>
+        the sheet, the preview and the <code>theme.json</code> are built as soon as it lands</span>
       </div>
       <input type="file" id="file-input" hidden>
       <div id="source-info" class="meta" style="margin-top:10px"></div>
     </section>
 
-    <section class="panel">
-      <h2>2 &middot; Frames<span class="chip" id="frames-tag"></span></h2>
+    <section class="panel needs-file">
+      <h2>2 &middot; Frames &mdash; timing and size<span class="chip" id="frames-tag"></span></h2>
       <div class="row">
         <label for="fps">Target FPS</label>
         <input type="number" id="fps" min="0" max="120" step="0.5" placeholder="source">
@@ -67,11 +74,12 @@
         <input type="checkbox" id="nearest">
         <span class="hint" style="margin:0">nearest-neighbour resampling</span>
       </div>
-      <button id="btn-extract" disabled>Extract frames</button>
+      <button id="btn-extract" disabled>Apply &amp; rebuild</button>
+      <span class="hint" style="margin:0 0 0 8px">re-reads the file with these settings</span>
     </section>
 
-    <section class="panel" id="generate-panel">
-      <h2>2b &middot; Still &rarr; frames<span class="chip" id="gen-chip"></span></h2>
+    <section class="panel needs-file" id="generate-panel">
+      <h2>Animate a single image<span class="chip" id="gen-chip"></span></h2>
       <div class="hint" id="generate-hint">Upload a single still image to turn it into frames.</div>
       <div class="row">
         <label for="gen-transform">Transform</label>
@@ -142,8 +150,8 @@
       <button id="btn-generate" disabled>Generate frames</button>
     </section>
 
-    <section class="panel">
-      <h2>3 &middot; Layout<span class="chip" id="layout-chip"></span></h2>
+    <section class="panel needs-file">
+      <h2>3 &middot; How the sheet is laid out<span class="chip" id="layout-chip"></span></h2>
       <div class="row">
         <label for="auto-square">Columns</label>
         <input type="checkbox" id="auto-square" checked>
@@ -171,11 +179,11 @@
         <label for="want-webp">Also WebP</label>
         <input type="checkbox" id="want-webp">
       </div>
-      <button id="btn-sheet" disabled>Build sheet</button>
+      <button id="btn-sheet" disabled>Rebuild sheet</button>
     </section>
 
-    <section class="panel" id="romm-panel">
-      <h2>3b &middot; RomM theme<span class="chip" id="romm-chip"></span></h2>
+    <section class="panel needs-file" id="romm-panel">
+      <h2>Will the console accept it?<span class="chip" id="romm-chip"></span></h2>
       <div class="hint">
         The RomM Switch client slices a sheet as a tight grid from the top-left
         &mdash; <code>cols = sheet_w / frame_width</code>, no padding, no margin &mdash;
@@ -191,11 +199,11 @@
       <div class="row" id="romm-cell-row">
         <label for="romm-cell">Frame size</label>
         <select id="romm-cell">
-          <option value="320x180">320&times;180</option>
-          <option value="426x240">426&times;240</option>
-          <option value="640x360">640&times;360</option>
-          <option value="1280x720">1280&times;720</option>
-          <option value="keep">keep current frame size</option>
+          <option value="keep">your frames, as they are</option>
+          <option value="320x180">resize to 320&times;180 (most frames fit the budget)</option>
+          <option value="426x240">resize to 426&times;240</option>
+          <option value="640x360">resize to 640&times;360</option>
+          <option value="1280x720">resize to 1280&times;720 (13 frames max)</option>
         </select>
         <span class="tag" id="romm-cap">&mdash;</span>
       </div>
@@ -226,17 +234,17 @@
       <div id="romm-checks" style="margin-top:8px"></div>
     </section>
 
-    <section class="panel">
-      <h2>4 &middot; Metadata<span class="chip" id="atlas-chip"></span></h2>
+    <section class="panel needs-file">
+      <h2>Metadata for other engines<span class="chip" id="atlas-chip"></span></h2>
       <div class="row">
         <label for="atlas-format">Format</label>
         <select id="atlas-format">
+          <option value="romm">RomM theme.json (animated background)</option>
           <option value="plain">plain JSON</option>
           <option value="phaser-hash">Phaser 3 JSON Hash</option>
           <option value="phaser-array">Phaser 3 JSON Array</option>
           <option value="godot">Godot .tres SpriteFrames</option>
           <option value="texturepacker">TexturePacker JSON</option>
-          <option value="romm">RomM theme.json (animated background)</option>
         </select>
       </div>
       <div class="row">
@@ -252,7 +260,7 @@
       <div class="files" id="atlas-files"></div>
     </section>
     <section class="panel">
-      <h2>Open an existing sheet<span class="chip" id="slice-chip"></span></h2>
+      <h2>Already have a sheet?<span class="chip" id="slice-chip"></span></h2>
       <div id="slice-drop" class="hint" style="border:2px dashed var(--line);border-radius:8px;padding:16px;text-align:center;cursor:pointer">
         Drop an existing sprite sheet here (or click) to slice and preview it
       </div>
@@ -292,8 +300,8 @@
       <button id="btn-slice" class="secondary">Slice &amp; load into preview</button>
       <div id="slice-info" class="meta" style="margin-top:8px"></div>
     </section>
-    <section class="panel">
-      <h2>Export frames<span class="chip" id="export-chip"></span></h2>
+    <section class="panel needs-file">
+      <h2>Save the frames as an animation<span class="chip" id="export-chip"></span></h2>
       <div class="row">
         <label for="export-format">Format</label>
         <select id="export-format">
@@ -324,16 +332,32 @@
 
   <div class="col-right">
     <section class="panel">
-      <h2>Sheet</h2>
-      <div id="sheet-meta" class="meta">No sheet yet.</div>
-      <div class="files" id="sheet-files"></div>
-      <div id="sheet-wrap" hidden><img id="sheet-img" alt="sprite sheet"></div>
-      <div class="scroll-160" id="rect-table"></div>
+      <h2>Sheet<span class="chip" id="sheet-chip"></span></h2>
+      <div id="sheet-empty" class="empty">
+        Drop a file on the left and the sheet appears here.
+      </div>
+      <div id="sheet-result" hidden>
+        <div id="take-these">
+          <a id="dl-sheet" class="primary-dl" href="#" download>&#8595; sheet.png</a>
+          <a id="dl-theme" class="primary-dl" href="#" download>&#8595; theme.json</a>
+          <p class="hint" id="take-these-hint">
+            Put <code>sheet.png</code> in your theme folder and copy the
+            <code>background.animation</code> block out of <code>theme.json</code>.
+          </p>
+        </div>
+        <div id="sheet-meta" class="meta"></div>
+        <div class="files" id="sheet-files"></div>
+        <div id="sheet-wrap" hidden><img id="sheet-img" alt="sprite sheet"></div>
+        <div class="scroll-160" id="rect-table"></div>
+      </div>
     </section>
 
     <section class="panel">
-      <h2>Preview</h2>
-      <div id="preview-stage-row">
+      <h2>Preview<span class="chip" id="preview-chip"></span></h2>
+      <div id="preview-empty" class="empty">
+        The frames play here once a file is loaded.
+      </div>
+      <div id="preview-stage-row" hidden>
         <canvas id="stage" width="256" height="256"></canvas>
       </div>
       <div class="row">
