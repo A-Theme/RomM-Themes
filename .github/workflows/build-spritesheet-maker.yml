@@ -12,6 +12,8 @@ name: build sprite sheet maker
 
 on:
   push:
+    tags:
+      - "spritesheet-maker-v*"
     branches: [ main ]
     paths:
       - "tools/spritesheet-maker/**"
@@ -103,10 +105,51 @@ jobs:
           path: tools/spritesheet-maker/${{ matrix.binary }}
           if-no-files-found: error
 
-      # On a release, attach the binaries to it so there is a plain download
-      # link rather than an Actions run to dig through.
-      - name: Attach to the release
-        if: github.event_name == 'release'
-        uses: softprops/action-gh-release@v2
+  # Cutting a release is pushing a tag: the binaries the matrix just built and
+  # smoke-tested are attached to it, so a download is a link rather than an
+  # Actions run to dig through. Notes come from the tool's own CHANGELOG.md,
+  # the same way Theme-App does it.
+  release:
+    name: release
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
         with:
-          files: tools/spritesheet-maker/${{ matrix.binary }}
+          path: artifacts
+
+      - name: Name the binaries after their platform
+        run: |
+          mkdir -p release
+          cp ../../artifacts/spritesheet-maker-windows/spritesheet-maker.exe release/spritesheet-maker-windows.exe
+          cp ../../artifacts/spritesheet-maker-macos/spritesheet-maker       release/spritesheet-maker-macos
+          cp ../../artifacts/spritesheet-maker-linux/spritesheet-maker       release/spritesheet-maker-linux
+          chmod +x release/spritesheet-maker-macos release/spritesheet-maker-linux
+          ls -la release
+
+      # awk rather than a heredoc'd script: a YAML block indents every line it
+      # carries, which Python would reject on its first statement.
+      - name: Take the notes from CHANGELOG.md
+        run: |
+          version="${GITHUB_REF_NAME#spritesheet-maker-v}"
+          awk -v want="$version" '
+            /^## /  { if (found) exit; if ($2 == want) { found = 1; next } }
+            found   { print }
+          ' CHANGELOG.md > release-notes.md
+          if [ ! -s release-notes.md ]; then
+            echo "CHANGELOG.md has no section for $version"
+            exit 1
+          fi
+          cat release-notes.md
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          name: Sprite Sheet Maker ${{ github.ref_name }}
+          body_path: tools/spritesheet-maker/release-notes.md
+          files: tools/spritesheet-maker/release/*
+          fail_on_unmatched_files: true

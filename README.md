@@ -102,11 +102,11 @@ pip install -r requirements.txt
 python3 launcher.py                    # opens http://127.0.0.1:8753 in your browser
 ```
 
-Or skip Python entirely: every push builds a single-file executable for Windows,
-macOS and Linux — grab one from the
-[build workflow](../../actions/workflows/build-spritesheet-maker.yml) (newest
-green run → **Artifacts**), or from the assets on a
-[release](../../releases). Double-click it and the page opens; the black console
+Or skip Python entirely: grab a single-file build for Windows, macOS or Linux
+from the [latest release](../../releases/latest) — every push also builds one,
+if you want a version newer than the last release
+([build workflow](../../actions/workflows/build-spritesheet-maker.yml) → newest
+green run → **Artifacts**). Double-click it and the page opens; the black console
 window it leaves behind is how you close it again. Video input and WebM export
 want [ffmpeg](https://ffmpeg.org/download.html) as well — on PATH, or the
 `ffmpeg.exe` dropped in the same folder as the tool. Everything else works
