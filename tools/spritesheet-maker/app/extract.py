@@ -2,8 +2,10 @@
 from __future__ import annotations
 
 import json
+import os
 import shutil
 import subprocess
+import sys
 import tempfile
 from dataclasses import dataclass
 from pathlib import Path
@@ -132,12 +134,30 @@ def _is_animated(im: Image.Image) -> bool:
 # video decoding
 # --------------------------------------------------------------------------
 
+def _tool(name: str) -> str | None:
+    """Find an ffmpeg tool: on PATH, or sitting next to a packaged build.
+
+    A one-file build has no PATH of its own, and the usual way people install
+    ffmpeg on Windows is to drop the exe in a folder — often the same folder.
+    """
+    found = shutil.which(name)
+    if found:
+        return found
+    roots = {Path(sys.executable).resolve().parent,
+             Path(__file__).resolve().parent.parent}
+    for base in roots:
+        for candidate in (base / f"{name}.exe", base / name):
+            if candidate.is_file() and os.access(candidate, os.X_OK):
+                return str(candidate)
+    return None
+
+
 def ffmpeg_exe() -> str | None:
-    return shutil.which("ffmpeg")
+    return _tool("ffmpeg")
 
 
 def ffprobe_exe() -> str | None:
-    return shutil.which("ffprobe")
+    return _tool("ffprobe")
 
 
 def probe_video(path: Path) -> dict:

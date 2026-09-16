@@ -1,0 +1,112 @@
+name: build sprite sheet maker
+
+# Packages tools/spritesheet-maker into a single executable, so contributors who
+# want to build an animated background do not have to install Python first.
+#
+# Windows is the one that matters -- it is what people asking for "an exe" are
+# on -- but the same spec builds a native binary on macOS and Linux, and those
+# cost a few minutes each, so all three run.
+#
+# PyInstaller cannot cross-compile: each binary has to be built on its own OS,
+# which is exactly what a matrix of runners is for.
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - "tools/spritesheet-maker/**"
+      - ".github/workflows/build-spritesheet-maker.yml"
+  pull_request:
+    paths:
+      - "tools/spritesheet-maker/**"
+      - ".github/workflows/build-spritesheet-maker.yml"
+  workflow_dispatch:
+  release:
+    types: [ published ]
+
+defaults:
+  run:
+    working-directory: tools/spritesheet-maker
+
+jobs:
+  build:
+    name: ${{ matrix.label }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            label: windows
+            binary: dist/spritesheet-maker.exe
+            artifact: spritesheet-maker-windows
+          - os: ubuntu-latest
+            label: linux
+            binary: dist/spritesheet-maker
+            artifact: spritesheet-maker-linux
+          - os: macos-latest
+            label: macos
+            binary: dist/spritesheet-maker
+            artifact: spritesheet-maker-macos
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt pyinstaller
+
+      # The checks that do not need a server or a browser. A binary that packs
+      # sheets wrongly is worse than no binary, so they run before it is built.
+      - name: Run the offline checks
+        run: |
+          python tests/check_extract.py
+          python tests/check_pack.py
+          python tests/check_slice.py
+          python tests/check_generate.py
+          python tests/check_atlas.py
+          python tests/check_romm.py
+          python tests/check_catalog.py
+
+      - name: Build
+        run: pyinstaller --clean --noconfirm spritesheet-maker.spec
+
+      # Starting it is the only check that catches a missing hidden import:
+      # PyInstaller resolves uvicorn's protocol modules by name, so a bad spec
+      # builds fine and then dies on the first request.
+      - name: Start it and ask it for /health
+        shell: bash
+        run: |
+          ./${{ matrix.binary }} --no-browser --port 8791 &
+          pid=$!
+          for i in $(seq 1 40); do
+            if curl -fsS http://127.0.0.1:8791/health > health.json 2>/dev/null; then
+              break
+            fi
+            sleep 1
+          done
+          cat health.json
+          python -c "import json; d = json.load(open('health.json')); assert d['status'] == 'ok', d"
+          curl -fsS -o /dev/null http://127.0.0.1:8791/
+          curl -fsS -o /dev/null http://127.0.0.1:8791/static/app.js
+          kill $pid || true
+          echo "the packaged build serves the page and its assets"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact }}
+          path: tools/spritesheet-maker/${{ matrix.binary }}
+          if-no-files-found: error
+
+      # On a release, attach the binaries to it so there is a plain download
+      # link rather than an Actions run to dig through.
+      - name: Attach to the release
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: tools/spritesheet-maker/${{ matrix.binary }}

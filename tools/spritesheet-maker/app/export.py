@@ -1,7 +1,6 @@
 """Frame list -> animated gif / webm / apng / zip of PNGs."""
 from __future__ import annotations
 
-import shutil
 import subprocess
 import tempfile
 import zipfile
@@ -10,7 +9,7 @@ from pathlib import Path
 
 from PIL import Image
 
-from .extract import Frame
+from .extract import Frame, ffmpeg_exe
 
 FORMATS = ("gif", "webm", "apng", "zip")
 
@@ -152,7 +151,7 @@ def export_zip(frames: list[Frame], out: Path, opts: ExportOptions) -> Path:
 
 def export_webm(frames: list[Frame], out: Path, opts: ExportOptions) -> Path:
     _check(frames)
-    exe = shutil.which("ffmpeg")
+    exe = ffmpeg_exe()
     if not exe:
         raise ExportError(
             "ffmpeg is not installed, so WebM export is unavailable. "

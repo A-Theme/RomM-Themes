@@ -3,8 +3,11 @@ from __future__ import annotations
 
 import io
 import json
+import os
 import shutil
 import subprocess
+import sys
+import tempfile
 import time
 import uuid
 from contextlib import asynccontextmanager
@@ -31,9 +34,34 @@ from .pack import PackError, PackOptions
 from .romm import RommError, RommOptions
 from .slice import SliceOptions
 
+FROZEN = getattr(sys, "frozen", False)
 BASE_DIR = Path(__file__).resolve().parent.parent
-STATIC_DIR = BASE_DIR / "static"
-TMP_DIR = BASE_DIR / "tmp"
+
+
+def _static_dir() -> Path:
+    """Where the page lives: unpacked beside the exe's bundle when frozen."""
+    if FROZEN:
+        return Path(getattr(sys, "_MEIPASS", Path(sys.executable).parent)) / "static"
+    return BASE_DIR / "static"
+
+
+def _tmp_dir() -> Path:
+    """Scratch space for uploads and job output.
+
+    A packaged build can sit somewhere unwritable (Program Files), so it works
+    out of the system temp dir instead of next to the executable. SSM_TMP wins
+    over both, for anyone who wants the jobs somewhere specific.
+    """
+    override = os.environ.get("SSM_TMP")
+    if override:
+        return Path(override).expanduser()
+    if FROZEN:
+        return Path(tempfile.gettempdir()) / "spritesheet-maker"
+    return BASE_DIR / "tmp"
+
+
+STATIC_DIR = _static_dir()
+TMP_DIR = _tmp_dir()
 JOB_MAX_AGE_SECONDS = 3600
 MAX_UPLOAD_BYTES = 250 * 1024 * 1024
 UPLOAD_CHUNK = 1024 * 1024
@@ -60,7 +88,8 @@ JOBS: dict[str, Job] = {}
 
 
 def ffmpeg_path() -> str | None:
-    return shutil.which("ffmpeg")
+    """ffmpeg on PATH, or shipped next to the executable (extract.py decides)."""
+    return extract_mod.ffmpeg_exe()
 
 
 def ffmpeg_version() -> str | None:

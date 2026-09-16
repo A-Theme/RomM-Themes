@@ -64,7 +64,19 @@ python3 tests/check_roundtrip.py
 python3 tests/check_ui.py
 ```
 
-`SSM_BASE` overrides the base URL (default `http://127.0.0.1:8731`).
+`SSM_BASE` overrides the base URL (default `http://127.0.0.1:8731`), which is
+also how both are pointed at a packaged build rather than the source tree:
+
+```bash
+pyinstaller --clean --noconfirm spritesheet-maker.spec
+./dist/spritesheet-maker --no-browser --port 8801 &
+SSM_BASE=http://127.0.0.1:8801 python3 tests/check_roundtrip.py
+SSM_BASE=http://127.0.0.1:8801 python3 tests/check_ui.py
+```
+
+A frozen build finds its files differently from a source checkout — the page is
+unpacked into the bundle, jobs go to the system temp dir — so running these two
+against the binary is what proves the packaging, not just the code.
 
 - `check_roundtrip.py` — a `.gif`, an `.mp4` and a `.png` each go upload → sheet
   → slice → preview → export over HTTP, with the pixel-identity assertion
