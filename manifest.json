@@ -1,7 +1,7 @@
 {
   "format": 1,
   "repo": "A-Theme/RomM-Themes",
-  "count": 135,
+  "count": 136,
   "themes": [
     {
       "id": "abyssal-lantern",
@@ -1009,6 +1009,22 @@
       "has_music": false,
       "animated": false,
       "bytes": 1363351,
+      "screenshot": null
+    },
+    {
+      "id": "inkbloom",
+      "folder": "Inkbloom",
+      "name": "Inkbloom",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Inkbloom",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1796302,
       "screenshot": null
     },
     {
