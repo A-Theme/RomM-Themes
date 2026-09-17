@@ -61,7 +61,9 @@ ANIMATION_KINDS = {"none", "sheet", "gif"}
 # Everything structural below (types, ranges, colour references) is still fatal,
 # because those are wrong against any version of the spec.
 EFFECT_SLOTS = {"focus"}
-EFFECT_KINDS = {"none", "embers"}
+# Every kind theme_spec.cpp parses. This list was short because only
+# embers had shipped; the client draws all six.
+EFFECT_KINDS = {"none", "smoke", "embers", "glow", "shimmer", "pulse", "fade"}
 
 HEX_RE = re.compile(r"^#?(?:[0-9a-fA-F]{3,4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$")
 

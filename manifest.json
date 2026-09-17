@@ -1,7 +1,7 @@
 {
   "format": 1,
   "repo": "A-Theme/RomM-Themes",
-  "count": 134,
+  "count": 135,
   "themes": [
     {
       "id": "abyssal-lantern",
@@ -97,6 +97,22 @@
       "has_music": false,
       "animated": false,
       "bytes": 1234963,
+      "screenshot": null
+    },
+    {
+      "id": "aramaki",
+      "folder": "Aramaki",
+      "name": "Aramaki",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Aramaki",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": true,
+      "bytes": 5649072,
       "screenshot": null
     },
     {
