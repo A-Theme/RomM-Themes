@@ -1,0 +1,273 @@
+:root {
+  --bg: #14161a;
+  --panel: #1d2026;
+  --panel-2: #262a32;
+  --line: #333844;
+  --text: #e7e9ee;
+  --muted: #9aa3b2;
+  --accent: #58a6ff;
+  --accent-2: #3fb950;
+  --danger: #f85149;
+  --warn: #d29922;
+}
+
+* { box-sizing: border-box; }
+
+/* display:flex on .row would otherwise beat the hidden attribute */
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 14px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+header {
+  padding: 16px 22px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+header h1 { font-size: 18px; margin: 0; letter-spacing: .2px; }
+header .sub { color: var(--muted); font-size: 12px; }
+
+main {
+  display: grid;
+  /* two columns of controls on the left, the rest to the sheet and the player */
+  grid-template-columns: minmax(0, 1fr) minmax(460px, 0.95fr);
+  gap: 14px;
+  padding: 14px 22px 56px;
+  align-items: start;
+}
+/* Columns rather than a grid: grid rows align to the tallest panel and leave
+   holes under the short ones, while columns flow the panels and balance the
+   heights themselves. Reading order stays 1, 2, 3 down a column. */
+.col-left {
+  column-count: 2;
+  column-gap: 12px;
+}
+.col-left > .panel {
+  break-inside: avoid;
+  page-break-inside: avoid;
+  margin: 0 0 12px;
+}
+/* the sheet and the player stay put while the controls are worked through */
+.col-right { position: sticky; top: 14px; }
+@media (max-width: 1280px) {
+  main { grid-template-columns: 1fr; }
+  .col-right { position: static; }
+}
+@media (max-width: 720px) {
+  .col-left { column-count: 1; }
+}
+@media (max-width: 960px) { main { grid-template-columns: 1fr; } }
+
+section.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+}
+section.panel > h2 {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  color: var(--muted);
+  margin: 0 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chip {
+  margin-left: auto;
+  font-size: 11px;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--muted);
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1px 8px;
+  max-width: 55%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.chip:empty { display: none; }
+.chip.done { color: var(--accent-2); border-color: #2a4b34; }
+
+.row { display: flex; gap: 8px; align-items: center; margin-bottom: 7px; flex-wrap: wrap; }
+.row > label { flex: 0 0 104px; color: var(--muted); font-size: 12px; }
+.row.stack { align-items: flex-start; }
+.hint { color: var(--muted); font-size: 11px; margin: 2px 0 10px; }
+
+input[type=number], input[type=text], select {
+  min-width: 0;
+  background: var(--panel-2);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 5px 7px;
+  font: inherit;
+}
+select, input[type=text] { flex: 1 1 120px; }
+input[type=number] { width: 74px; }
+input[type=color] {
+  background: var(--panel-2); border: 1px solid var(--line);
+  border-radius: 5px; width: 40px; height: 28px; padding: 2px;
+}
+input[type=range] { flex: 1; min-width: 120px; accent-color: var(--accent); }
+input[type=checkbox] { accent-color: var(--accent); width: 15px; height: 15px; }
+
+button {
+  background: var(--accent);
+  color: #06121f;
+  border: 0;
+  border-radius: 5px;
+  padding: 7px 13px;
+  font: 600 13px/1 inherit;
+  cursor: pointer;
+}
+button.secondary { background: var(--panel-2); color: var(--text); border: 1px solid var(--line); }
+button:disabled { opacity: .45; cursor: not-allowed; }
+
+#drop {
+  border: 2px dashed var(--line);
+  border-radius: 8px;
+  padding: 22px;
+  text-align: center;
+  color: var(--muted);
+  cursor: pointer;
+  transition: border-color .12s, background .12s;
+}
+#drop.over { border-color: var(--accent); background: #1b2330; color: var(--text); }
+#drop strong { color: var(--text); }
+
+.banner {
+  margin: 0 22px 0;
+  padding: 9px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+.banner.warn { background: #3a2f10; border: 1px solid var(--warn); color: #f2d68a; }
+.banner.error { background: #3d1a1a; border: 1px solid var(--danger); color: #ffb4ae; }
+.banner.ok { background: #16301d; border: 1px solid var(--accent-2); color: #9ae6ae; }
+
+#busy {
+  position: fixed; left: 0; right: 0; bottom: 0;
+  background: var(--panel-2);
+  border-top: 1px solid var(--line);
+  padding: 8px 16px;
+  display: flex; align-items: center; gap: 12px;
+  font-size: 12px;
+}
+#busy[hidden] { display: none; }
+#bar { flex: 1; height: 6px; background: #111419; border-radius: 3px; overflow: hidden; }
+#bar > div { height: 100%; width: 0; background: var(--accent); transition: width .15s; }
+
+.files a {
+  display: inline-block; margin: 4px 8px 4px 0; color: var(--accent);
+  background: var(--panel-2); border: 1px solid var(--line);
+  border-radius: 5px; padding: 5px 10px; text-decoration: none; font-size: 12px;
+}
+.files a:hover { border-color: var(--accent); }
+
+#preview-stage-row { display: block; margin-bottom: 9px; }
+#sheet-wrap {
+  background: #0e1014 repeating-conic-gradient(#191c22 0 25%, transparent 0 50%) 0 0 / 18px 18px;
+  border: 1px solid var(--line); border-radius: 6px; padding: 8px;
+  max-height: 520px; overflow: auto; text-align: center;
+}
+#sheet-img { max-width: 100%; image-rendering: pixelated; }
+
+canvas#stage {
+  background: #0e1014 repeating-conic-gradient(#191c22 0 25%, transparent 0 50%) 0 0 / 18px 18px;
+  border: 1px solid var(--line); border-radius: 6px;
+  /* the canvas keeps its pixel size for accuracy and is scaled up to fill the
+     panel, so a 320x180 frame is inspectable rather than a thumbnail */
+  width: 100%; height: auto;
+}
+canvas#stage.smooth { image-rendering: auto; }
+canvas#stage { image-rendering: pixelated; }
+
+.meta { color: var(--muted); font-size: 12px; }
+.meta b { color: var(--text); font-weight: 600; }
+table.rects { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 8px; }
+table.rects th, table.rects td { text-align: left; padding: 3px 6px; border-bottom: 1px solid var(--line); }
+table.rects th { color: var(--muted); font-weight: 600; }
+.scroll-160 { max-height: 160px; overflow: auto; }
+.tag { font-size: 11px; color: var(--muted); border: 1px solid var(--line); border-radius: 10px; padding: 1px 8px; }
+.disabled-block { opacity: .45; pointer-events: none; }
+
+/* The three-step strip: the page's answer to "where do I start". */
+#flow {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  margin: 12px 22px 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+#flow li {
+  flex: 1 1 260px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--line);
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: var(--muted);
+  font-size: 13px;
+}
+#flow li b {
+  display: inline-block;
+  width: 18px; height: 18px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: var(--panel-2);
+  color: var(--muted);
+  text-align: center;
+  font-size: 11px;
+  line-height: 18px;
+}
+#flow li.on { border-left-color: var(--accent); color: var(--text); }
+#flow li.on b { background: var(--accent); color: #06121f; }
+#flow li.done { border-left-color: var(--accent-2); }
+#flow li.done b { background: var(--accent-2); color: #06121f; }
+
+/* Panels that cannot do anything yet say so by looking inert. */
+.panel.disabled-block { opacity: .5; pointer-events: none; }
+
+.empty {
+  color: var(--muted);
+  font-size: 13px;
+  border: 1px dashed var(--line);
+  border-radius: 6px;
+  padding: 18px;
+  text-align: center;
+}
+
+/* The two files people came for, not buried in a list of links. */
+#take-these { margin-bottom: 10px; }
+.primary-dl {
+  display: inline-block;
+  background: var(--accent);
+  color: #06121f;
+  border-radius: 5px;
+  padding: 8px 14px;
+  margin: 0 8px 6px 0;
+  font: 600 13px/1 inherit;
+  text-decoration: none;
+}
+.primary-dl:hover { filter: brightness(1.08); }
+.primary-dl[hidden] { display: none; }
+#take-these .hint { margin: 2px 0 0; }
+
+/* One job at a time: clicking again mid-build races the result that is coming. */
+body.working .panel button,
+body.working #drop,
+body.working #slice-drop { pointer-events: none; opacity: .65; }
+body.working { cursor: progress; }

@@ -1,0 +1,43 @@
+{
+  "name": "Inkbloom",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#05040F",
+    "surface": "#0C0F28C0",
+    "surface_raised": "#141838D4",
+    "surface_hover": "#1E2350E2",
+    "border": "#3A3F73",
+    "text": "#F2ECF5",
+    "text_strong": "#FDFAFF",
+    "text_muted": "#ADA7C8",
+    "text_disabled": "#6E6890",
+    "text_on_accent": "#1C0A04",
+    "accent": "#F2793C",
+    "accent_hover": "#FF9A5E",
+    "accent_alt": "#A96BD8",
+    "focus_ring": "#FFB070",
+    "success": "#4FCB8B",
+    "warning": "#E9B44C",
+    "danger": "#E2564E",
+    "info": "#62A8E8",
+    "scrim": "#04030CDC"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.3,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.25,
+      "amount": 26
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "shimmer",
+      "speed": 0.7,
+      "amount": 70,
+      "color": "accent_hover"
+    }
+  }
+}

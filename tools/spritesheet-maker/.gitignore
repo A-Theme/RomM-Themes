@@ -1,0 +1,10 @@
+# Upload and job scratch space, plus test fixtures written by tests/
+tmp/
+
+# PyInstaller output
+build/
+dist/
+*.manifest
+
+__pycache__/
+*.pyc

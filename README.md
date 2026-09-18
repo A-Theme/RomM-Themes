@@ -12,6 +12,7 @@
 [![colour roles](https://img.shields.io/badge/colour%20roles-19-8A6BFF?style=for-the-badge&labelColor=141A2C)](#the-format)
 [![validated in CI](https://img.shields.io/github/actions/workflow/status/A-Theme/RomM-Themes/validate.yml?branch=main&label=validated&style=for-the-badge&color=4FC08D&labelColor=141A2C)](../../actions/workflows/validate.yml)
 [![editor](https://img.shields.io/badge/visual-editor-9CC2FF?style=for-the-badge&labelColor=141A2C)](https://github.com/A-Theme/Theme-App/blob/main/romm-theme-editor.html)
+[![sprite sheet maker](https://img.shields.io/badge/sprite%20sheet-maker-8A6BFF?style=for-the-badge&labelColor=141A2C)](tools/spritesheet-maker)
 [![licence](https://img.shields.io/badge/licence-MIT-5AA9E6?style=for-the-badge&labelColor=141A2C)](LICENSE)
 
 </div>
@@ -21,6 +22,11 @@
 Themes for the **RomM Switch client** — recolour it, give it a background, its
 own font, mascot art, and music. A theme is a folder on the SD card, and the
 smallest useful one is a single file.
+
+This is where the A-Theme project's theming work happens now. The older
+[Tinfoil](https://github.com/A-Theme/Tinfoil-Themes) side is stable and still
+served, but the RomM client does far more with a theme — and everything here is
+validated in CI against the rules the client itself enforces.
 
 <div align="center">
 
@@ -88,6 +94,69 @@ Worth using even if you are comfortable with JSON, for two reasons it can catch
 and a text editor cannot: whether `focus_ring` is actually visible against the
 card it outlines, and whether an animated background fits in the texture budget.
 
+## Make an animated background
+
+A sprite sheet is the cheap way to animate a background, but it has to be laid
+out exactly the way the client reads it, and a sheet hand-cropped in an image
+editor usually is not. **[`tools/spritesheet-maker`](tools/spritesheet-maker)**
+builds one:
+
+```bash
+cd tools/spritesheet-maker
+pip install -r requirements.txt
+python3 launcher.py                    # opens http://127.0.0.1:8753 in your browser
+```
+
+Or skip Python entirely — the [latest release](../../releases/latest) carries
+two downloads per platform:
+
+| download | what it is |
+|---|---|
+| `spritesheet-maker-<os>-with-ffmpeg.zip` | **the one to take.** Unzip, run it, done — ffmpeg is in the folder, so video input and WebM export work with nothing installed. |
+| `spritesheet-maker-<os>` | ~20 MB instead of ~80 MB, for when ffmpeg is already on your machine or you only need GIF, APNG and stills. |
+
+Double-click it and the page opens; the black console
+window it leaves behind is how you close it again. The app uses whatever ffmpeg it finds on PATH, and otherwise the one sitting in
+its own folder — which is why the bundled zip needs no setup. Without ffmpeg at
+all it still does GIF, APNG, animated WebP, stills, every sheet and slice
+operation, and GIF/APNG/ZIP export; the page says what is missing, links the
+download, and picks it up when you click **Check again**, no restart.
+
+Drop in a GIF, an MP4/WebM, an animated WebP or APNG, or a single still image.
+The sheet, a playable preview and the matching `theme.json` are built as soon as
+the file lands — the settings are there to adjust a result you can already see,
+not a form to fill in first. It runs entirely on your own machine; nothing is
+uploaded anywhere.
+
+What makes it worth using rather than a generic packer:
+
+- **It packs the way the client reads.** The client slices
+  `cols = sheet_w / frame_width` from the top-left corner, so a sheet with
+  padding between cells or an outer margin misaligns every frame after the
+  first. **Tune layout for RomM** sets the frame size, zeroes padding and
+  margin, and picks a grid with no spare cells.
+- **It tells you what the client will refuse** before the console does: the
+  48 MB texture budget (320×180 gives you 218 frames, 640×360 gives you 54,
+  720p gives you 13), the 240-frame and 60 fps ceilings, a cell that is not 16:9
+  and would be stretched, and a frame count the sheet cannot hold.
+- **It checks the frames for brightness**, the same way
+  [`scripts/validate-themes.py`](scripts/validate-themes.py) does — `dim` is
+  tuned against the still image, but the frames are what your text sits on.
+- **It writes the `theme.json` block from the sheet it just packed**, so the
+  numbers describe the file rather than your intentions.
+
+It also slices an existing sheet back into frames and plays them, and exports a
+frame set as GIF, WebM, APNG or a zip of PNGs — so it doubles as a way to check
+a sheet someone sent you.
+
+There is a still-image mode too: pan, rotate, pulse, mirror, bounce or fade a
+single image into an N-frame loop, for when you want motion and have one piece
+of art.
+
+Two themes here already use a sheet, if you want something to compare against or
+to open in the slicer: [`themes/Pulse`](themes/Pulse) and
+[`themes/Overdrive`](themes/Overdrive).
+
 ## Contributing a theme
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md). The short version:
@@ -131,18 +200,21 @@ Two things worth knowing before you build something ambitious:
   texture no matter how many frames and is the cheap path; an animated GIF is
   billed at full screen per frame, and 30 frames already busts the budget.
   Always ship a still `image` as the fallback.
+  [`tools/spritesheet-maker`](tools/spritesheet-maker) packs the sheet and works
+  the budget out for you.
 - **`motion` is free.** Drift, pan or zoom on a still image costs no extra
   memory at all and often looks better than a short loop.
 
 ## Part of the A-Theme project
 
-| repo | what it is |
-|---|---|
-| **RomM-Themes** | you are here — themes for the RomM Switch client |
-| [Theme-App](https://github.com/A-Theme/Theme-App) | the visual editors, for this format and for Tinfoil |
-| [Tinfoil-Themes](https://github.com/A-Theme/Tinfoil-Themes) | the Tinfoil theme database (a separate format) |
-| [Switch-Theme-Installer](https://github.com/A-Theme/Switch-Theme-Installer) | on-console installer for Tinfoil themes |
-| [A-Theme](https://github.com/A-Theme) | the org |
+| repo | what it is | |
+|---|---|---|
+| **RomM-Themes** | you are here — themes for the RomM Switch client | **active** |
+| [`tools/spritesheet-maker`](tools/spritesheet-maker) | builds the animated backgrounds in this repo | **active** |
+| [Theme-App](https://github.com/A-Theme/Theme-App) | the visual editors — [the RomM one](https://github.com/A-Theme/Theme-App/blob/main/romm-theme-editor.html) is the one for this format | active |
+| [Tinfoil-Themes](https://github.com/A-Theme/Tinfoil-Themes) | the Tinfoil theme database, a separate and older format | stable |
+| [Switch-Theme-Installer](https://github.com/A-Theme/Switch-Theme-Installer) | on-console installer for Tinfoil themes | stable |
+| [A-Theme](https://github.com/A-Theme) | the org | |
 
 ## Licence
 

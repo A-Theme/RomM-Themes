@@ -1,0 +1,47 @@
+{
+  "name": "Aramaki",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#04080A",
+    "surface": "#0A1417C4",
+    "surface_raised": "#0F1F24D6",
+    "surface_hover": "#163037E0",
+    "border": "#2A5A62",
+    "text": "#DCF2F4",
+    "text_strong": "#F2FDFE",
+    "text_muted": "#93B8BD",
+    "text_disabled": "#5E8087",
+    "text_on_accent": "#02191C",
+    "accent": "#35D2DC",
+    "accent_hover": "#6BEDF5",
+    "accent_alt": "#1FA9B4",
+    "focus_ring": "#6BEDF5",
+    "success": "#5FD0A0",
+    "warning": "#E2C05A",
+    "danger": "#F0705F",
+    "info": "#69B4E0",
+    "scrim": "#020608D2"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.3,
+    "animation": {
+      "kind": "sheet",
+      "file": "anim.png",
+      "frame_width": 320,
+      "frame_height": 180,
+      "frames": 124,
+      "fps": 24,
+      "loop": true
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "glow",
+      "speed": 0.8,
+      "amount": 60,
+      "color": "accent_hover"
+    }
+  }
+}

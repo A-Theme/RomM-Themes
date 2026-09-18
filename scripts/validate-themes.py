@@ -61,7 +61,9 @@ ANIMATION_KINDS = {"none", "sheet", "gif"}
 # Everything structural below (types, ranges, colour references) is still fatal,
 # because those are wrong against any version of the spec.
 EFFECT_SLOTS = {"focus"}
-EFFECT_KINDS = {"none", "embers"}
+# Every kind theme_spec.cpp parses. This list was short because only
+# embers had shipped; the client draws all six.
+EFFECT_KINDS = {"none", "smoke", "embers", "glow", "shimmer", "pulse", "fade"}
 
 HEX_RE = re.compile(r"^#?(?:[0-9a-fA-F]{3,4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$")
 
@@ -121,15 +123,20 @@ def frame_brightness(image, dim):
     multiply happens on the channel values before linearising.
     """
     keep = 1.0 - dim
-    px = list(image.convert("RGB").getdata())
-    width = image.size[0]
+    rgb = image.convert("RGB")
+    # tobytes() rather than getdata(): the same pixels in the same order, but
+    # getdata() is deprecated in Pillow 12 and goes away in 14, and this does
+    # not build a list of 921600 tuples for a 720p frame on the way past.
+    raw = rgb.tobytes()
+    width = rgb.size[0]
+    edge = int(width * 0.42)
     full, left = [], []
-    for i, (r, g, b) in enumerate(px):
-        y = (0.2126 * _LINEAR[int(r * keep)]
-             + 0.7152 * _LINEAR[int(g * keep)]
-             + 0.0722 * _LINEAR[int(b * keep)])
+    for i in range(0, len(raw), 3):
+        y = (0.2126 * _LINEAR[int(raw[i] * keep)]
+             + 0.7152 * _LINEAR[int(raw[i + 1] * keep)]
+             + 0.0722 * _LINEAR[int(raw[i + 2] * keep)])
         full.append(y)
-        if (i % width) < int(width * 0.42):
+        if ((i // 3) % width) < edge:
             left.append(y)
     return [_percentile(left if frac < 1.0 else full, q)
             for _, q, frac, _ in BRIGHTNESS_LIMITS]

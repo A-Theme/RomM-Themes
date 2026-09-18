@@ -100,6 +100,22 @@
       "screenshot": null
     },
     {
+      "id": "aramaki",
+      "folder": "Aramaki",
+      "name": "Aramaki",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Aramaki",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": true,
+      "bytes": 5649072,
+      "screenshot": null
+    },
+    {
       "id": "archive-violet",
       "folder": "Archive Violet",
       "name": "Archive Violet",
@@ -993,6 +1009,22 @@
       "has_music": false,
       "animated": false,
       "bytes": 1363351,
+      "screenshot": null
+    },
+    {
+      "id": "inkbloom",
+      "folder": "Inkbloom",
+      "name": "Inkbloom",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Inkbloom",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1796302,
       "screenshot": null
     },
     {
