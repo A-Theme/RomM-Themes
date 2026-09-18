@@ -64,7 +64,10 @@ def main():
         old_path = os.environ.get("PATH", "")
         os.environ["PATH"] = str(Path(exe).parent)
         try:
-            assert extract_mod.ffmpeg_exe() == exe, (extract_mod.ffmpeg_exe(), exe)
+            found = extract_mod.ffmpeg_exe()
+            # Windows resolves this through PATHEXT and hands back ffmpeg.EXE,
+            # so compare the files rather than the spelling.
+            assert found and Path(found).samefile(exe), (found, exe)
             args = frame_rate_args(exe)
             assert args in (("-fps_mode", "passthrough"), ("-vsync", "0")), args
 
