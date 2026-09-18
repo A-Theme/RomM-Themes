@@ -1,0 +1,47 @@
+{
+  "name": "Moonwake",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#0B0606",
+    "surface": "#130E0DB8",
+    "surface_raised": "#1F1918CC",
+    "surface_hover": "#2D2726DB",
+    "border": "#4D4645E6",
+    "text": "#E3E0E0",
+    "text_strong": "#FDFBFB",
+    "text_muted": "#A2A09F",
+    "text_disabled": "#7B7979",
+    "accent": "#DA7E7B",
+    "accent_hover": "#FC9D99",
+    "accent_alt": "#FDEE9F",
+    "focus_ring": "#FFBDB9",
+    "text_on_accent": "#200203",
+    "success": "#76B152",
+    "warning": "#E4AD3A",
+    "danger": "#F66B70",
+    "info": "#6CAAE5",
+    "scrim": "#030101D4"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.63,
+    "animation": {
+      "kind": "sheet",
+      "file": "sheet.png",
+      "frame_width": 400,
+      "frame_height": 225,
+      "frames": 132,
+      "fps": 12,
+      "loop": true
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 0.8,
+      "amount": 55,
+      "color": "accent_alt"
+    }
+  }
+}

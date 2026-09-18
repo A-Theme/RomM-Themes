@@ -1,7 +1,7 @@
 {
   "format": 1,
   "repo": "A-Theme/RomM-Themes",
-  "count": 134,
+  "count": 136,
   "themes": [
     {
       "id": "abyssal-lantern",
@@ -1188,6 +1188,22 @@
       "screenshot": null
     },
     {
+      "id": "moonwake",
+      "folder": "Moonwake",
+      "name": "Moonwake",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Moonwake",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": true,
+      "bytes": 12631577,
+      "screenshot": null
+    },
+    {
       "id": "mossling",
       "folder": "Mossling",
       "name": "Mossling",
@@ -1809,6 +1825,22 @@
       "has_music": false,
       "animated": false,
       "bytes": 982816,
+      "screenshot": null
+    },
+    {
+      "id": "sunlit-deep",
+      "folder": "Sunlit Deep",
+      "name": "Sunlit Deep",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Sunlit Deep",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": true,
+      "bytes": 7717871,
       "screenshot": null
     },
     {
