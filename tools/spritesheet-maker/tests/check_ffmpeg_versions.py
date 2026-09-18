@@ -42,15 +42,21 @@ def version_of(exe):
 
 
 def main():
+    exes = candidates()
+    if not exes:
+        # CI runners have no ffmpeg until the bundle is downloaded, and the tool
+        # is meant to work without one, so there is nothing to check here yet.
+        print("SKIP no ffmpeg on this machine — nothing to check")
+        print("     (the packaging job runs this again with SSM_FFMPEG_ALT set "
+              "to the bundled build)")
+        return
+
     mp4 = TMP / "check_video.mp4"
     if not mp4.exists():
         subprocess.run(
-            ["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-f", "lavfi",
+            [exes[0], "-hide_banner", "-loglevel", "error", "-y", "-f", "lavfi",
              "-i", "testsrc=size=320x240:rate=30:duration=3", "-pix_fmt", "yuv420p", str(mp4)],
             check=True)
-
-    exes = candidates()
-    assert exes, "no ffmpeg found at all"
 
     for exe in exes:
         # point the app at this specific binary (the lookup is deliberately
