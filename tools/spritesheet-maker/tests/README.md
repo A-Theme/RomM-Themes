@@ -1,6 +1,6 @@
 # Tests
 
-Eleven checks, all plain `python3` scripts with no test framework. Each prints one
+Thirteen checks, all plain `python3` scripts with no test framework. Each prints one
 `PASS` line per property it proves and exits non-zero on the first failure.
 Everything they write goes to `spritesheet-maker/tmp/`, which is gitignored —
 including the fixtures they build for themselves (a synthetic GIF, an ffmpeg
@@ -25,6 +25,8 @@ python3 tests/check_extract.py           # and so on
 | `check_export.py` | GIF keeps source timing and honours the dither/palette toggle, APNG keeps alpha, the ZIP holds one PNG per frame plus `frames.csv`, and the WebM probes as VP9 with the right packet count. |
 | `check_atlas.py` | every emitted sidecar parses back, and its rects are inside the sheet, equal to `pack.py`'s rects, and crop to the right pixels. |
 | `check_romm.py` | **the client contract** — see below. |
+| `check_ffmpeg_versions.py` | a real video decode against every ffmpeg on the machine. `-vsync` was removed in ffmpeg 8.0 and `-fps_mode` only arrived in 5.1, and a master build reports `N-126593-gbc46eab87c` rather than a version, so the flag is chosen by asking the binary. Point `SSM_FFMPEG_ALT` at extra builds (colon-separated) to cover more than the system one. |
+| `check_ffmpeg_missing.py` | with ffmpeg hidden, the app still packs a GIF end to end, the banner gives the steps for the platform, and **Check again** picks up an ffmpeg dropped beside the app without a restart. |
 | `check_catalog.py` | a theme built by this tool passes this repo's own `scripts/validate-themes.py`, and the brightness maths here is identical to the validator's. It imports the validator and points it at a throwaway folder, so `themes/` and `manifest.json` are never touched. |
 
 ## `check_romm.py`

@@ -9,6 +9,7 @@ import subprocess
 import sys
 import tempfile
 from dataclasses import dataclass
+from functools import lru_cache
 from pathlib import Path
 from typing import Callable
 
@@ -141,6 +142,8 @@ def _tool(name: str) -> str | None:
     A one-file build has no PATH of its own, and the usual way people install
     ffmpeg on Windows is to drop the exe in a folder — often the same folder.
     """
+    # Deliberately not cached: the banner's "Check again" button exists so an
+    # ffmpeg dropped in beside the app is picked up without a restart.
     found = shutil.which(name)
     if found:
         return found
@@ -159,6 +162,27 @@ def _tool(name: str) -> str | None:
 
 def ffmpeg_exe() -> str | None:
     return _tool("ffmpeg")
+
+
+@lru_cache(maxsize=4)
+def frame_rate_args(exe: str) -> tuple[str, ...]:
+    """How to tell this ffmpeg "one output frame per input frame".
+
+    `-vsync` was deprecated in 5.1 and removed in 8.0, so a current build
+    answers `Unrecognized option 'vsync'` and decodes nothing; `-fps_mode`
+    does not exist before 5.1. Neither can be chosen by version number,
+    because master builds report `N-126593-gbc46eab87c` rather than a
+    version, so the capability is asked for directly and remembered.
+    """
+    probe = [exe, "-hide_banner", "-loglevel", "error", "-nostdin",
+             "-f", "lavfi", "-i", "nullsrc=s=16x16:d=0.1",
+             "-fps_mode", "passthrough", "-frames:v", "1", "-f", "null", "-"]
+    try:
+        if subprocess.run(probe, capture_output=True, timeout=30).returncode == 0:
+            return ("-fps_mode", "passthrough")
+    except Exception:  # noqa: BLE001 - fall back rather than fail the decode
+        pass
+    return ("-vsync", "0")
 
 
 def ffprobe_exe() -> str | None:
@@ -271,7 +295,8 @@ def extract_video_frames(
         cmd += pre_args
         cmd += ["-i", str(path)]
         cmd += post_args
-        cmd += ["-vf", f"fps={fps}", "-vsync", "0"]
+        cmd += ["-vf", f"fps={fps}"]
+        cmd += list(frame_rate_args(exe))
         if opts.max_frames:
             # +8 gives trimming by frame index a little room to work with.
             cmd += ["-frames:v", str(int(opts.max_frames) + 8)]

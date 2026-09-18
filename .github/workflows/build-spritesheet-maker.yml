@@ -85,6 +85,7 @@ jobs:
           python tests/check_atlas.py
           python tests/check_romm.py
           python tests/check_catalog.py
+          python tests/check_ffmpeg_versions.py
 
       - name: Build
         run: pyinstaller --clean --noconfirm spritesheet-maker.spec
@@ -155,6 +156,13 @@ jobs:
             "https://github.com/BtbN/FFmpeg-Builds and https://ffmpeg.org/download.html" \
             > bundle/README.txt
           ls -la bundle
+
+      # The bundled build is a current master, which is exactly the ffmpeg that
+      # broke video decode in 1.2.0, so the decode path runs against it here.
+      - name: Check video decode against the bundled ffmpeg
+        if: matrix.ffmpeg_url != ''
+        shell: bash
+        run: SSM_FFMPEG_ALT="$(pwd)/bundle/ffmpeg$([ -f bundle/ffmpeg.exe ] && echo .exe)" python tests/check_ffmpeg_versions.py
 
       - name: Zip the bundle
         if: matrix.ffmpeg_url != ''

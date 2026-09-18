@@ -4,6 +4,25 @@ Notable changes per release. The build workflow reads the section matching the
 version being released and uses it as the release body, so this file is the one
 place release notes are written.
 
+## 1.2.1
+
+### Video decode on current ffmpeg
+
+Dropping a video on the 1.2.0 build failed with *"Unrecognized option 'vsync'.
+Error splitting the argument list"* and no frames. The extract command passed
+`-vsync 0`, which ffmpeg deprecated in 5.1 and **removed in 8.0** — and the
+ffmpeg bundled in the with-ffmpeg download is a current master build, so the
+zip shipped the one ffmpeg the command could not talk to.
+
+It now asks the binary which form it takes and remembers the answer:
+`-fps_mode passthrough` where that exists, `-vsync 0` on builds older than 5.1.
+Asking beats inferring here — a master build reports its version as
+`N-126593-gbc46eab87c`, so there is no number to compare.
+
+`tests/check_ffmpeg_versions.py` runs a real decode against every ffmpeg on the
+machine, and CI runs it against the build that goes into the zip, which is
+where this should have been caught.
+
 ## 1.2.0
 
 ### Drop a file, get a sheet
