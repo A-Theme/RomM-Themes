@@ -31,6 +31,11 @@ validated in CI against the rules the client itself enforces.
 <div align="center">
 
 <!-- SCREENSHOTS:START -->
+<div align="center">
+<img src="https://raw.githubusercontent.com/A-Theme/RomM-Themes/main/screenshots/Moonwake.webp" width="320" alt="Moonwake" title="Moonwake"/>
+<img src="https://raw.githubusercontent.com/A-Theme/RomM-Themes/main/screenshots/Sinister%20Claus.webp" width="320" alt="Sinister Claus" title="Sinister Claus"/>
+<img src="https://raw.githubusercontent.com/A-Theme/RomM-Themes/main/screenshots/Hatchling.webp" width="320" alt="Hatchling" title="Hatchling"/>
+</div>
 <!-- SCREENSHOTS:END -->
 
 </div>
