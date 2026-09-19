@@ -17,7 +17,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1018570,
-      "screenshot": null
+      "screenshot": "screenshots/Abyssal Lantern.webp"
     },
     {
       "id": "amber-requiem",
@@ -33,7 +33,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 973531,
-      "screenshot": null
+      "screenshot": "screenshots/Amber Requiem.webp"
     },
     {
       "id": "anglerlight",
@@ -49,7 +49,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1085009,
-      "screenshot": null
+      "screenshot": "screenshots/Anglerlight.webp"
     },
     {
       "id": "ant-war",
@@ -65,7 +65,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1252491,
-      "screenshot": null
+      "screenshot": "screenshots/Ant War.webp"
     },
     {
       "id": "ape-orbit",
@@ -81,7 +81,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1330195,
-      "screenshot": null
+      "screenshot": "screenshots/Ape Orbit.webp"
     },
     {
       "id": "arachnid-red",
@@ -97,7 +97,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1235104,
-      "screenshot": null
+      "screenshot": "screenshots/Arachnid Red.webp"
     },
     {
       "id": "aramaki",
@@ -113,7 +113,7 @@
       "has_music": false,
       "animated": true,
       "bytes": 5649072,
-      "screenshot": null
+      "screenshot": "screenshots/Aramaki.webp"
     },
     {
       "id": "archive-violet",
@@ -129,7 +129,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1469817,
-      "screenshot": null
+      "screenshot": "screenshots/Archive Violet.webp"
     },
     {
       "id": "beam-alignment",
@@ -145,7 +145,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1304329,
-      "screenshot": null
+      "screenshot": "screenshots/Beam Alignment.webp"
     },
     {
       "id": "bedside-things",
@@ -161,7 +161,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1238767,
-      "screenshot": null
+      "screenshot": "screenshots/Bedside Things.webp"
     },
     {
       "id": "big-cheese",
@@ -177,7 +177,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1208051,
-      "screenshot": null
+      "screenshot": "screenshots/Big Cheese.webp"
     },
     {
       "id": "bloodhouse",
@@ -193,7 +193,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1125736,
-      "screenshot": null
+      "screenshot": "screenshots/Bloodhouse.webp"
     },
     {
       "id": "bloomcrown",
@@ -209,7 +209,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1605033,
-      "screenshot": null
+      "screenshot": "screenshots/Bloomcrown.webp"
     },
     {
       "id": "blue-shift",
@@ -225,7 +225,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1365191,
-      "screenshot": null
+      "screenshot": "screenshots/Blue Shift.webp"
     },
     {
       "id": "borbs-lair",
@@ -241,7 +241,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 285169,
-      "screenshot": null
+      "screenshot": "screenshots/Borbs Lair.webp"
     },
     {
       "id": "brass-infirmary",
@@ -257,7 +257,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1068052,
-      "screenshot": null
+      "screenshot": "screenshots/Brass Infirmary.webp"
     },
     {
       "id": "brood",
@@ -273,7 +273,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1281894,
-      "screenshot": null
+      "screenshot": "screenshots/Brood.webp"
     },
     {
       "id": "candlelit-eve",
@@ -289,7 +289,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1133879,
-      "screenshot": null
+      "screenshot": "screenshots/Candlelit Eve.webp"
     },
     {
       "id": "carapace",
@@ -305,7 +305,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1142170,
-      "screenshot": null
+      "screenshot": "screenshots/Carapace.webp"
     },
     {
       "id": "chitin-amber",
@@ -321,7 +321,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1210510,
-      "screenshot": null
+      "screenshot": "screenshots/Chitin Amber.webp"
     },
     {
       "id": "chrome-clerk",
@@ -337,7 +337,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1347530,
-      "screenshot": null
+      "screenshot": "screenshots/Chrome Clerk.webp"
     },
     {
       "id": "chromo-forest",
@@ -353,7 +353,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1152601,
-      "screenshot": null
+      "screenshot": "screenshots/Chromo Forest.webp"
     },
     {
       "id": "circuit-dawn",
@@ -369,7 +369,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1377628,
-      "screenshot": null
+      "screenshot": "screenshots/Circuit Dawn.webp"
     },
     {
       "id": "cobalt-sprawl",
@@ -385,7 +385,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1357021,
-      "screenshot": null
+      "screenshot": "screenshots/Cobalt Sprawl.webp"
     },
     {
       "id": "cold-beacon",
@@ -401,7 +401,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1624236,
-      "screenshot": null
+      "screenshot": "screenshots/Cold Beacon.webp"
     },
     {
       "id": "collapse-well",
@@ -417,7 +417,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1816006,
-      "screenshot": null
+      "screenshot": "screenshots/Collapse Well.webp"
     },
     {
       "id": "console-room",
@@ -433,7 +433,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1757129,
-      "screenshot": null
+      "screenshot": "screenshots/Console Room.webp"
     },
     {
       "id": "contract-work",
@@ -449,7 +449,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1559292,
-      "screenshot": null
+      "screenshot": "screenshots/Contract Work.webp"
     },
     {
       "id": "cordyceps",
@@ -465,7 +465,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1207795,
-      "screenshot": null
+      "screenshot": "screenshots/Cordyceps.webp"
     },
     {
       "id": "cosmonaut-ape",
@@ -481,7 +481,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1443064,
-      "screenshot": null
+      "screenshot": "screenshots/Cosmonaut Ape.webp"
     },
     {
       "id": "crimson-thicket",
@@ -497,7 +497,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1575251,
-      "screenshot": null
+      "screenshot": "screenshots/Crimson Thicket.webp"
     },
     {
       "id": "curdled-plot",
@@ -513,7 +513,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1227192,
-      "screenshot": null
+      "screenshot": "screenshots/Curdled Plot.webp"
     },
     {
       "id": "deep-red",
@@ -529,7 +529,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1294725,
-      "screenshot": null
+      "screenshot": "screenshots/Deep Red.webp"
     },
     {
       "id": "demon-chorus",
@@ -545,7 +545,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1349320,
-      "screenshot": null
+      "screenshot": "screenshots/Demon Chorus.webp"
     },
     {
       "id": "dragon-cut",
@@ -561,7 +561,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1494376,
-      "screenshot": null
+      "screenshot": "screenshots/Dragon Cut.webp"
     },
     {
       "id": "duat",
@@ -577,7 +577,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1389160,
-      "screenshot": null
+      "screenshot": "screenshots/Duat.webp"
     },
     {
       "id": "dusk-visitation",
@@ -593,7 +593,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1375664,
-      "screenshot": null
+      "screenshot": "screenshots/Dusk Visitation.webp"
     },
     {
       "id": "ember-basin",
@@ -609,7 +609,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1367811,
-      "screenshot": null
+      "screenshot": "screenshots/Ember Basin.webp"
     },
     {
       "id": "emberwing",
@@ -625,7 +625,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1530877,
-      "screenshot": null
+      "screenshot": "screenshots/Emberwing.webp"
     },
     {
       "id": "emerald-smoke",
@@ -641,7 +641,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1594630,
-      "screenshot": null
+      "screenshot": "screenshots/Emerald Smoke.webp"
     },
     {
       "id": "event-horizon",
@@ -657,7 +657,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1309594,
-      "screenshot": null
+      "screenshot": "screenshots/Event Horizon.webp"
     },
     {
       "id": "falling-worlds",
@@ -673,7 +673,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 2034461,
-      "screenshot": null
+      "screenshot": "screenshots/Falling Worlds.webp"
     },
     {
       "id": "fear-incarnate",
@@ -689,7 +689,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1402019,
-      "screenshot": null
+      "screenshot": "screenshots/Fear Incarnate.webp"
     },
     {
       "id": "fern-prism",
@@ -705,7 +705,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1753122,
-      "screenshot": null
+      "screenshot": "screenshots/Fern Prism.webp"
     },
     {
       "id": "forest-gourd",
@@ -721,7 +721,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1273305,
-      "screenshot": null
+      "screenshot": "screenshots/Forest Gourd.webp"
     },
     {
       "id": "frost-arrow",
@@ -737,7 +737,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1527183,
-      "screenshot": null
+      "screenshot": "screenshots/Frost Arrow.webp"
     },
     {
       "id": "frostbitten",
@@ -753,7 +753,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1238889,
-      "screenshot": null
+      "screenshot": "screenshots/Frostbitten.webp"
     },
     {
       "id": "galley-rat",
@@ -769,7 +769,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1278112,
-      "screenshot": null
+      "screenshot": "screenshots/Galley Rat.webp"
     },
     {
       "id": "gambit-glade",
@@ -785,7 +785,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1227353,
-      "screenshot": null
+      "screenshot": "screenshots/Gambit Glade.webp"
     },
     {
       "id": "ghoul-hollow",
@@ -801,7 +801,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1141177,
-      "screenshot": null
+      "screenshot": "screenshots/Ghoul Hollow.webp"
     },
     {
       "id": "glass-cascade",
@@ -817,7 +817,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 961764,
-      "screenshot": null
+      "screenshot": "screenshots/Glass Cascade.webp"
     },
     {
       "id": "gnaw",
@@ -833,7 +833,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1270490,
-      "screenshot": null
+      "screenshot": "screenshots/Gnaw.webp"
     },
     {
       "id": "godfall",
@@ -849,7 +849,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1419754,
-      "screenshot": null
+      "screenshot": "screenshots/Godfall.webp"
     },
     {
       "id": "gold-at-the-end",
@@ -865,7 +865,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1558556,
-      "screenshot": null
+      "screenshot": "screenshots/Gold at the End.webp"
     },
     {
       "id": "golden-aura",
@@ -881,7 +881,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1260534,
-      "screenshot": null
+      "screenshot": "screenshots/Golden Aura.webp"
     },
     {
       "id": "gothic-hull",
@@ -897,7 +897,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1463468,
-      "screenshot": null
+      "screenshot": "screenshots/Gothic Hull.webp"
     },
     {
       "id": "greasepaint",
@@ -913,7 +913,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1445346,
-      "screenshot": null
+      "screenshot": "screenshots/Greasepaint.webp"
     },
     {
       "id": "grey-shore",
@@ -929,7 +929,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1149513,
-      "screenshot": null
+      "screenshot": "screenshots/Grey Shore.webp"
     },
     {
       "id": "hatchling",
@@ -945,7 +945,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1306622,
-      "screenshot": null
+      "screenshot": "screenshots/Hatchling.webp"
     },
     {
       "id": "healing-hands",
@@ -961,7 +961,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1728325,
-      "screenshot": null
+      "screenshot": "screenshots/Healing Hands.webp"
     },
     {
       "id": "hexapod",
@@ -977,7 +977,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1375827,
-      "screenshot": null
+      "screenshot": "screenshots/Hexapod.webp"
     },
     {
       "id": "hookah-snail",
@@ -993,7 +993,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1326496,
-      "screenshot": null
+      "screenshot": "screenshots/Hookah Snail.webp"
     },
     {
       "id": "impact-event",
@@ -1009,7 +1009,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1363492,
-      "screenshot": null
+      "screenshot": "screenshots/Impact Event.webp"
     },
     {
       "id": "inkbloom",
@@ -1025,7 +1025,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1796302,
-      "screenshot": null
+      "screenshot": "screenshots/Inkbloom.webp"
     },
     {
       "id": "interceptor",
@@ -1041,7 +1041,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1386167,
-      "screenshot": null
+      "screenshot": "screenshots/Interceptor.webp"
     },
     {
       "id": "iron-saint",
@@ -1057,7 +1057,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1443749,
-      "screenshot": null
+      "screenshot": "screenshots/Iron Saint.webp"
     },
     {
       "id": "jellyglass",
@@ -1073,7 +1073,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 576977,
-      "screenshot": null
+      "screenshot": "screenshots/Jellyglass.webp"
     },
     {
       "id": "jetpack-ape",
@@ -1089,7 +1089,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1341852,
-      "screenshot": null
+      "screenshot": "screenshots/Jetpack Ape.webp"
     },
     {
       "id": "kitchen-fire",
@@ -1105,7 +1105,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1700835,
-      "screenshot": null
+      "screenshot": "screenshots/Kitchen Fire.webp"
     },
     {
       "id": "lantern-bloom",
@@ -1121,7 +1121,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1235083,
-      "screenshot": null
+      "screenshot": "screenshots/Lantern Bloom.webp"
     },
     {
       "id": "luckdragon",
@@ -1137,7 +1137,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1326049,
-      "screenshot": null
+      "screenshot": "screenshots/Luckdragon.webp"
     },
     {
       "id": "lure-machine",
@@ -1153,7 +1153,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1451328,
-      "screenshot": null
+      "screenshot": "screenshots/Lure Machine.webp"
     },
     {
       "id": "magenta-stacks",
@@ -1169,7 +1169,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1408151,
-      "screenshot": null
+      "screenshot": "screenshots/Magenta Stacks.webp"
     },
     {
       "id": "mandala-neon",
@@ -1185,7 +1185,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 2016811,
-      "screenshot": null
+      "screenshot": "screenshots/Mandala Neon.webp"
     },
     {
       "id": "meld",
@@ -1201,7 +1201,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1145143,
-      "screenshot": null
+      "screenshot": "screenshots/Meld.webp"
     },
     {
       "id": "midnight-borb",
@@ -1217,7 +1217,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 855,
-      "screenshot": null
+      "screenshot": "screenshots/Midnight Borb.webp"
     },
     {
       "id": "moonwake",
@@ -1233,7 +1233,7 @@
       "has_music": false,
       "animated": true,
       "bytes": 12631578,
-      "screenshot": null
+      "screenshot": "screenshots/Moonwake.webp"
     },
     {
       "id": "mossling",
@@ -1249,7 +1249,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1226506,
-      "screenshot": null
+      "screenshot": "screenshots/Mossling.webp"
     },
     {
       "id": "moth-hour",
@@ -1265,7 +1265,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1024367,
-      "screenshot": null
+      "screenshot": "screenshots/Moth Hour.webp"
     },
     {
       "id": "mystic-ninja",
@@ -1281,7 +1281,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1985882,
-      "screenshot": null
+      "screenshot": "screenshots/Mystic Ninja.webp"
     },
     {
       "id": "nebula-cat",
@@ -1297,7 +1297,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1477070,
-      "screenshot": null
+      "screenshot": "screenshots/Nebula Cat.webp"
     },
     {
       "id": "neon-crusade",
@@ -1313,7 +1313,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1257191,
-      "screenshot": null
+      "screenshot": "screenshots/Neon Crusade.webp"
     },
     {
       "id": "neon-jaws",
@@ -1329,7 +1329,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1356760,
-      "screenshot": null
+      "screenshot": "screenshots/Neon Jaws.webp"
     },
     {
       "id": "neon-simian",
@@ -1345,7 +1345,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1476811,
-      "screenshot": null
+      "screenshot": "screenshots/Neon Simian.webp"
     },
     {
       "id": "orbital-lance",
@@ -1361,7 +1361,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1233772,
-      "screenshot": null
+      "screenshot": "screenshots/Orbital Lance.webp"
     },
     {
       "id": "overdrive",
@@ -1377,7 +1377,7 @@
       "has_music": false,
       "animated": true,
       "bytes": 13593287,
-      "screenshot": null
+      "screenshot": "screenshots/Overdrive.webp"
     },
     {
       "id": "paper-dragon",
@@ -1393,7 +1393,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1583591,
-      "screenshot": null
+      "screenshot": "screenshots/Paper Dragon.webp"
     },
     {
       "id": "petrodon",
@@ -1409,7 +1409,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1415747,
-      "screenshot": null
+      "screenshot": "screenshots/Petrodon.webp"
     },
     {
       "id": "phantom-shore",
@@ -1425,7 +1425,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1681733,
-      "screenshot": null
+      "screenshot": "screenshots/Phantom Shore.webp"
     },
     {
       "id": "phoenix-reborn",
@@ -1441,7 +1441,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1249387,
-      "screenshot": null
+      "screenshot": "screenshots/Phoenix Reborn.webp"
     },
     {
       "id": "planet-eater",
@@ -1457,7 +1457,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1615881,
-      "screenshot": null
+      "screenshot": "screenshots/Planet Eater.webp"
     },
     {
       "id": "prism-mind",
@@ -1473,7 +1473,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1543355,
-      "screenshot": null
+      "screenshot": "screenshots/Prism Mind.webp"
     },
     {
       "id": "pulse",
@@ -1489,7 +1489,7 @@
       "has_music": false,
       "animated": true,
       "bytes": 8308969,
-      "screenshot": null
+      "screenshot": "screenshots/Pulse.webp"
     },
     {
       "id": "quiet-blue",
@@ -1505,7 +1505,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1018939,
-      "screenshot": null
+      "screenshot": "screenshots/Quiet Blue.webp"
     },
     {
       "id": "rift-mouth",
@@ -1521,7 +1521,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1464112,
-      "screenshot": null
+      "screenshot": "screenshots/Rift Mouth.webp"
     },
     {
       "id": "river-fox",
@@ -1537,7 +1537,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1333017,
-      "screenshot": null
+      "screenshot": "screenshots/River Fox.webp"
     },
     {
       "id": "rotten-porch",
@@ -1553,7 +1553,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1373639,
-      "screenshot": null
+      "screenshot": "screenshots/Rotten Porch.webp"
     },
     {
       "id": "sacred-geometry",
@@ -1569,7 +1569,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1446905,
-      "screenshot": null
+      "screenshot": "screenshots/Sacred Geometry.webp"
     },
     {
       "id": "saint-vigil",
@@ -1585,7 +1585,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1370092,
-      "screenshot": null
+      "screenshot": "screenshots/Saint Vigil.webp"
     },
     {
       "id": "sands-of-war",
@@ -1601,7 +1601,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1472956,
-      "screenshot": null
+      "screenshot": "screenshots/Sands of War.webp"
     },
     {
       "id": "sengoku-rain",
@@ -1617,7 +1617,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1585241,
-      "screenshot": null
+      "screenshot": "screenshots/Sengoku Rain.webp"
     },
     {
       "id": "sewer-feast",
@@ -1633,7 +1633,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1306297,
-      "screenshot": null
+      "screenshot": "screenshots/Sewer Feast.webp"
     },
     {
       "id": "shieldmaiden",
@@ -1649,7 +1649,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1581044,
-      "screenshot": null
+      "screenshot": "screenshots/Shieldmaiden.webp"
     },
     {
       "id": "siege-red",
@@ -1665,7 +1665,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1481831,
-      "screenshot": null
+      "screenshot": "screenshots/Siege Red.webp"
     },
     {
       "id": "silk-wing",
@@ -1681,7 +1681,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1668380,
-      "screenshot": null
+      "screenshot": "screenshots/Silk Wing.webp"
     },
     {
       "id": "singularity",
@@ -1697,7 +1697,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1211228,
-      "screenshot": null
+      "screenshot": "screenshots/Singularity.webp"
     },
     {
       "id": "sinister-claus",
@@ -1713,7 +1713,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1393442,
-      "screenshot": null
+      "screenshot": "screenshots/Sinister Claus.webp"
     },
     {
       "id": "sky-rider",
@@ -1729,7 +1729,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1263227,
-      "screenshot": null
+      "screenshot": "screenshots/Sky Rider.webp"
     },
     {
       "id": "sleigh-drive",
@@ -1745,7 +1745,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1288644,
-      "screenshot": null
+      "screenshot": "screenshots/Sleigh Drive.webp"
     },
     {
       "id": "slime-vault",
@@ -1761,7 +1761,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1626384,
-      "screenshot": null
+      "screenshot": "screenshots/Slime Vault.webp"
     },
     {
       "id": "snaptrap",
@@ -1777,7 +1777,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1156774,
-      "screenshot": null
+      "screenshot": "screenshots/Snaptrap.webp"
     },
     {
       "id": "specimen",
@@ -1793,7 +1793,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1154290,
-      "screenshot": null
+      "screenshot": "screenshots/Specimen.webp"
     },
     {
       "id": "starborn-cat",
@@ -1809,7 +1809,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1484951,
-      "screenshot": null
+      "screenshot": "screenshots/Starborn Cat.webp"
     },
     {
       "id": "station-fall",
@@ -1825,7 +1825,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1323188,
-      "screenshot": null
+      "screenshot": "screenshots/Station Fall.webp"
     },
     {
       "id": "storybook",
@@ -1841,7 +1841,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1488156,
-      "screenshot": null
+      "screenshot": "screenshots/Storybook.webp"
     },
     {
       "id": "sugar-skull-night",
@@ -1857,7 +1857,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 982953,
-      "screenshot": null
+      "screenshot": "screenshots/Sugar Skull Night.webp"
     },
     {
       "id": "sunlit-deep",
@@ -1873,7 +1873,7 @@
       "has_music": false,
       "animated": true,
       "bytes": 7717872,
-      "screenshot": null
+      "screenshot": "screenshots/Sunlit Deep.webp"
     },
     {
       "id": "tall-ship",
@@ -1889,7 +1889,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1667759,
-      "screenshot": null
+      "screenshot": "screenshots/Tall Ship.webp"
     },
     {
       "id": "teardown",
@@ -1905,7 +1905,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1316863,
-      "screenshot": null
+      "screenshot": "screenshots/Teardown.webp"
     },
     {
       "id": "the-crowd",
@@ -1921,7 +1921,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1260003,
-      "screenshot": null
+      "screenshot": "screenshots/The Crowd.webp"
     },
     {
       "id": "the-long-field",
@@ -1937,7 +1937,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1534996,
-      "screenshot": null
+      "screenshot": "screenshots/The Long Field.webp"
     },
     {
       "id": "the-overseer",
@@ -1953,7 +1953,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1497469,
-      "screenshot": null
+      "screenshot": "screenshots/The Overseer.webp"
     },
     {
       "id": "torch-tree",
@@ -1969,7 +1969,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1109758,
-      "screenshot": null
+      "screenshot": "screenshots/Torch Tree.webp"
     },
     {
       "id": "troll-hollow",
@@ -1985,7 +1985,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1519309,
-      "screenshot": null
+      "screenshot": "screenshots/Troll Hollow.webp"
     },
     {
       "id": "twilight-march",
@@ -2001,7 +2001,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1245396,
-      "screenshot": null
+      "screenshot": "screenshots/Twilight March.webp"
     },
     {
       "id": "two-blades",
@@ -2017,7 +2017,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1343113,
-      "screenshot": null
+      "screenshot": "screenshots/Two Blades.webp"
     },
     {
       "id": "understudy",
@@ -2033,7 +2033,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1561559,
-      "screenshot": null
+      "screenshot": "screenshots/Understudy.webp"
     },
     {
       "id": "verdant-pearl",
@@ -2049,7 +2049,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1092233,
-      "screenshot": null
+      "screenshot": "screenshots/Verdant Pearl.webp"
     },
     {
       "id": "violet-maw",
@@ -2065,7 +2065,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1348598,
-      "screenshot": null
+      "screenshot": "screenshots/Violet Maw.webp"
     },
     {
       "id": "violet-stacks",
@@ -2081,7 +2081,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1190383,
-      "screenshot": null
+      "screenshot": "screenshots/Violet Stacks.webp"
     },
     {
       "id": "wayside-shop",
@@ -2097,7 +2097,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1670619,
-      "screenshot": null
+      "screenshot": "screenshots/Wayside Shop.webp"
     },
     {
       "id": "whaleback",
@@ -2113,7 +2113,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1370066,
-      "screenshot": null
+      "screenshot": "screenshots/Whaleback.webp"
     },
     {
       "id": "white-library",
@@ -2129,7 +2129,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1544815,
-      "screenshot": null
+      "screenshot": "screenshots/White Library.webp"
     },
     {
       "id": "wirechewer",
@@ -2145,7 +2145,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1392094,
-      "screenshot": null
+      "screenshot": "screenshots/Wirechewer.webp"
     },
     {
       "id": "witching-whiskers",
@@ -2161,7 +2161,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1116604,
-      "screenshot": null
+      "screenshot": "screenshots/Witching Whiskers.webp"
     },
     {
       "id": "wobbegong",
@@ -2177,7 +2177,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1381606,
-      "screenshot": null
+      "screenshot": "screenshots/Wobbegong.webp"
     },
     {
       "id": "wolfrider",
@@ -2193,7 +2193,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1216394,
-      "screenshot": null
+      "screenshot": "screenshots/Wolfrider.webp"
     },
     {
       "id": "wormhole-drift",
@@ -2209,7 +2209,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1249986,
-      "screenshot": null
+      "screenshot": "screenshots/Wormhole Drift.webp"
     }
   ]
 }
