@@ -1,13 +1,13 @@
 {
   "name": "Brass Infirmary",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#100906",
-    "surface": "#1C1310",
-    "surface_raised": "#2C201C",
-    "surface_hover": "#41302B",
-    "border": "#58453E",
+    "surface": "#1C1310CC",
+    "surface_raised": "#2C201CDB",
+    "surface_hover": "#41302BEB",
+    "border": "#58453EF5",
     "text": "#F1EBEA",
     "text_strong": "#FDFDFD",
     "text_muted": "#ADA6A3",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 20
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 89,
+      "color": "accent_alt"
     }
   }
 }

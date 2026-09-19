@@ -1,13 +1,13 @@
 {
   "name": "Planet Eater",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#0B0B0F",
     "surface": "#16161ACC",
     "surface_raised": "#232329DB",
-    "surface_hover": "#35353DE5",
-    "border": "#4A4953A7",
+    "surface_hover": "#35353DEB",
+    "border": "#4A4953F5",
     "text": "#ECECEF",
     "text_strong": "#FDFDFD",
     "text_muted": "#A7A7AB",
@@ -30,6 +30,14 @@
       "kind": "zoom",
       "speed": 0.25,
       "amount": 6
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "smoke",
+      "speed": 0.5,
+      "amount": 53,
+      "color": "text_muted"
     }
   }
 }

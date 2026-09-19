@@ -1,12 +1,12 @@
 {
   "name": "Ember Basin",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#0E0B14",
-    "surface": "#191620",
-    "surface_raised": "#272330",
-    "surface_hover": "#3A3446",
+    "surface": "#191620D6",
+    "surface_raised": "#272330E5",
+    "surface_hover": "#3A3446F5",
     "border": "#4F485E",
     "text": "#EDECF2",
     "text_strong": "#FDFDFD",
@@ -30,6 +30,14 @@
       "kind": "zoom",
       "speed": 0.3,
       "amount": 8
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 86,
+      "color": "accent_alt"
     }
   }
 }

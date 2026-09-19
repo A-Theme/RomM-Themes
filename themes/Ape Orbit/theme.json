@@ -1,13 +1,13 @@
 {
   "name": "Ape Orbit",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#0F0707",
-    "surface": "#1B1110D3",
-    "surface_raised": "#2B1D1CE3",
-    "surface_hover": "#402E2CED",
-    "border": "#584140AD",
+    "surface": "#1B1110C2",
+    "surface_raised": "#2B1D1CD1",
+    "surface_hover": "#402E2CE0",
+    "border": "#584140EB",
     "text": "#F1EBEB",
     "text_strong": "#FDFDFD",
     "text_muted": "#AEA5A5",
@@ -30,6 +30,14 @@
       "kind": "zoom",
       "speed": 0.25,
       "amount": 6
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "glow",
+      "speed": 0.8,
+      "amount": 78,
+      "color": "accent_hover"
     }
   }
 }

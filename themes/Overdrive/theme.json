@@ -1,13 +1,13 @@
 {
   "name": "Overdrive",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#100908",
-    "surface": "#1D1412",
-    "surface_raised": "#2C201F",
-    "surface_hover": "#41312F",
-    "border": "#584542",
+    "surface": "#1D1412B8",
+    "surface_raised": "#2C201FC7",
+    "surface_hover": "#41312FD6",
+    "border": "#584542E0",
     "text": "#F1EBEB",
     "text_strong": "#FDFDFD",
     "text_muted": "#ADA6A5",
@@ -34,6 +34,14 @@
       "frames": 180,
       "fps": 30,
       "loop": true
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "pulse",
+      "speed": 1.4,
+      "amount": 90,
+      "color": "accent_hover"
     }
   }
 }

@@ -1,11 +1,11 @@
 {
   "name": "Amber Requiem",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#141108",
-    "surface": "#201D11",
-    "surface_raised": "#2F2B1C",
+    "surface": "#201D11E0",
+    "surface_raised": "#2F2B1CF0",
     "surface_hover": "#433D29",
     "border": "#59523B",
     "text": "#EEEDE7",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 21
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 90,
+      "color": "accent_alt"
     }
   }
 }

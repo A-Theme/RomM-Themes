@@ -1,13 +1,13 @@
 {
   "name": "Luckdragon",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#190F0C",
-    "surface": "#261916BE",
-    "surface_raised": "#372623CE",
-    "surface_hover": "#4D3732D8",
-    "border": "#664B469C",
+    "surface": "#261916E0",
+    "surface_raised": "#372623F0",
+    "surface_hover": "#4D3732",
+    "border": "#664B46",
     "text": "#F2EBE9",
     "text_strong": "#FDFDFD",
     "text_muted": "#AFA5A3",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 26
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 82,
+      "color": "accent_alt"
     }
   }
 }

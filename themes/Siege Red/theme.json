@@ -1,12 +1,12 @@
 {
   "name": "Siege Red",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#130909",
-    "surface": "#201313",
-    "surface_raised": "#301F1F",
-    "surface_hover": "#463030",
+    "surface": "#201313D6",
+    "surface_raised": "#301F1FE5",
+    "surface_hover": "#463030F5",
     "border": "#5E4343",
     "text": "#F2EBEA",
     "text_strong": "#FDFDFD",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 22
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 89,
+      "color": "accent_alt"
     }
   }
 }

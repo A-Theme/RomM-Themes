@@ -1,7 +1,7 @@
 {
   "name": "Dragon Cut",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#14110C",
     "surface": "#201D16EB",
@@ -10,7 +10,7 @@
     "border": "#585245C0",
     "text": "#EEEDE9",
     "text_strong": "#FDFDFD",
-    "text_muted": "#A9A7A3",
+    "text_muted": "#ACAAA6",
     "text_disabled": "#706E6B",
     "text_on_accent": "#0C0A05",
     "accent": "#C6A863",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 25
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "smoke",
+      "speed": 0.5,
+      "amount": 51,
+      "color": "text_muted"
     }
   }
 }

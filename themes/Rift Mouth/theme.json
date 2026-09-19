@@ -1,13 +1,13 @@
 {
   "name": "Rift Mouth",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#0F080C",
-    "surface": "#1B1217",
-    "surface_raised": "#2B1E25",
-    "surface_hover": "#3F2E37",
-    "border": "#56424D",
+    "surface": "#1B1217CC",
+    "surface_raised": "#2B1E25DB",
+    "surface_hover": "#3F2E37EB",
+    "border": "#56424DF5",
     "text": "#F1EBEE",
     "text_strong": "#FDFDFD",
     "text_muted": "#ADA5A9",
@@ -30,6 +30,14 @@
       "kind": "zoom",
       "speed": 0.25,
       "amount": 6
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 88,
+      "color": "accent_alt"
     }
   }
 }

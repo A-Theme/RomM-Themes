@@ -1,13 +1,13 @@
 {
   "name": "Big Cheese",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#120B06",
-    "surface": "#1F160F",
-    "surface_raised": "#2E231A",
-    "surface_hover": "#433428",
-    "border": "#5A493B",
+    "surface": "#1F160FCC",
+    "surface_raised": "#2E231ADB",
+    "surface_hover": "#433428EB",
+    "border": "#5A493BF5",
     "text": "#F1ECE8",
     "text_strong": "#FDFDFD",
     "text_muted": "#ADA6A1",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 28
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 90,
+      "color": "accent_alt"
     }
   }
 }

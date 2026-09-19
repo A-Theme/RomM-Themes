@@ -1,12 +1,12 @@
 {
   "name": "Snaptrap",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#0B0E08",
-    "surface": "#161912",
-    "surface_raised": "#23271E",
-    "surface_hover": "#34392D",
+    "surface": "#161912D6",
+    "surface_raised": "#23271EE5",
+    "surface_hover": "#34392DF5",
     "border": "#494F41",
     "text": "#ECEDEA",
     "text_strong": "#FDFDFD",
@@ -30,6 +30,14 @@
       "kind": "zoom",
       "speed": 0.25,
       "amount": 6
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "fade",
+      "speed": 0.6,
+      "amount": 52,
+      "color": "accent_alt"
     }
   }
 }

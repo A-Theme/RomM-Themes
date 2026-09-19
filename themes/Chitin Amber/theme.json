@@ -1,13 +1,13 @@
 {
   "name": "Chitin Amber",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#0D0604",
-    "surface": "#1A100B",
-    "surface_raised": "#291C16",
-    "surface_hover": "#3E2D25",
-    "border": "#554137",
+    "surface": "#1A100BCC",
+    "surface_raised": "#291C16DB",
+    "surface_hover": "#3E2D25EB",
+    "border": "#554137F5",
     "text": "#F1EBE9",
     "text_strong": "#FDFDFD",
     "text_muted": "#AEA6A2",
@@ -30,6 +30,14 @@
       "kind": "zoom",
       "speed": 0.3,
       "amount": 8
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "glow",
+      "speed": 0.8,
+      "amount": 80,
+      "color": "accent_hover"
     }
   }
 }

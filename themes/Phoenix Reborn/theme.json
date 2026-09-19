@@ -1,13 +1,13 @@
 {
   "name": "Phoenix Reborn",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#110506",
-    "surface": "#1E0D0F",
-    "surface_raised": "#2E191B",
-    "surface_hover": "#45282A",
-    "border": "#5E3C3E",
+    "surface": "#1E0D0FC2",
+    "surface_raised": "#2E191BD1",
+    "surface_hover": "#45282AE0",
+    "border": "#5E3C3EEB",
     "text": "#F4EAEA",
     "text_strong": "#FDFDFD",
     "text_muted": "#B1A4A4",
@@ -30,6 +30,14 @@
       "kind": "pan",
       "speed": 0.25,
       "amount": 18
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "glow",
+      "speed": 0.8,
+      "amount": 80,
+      "color": "accent_hover"
     }
   }
 }

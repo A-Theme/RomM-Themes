@@ -1,12 +1,12 @@
 {
   "name": "Emberwing",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#180C09",
-    "surface": "#261613",
-    "surface_raised": "#36231E",
-    "surface_hover": "#4D332D",
+    "surface": "#261613D6",
+    "surface_raised": "#36231EE5",
+    "surface_hover": "#4D332DF5",
     "border": "#664740",
     "text": "#F3EBE8",
     "text_strong": "#FDFDFD",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 29
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 90,
+      "color": "accent_alt"
     }
   }
 }

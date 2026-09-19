@@ -1,13 +1,13 @@
 {
   "name": "Verdant Pearl",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#040B06",
-    "surface": "#0C170E",
-    "surface_raised": "#17251A",
-    "surface_hover": "#26382A",
-    "border": "#384E3D",
+    "surface": "#0C170EC2",
+    "surface_raised": "#17251AD1",
+    "surface_hover": "#26382AE0",
+    "border": "#384E3DEB",
     "text": "#E9EFEA",
     "text_strong": "#FDFDFD",
     "text_muted": "#A2AAA4",
@@ -30,6 +30,14 @@
       "kind": "zoom",
       "speed": 0.3,
       "amount": 8
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "fade",
+      "speed": 0.6,
+      "amount": 58,
+      "color": "accent_alt"
     }
   }
 }

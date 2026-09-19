@@ -1,13 +1,13 @@
 {
   "name": "Wobbegong",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#0A0C05",
-    "surface": "#15170EE9",
-    "surface_raised": "#222519F8",
-    "surface_hover": "#333828FA",
-    "border": "#484D3ABF",
+    "surface": "#15170EB8",
+    "surface_raised": "#222519C7",
+    "surface_hover": "#333828D6",
+    "border": "#484D3AE0",
     "text": "#ECEDE8",
     "text_strong": "#FDFDFD",
     "text_muted": "#A7A9A2",
@@ -30,6 +30,14 @@
       "kind": "pan",
       "speed": 0.25,
       "amount": 18
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "fade",
+      "speed": 0.6,
+      "amount": 53,
+      "color": "accent_alt"
     }
   }
 }

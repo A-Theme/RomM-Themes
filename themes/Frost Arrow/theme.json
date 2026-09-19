@@ -1,7 +1,7 @@
 {
   "name": "Frost Arrow",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#0C1311",
     "surface": "#161F1C",
@@ -10,7 +10,7 @@
     "border": "#465751",
     "text": "#EAEEEC",
     "text_strong": "#FDFDFD",
-    "text_muted": "#A3A9A7",
+    "text_muted": "#A5ABA9",
     "text_disabled": "#6B706E",
     "text_on_accent": "#070C08",
     "accent": "#78BE8C",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 22
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "fade",
+      "speed": 0.6,
+      "amount": 50,
+      "color": "accent_alt"
     }
   }
 }

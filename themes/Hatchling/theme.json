@@ -1,13 +1,13 @@
 {
   "name": "Hatchling",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#100706",
-    "surface": "#1C110FE3",
-    "surface_raised": "#2C1E1AF2",
-    "surface_hover": "#412E2AFA",
-    "border": "#59423DBA",
+    "surface": "#1C110FB8",
+    "surface_raised": "#2C1E1AC7",
+    "surface_hover": "#412E2AD6",
+    "border": "#59423DE0",
     "text": "#F2EBEA",
     "text_strong": "#FDFDFD",
     "text_muted": "#AEA5A3",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 26
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 90,
+      "color": "accent_alt"
     }
   }
 }

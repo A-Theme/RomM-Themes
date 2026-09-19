@@ -1,13 +1,13 @@
 {
   "name": "Ant War",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#120907",
-    "surface": "#1F1311C8",
-    "surface_raised": "#2F201DD7",
-    "surface_hover": "#44312CE1",
-    "border": "#5C453FA4",
+    "surface": "#1F1311CC",
+    "surface_raised": "#2F201DDB",
+    "surface_hover": "#44312CEB",
+    "border": "#5C453FF5",
     "text": "#F2EBE9",
     "text_strong": "#FDFDFD",
     "text_muted": "#AEA5A3",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 28
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 90,
+      "color": "accent_alt"
     }
   }
 }

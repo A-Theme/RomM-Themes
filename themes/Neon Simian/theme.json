@@ -1,13 +1,13 @@
 {
   "name": "Neon Simian",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#13090A",
-    "surface": "#201314D5",
-    "surface_raised": "#302021E5",
-    "surface_hover": "#453031EF",
-    "border": "#5D4445AF",
+    "surface": "#201314CC",
+    "surface_raised": "#302021DB",
+    "surface_hover": "#453031EB",
+    "border": "#5D4445F5",
     "text": "#F2EBEB",
     "text_strong": "#FDFDFD",
     "text_muted": "#AFA5A5",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 24
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 90,
+      "color": "accent_alt"
     }
   }
 }

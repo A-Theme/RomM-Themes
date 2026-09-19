@@ -1,13 +1,13 @@
 {
   "name": "Sky Rider",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#0F130E",
-    "surface": "#1A1E19C0",
-    "surface_raised": "#272D26CF",
-    "surface_hover": "#384036DA",
-    "border": "#4D554B9D",
+    "surface": "#1A1E19E0",
+    "surface_raised": "#272D26F0",
+    "surface_hover": "#384036",
+    "border": "#4D554B",
     "text": "#EBEDEB",
     "text_strong": "#FDFDFD",
     "text_muted": "#A6A9A5",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 26
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 80,
+      "color": "accent_alt"
     }
   }
 }

@@ -1,13 +1,13 @@
 {
   "name": "Neon Jaws",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#060A11",
-    "surface": "#0F151D",
-    "surface_raised": "#1B222D",
-    "surface_hover": "#2A3443",
-    "border": "#3D495B",
+    "surface": "#0F151DC2",
+    "surface_raised": "#1B222DD1",
+    "surface_hover": "#2A3443E0",
+    "border": "#3D495BEB",
     "text": "#EAEDF2",
     "text_strong": "#FDFDFD",
     "text_muted": "#A4A8AF",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 25
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "shimmer",
+      "speed": 0.9,
+      "amount": 87,
+      "color": "accent_alt"
     }
   }
 }

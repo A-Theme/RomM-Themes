@@ -1,12 +1,12 @@
 {
   "name": "Fear Incarnate",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#140905",
-    "surface": "#21130C",
-    "surface_raised": "#312017",
-    "surface_hover": "#473024",
+    "surface": "#21130CD6",
+    "surface_raised": "#312017E5",
+    "surface_hover": "#473024F5",
     "border": "#604436",
     "text": "#F3EBE7",
     "text_strong": "#FDFDFD",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 22
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 90,
+      "color": "accent_alt"
     }
   }
 }

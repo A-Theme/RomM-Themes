@@ -1,13 +1,13 @@
 {
   "name": "Bloodhouse",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#15080C",
-    "surface": "#231217B5",
-    "surface_raised": "#331E25C4",
-    "surface_hover": "#4A2D37CE",
-    "border": "#63404C94",
+    "surface": "#231217D6",
+    "surface_raised": "#331E25E5",
+    "surface_hover": "#4A2D37F5",
+    "border": "#63404C",
     "text": "#F5E9ED",
     "text_strong": "#FDFDFD",
     "text_muted": "#B3A3A7",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 26
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 81,
+      "color": "accent_alt"
     }
   }
 }

@@ -1,13 +1,13 @@
 {
   "name": "Mystic Ninja",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#0A0E13",
-    "surface": "#141920E7",
-    "surface_raised": "#20262FF6",
-    "surface_hover": "#303945FA",
-    "border": "#444E5CBD",
+    "surface": "#141920CC",
+    "surface_raised": "#20262FDB",
+    "surface_hover": "#303945EB",
+    "border": "#444E5CF5",
     "text": "#EAEDF1",
     "text_strong": "#FDFDFD",
     "text_muted": "#A4A8AD",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 25
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 90,
+      "color": "accent_alt"
     }
   }
 }

@@ -1,13 +1,13 @@
 {
   "name": "Godfall",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#120B09",
-    "surface": "#1F1513",
-    "surface_raised": "#2F221F",
-    "surface_hover": "#43332F",
-    "border": "#5B4743",
+    "surface": "#1F1513CC",
+    "surface_raised": "#2F221FDB",
+    "surface_hover": "#43332FEB",
+    "border": "#5B4743F5",
     "text": "#F1EBEA",
     "text_strong": "#FDFDFD",
     "text_muted": "#ADA6A4",
@@ -30,6 +30,14 @@
       "kind": "zoom",
       "speed": 0.3,
       "amount": 8
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 82,
+      "color": "accent_alt"
     }
   }
 }

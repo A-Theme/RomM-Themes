@@ -1,13 +1,13 @@
 {
   "name": "Specimen",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#0D0706",
-    "surface": "#19110F",
-    "surface_raised": "#271E1B",
-    "surface_hover": "#3B2F2B",
-    "border": "#52433F",
+    "surface": "#19110FC2",
+    "surface_raised": "#271E1BD1",
+    "surface_hover": "#3B2F2BE0",
+    "border": "#52433FEB",
     "text": "#F0ECEA",
     "text_strong": "#FDFDFD",
     "text_muted": "#ACA6A5",
@@ -30,6 +30,14 @@
       "kind": "pan",
       "speed": 0.25,
       "amount": 18
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "glow",
+      "speed": 0.8,
+      "amount": 69,
+      "color": "accent_hover"
     }
   }
 }

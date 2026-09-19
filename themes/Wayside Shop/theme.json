@@ -1,13 +1,13 @@
 {
   "name": "Wayside Shop",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#0B0A06",
-    "surface": "#16150EDB",
-    "surface_raised": "#23231AEA",
-    "surface_hover": "#353529F5",
-    "border": "#4A4A3CB4",
+    "surface": "#16150EC2",
+    "surface_raised": "#23231AD1",
+    "surface_hover": "#353529E0",
+    "border": "#4A4A3CEB",
     "text": "#EDEDE9",
     "text_strong": "#FDFDFD",
     "text_muted": "#A8A8A3",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 24
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "smoke",
+      "speed": 0.5,
+      "amount": 53,
+      "color": "text_muted"
     }
   }
 }

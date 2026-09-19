@@ -1,13 +1,13 @@
 {
   "name": "Storybook",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#100C08",
-    "surface": "#1C1711DE",
-    "surface_raised": "#2B241DED",
-    "surface_hover": "#3E362CF7",
-    "border": "#554B3FB6",
+    "surface": "#1C1711CC",
+    "surface_raised": "#2B241DDB",
+    "surface_hover": "#3E362CEB",
+    "border": "#554B3FF5",
     "text": "#EFECE9",
     "text_strong": "#FDFDFD",
     "text_muted": "#ABA7A3",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 27
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 82,
+      "color": "accent_alt"
     }
   }
 }

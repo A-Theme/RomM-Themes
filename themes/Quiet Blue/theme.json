@@ -1,13 +1,13 @@
 {
   "name": "Quiet Blue",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#090D16",
-    "surface": "#131823",
-    "surface_raised": "#1F2634",
-    "surface_hover": "#2F384A",
-    "border": "#424D63",
+    "surface": "#131823CC",
+    "surface_raised": "#1F2634DB",
+    "surface_hover": "#2F384AEB",
+    "border": "#424D63F5",
     "text": "#EAEDF3",
     "text_strong": "#FDFDFD",
     "text_muted": "#A4A8B0",
@@ -30,6 +30,14 @@
       "kind": "pan",
       "speed": 0.25,
       "amount": 18
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "shimmer",
+      "speed": 0.9,
+      "amount": 87,
+      "color": "accent_alt"
     }
   }
 }

@@ -1,13 +1,13 @@
 {
   "name": "Mossling",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#090905",
-    "surface": "#14140E",
-    "surface_raised": "#22221A",
-    "surface_hover": "#343429",
-    "border": "#49493C",
+    "surface": "#14140EB8",
+    "surface_raised": "#22221AC7",
+    "surface_hover": "#343429D6",
+    "border": "#49493CE0",
     "text": "#EDEDEA",
     "text_strong": "#FDFDFD",
     "text_muted": "#A8A8A3",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 26
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "smoke",
+      "speed": 0.5,
+      "amount": 53,
+      "color": "text_muted"
     }
   }
 }

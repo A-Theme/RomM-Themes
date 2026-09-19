@@ -1,13 +1,13 @@
 {
   "name": "Whaleback",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#150B0C",
-    "surface": "#221517",
-    "surface_raised": "#322224",
-    "surface_hover": "#483235",
-    "border": "#60464A",
+    "surface": "#221517CC",
+    "surface_raised": "#322224DB",
+    "surface_hover": "#483235EB",
+    "border": "#60464AF5",
     "text": "#F2EBEC",
     "text_strong": "#FDFDFD",
     "text_muted": "#AFA5A6",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 21
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 90,
+      "color": "accent_alt"
     }
   }
 }

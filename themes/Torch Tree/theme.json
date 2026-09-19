@@ -1,13 +1,13 @@
 {
   "name": "Torch Tree",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#080711",
-    "surface": "#12121FB6",
-    "surface_raised": "#1F1E2FC6",
-    "surface_hover": "#312F46D0",
-    "border": "#45445E96",
+    "surface": "#12121FD6",
+    "surface_raised": "#1F1E2FE5",
+    "surface_hover": "#312F46F5",
+    "border": "#45445E",
     "text": "#ECECF3",
     "text_strong": "#FDFDFD",
     "text_muted": "#A7A7B1",
@@ -30,6 +30,14 @@
       "kind": "zoom",
       "speed": 0.25,
       "amount": 6
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "glow",
+      "speed": 0.8,
+      "amount": 71,
+      "color": "accent_hover"
     }
   }
 }

@@ -1,13 +1,13 @@
 {
   "name": "Wirechewer",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#070A0E",
-    "surface": "#11141A",
-    "surface_raised": "#1E2229",
-    "surface_hover": "#2E343D",
-    "border": "#424954",
+    "surface": "#11141AC2",
+    "surface_raised": "#1E2229D1",
+    "surface_hover": "#2E343DE0",
+    "border": "#424954EB",
     "text": "#EBEDF0",
     "text_strong": "#FDFDFD",
     "text_muted": "#A5A8AC",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 27
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "shimmer",
+      "speed": 0.9,
+      "amount": 80,
+      "color": "accent_alt"
     }
   }
 }

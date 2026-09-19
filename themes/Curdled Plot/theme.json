@@ -1,13 +1,13 @@
 {
   "name": "Curdled Plot",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#100804",
-    "surface": "#1C120C",
-    "surface_raised": "#2C1F17",
-    "surface_hover": "#412F25",
-    "border": "#584338",
+    "surface": "#1C120CC2",
+    "surface_raised": "#2C1F17D1",
+    "surface_hover": "#412F25E0",
+    "border": "#584338EB",
     "text": "#F1EBE8",
     "text_strong": "#FDFDFD",
     "text_muted": "#AEA6A2",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 25
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "fade",
+      "speed": 0.6,
+      "amount": 55,
+      "color": "accent_alt"
     }
   }
 }

@@ -1,12 +1,12 @@
 {
   "name": "Gold at the End",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#07110B",
-    "surface": "#101D15",
-    "surface_raised": "#1B2B21",
-    "surface_hover": "#293F31",
+    "surface": "#101D15D6",
+    "surface_raised": "#1B2B21E5",
+    "surface_hover": "#293F31F5",
     "border": "#3C5545",
     "text": "#E8EFEA",
     "text_strong": "#FDFDFD",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 26
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 90,
+      "color": "accent_alt"
     }
   }
 }

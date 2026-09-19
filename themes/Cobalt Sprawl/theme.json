@@ -1,13 +1,13 @@
 {
   "name": "Cobalt Sprawl",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#05090E",
-    "surface": "#0E141A",
-    "surface_raised": "#1A2129",
-    "surface_hover": "#2A333D",
-    "border": "#3D4855",
+    "surface": "#0E141AB8",
+    "surface_raised": "#1A2129C7",
+    "surface_hover": "#2A333DD6",
+    "border": "#3D4855E0",
     "text": "#EAEDF0",
     "text_strong": "#FDFDFD",
     "text_muted": "#A4A8AD",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 25
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "shimmer",
+      "speed": 0.9,
+      "amount": 87,
+      "color": "accent_alt"
     }
   }
 }

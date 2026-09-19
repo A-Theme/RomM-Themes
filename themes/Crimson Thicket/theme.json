@@ -1,12 +1,12 @@
 {
   "name": "Crimson Thicket",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#130C07",
-    "surface": "#201610",
-    "surface_raised": "#30241B",
-    "surface_hover": "#45352A",
+    "surface": "#201610D6",
+    "surface_raised": "#30241BE5",
+    "surface_hover": "#45352AF5",
     "border": "#5C493C",
     "text": "#F1ECE8",
     "text_strong": "#FDFDFD",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 28
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 89,
+      "color": "accent_alt"
     }
   }
 }

@@ -1,11 +1,11 @@
 {
   "name": "Blue Shift",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#0A0F17",
-    "surface": "#141B24",
-    "surface_raised": "#202935",
+    "surface": "#141B24E0",
+    "surface_raised": "#202935F0",
     "surface_hover": "#303B4B",
     "border": "#435064",
     "text": "#E9EDF2",
@@ -30,6 +30,14 @@
       "kind": "pan",
       "speed": 0.25,
       "amount": 18
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "shimmer",
+      "speed": 0.9,
+      "amount": 87,
+      "color": "accent_alt"
     }
   }
 }

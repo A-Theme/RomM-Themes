@@ -1,13 +1,13 @@
 {
   "name": "Shieldmaiden",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#170E0D",
-    "surface": "#241917DD",
-    "surface_raised": "#342624EC",
-    "surface_hover": "#493734F7",
-    "border": "#614B48B5",
+    "surface": "#241917D6",
+    "surface_raised": "#342624E5",
+    "surface_hover": "#493734F5",
+    "border": "#614B48",
     "text": "#F1EBEA",
     "text_strong": "#FDFDFD",
     "text_muted": "#AEA6A4",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 24
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 90,
+      "color": "accent_alt"
     }
   }
 }

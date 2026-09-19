@@ -1,13 +1,13 @@
 {
   "name": "Kitchen Fire",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#150E0A",
-    "surface": "#221914D1",
-    "surface_raised": "#312620E0",
-    "surface_hover": "#46382FEA",
-    "border": "#5E4C42AB",
+    "surface": "#221914D6",
+    "surface_raised": "#312620E5",
+    "surface_hover": "#46382FF5",
+    "border": "#5E4C42",
     "text": "#F0ECE9",
     "text_strong": "#FDFDFD",
     "text_muted": "#ADA6A3",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 24
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 87,
+      "color": "accent_alt"
     }
   }
 }

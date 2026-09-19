@@ -1,13 +1,13 @@
 {
   "name": "Beam Alignment",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#06090F",
-    "surface": "#0F141B",
-    "surface_raised": "#1B222B",
-    "surface_hover": "#2A3340",
-    "border": "#3D4857",
+    "surface": "#0F141BCC",
+    "surface_raised": "#1B222BDB",
+    "surface_hover": "#2A3340EB",
+    "border": "#3D4857F5",
     "text": "#EAEDF1",
     "text_strong": "#FDFDFD",
     "text_muted": "#A4A8AD",
@@ -30,6 +30,14 @@
       "kind": "zoom",
       "speed": 0.3,
       "amount": 8
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "glow",
+      "speed": 0.8,
+      "amount": 80,
+      "color": "accent_hover"
     }
   }
 }

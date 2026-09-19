@@ -1,13 +1,13 @@
 {
   "name": "Sleigh Drive",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#080A15",
-    "surface": "#121522",
-    "surface_raised": "#1E2233",
-    "surface_hover": "#2E334A",
-    "border": "#424864",
+    "surface": "#121522CC",
+    "surface_raised": "#1E2233DB",
+    "surface_hover": "#2E334AEB",
+    "border": "#424864F5",
     "text": "#EAECF4",
     "text_strong": "#FDFDFD",
     "text_muted": "#A5A7B1",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 27
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 90,
+      "color": "accent_alt"
     }
   }
 }

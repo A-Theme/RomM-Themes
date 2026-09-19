@@ -1,13 +1,13 @@
 {
   "name": "Event Horizon",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#0A080F",
-    "surface": "#15131B",
-    "surface_raised": "#22202B",
-    "surface_hover": "#34313F",
-    "border": "#494557",
+    "surface": "#15131BCC",
+    "surface_raised": "#22202BDB",
+    "surface_hover": "#34313FEB",
+    "border": "#494557F5",
     "text": "#EDECF1",
     "text_strong": "#FDFDFD",
     "text_muted": "#A8A7AD",
@@ -30,6 +30,14 @@
       "kind": "zoom",
       "speed": 0.3,
       "amount": 8
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "glow",
+      "speed": 0.8,
+      "amount": 72,
+      "color": "accent_hover"
     }
   }
 }

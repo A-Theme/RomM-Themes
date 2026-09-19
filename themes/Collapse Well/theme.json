@@ -1,11 +1,11 @@
 {
   "name": "Collapse Well",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#131109",
-    "surface": "#1F1C12",
-    "surface_raised": "#2D2A1D",
+    "surface": "#1F1C12E0",
+    "surface_raised": "#2D2A1DF0",
     "surface_hover": "#413C2C",
     "border": "#57523E",
     "text": "#EEEDE8",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 27
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 80,
+      "color": "accent_alt"
     }
   }
 }

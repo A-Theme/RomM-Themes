@@ -1,12 +1,12 @@
 {
   "name": "White Library",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#0E1115",
-    "surface": "#191C21",
-    "surface_raised": "#252A31",
-    "surface_hover": "#363D45",
+    "surface": "#191C21D6",
+    "surface_raised": "#252A31E5",
+    "surface_hover": "#363D45F5",
     "border": "#4A525C",
     "text": "#EBEDEF",
     "text_strong": "#FDFDFD",
@@ -30,6 +30,14 @@
       "kind": "pan",
       "speed": 0.25,
       "amount": 18
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "smoke",
+      "speed": 0.5,
+      "amount": 46,
+      "color": "text_muted"
     }
   }
 }

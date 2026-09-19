@@ -1,12 +1,12 @@
 {
   "name": "Meld",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#0E0712",
-    "surface": "#1A111F",
-    "surface_raised": "#281E30",
-    "surface_hover": "#3C2E46",
+    "surface": "#1A111FD6",
+    "surface_raised": "#281E30E5",
+    "surface_hover": "#3C2E46F5",
     "border": "#52425E",
     "text": "#EFEBF3",
     "text_strong": "#FDFDFD",
@@ -30,6 +30,14 @@
       "kind": "zoom",
       "speed": 0.25,
       "amount": 6
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "glow",
+      "speed": 0.8,
+      "amount": 80,
+      "color": "accent_hover"
     }
   }
 }

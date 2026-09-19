@@ -1,13 +1,13 @@
 {
   "name": "Moonwake",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#0B0606",
     "surface": "#130E0DB8",
-    "surface_raised": "#1F1918CC",
-    "surface_hover": "#2D2726DB",
-    "border": "#4D4645E6",
+    "surface_raised": "#1F1918C7",
+    "surface_hover": "#2D2726D6",
+    "border": "#4D4645E0",
     "text": "#E3E0E0",
     "text_strong": "#FDFBFB",
     "text_muted": "#A2A09F",
@@ -38,10 +38,10 @@
   },
   "effects": {
     "focus": {
-      "kind": "embers",
-      "speed": 0.8,
-      "amount": 55,
-      "color": "accent_alt"
+      "kind": "pulse",
+      "speed": 1.4,
+      "amount": 90,
+      "color": "accent_hover"
     }
   }
 }

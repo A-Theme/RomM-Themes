@@ -1,13 +1,13 @@
 {
   "name": "Contract Work",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#1A0D10",
-    "surface": "#28171BD0",
-    "surface_raised": "#392429DF",
-    "surface_hover": "#50343BE9",
-    "border": "#694850AA",
+    "surface": "#28171BE0",
+    "surface_raised": "#392429F0",
+    "surface_hover": "#50343B",
+    "border": "#694850",
     "text": "#F3EAEC",
     "text_strong": "#FDFDFD",
     "text_muted": "#B0A4A6",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 27
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 90,
+      "color": "accent_alt"
     }
   }
 }

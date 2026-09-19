@@ -1,13 +1,13 @@
 {
   "name": "Singularity",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#0A060C",
-    "surface": "#151017",
-    "surface_raised": "#241C26",
-    "surface_hover": "#372D3A",
-    "border": "#4D4150",
+    "surface": "#151017CC",
+    "surface_raised": "#241C26DB",
+    "surface_hover": "#372D3AEB",
+    "border": "#4D4150F5",
     "text": "#EFEBF0",
     "text_strong": "#FDFDFD",
     "text_muted": "#AAA6AC",
@@ -30,6 +30,14 @@
       "kind": "zoom",
       "speed": 0.3,
       "amount": 8
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "glow",
+      "speed": 0.8,
+      "amount": 77,
+      "color": "accent_hover"
     }
   }
 }

@@ -1,11 +1,11 @@
 {
   "name": "Cold Beacon",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#12120D",
-    "surface": "#1D1E17",
-    "surface_raised": "#2B2C23",
+    "surface": "#1D1E17E0",
+    "surface_raised": "#2B2C23F0",
     "surface_hover": "#3D3E33",
     "border": "#535447",
     "text": "#EDEDEA",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 26
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "smoke",
+      "speed": 0.5,
+      "amount": 47,
+      "color": "text_muted"
     }
   }
 }

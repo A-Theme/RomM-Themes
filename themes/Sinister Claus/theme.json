@@ -1,13 +1,13 @@
 {
   "name": "Sinister Claus",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#0C0507",
-    "surface": "#180E11CE",
-    "surface_raised": "#271B1FDD",
-    "surface_hover": "#3C2B30E7",
-    "border": "#533F45A9",
+    "surface": "#180E11B8",
+    "surface_raised": "#271B1FC7",
+    "surface_hover": "#3C2B30D6",
+    "border": "#533F45E0",
     "text": "#F1EBED",
     "text_strong": "#FDFDFD",
     "text_muted": "#ADA5A7",
@@ -30,6 +30,14 @@
       "kind": "zoom",
       "speed": 0.25,
       "amount": 6
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "glow",
+      "speed": 0.8,
+      "amount": 69,
+      "color": "accent_hover"
     }
   }
 }

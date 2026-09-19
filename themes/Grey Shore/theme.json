@@ -1,13 +1,13 @@
 {
   "name": "Grey Shore",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#06070A",
-    "surface": "#0F1116",
-    "surface_raised": "#1B1E24",
-    "surface_hover": "#2C3038",
-    "border": "#40454E",
+    "surface": "#0F1116B8",
+    "surface_raised": "#1B1E24C7",
+    "surface_hover": "#2C3038D6",
+    "border": "#40454EE0",
     "text": "#EBEDEF",
     "text_strong": "#FDFDFD",
     "text_muted": "#A6A8AB",
@@ -30,6 +30,14 @@
       "kind": "zoom",
       "speed": 0.3,
       "amount": 8
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "glow",
+      "speed": 0.8,
+      "amount": 53,
+      "color": "accent_hover"
     }
   }
 }

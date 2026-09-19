@@ -1,13 +1,13 @@
 {
   "name": "Understudy",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#0C1315",
-    "surface": "#161E21D9",
-    "surface_raised": "#232D30E9",
-    "surface_hover": "#324044F3",
-    "border": "#46565BB2",
+    "surface": "#161E21E0",
+    "surface_raised": "#232D30F0",
+    "surface_hover": "#324044",
+    "border": "#46565B",
     "text": "#EAEEEF",
     "text_strong": "#FDFDFD",
     "text_muted": "#A3A9AA",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 28
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "fade",
+      "speed": 0.6,
+      "amount": 49,
+      "color": "accent_alt"
     }
   }
 }

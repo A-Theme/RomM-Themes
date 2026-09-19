@@ -1,13 +1,13 @@
 {
   "name": "Emerald Smoke",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#0E0B06",
-    "surface": "#1A150F",
-    "surface_raised": "#28231A",
-    "surface_hover": "#3C3429",
-    "border": "#52493B",
+    "surface": "#1A150FCC",
+    "surface_raised": "#28231ADB",
+    "surface_hover": "#3C3429EB",
+    "border": "#52493BF5",
     "text": "#EFECE9",
     "text_strong": "#FDFDFD",
     "text_muted": "#AAA7A2",
@@ -30,6 +30,14 @@
       "kind": "zoom",
       "speed": 0.25,
       "amount": 6
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 90,
+      "color": "accent_alt"
     }
   }
 }

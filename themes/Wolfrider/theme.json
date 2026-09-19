@@ -1,12 +1,12 @@
 {
   "name": "Wolfrider",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#130C08",
-    "surface": "#1F1711",
-    "surface_raised": "#2F241C",
-    "surface_hover": "#44362B",
+    "surface": "#1F1711D6",
+    "surface_raised": "#2F241CE5",
+    "surface_hover": "#44362BF5",
     "border": "#5B4A3E",
     "text": "#F0ECE8",
     "text_strong": "#FDFDFD",
@@ -30,6 +30,14 @@
       "kind": "pan",
       "speed": 0.25,
       "amount": 18
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 85,
+      "color": "accent_alt"
     }
   }
 }

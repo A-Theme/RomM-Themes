@@ -1,13 +1,13 @@
 {
   "name": "Hookah Snail",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#060D14",
-    "surface": "#0F1921C2",
-    "surface_raised": "#1A2631D1",
-    "surface_hover": "#293947DC",
-    "border": "#3B4E5F9F",
+    "surface": "#0F1921D6",
+    "surface_raised": "#1A2631E5",
+    "surface_hover": "#293947F5",
+    "border": "#3B4E5F",
     "text": "#E8EDF2",
     "text_strong": "#FDFDFD",
     "text_muted": "#A2A9AF",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 29
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 90,
+      "color": "accent_alt"
     }
   }
 }

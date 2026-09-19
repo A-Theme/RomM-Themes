@@ -1,12 +1,12 @@
 {
   "name": "Bedside Things",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#10080B",
-    "surface": "#1C1116",
-    "surface_raised": "#2B1E24",
-    "surface_hover": "#402E36",
+    "surface": "#1C1116D6",
+    "surface_raised": "#2B1E24E5",
+    "surface_hover": "#402E36F5",
     "border": "#57424B",
     "text": "#F1EBED",
     "text_strong": "#FDFDFD",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 23
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 77,
+      "color": "accent_alt"
     }
   }
 }

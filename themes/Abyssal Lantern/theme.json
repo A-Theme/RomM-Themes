@@ -1,12 +1,12 @@
 {
   "name": "Abyssal Lantern",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#07070F",
-    "surface": "#11111C",
-    "surface_raised": "#1E1E2C",
-    "surface_hover": "#2F2F42",
+    "surface": "#11111CD6",
+    "surface_raised": "#1E1E2CE5",
+    "surface_hover": "#2F2F42F5",
     "border": "#43435A",
     "text": "#ECECF3",
     "text_strong": "#FDFDFD",
@@ -30,6 +30,14 @@
       "kind": "zoom",
       "speed": 0.3,
       "amount": 8
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "glow",
+      "speed": 0.8,
+      "amount": 80,
+      "color": "accent_hover"
     }
   }
 }

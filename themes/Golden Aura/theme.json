@@ -1,13 +1,13 @@
 {
   "name": "Golden Aura",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#120905",
-    "surface": "#1F140D",
-    "surface_raised": "#2F2018",
-    "surface_hover": "#443125",
-    "border": "#5C4537",
+    "surface": "#1F140DCC",
+    "surface_raised": "#2F2018DB",
+    "surface_hover": "#443125EB",
+    "border": "#5C4537F5",
     "text": "#F2EBE8",
     "text_strong": "#FDFDFD",
     "text_muted": "#AEA6A1",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 29
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 90,
+      "color": "accent_alt"
     }
   }
 }

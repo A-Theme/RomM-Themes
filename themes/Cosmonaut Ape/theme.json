@@ -1,13 +1,13 @@
 {
   "name": "Cosmonaut Ape",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#060A0D",
-    "surface": "#101518",
-    "surface_raised": "#1C2227",
-    "surface_hover": "#2C343A",
-    "border": "#3F4A51",
+    "surface": "#101518C2",
+    "surface_raised": "#1C2227D1",
+    "surface_hover": "#2C343AE0",
+    "border": "#3F4A51EB",
     "text": "#EAEDEF",
     "text_strong": "#FDFDFD",
     "text_muted": "#A5A8AB",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 22
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "shimmer",
+      "speed": 0.9,
+      "amount": 80,
+      "color": "accent_alt"
     }
   }
 }

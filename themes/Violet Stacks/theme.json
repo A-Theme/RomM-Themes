@@ -1,13 +1,13 @@
 {
   "name": "Violet Stacks",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#0B0915",
-    "surface": "#161422",
-    "surface_raised": "#232133",
-    "surface_hover": "#35314A",
-    "border": "#4A4663",
+    "surface": "#161422CC",
+    "surface_raised": "#232133DB",
+    "surface_hover": "#35314AEB",
+    "border": "#4A4663F5",
     "text": "#ECECF4",
     "text_strong": "#FDFDFD",
     "text_muted": "#A7A6B1",
@@ -30,6 +30,14 @@
       "kind": "zoom",
       "speed": 0.25,
       "amount": 6
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "fade",
+      "speed": 0.6,
+      "amount": 58,
+      "color": "accent_alt"
     }
   }
 }

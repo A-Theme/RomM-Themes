@@ -1,13 +1,13 @@
 {
   "name": "The Overseer",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#07080E",
-    "surface": "#11131A",
-    "surface_raised": "#1D2029",
-    "surface_hover": "#2E323E",
-    "border": "#424755",
+    "surface": "#11131AC2",
+    "surface_raised": "#1D2029D1",
+    "surface_hover": "#2E323EE0",
+    "border": "#424755EB",
     "text": "#EBEDF0",
     "text_strong": "#FDFDFD",
     "text_muted": "#A6A7AD",
@@ -30,6 +30,14 @@
       "kind": "pan",
       "speed": 0.25,
       "amount": 18
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "glow",
+      "speed": 0.8,
+      "amount": 80,
+      "color": "accent_hover"
     }
   }
 }

@@ -1,13 +1,13 @@
 {
   "name": "Wormhole Drift",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#0A070D",
-    "surface": "#15101A",
-    "surface_raised": "#231D29",
-    "surface_hover": "#362E3D",
-    "border": "#4C4255",
+    "surface": "#15101ACC",
+    "surface_raised": "#231D29DB",
+    "surface_hover": "#362E3DEB",
+    "border": "#4C4255F5",
     "text": "#EEEBF1",
     "text_strong": "#FDFDFD",
     "text_muted": "#AAA6AD",
@@ -30,6 +30,14 @@
       "kind": "zoom",
       "speed": 0.3,
       "amount": 8
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "glow",
+      "speed": 0.8,
+      "amount": 80,
+      "color": "accent_hover"
     }
   }
 }

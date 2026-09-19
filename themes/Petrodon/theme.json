@@ -1,7 +1,7 @@
 {
   "name": "Petrodon",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#0C1312",
     "surface": "#161F1DD7",
@@ -10,7 +10,7 @@
     "border": "#455753B0",
     "text": "#E9EEED",
     "text_strong": "#FDFDFD",
-    "text_muted": "#A3A9A8",
+    "text_muted": "#A9AFAE",
     "text_disabled": "#6B706F",
     "text_on_accent": "#0D0A05",
     "accent": "#CBA55E",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 26
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 78,
+      "color": "accent_alt"
     }
   }
 }

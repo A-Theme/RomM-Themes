@@ -1,13 +1,13 @@
 {
   "name": "Archive Violet",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#0D0814",
-    "surface": "#181221",
-    "surface_raised": "#271F31",
-    "surface_hover": "#392F48",
-    "border": "#4F4361",
+    "surface": "#181221CC",
+    "surface_raised": "#271F31DB",
+    "surface_hover": "#392F48EB",
+    "border": "#4F4361F5",
     "text": "#EEEBF4",
     "text_strong": "#FDFDFD",
     "text_muted": "#AAA5B1",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 28
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "fade",
+      "speed": 0.6,
+      "amount": 58,
+      "color": "accent_alt"
     }
   }
 }

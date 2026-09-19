@@ -1,13 +1,13 @@
 {
   "name": "Greasepaint",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#0D0D07",
-    "surface": "#181910",
-    "surface_raised": "#25261C",
-    "surface_hover": "#37392B",
-    "border": "#4C4E3D",
+    "surface": "#181910CC",
+    "surface_raised": "#25261CDB",
+    "surface_hover": "#37392BEB",
+    "border": "#4C4E3DF5",
     "text": "#EDEDE9",
     "text_strong": "#FDFDFD",
     "text_muted": "#A7A8A2",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 24
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "fade",
+      "speed": 0.6,
+      "amount": 57,
+      "color": "accent_alt"
     }
   }
 }

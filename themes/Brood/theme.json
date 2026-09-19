@@ -1,13 +1,13 @@
 {
   "name": "Brood",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#100A07",
-    "surface": "#1C1511",
-    "surface_raised": "#2B221D",
-    "surface_hover": "#3F332C",
-    "border": "#56483F",
+    "surface": "#1C1511CC",
+    "surface_raised": "#2B221DDB",
+    "surface_hover": "#3F332CEB",
+    "border": "#56483FF5",
     "text": "#F0ECEA",
     "text_strong": "#FDFDFD",
     "text_muted": "#ACA6A3",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 27
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "smoke",
+      "speed": 0.5,
+      "amount": 53,
+      "color": "text_muted"
     }
   }
 }

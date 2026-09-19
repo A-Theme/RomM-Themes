@@ -1,13 +1,13 @@
 {
   "name": "Sengoku Rain",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#160B0A",
-    "surface": "#231614",
-    "surface_raised": "#332321",
-    "surface_hover": "#493330",
-    "border": "#614744",
+    "surface": "#231614CC",
+    "surface_raised": "#332321DB",
+    "surface_hover": "#493330EB",
+    "border": "#614744F5",
     "text": "#F2EBEA",
     "text_strong": "#FDFDFD",
     "text_muted": "#AFA5A4",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 29
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 90,
+      "color": "accent_alt"
     }
   }
 }

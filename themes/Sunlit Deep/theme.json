@@ -1,13 +1,13 @@
 {
   "name": "Sunlit Deep",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#000A10",
     "surface": "#001319B8",
-    "surface_raised": "#021F25CC",
-    "surface_hover": "#102E34DB",
-    "border": "#304D54E6",
+    "surface_raised": "#021F25C7",
+    "surface_hover": "#102E34D6",
+    "border": "#304D54E0",
     "text": "#DEE7E9",
     "text_strong": "#F4FEFF",
     "text_muted": "#9DA6A8",
@@ -38,10 +38,10 @@
   },
   "effects": {
     "focus": {
-      "kind": "embers",
-      "speed": 1.1,
-      "amount": 70,
-      "color": "accent_alt"
+      "kind": "pulse",
+      "speed": 1.4,
+      "amount": 90,
+      "color": "accent_hover"
     }
   }
 }

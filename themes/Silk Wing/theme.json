@@ -1,11 +1,11 @@
 {
   "name": "Silk Wing",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#16100B",
-    "surface": "#231B15",
-    "surface_raised": "#322821",
+    "surface": "#231B15E0",
+    "surface_raised": "#322821F0",
     "surface_hover": "#473A30",
     "border": "#5E4F43",
     "text": "#F0ECE9",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 24
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 81,
+      "color": "accent_alt"
     }
   }
 }

@@ -1,13 +1,13 @@
 {
   "name": "Jellyglass",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#020A09",
-    "surface": "#081514",
-    "surface_raised": "#132322",
-    "surface_hover": "#203634",
-    "border": "#324B49",
+    "surface": "#081514C2",
+    "surface_raised": "#132322D1",
+    "surface_hover": "#203634E0",
+    "border": "#324B49EB",
     "text": "#E8EEEE",
     "text_strong": "#FDFDFD",
     "text_muted": "#A1AAA9",
@@ -30,6 +30,14 @@
       "kind": "zoom",
       "speed": 0.3,
       "amount": 8
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "glow",
+      "speed": 0.8,
+      "amount": 80,
+      "color": "accent_hover"
     }
   }
 }

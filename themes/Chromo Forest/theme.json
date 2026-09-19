@@ -1,13 +1,13 @@
 {
   "name": "Chromo Forest",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#0F0503",
-    "surface": "#1C0D0A",
-    "surface_raised": "#2C1916",
-    "surface_hover": "#432924",
-    "border": "#5B3C36",
+    "surface": "#1C0D0AB8",
+    "surface_raised": "#2C1916C7",
+    "surface_hover": "#432924D6",
+    "border": "#5B3C36E0",
     "text": "#F4EAE9",
     "text_strong": "#FDFDFD",
     "text_muted": "#B1A5A2",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 22
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "glow",
+      "speed": 0.8,
+      "amount": 80,
+      "color": "accent_hover"
     }
   }
 }

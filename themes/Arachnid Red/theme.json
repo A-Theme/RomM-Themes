@@ -1,13 +1,13 @@
 {
   "name": "Arachnid Red",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#120707",
-    "surface": "#1F1110",
-    "surface_raised": "#2F1D1C",
-    "surface_hover": "#452D2C",
-    "border": "#5E413F",
+    "surface": "#1F1110CC",
+    "surface_raised": "#2F1D1CDB",
+    "surface_hover": "#452D2CEB",
+    "border": "#5E413FF5",
     "text": "#F3EBEA",
     "text_strong": "#FDFDFD",
     "text_muted": "#B0A5A4",
@@ -30,6 +30,14 @@
       "kind": "zoom",
       "speed": 0.25,
       "amount": 6
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 87,
+      "color": "accent_alt"
     }
   }
 }

@@ -1,13 +1,13 @@
 {
   "name": "Deep Red",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#0D060C",
-    "surface": "#181018",
-    "surface_raised": "#271C26",
-    "surface_hover": "#3B2D3A",
-    "border": "#524050",
+    "surface": "#181018C2",
+    "surface_raised": "#271C26D1",
+    "surface_hover": "#3B2D3AE0",
+    "border": "#524050EB",
     "text": "#F0EBEF",
     "text_strong": "#FDFDFD",
     "text_muted": "#ACA5AB",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 22
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "glow",
+      "speed": 0.8,
+      "amount": 80,
+      "color": "accent_hover"
     }
   }
 }

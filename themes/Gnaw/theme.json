@@ -1,13 +1,13 @@
 {
   "name": "Gnaw",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#0E0A04",
-    "surface": "#1A140B",
-    "surface_raised": "#292216",
-    "surface_hover": "#3C3324",
-    "border": "#534836",
+    "surface": "#1A140BC2",
+    "surface_raised": "#292216D1",
+    "surface_hover": "#3C3324E0",
+    "border": "#534836EB",
     "text": "#EFECE8",
     "text_strong": "#FDFDFD",
     "text_muted": "#ABA7A1",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 25
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 90,
+      "color": "accent_alt"
     }
   }
 }

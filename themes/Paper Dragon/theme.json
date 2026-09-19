@@ -1,13 +1,13 @@
 {
   "name": "Paper Dragon",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#171007",
-    "surface": "#241B10CA",
-    "surface_raised": "#34281AD9",
-    "surface_hover": "#493A27E3",
-    "border": "#614F39A6",
+    "surface": "#241B10E0",
+    "surface_raised": "#34281AF0",
+    "surface_hover": "#493A27",
+    "border": "#614F39",
     "text": "#F1ECE6",
     "text_strong": "#FDFDFD",
     "text_muted": "#ADA69F",
@@ -30,6 +30,14 @@
       "kind": "pan",
       "speed": 0.25,
       "amount": 18
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 90,
+      "color": "accent_alt"
     }
   }
 }

@@ -1,11 +1,11 @@
 {
   "name": "Chrome Clerk",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#150F19",
-    "surface": "#211926",
-    "surface_raised": "#302637",
+    "surface": "#211926E0",
+    "surface_raised": "#302637F0",
     "surface_hover": "#44374D",
     "border": "#5B4B65",
     "text": "#EFEBF2",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 28
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "fade",
+      "speed": 0.6,
+      "amount": 58,
+      "color": "accent_alt"
     }
   }
 }

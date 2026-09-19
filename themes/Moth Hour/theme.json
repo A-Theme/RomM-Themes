@@ -1,12 +1,12 @@
 {
   "name": "Moth Hour",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#050B0B",
-    "surface": "#0D1716",
-    "surface_raised": "#192524",
-    "surface_hover": "#273736",
+    "surface": "#0D1716D6",
+    "surface_raised": "#192524E5",
+    "surface_hover": "#273736F5",
     "border": "#3A4D4B",
     "text": "#E9EEED",
     "text_strong": "#FDFDFD",
@@ -30,6 +30,14 @@
       "kind": "zoom",
       "speed": 0.25,
       "amount": 6
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "glow",
+      "speed": 0.8,
+      "amount": 69,
+      "color": "accent_hover"
     }
   }
 }

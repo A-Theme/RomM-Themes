@@ -1,11 +1,11 @@
 {
   "name": "Duat",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#14110D",
-    "surface": "#1F1D17",
-    "surface_raised": "#2E2A24",
+    "surface": "#1F1D17E0",
+    "surface_raised": "#2E2A24F0",
     "surface_hover": "#413C34",
     "border": "#575247",
     "text": "#EEEDEA",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 26
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "smoke",
+      "speed": 0.5,
+      "amount": 46,
+      "color": "text_muted"
     }
   }
 }

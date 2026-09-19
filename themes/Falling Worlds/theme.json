@@ -1,12 +1,12 @@
 {
   "name": "Falling Worlds",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#090F11",
-    "surface": "#121B1D",
-    "surface_raised": "#1E292C",
-    "surface_hover": "#2D3C40",
+    "surface": "#121B1DD6",
+    "surface_raised": "#1E292CE5",
+    "surface_hover": "#2D3C40F5",
     "border": "#405256",
     "text": "#E9EEEF",
     "text_strong": "#FDFDFD",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 28
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "smoke",
+      "speed": 0.5,
+      "amount": 53,
+      "color": "text_muted"
     }
   }
 }

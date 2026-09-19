@@ -1,11 +1,11 @@
 {
   "name": "Teardown",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#170F15",
-    "surface": "#231921",
-    "surface_raised": "#332630",
+    "surface": "#231921E0",
+    "surface_raised": "#332630F0",
     "surface_hover": "#483744",
     "border": "#5F4B5A",
     "text": "#F0EBEF",
@@ -30,6 +30,14 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 25
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "smoke",
+      "speed": 0.5,
+      "amount": 52,
+      "color": "text_muted"
     }
   }
 }

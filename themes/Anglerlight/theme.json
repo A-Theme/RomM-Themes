@@ -1,13 +1,13 @@
 {
   "name": "Anglerlight",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#0C0911",
-    "surface": "#17131E",
-    "surface_raised": "#25202D",
-    "surface_hover": "#373143",
-    "border": "#4D455A",
+    "surface": "#17131ECC",
+    "surface_raised": "#25202DDB",
+    "surface_hover": "#373143EB",
+    "border": "#4D455AF5",
     "text": "#EDECF1",
     "text_strong": "#FDFDFD",
     "text_muted": "#A9A6AE",
@@ -30,6 +30,14 @@
       "kind": "zoom",
       "speed": 0.3,
       "amount": 8
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 90,
+      "color": "accent_alt"
     }
   }
 }
