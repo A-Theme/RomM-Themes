@@ -211,7 +211,7 @@ gif holding 125, which priced a 48.8 MB animation at 29 MB and passed.
 `loop` defaults to `true`; `false` plays the sequence once and holds the last
 frame.
 
-## Effects — per-element particles
+## Effects — the focus treatment
 
 Motion and animation act on the background. **Effects** act on a single UI
 element, and live at the top level of `theme.json`, beside `background`:
@@ -226,22 +226,63 @@ element, and live at the top level of `theme.json`, beside `background`:
 |---|---|
 | `focus` | around the currently selected element |
 
+Effects come in two families, and `amount` means something different in each.
+
+**Particle kinds** spawn along the element's edge and rise:
+
 | kind | effect |
 |---|---|
-| `embers` | drifting sparks that rise and fade |
+| `embers` | sparks rising from below — small, bright, and flickering |
+| `smoke` | a soft plume off the top — larger, dimmer, widening as it climbs |
+
+**Outline kinds** treat the focus ring itself, and draw no particles:
+
+| kind | effect |
+|---|---|
+| `glow` | a breathing halo, brightening and swelling on a 2.4s cycle |
+| `pulse` | the ring breathes on a 1.7s cycle, harder and faster than `glow` |
+| `shimmer` | a highlight running around the border, once every 2.2s |
+| `fade` | a steady soft halo that does not move — presence without motion |
 | `none` | nothing (the default) |
 
-`speed` multiplies the cycle rate (clamped 0.1–8.0). `amount` sets particle
-density (clamped 0–256); the client caps what it will actually draw at **48
-particles per element** and clips them to a 26px band, so very large values
-buy nothing. On `Borb's Lair`, `amount: 65` yields about 21 particles around a
-library card.
+`speed` multiplies the cycle rate (clamped 0.1–8.0), so it shortens a particle's
+lifetime and quickens an outline's breath alike.
+
+`amount` is **density** for the particle kinds and **strength** for the outline
+kinds. For particles the count follows the element's *perimeter* rather than its
+area, so one value reads the same on a wide list row and on a small pill:
+
+```
+particles = (perimeter / 90) * (amount / 40) * (1.25 for embers)
+```
+
+capped at **48 per element**. `amount` also scales particle opacity, so raising
+it brightens as well as multiplies. For the outline kinds `amount / 100` is the
+strength: it sets the ring's alpha, the halo's radius on `glow` and `fade`, and
+on `pulse` above 45 it earns a second ring.
+
+Everything is clipped to a **26px bleed** around the element — particles that
+would travel further are held at that edge, and halos never exceed it — so an
+effect cannot spill into a neighbouring row however it is configured.
+
+Embers live 1.5s and smoke 2.6s at `speed: 1`, fading in over the first fifth of
+that and out across the rest. Embers leave from the bottom edge and rise 22px;
+smoke leaves from the top and rises 17px while spreading wider and growing.
+
+The maths is **stateless**: particle *i* at time *t* is derived from *i* and *t*
+rather than stepped, so the effect never drifts out of sync and looks identical
+on every frame it is asked for.
 
 `color` takes **either a colour role or a hex value**. Prefer the role — a
 role follows the palette if the theme is ever recoloured, where a hex does
 not. A role that the theme does not set is a warning; a name that is neither
 a role nor a hex is an error.
 
+> The cycle lengths, lifetimes, particle formula and bleed above are taken
+> from the port of `source/ui/theme_effects.cpp` in the RomM editor of
+> [Theme-App](https://github.com/A-Theme/Theme-App), which is diffed against
+> the C++ row by row, rather than guessed from the names.
+>
 > The validator mirrors the slots and kinds above from `source/ui/theme_spec.h`
 > in the client, and can fall back behind it. An unknown slot or kind is
 > therefore reported as a *warning*, not an error, so a theme using something
