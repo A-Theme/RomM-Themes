@@ -245,6 +245,35 @@ Effects come in two families, and `amount` means something different in each.
 | `fade` | a steady soft halo that does not move — presence without motion |
 | `none` | nothing (the default) |
 
+### Border treatments — specified, not yet shipped
+
+A patch adds eleven more kinds that replace the outline rather than lighting
+it. **No shipped client draws them**: the renderers live in `canvas.cpp` and
+that patch is not merged, so a theme using one today validates, warns, and
+falls back to the built-in ring on a console.
+
+| kind | effect | what `amount` sets |
+|---|---|---|
+| `ring` | pulsing outline, the built-in look asked for by name | thickness, 1–5px |
+| `runner` | a bright segment orbiting the border | tail length, 8–55% |
+| `gradient` | colour travelling `color` → `accent_alt` | — |
+| `notched` | outline broken at each edge's middle | notch width, 4–30% |
+| `ticks` | tick marks stepping around the border | density |
+| `breathe` | thickness pulsing 1px → 3–8px | peak thickness |
+| `rails` | top and bottom rules only | rule thickness, 1–4px |
+| `sidebar` | a thick marker on the leading edge | bar width, 2–10px |
+| `brackets` | corner arms | arm length, 6–34px |
+| `inner_glow` | falloff inside the shape | spread, 3–16px |
+| `lift` | drop shadow under, light along the top | shadow depth, 4–14px |
+
+For these, `amount` reaches full scale at **128**, not 256, so a value tuned
+for a shipped kind sits mid-range rather than at one extreme.
+
+> The patch also defines a `glow` — a static outer falloff whose `amount` is a
+> 4–20px spread. That is **not** the `glow` above, which breathes and reads
+> `amount` as strength, and which 31 themes already use. Landing the patch as
+> written would change how all of them look. Worth reconciling before it merges.
+
 `speed` multiplies the cycle rate (clamped 0.1–8.0), so it shortens a particle's
 lifetime and quickens an outline's breath alike.
 

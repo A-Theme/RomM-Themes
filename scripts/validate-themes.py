@@ -65,6 +65,17 @@ EFFECT_SLOTS = {"focus"}
 # embers had shipped; the client draws all six.
 EFFECT_KINDS = {"none", "smoke", "embers", "glow", "shimmer", "pulse", "fade"}
 
+# Border treatments from the focus-effects patch. The renderers for these live
+# in canvas.cpp in the client, and that patch is not merged: no shipped client
+# draws them yet. They are listed so a theme written against the patch is
+# recognised rather than reported as a typo, but they warn on their own line -
+# a theme using one today validates and then shows the built-in ring on a
+# console. Move a name up into EFFECT_KINDS once its renderer ships.
+EFFECT_KINDS_PENDING = {
+    "ring", "runner", "gradient", "notched", "ticks", "breathe",
+    "rails", "sidebar", "brackets", "inner_glow", "lift",
+}
+
 HEX_RE = re.compile(r"^#?(?:[0-9a-fA-F]{3,4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$")
 
 # retro::sanitize_component's allowed set: alnum, dash, underscore, period,
@@ -525,12 +536,20 @@ def validate_theme(folder_name):
             if not isinstance(kind, str):
                 problems.append(Problem(
                     folder_name, f"effects.{slot}.kind must be a string"))
+            elif kind in EFFECT_KINDS_PENDING:
+                problems.append(Problem(
+                    folder_name,
+                    f'effects.{slot}.kind: "{kind}" is specified but no shipped '
+                    f'client draws it yet - the focus-effects patch adding it is '
+                    f'not merged, so this falls back to the built-in ring',
+                    fatal=False))
             elif kind not in EFFECT_KINDS:
                 problems.append(Problem(
                     folder_name,
                     f'effects.{slot}.kind: "{kind}" is not one of '
-                    f'{", ".join(sorted(EFFECT_KINDS))} - if the client has '
-                    f'gained it, add it to EFFECT_KINDS', fatal=False))
+                    f'{", ".join(sorted(EFFECT_KINDS | EFFECT_KINDS_PENDING))} - '
+                    f'if the client has gained it, add it to EFFECT_KINDS',
+                    fatal=False))
 
             for field, lo, hi in (("speed", 0.1, 8.0), ("amount", 0.0, 256.0)):
                 value = spec.get(field)
