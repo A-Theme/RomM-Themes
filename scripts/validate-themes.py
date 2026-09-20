@@ -551,7 +551,10 @@ def validate_theme(folder_name):
                     f'if the client has gained it, add it to EFFECT_KINDS',
                     fatal=False))
 
-            for field, lo, hi in (("speed", 0.1, 8.0), ("amount", 0.0, 256.0)):
+            # theme_spec.cpp clamps the effect's amount to 0-100 and warns
+            # outside it - unlike background.motion.amount, which really is
+            # 0-256. They are different fields with different ranges.
+            for field, lo, hi in (("speed", 0.1, 8.0), ("amount", 0.0, 100.0)):
                 value = spec.get(field)
                 if value is None:
                     continue
@@ -564,19 +567,23 @@ def validate_theme(folder_name):
                         f"effects.{slot}.{field} {value} is outside {lo}-{hi} "
                         f"and will be clamped", fatal=False))
 
-            # A role name here follows the palette if the theme is recoloured,
-            # which is the point of writing "accent_alt" instead of a hex. A
-            # role that does not exist is silently nothing, so it is fatal.
+            # A ROLE only - not a hex. theme_spec.cpp checks the value against
+            # theme_color_roles() and warns "is not a colour role - using
+            # focus_ring" for anything else, so a hex here silently loses the
+            # colour the theme asked for. That is the point of a role: the
+            # effect keeps following the palette when the theme is recoloured.
             color = spec.get("color")
             if color is not None:
                 if not isinstance(color, str):
                     problems.append(Problem(
                         folder_name, f"effects.{slot}.color must be a string"))
-                elif color not in ROLES and not HEX_RE.match(color):
+                elif color not in ROLES:
+                    hexish = " - a hex is not accepted here, only a role" \
+                             if HEX_RE.match(color) else ""
                     problems.append(Problem(
                         folder_name,
-                        f'effects.{slot}.color: "{color}" is neither a colour '
-                        f'role nor a hex colour'))
+                        f'effects.{slot}.color: "{color}" is not a colour '
+                        f'role{hexish}'))
                 elif color in ROLES and isinstance(colors, dict) \
                         and color not in colors:
                     problems.append(Problem(

@@ -266,8 +266,10 @@ falls back to the built-in ring on a console.
 | `inner_glow` | falloff inside the shape | spread, 3–16px |
 | `lift` | drop shadow under, light along the top | shadow depth, 4–14px |
 
-For these, `amount` reaches full scale at **128**, not 256, so a value tuned
-for a shipped kind sits mid-range rather than at one extreme.
+Note that the patch describes `amount` as reaching full scale at 128. The
+shipped client clamps `effects.focus.amount` to **0–100** and warns outside it,
+so that scale will have to be reconciled when the renderers land. (The 0–256
+range belongs to `background.motion.amount`, which is a different field.)
 
 > The patch also defines a `glow` — a static outer falloff whose `amount` is a
 > 4–20px spread. That is **not** the `glow` above, which breathes and reads
@@ -278,7 +280,7 @@ for a shipped kind sits mid-range rather than at one extreme.
 lifetime and quickens an outline's breath alike.
 
 `amount` is **density** for the particle kinds and **strength** for the outline
-kinds. For particles the count follows the element's *perimeter* rather than its
+kinds, and is clamped **0–100** (the client warns outside that). For particles the count follows the element's *perimeter* rather than its
 area, so one value reads the same on a wide list row and on a small pill:
 
 ```
@@ -302,10 +304,12 @@ The maths is **stateless**: particle *i* at time *t* is derived from *i* and *t*
 rather than stepped, so the effect never drifts out of sync and looks identical
 on every frame it is asked for.
 
-`color` takes **either a colour role or a hex value**. Prefer the role — a
-role follows the palette if the theme is ever recoloured, where a hex does
-not. A role that the theme does not set is a warning; a name that is neither
-a role nor a hex is an error.
+`color` takes **a colour role, and only a role** — not a hex. `theme_spec.cpp`
+checks the value against `theme_color_roles()` and warns
+`"is not a colour role - using focus_ring"` for anything else, so a hex here
+does not fail loudly, it just loses the colour the theme asked for. That is the
+point of a role: the effect keeps following the palette when a theme is
+recoloured. A role the theme does not set is a warning.
 
 > The cycle lengths, lifetimes, particle formula and bleed above are taken
 > from the port of `source/ui/theme_effects.cpp` in the RomM editor of
