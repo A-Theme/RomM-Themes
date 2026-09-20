@@ -1,7 +1,7 @@
 {
   "name": "Violet Stacks",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#0B0915",
     "surface": "#161422CC",
@@ -36,7 +36,7 @@
     "focus": {
       "kind": "fade",
       "speed": 0.6,
-      "amount": 58,
+      "amount": 77,
       "color": "accent_alt"
     }
   }

@@ -1,7 +1,7 @@
 {
   "name": "Sunlit Deep",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#000A10",
     "surface": "#001319B8",
@@ -40,7 +40,7 @@
     "focus": {
       "kind": "pulse",
       "speed": 1.4,
-      "amount": 90,
+      "amount": 92,
       "color": "accent_hover"
     }
   }

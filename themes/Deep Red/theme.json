@@ -1,7 +1,7 @@
 {
   "name": "Deep Red",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#0D060C",
     "surface": "#181018C2",
@@ -36,7 +36,7 @@
     "focus": {
       "kind": "glow",
       "speed": 0.8,
-      "amount": 80,
+      "amount": 90,
       "color": "accent_hover"
     }
   }

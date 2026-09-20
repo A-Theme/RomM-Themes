@@ -1,7 +1,7 @@
 {
   "name": "Wirechewer",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#070A0E",
     "surface": "#11141AC2",
@@ -36,7 +36,7 @@
     "focus": {
       "kind": "shimmer",
       "speed": 0.9,
-      "amount": 80,
+      "amount": 90,
       "color": "accent_alt"
     }
   }

@@ -1,7 +1,7 @@
 {
   "name": "Chromo Forest",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#0F0503",
     "surface": "#1C0D0AB8",
@@ -36,7 +36,7 @@
     "focus": {
       "kind": "glow",
       "speed": 0.8,
-      "amount": 80,
+      "amount": 90,
       "color": "accent_hover"
     }
   }

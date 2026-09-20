@@ -1,7 +1,7 @@
 {
   "name": "Midnight Borb",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#07080F",
     "surface": "#0D101C",
@@ -34,7 +34,7 @@
     "focus": {
       "kind": "glow",
       "speed": 0.8,
-      "amount": 55,
+      "amount": 87,
       "color": "accent_alt"
     }
   }

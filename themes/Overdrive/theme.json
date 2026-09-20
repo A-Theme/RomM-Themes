@@ -1,7 +1,7 @@
 {
   "name": "Overdrive",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#100908",
     "surface": "#1D1412B8",
@@ -40,7 +40,7 @@
     "focus": {
       "kind": "pulse",
       "speed": 1.4,
-      "amount": 90,
+      "amount": 92,
       "color": "accent_hover"
     }
   }

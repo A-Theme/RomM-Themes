@@ -1,7 +1,7 @@
 {
   "name": "Console Room",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#080A10",
     "surface": "#12151DCC",
@@ -36,7 +36,7 @@
     "focus": {
       "kind": "shimmer",
       "speed": 0.9,
-      "amount": 79,
+      "amount": 90,
       "color": "accent_alt"
     }
   }

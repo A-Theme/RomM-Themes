@@ -1,7 +1,7 @@
 {
   "name": "Violet Maw",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#100C17",
     "surface": "#1B1724D6",
@@ -36,7 +36,7 @@
     "focus": {
       "kind": "fade",
       "speed": 0.6,
-      "amount": 51,
+      "amount": 76,
       "color": "accent_alt"
     }
   }

@@ -1,7 +1,7 @@
 {
   "name": "Aramaki",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#04080A",
     "surface": "#0A1417C4",
@@ -40,7 +40,7 @@
     "focus": {
       "kind": "glow",
       "speed": 0.8,
-      "amount": 60,
+      "amount": 87,
       "color": "accent_hover"
     }
   }

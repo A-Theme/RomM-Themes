@@ -1,7 +1,7 @@
 {
   "name": "Moonwake",
   "author": "Aramaki",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "colors": {
     "bg": "#0B0606",
     "surface": "#130E0DB8",
@@ -40,7 +40,7 @@
     "focus": {
       "kind": "pulse",
       "speed": 1.4,
-      "amount": 90,
+      "amount": 92,
       "color": "accent_hover"
     }
   }

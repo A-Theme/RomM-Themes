@@ -1,7 +1,7 @@
 {
   "name": "Understudy",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#0C1315",
     "surface": "#161E21E0",
@@ -36,7 +36,7 @@
     "focus": {
       "kind": "fade",
       "speed": 0.6,
-      "amount": 49,
+      "amount": 76,
       "color": "accent_alt"
     }
   }

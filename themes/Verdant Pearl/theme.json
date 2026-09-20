@@ -1,7 +1,7 @@
 {
   "name": "Verdant Pearl",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#040B06",
     "surface": "#0C170EC2",
@@ -36,7 +36,7 @@
     "focus": {
       "kind": "fade",
       "speed": 0.6,
-      "amount": 58,
+      "amount": 77,
       "color": "accent_alt"
     }
   }

@@ -1,7 +1,7 @@
 {
   "name": "Bloomcrown",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#0E0706",
     "surface": "#1B110FCC",
@@ -36,7 +36,7 @@
     "focus": {
       "kind": "glow",
       "speed": 0.8,
-      "amount": 78,
+      "amount": 90,
       "color": "accent_hover"
     }
   }

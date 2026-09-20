@@ -1,7 +1,7 @@
 {
   "name": "Wobbegong",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#0A0C05",
     "surface": "#15170EB8",
@@ -36,7 +36,7 @@
     "focus": {
       "kind": "fade",
       "speed": 0.6,
-      "amount": 53,
+      "amount": 76,
       "color": "accent_alt"
     }
   }

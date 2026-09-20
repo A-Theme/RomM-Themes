@@ -1,7 +1,7 @@
 {
   "name": "Curdled Plot",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#100804",
     "surface": "#1C120CC2",
@@ -36,7 +36,7 @@
     "focus": {
       "kind": "fade",
       "speed": 0.6,
-      "amount": 55,
+      "amount": 76,
       "color": "accent_alt"
     }
   }
