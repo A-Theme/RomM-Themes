@@ -39,5 +39,8 @@
       "amount": 70,
       "color": "accent_alt"
     }
+  },
+  "font": {
+    "file": "FiraCode-Regular.ttf"
   }
 }

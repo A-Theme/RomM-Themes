@@ -39,5 +39,8 @@
       "amount": 50,
       "color": "text_muted"
     }
+  },
+  "font": {
+    "file": "Hack-Regular.ttf"
   }
 }

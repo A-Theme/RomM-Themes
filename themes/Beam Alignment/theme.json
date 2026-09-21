@@ -39,5 +39,8 @@
       "amount": 90,
       "color": "accent_hover"
     }
+  },
+  "font": {
+    "file": "Inconsolata-Regular.otf"
   }
 }

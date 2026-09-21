@@ -39,5 +39,8 @@
       "amount": 46,
       "color": "text_muted"
     }
+  },
+  "font": {
+    "file": "EBGaramond-Regular.otf"
   }
 }

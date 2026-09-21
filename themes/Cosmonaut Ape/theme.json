@@ -39,5 +39,8 @@
       "amount": 90,
       "color": "accent_alt"
     }
+  },
+  "font": {
+    "file": "Roboto-Regular.ttf"
   }
 }

@@ -39,5 +39,8 @@
       "amount": 60,
       "color": "accent_hover"
     }
+  },
+  "font": {
+    "file": "AnonymousPro-Regular.ttf"
   }
 }

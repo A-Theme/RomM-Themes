@@ -39,5 +39,8 @@
       "amount": 45,
       "color": "accent_hover"
     }
+  },
+  "font": {
+    "file": "LeagueSpartan-Regular.otf"
   }
 }
