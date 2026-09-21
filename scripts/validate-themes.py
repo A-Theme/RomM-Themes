@@ -669,12 +669,21 @@ def validate_theme(folder_name):
     if isinstance(audio, dict) and isinstance(audio.get("bgm"), str):
         referenced.add(audio["bgm"])
 
+    # A licence file is not an orphan. The SIL OFL and Apache 2.0 both require
+    # the licence to travel with the font, so a theme shipping a bundled face
+    # is expected to carry one - and it is deliberately NOT referenced from
+    # theme.json, because the client would then try to install it to the card
+    # as an asset. It stays in the repo, where the redistribution happens.
+    LICENCE_FILES = {"FONT-LICENSE.txt", "LICENSE", "LICENSE.txt", "OFL.txt"}
+
     total_bytes = 0
     for entry in sorted(os.listdir(folder)):
         full = os.path.join(folder, entry)
         if not os.path.isfile(full):
             continue
         total_bytes += os.path.getsize(full)
+        if entry in LICENCE_FILES:
+            continue
         if entry not in referenced:
             problems.append(Problem(
                 folder_name,

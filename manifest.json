@@ -124,11 +124,11 @@
       "path": "themes/Archive Violet",
       "roles_set": 19,
       "has_background": true,
-      "has_font": false,
+      "has_font": true,
       "has_mascot": false,
       "has_music": false,
       "animated": false,
-      "bytes": 1469820,
+      "bytes": 1670225,
       "screenshot": "screenshots/Archive Violet.webp"
     },
     {
@@ -332,11 +332,11 @@
       "path": "themes/Chrome Clerk",
       "roles_set": 19,
       "has_background": true,
-      "has_font": false,
+      "has_font": true,
       "has_mascot": false,
       "has_music": false,
       "animated": false,
-      "bytes": 1347533,
+      "bytes": 1491250,
       "screenshot": "screenshots/Chrome Clerk.webp"
     },
     {
@@ -428,11 +428,11 @@
       "path": "themes/Console Room",
       "roles_set": 19,
       "has_background": true,
-      "has_font": false,
+      "has_font": true,
       "has_mascot": false,
       "has_music": false,
       "animated": false,
-      "bytes": 1757127,
+      "bytes": 2142807,
       "screenshot": "screenshots/Console Room.webp"
     },
     {
@@ -1836,11 +1836,11 @@
       "path": "themes/Storybook",
       "roles_set": 19,
       "has_background": true,
-      "has_font": false,
+      "has_font": true,
       "has_mascot": false,
       "has_music": false,
       "animated": false,
-      "bytes": 1488154,
+      "bytes": 1946376,
       "screenshot": "screenshots/Storybook.webp"
     },
     {
