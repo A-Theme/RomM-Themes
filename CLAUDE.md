@@ -1,5 +1,24 @@
 # CLAUDE.md
 
+## The working copy and the repository are never allowed to differ
+
+Standing instruction from the maintainer. **Nothing stays local.** Every change
+made in a working copy gets checked, tested, committed and pushed before the
+work is called done — and a working copy that differs from `origin` is a bug in
+the working copy, not a state to build from.
+
+This is a rule because the sibling repo has already shipped a binary from a
+checkout two commits behind, silently missing eleven renderers that themes here
+depend on. `romm-switch-client` carries `scripts/check-sync.sh` for it; here the
+equivalent is: clean tree, nothing unpushed, nothing behind, before any theme
+change is called done.
+
+```bash
+git fetch origin main && git status --short && git log --oneline @{u}..HEAD
+```
+
+Nothing printed by the last two means you are in step.
+
 ## Always test, merge and push
 
 Standing instruction from the maintainer. For every change:
