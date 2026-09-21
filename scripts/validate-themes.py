@@ -63,18 +63,16 @@ ANIMATION_KINDS = {"none", "sheet", "gif"}
 EFFECT_SLOTS = {"focus"}
 # Every kind theme_spec.cpp parses. This list was short because only
 # embers had shipped; the client draws all six.
-EFFECT_KINDS = {"none", "smoke", "embers", "glow", "shimmer", "pulse", "fade"}
-
-# Border treatments from the focus-effects patch. The renderers for these live
-# in canvas.cpp in the client, and that patch is not merged: no shipped client
-# draws them yet. They are listed so a theme written against the patch is
-# recognised rather than reported as a typo, but they warn on their own line -
-# a theme using one today validates and then shows the built-in ring on a
-# console. Move a name up into EFFECT_KINDS once its renderer ships.
-EFFECT_KINDS_PENDING = {
+# Every kind theme_spec.cpp parses, in the order focus_kind_names() lists them.
+# The eleven border treatments replace the focus ring rather than decorating
+# it; the client's focus_ring() checks replaces_outline() before drawing its
+# own, so they are not buried under it.
+EFFECT_KINDS = {
+    "none", "smoke", "embers", "glow", "shimmer", "pulse", "fade",
     "ring", "runner", "gradient", "notched", "ticks", "breathe",
     "rails", "sidebar", "brackets", "inner_glow", "lift",
 }
+EFFECT_KINDS_PENDING = set()   # nothing is waiting on a renderer any more
 
 HEX_RE = re.compile(r"^#?(?:[0-9a-fA-F]{3,4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$")
 

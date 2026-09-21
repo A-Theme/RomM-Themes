@@ -1,7 +1,7 @@
 {
   "name": "Circuit Dawn",
   "author": "Aramaki",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "colors": {
     "bg": "#100B15",
     "surface": "#1B1522CC",
@@ -34,9 +34,9 @@
   },
   "effects": {
     "focus": {
-      "kind": "fade",
-      "speed": 0.6,
-      "amount": 77,
+      "kind": "ticks",
+      "speed": 0.9,
+      "amount": 70,
       "color": "accent_alt"
     }
   }

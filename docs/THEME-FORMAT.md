@@ -245,12 +245,11 @@ Effects come in two families, and `amount` means something different in each.
 | `fade` | a steady soft halo that does not move — presence without motion |
 | `none` | nothing (the default) |
 
-### Border treatments — specified, not yet shipped
+### Border treatments
 
-A patch adds eleven more kinds that replace the outline rather than lighting
-it. **No shipped client draws them**: the renderers live in `canvas.cpp` and
-that patch is not merged, so a theme using one today validates, warns, and
-falls back to the built-in ring on a console.
+Eleven kinds that **replace** the focus ring rather than decorating it. The
+client's `focus_ring()` checks before drawing its own, so these are not buried
+under it.
 
 | kind | effect | what `amount` sets |
 |---|---|---|
@@ -266,15 +265,15 @@ falls back to the built-in ring on a console.
 | `inner_glow` | falloff inside the shape | spread, 3–16px |
 | `lift` | drop shadow under, light along the top | shadow depth, 4–14px |
 
-Note that the patch describes `amount` as reaching full scale at 128. The
-shipped client clamps `effects.focus.amount` to **0–100** and warns outside it,
-so that scale will have to be reconciled when the renderers land. (The 0–256
-range belongs to `background.motion.amount`, which is a different field.)
+For these, `amount` is a **percentage of each kind's own range** — `65` gives
+65% of the arm length, tail, notch width or spread listed above, so one value
+reads the same across kinds. (The 0–256 range belongs to
+`background.motion.amount`, a different field.)
 
-> The patch also defines a `glow` — a static outer falloff whose `amount` is a
-> 4–20px spread. That is **not** the `glow` above, which breathes and reads
-> `amount` as strength, and which 31 themes already use. Landing the patch as
-> written would change how all of them look. Worth reconciling before it merges.
+> The patch this came from also defined a `glow` — a static outer falloff. It
+> was dropped rather than landed: `glow` already ships as a breathing halo that
+> reads `amount` as strength, and 31 themes use it. That is why there are
+> eleven border treatments and not twelve.
 
 `speed` multiplies the cycle rate (clamped 0.1–8.0), so it shortens a particle's
 lifetime and quickens an outline's breath alike.
