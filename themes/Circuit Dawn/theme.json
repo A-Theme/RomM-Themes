@@ -34,9 +34,9 @@
   },
   "effects": {
     "focus": {
-      "kind": "ticks",
+      "kind": "shimmer",
       "speed": 0.9,
-      "amount": 70,
+      "amount": 91,
       "color": "accent_alt"
     }
   }

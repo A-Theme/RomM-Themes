@@ -61,18 +61,29 @@ ANIMATION_KINDS = {"none", "sheet", "gif"}
 # Everything structural below (types, ranges, colour references) is still fatal,
 # because those are wrong against any version of the spec.
 EFFECT_SLOTS = {"focus"}
-# Every kind theme_spec.cpp parses. This list was short because only
-# embers had shipped; the client draws all six.
-# Every kind theme_spec.cpp parses, in the order focus_kind_names() lists them.
-# The eleven border treatments replace the focus ring rather than decorating
-# it; the client's focus_ring() checks replaces_outline() before drawing its
-# own, so they are not buried under it.
+# Exactly what theme_spec.cpp parses - ThemeEffect::Kind has seven entries and
+# the parser's if-chain accepts these names and nothing else. Anything outside
+# this set makes the client log
+#   effects.focus.kind: "<name>" is not smoke, embers, glow, shimmer, pulse,
+#   fade or none
+# and fall back to Kind::None, so the theme loads with its effect silently
+# absent and a warning against its name in the picker.
 EFFECT_KINDS = {
     "none", "smoke", "embers", "glow", "shimmer", "pulse", "fade",
+}
+# Kinds a future client may gain. A theme using one is WARNED about, not
+# failed, so a theme written against a newer client does not break CI here.
+#
+# These eleven were in EFFECT_KINDS as though they shipped, alongside a comment
+# about a replaces_outline() check that does not exist anywhere in the client.
+# Nothing parses or draws them. The cost was real: "Circuit Dawn" passed
+# validation for months with kind "ticks" and drew no effect at all on a
+# console. Do not move a name up into EFFECT_KINDS until theme_spec.cpp
+# actually accepts it.
+EFFECT_KINDS_PENDING = {
     "ring", "runner", "gradient", "notched", "ticks", "breathe",
     "rails", "sidebar", "brackets", "inner_glow", "lift",
 }
-EFFECT_KINDS_PENDING = set()   # nothing is waiting on a renderer any more
 
 HEX_RE = re.compile(r"^#?(?:[0-9a-fA-F]{3,4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$")
 
@@ -535,19 +546,28 @@ def validate_theme(folder_name):
                 problems.append(Problem(
                     folder_name, f"effects.{slot}.kind must be a string"))
             elif kind in EFFECT_KINDS_PENDING:
+                # Warned, not failed: a theme written against a client newer
+                # than this checkout should not fail CI. On today's client it
+                # parses as Kind::None, so the theme loads and draws no effect.
                 problems.append(Problem(
                     folder_name,
-                    f'effects.{slot}.kind: "{kind}" is specified but no shipped '
-                    f'client draws it yet - the focus-effects patch adding it is '
-                    f'not merged, so this falls back to the built-in ring',
+                    f'effects.{slot}.kind: "{kind}" is a name no shipped client '
+                    f'parses - theme_spec.cpp takes only '
+                    f'{", ".join(sorted(EFFECT_KINDS))}. The theme will load '
+                    f'with no effect at all and a warning against its name in '
+                    f'the picker',
                     fatal=False))
             elif kind not in EFFECT_KINDS:
+                # Fatal. A name that is neither shipped nor a known future kind
+                # is a typo, and a warning is not enough - "Circuit Dawn" sat
+                # in the catalog for months with a kind the client throws away,
+                # because this was only a warning and warnings scroll past.
                 problems.append(Problem(
                     folder_name,
                     f'effects.{slot}.kind: "{kind}" is not one of '
-                    f'{", ".join(sorted(EFFECT_KINDS | EFFECT_KINDS_PENDING))} - '
-                    f'if the client has gained it, add it to EFFECT_KINDS',
-                    fatal=False))
+                    f'{", ".join(sorted(EFFECT_KINDS))} - if the client has '
+                    f'gained it, add it to EFFECT_KINDS; if it is planned, '
+                    f'EFFECT_KINDS_PENDING'))
 
             # theme_spec.cpp clamps the effect's amount to 0-100 and warns
             # outside it - unlike background.motion.amount, which really is
