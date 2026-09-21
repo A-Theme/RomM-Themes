@@ -34,9 +34,9 @@
   },
   "effects": {
     "focus": {
-      "kind": "fade",
+      "kind": "notched",
       "speed": 0.6,
-      "amount": 76,
+      "amount": 45,
       "color": "accent_alt"
     }
   }

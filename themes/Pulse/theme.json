@@ -41,9 +41,9 @@
   },
   "effects": {
     "focus": {
-      "kind": "smoke",
+      "kind": "breathe",
       "speed": 0.5,
-      "amount": 38,
+      "amount": 65,
       "color": "text_muted"
     }
   }

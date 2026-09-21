@@ -34,9 +34,9 @@
   },
   "effects": {
     "focus": {
-      "kind": "glow",
+      "kind": "breathe",
       "speed": 0.8,
-      "amount": 90,
+      "amount": 60,
       "color": "accent_hover"
     }
   }

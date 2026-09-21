@@ -34,9 +34,9 @@
   },
   "effects": {
     "focus": {
-      "kind": "smoke",
+      "kind": "notched",
       "speed": 0.5,
-      "amount": 52,
+      "amount": 50,
       "color": "text_muted"
     }
   }

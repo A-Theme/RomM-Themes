@@ -34,9 +34,9 @@
   },
   "effects": {
     "focus": {
-      "kind": "embers",
+      "kind": "lift",
       "speed": 1.1,
-      "amount": 82,
+      "amount": 55,
       "color": "accent_alt"
     }
   }

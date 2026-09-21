@@ -34,9 +34,9 @@
   },
   "effects": {
     "focus": {
-      "kind": "glow",
+      "kind": "brackets",
       "speed": 0.8,
-      "amount": 89,
+      "amount": 60,
       "color": "accent_hover"
     }
   }

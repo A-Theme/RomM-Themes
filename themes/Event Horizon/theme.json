@@ -34,9 +34,9 @@
   },
   "effects": {
     "focus": {
-      "kind": "glow",
+      "kind": "inner_glow",
       "speed": 0.8,
-      "amount": 89,
+      "amount": 55,
       "color": "accent_hover"
     }
   }

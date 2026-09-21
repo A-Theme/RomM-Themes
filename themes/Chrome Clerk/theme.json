@@ -34,9 +34,9 @@
   },
   "effects": {
     "focus": {
-      "kind": "fade",
+      "kind": "sidebar",
       "speed": 0.6,
-      "amount": 77,
+      "amount": 50,
       "color": "accent_alt"
     }
   }
