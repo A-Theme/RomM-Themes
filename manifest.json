@@ -1,7 +1,7 @@
 {
   "format": 1,
   "repo": "A-Theme/RomM-Themes",
-  "count": 139,
+  "count": 160,
   "themes": [
     {
       "id": "abyssal-lantern",
@@ -18,6 +18,22 @@
       "animated": false,
       "bytes": 1018570,
       "screenshot": "screenshots/Abyssal Lantern.webp"
+    },
+    {
+      "id": "aether-storm",
+      "folder": "Aether Storm",
+      "name": "Aether Storm",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Aether Storm",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1574933,
+      "screenshot": null
     },
     {
       "id": "amber-requiem",
@@ -180,6 +196,22 @@
       "screenshot": "screenshots/Big Cheese.webp"
     },
     {
+      "id": "blood-moon-run",
+      "folder": "Blood Moon Run",
+      "name": "Blood Moon Run",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Blood Moon Run",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1237614,
+      "screenshot": null
+    },
+    {
       "id": "bloodhouse",
       "folder": "Bloodhouse",
       "name": "Bloodhouse",
@@ -226,6 +258,22 @@
       "animated": false,
       "bytes": 1976600,
       "screenshot": "screenshots/Blue Shift.webp"
+    },
+    {
+      "id": "bog-sun",
+      "folder": "Bog Sun",
+      "name": "Bog Sun",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Bog Sun",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1034514,
+      "screenshot": null
     },
     {
       "id": "borbs-lair",
@@ -306,6 +354,38 @@
       "animated": false,
       "bytes": 1142170,
       "screenshot": "screenshots/Carapace.webp"
+    },
+    {
+      "id": "cattle-call",
+      "folder": "Cattle Call",
+      "name": "Cattle Call",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Cattle Call",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1295557,
+      "screenshot": null
+    },
+    {
+      "id": "chalkboard",
+      "folder": "Chalkboard",
+      "name": "Chalkboard",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Chalkboard",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1411847,
+      "screenshot": null
     },
     {
       "id": "chitin-amber",
@@ -484,6 +564,22 @@
       "screenshot": "screenshots/Cosmonaut Ape.webp"
     },
     {
+      "id": "crimson-keep",
+      "folder": "Crimson Keep",
+      "name": "Crimson Keep",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Crimson Keep",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1579728,
+      "screenshot": null
+    },
+    {
       "id": "crimson-thicket",
       "folder": "Crimson Thicket",
       "name": "Crimson Thicket",
@@ -562,6 +658,22 @@
       "animated": false,
       "bytes": 1494376,
       "screenshot": "screenshots/Dragon Cut.webp"
+    },
+    {
+      "id": "dream-diver",
+      "folder": "Dream Diver",
+      "name": "Dream Diver",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Dream Diver",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1013636,
+      "screenshot": null
     },
     {
       "id": "duat",
@@ -706,6 +818,22 @@
       "animated": false,
       "bytes": 1753122,
       "screenshot": "screenshots/Fern Prism.webp"
+    },
+    {
+      "id": "firebrand",
+      "folder": "Firebrand",
+      "name": "Firebrand",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Firebrand",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1499093,
+      "screenshot": null
     },
     {
       "id": "forest-gourd",
@@ -948,6 +1076,22 @@
       "screenshot": "screenshots/Grey Shore.webp"
     },
     {
+      "id": "harvest-frame",
+      "folder": "Harvest Frame",
+      "name": "Harvest Frame",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Harvest Frame",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 940694,
+      "screenshot": null
+    },
+    {
       "id": "hatchling",
       "folder": "Hatchling",
       "name": "Hatchling",
@@ -1076,6 +1220,22 @@
       "screenshot": "screenshots/Iron Saint.webp"
     },
     {
+      "id": "jade-serpent",
+      "folder": "Jade Serpent",
+      "name": "Jade Serpent",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Jade Serpent",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1502477,
+      "screenshot": null
+    },
+    {
       "id": "jellyglass",
       "folder": "Jellyglass",
       "name": "Jellyglass",
@@ -1138,6 +1298,22 @@
       "animated": false,
       "bytes": 1235083,
       "screenshot": "screenshots/Lantern Bloom.webp"
+    },
+    {
+      "id": "lilac-ridge",
+      "folder": "Lilac Ridge",
+      "name": "Lilac Ridge",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Lilac Ridge",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1337312,
+      "screenshot": null
     },
     {
       "id": "luckdragon",
@@ -1364,6 +1540,22 @@
       "screenshot": "screenshots/Neon Simian.webp"
     },
     {
+      "id": "night-drive",
+      "folder": "Night Drive",
+      "name": "Night Drive",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Night Drive",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1206240,
+      "screenshot": null
+    },
+    {
       "id": "orbital-lance",
       "folder": "Orbital Lance",
       "name": "Orbital Lance",
@@ -1460,6 +1652,22 @@
       "screenshot": "screenshots/Phoenix Reborn.webp"
     },
     {
+      "id": "pixel-dusk",
+      "folder": "Pixel Dusk",
+      "name": "Pixel Dusk",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Pixel Dusk",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 881374,
+      "screenshot": null
+    },
+    {
       "id": "planet-eater",
       "folder": "Planet Eater",
       "name": "Planet Eater",
@@ -1508,6 +1716,22 @@
       "screenshot": "screenshots/Pulse.webp"
     },
     {
+      "id": "pumpkin-wood",
+      "folder": "Pumpkin Wood",
+      "name": "Pumpkin Wood",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Pumpkin Wood",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1165306,
+      "screenshot": null
+    },
+    {
       "id": "quiet-blue",
       "folder": "Quiet Blue",
       "name": "Quiet Blue",
@@ -1522,6 +1746,38 @@
       "animated": false,
       "bytes": 1018939,
       "screenshot": "screenshots/Quiet Blue.webp"
+    },
+    {
+      "id": "rec-room",
+      "folder": "Rec Room",
+      "name": "Rec Room",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Rec Room",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1365903,
+      "screenshot": null
+    },
+    {
+      "id": "red-moon-lake",
+      "folder": "Red Moon Lake",
+      "name": "Red Moon Lake",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Red Moon Lake",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1164477,
+      "screenshot": null
     },
     {
       "id": "rift-mouth",
@@ -1684,6 +1940,22 @@
       "screenshot": "screenshots/Siege Red.webp"
     },
     {
+      "id": "signal-rain",
+      "folder": "Signal Rain",
+      "name": "Signal Rain",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Signal Rain",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1276682,
+      "screenshot": null
+    },
+    {
       "id": "silk-wing",
       "folder": "Silk Wing",
       "name": "Silk Wing",
@@ -1748,6 +2020,22 @@
       "screenshot": "screenshots/Sky Rider.webp"
     },
     {
+      "id": "sky-whale",
+      "folder": "Sky Whale",
+      "name": "Sky Whale",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Sky Whale",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1405305,
+      "screenshot": null
+    },
+    {
       "id": "sleigh-drive",
       "folder": "Sleigh Drive",
       "name": "Sleigh Drive",
@@ -1794,6 +2082,22 @@
       "animated": false,
       "bytes": 1156777,
       "screenshot": "screenshots/Snaptrap.webp"
+    },
+    {
+      "id": "solar-dome",
+      "folder": "Solar Dome",
+      "name": "Solar Dome",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Solar Dome",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 470109,
+      "screenshot": null
     },
     {
       "id": "specimen",
@@ -1972,6 +2276,22 @@
       "screenshot": "screenshots/The Overseer.webp"
     },
     {
+      "id": "toad-crossing",
+      "folder": "Toad Crossing",
+      "name": "Toad Crossing",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Toad Crossing",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1447137,
+      "screenshot": null
+    },
+    {
       "id": "torch-tree",
       "folder": "Torch Tree",
       "name": "Torch Tree",
@@ -2146,6 +2466,22 @@
       "animated": false,
       "bytes": 1992367,
       "screenshot": "screenshots/White Library.webp"
+    },
+    {
+      "id": "wickbearer",
+      "folder": "Wickbearer",
+      "name": "Wickbearer",
+      "author": "Aramaki",
+      "version": "1.0.0",
+      "path": "themes/Wickbearer",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": false,
+      "has_music": false,
+      "animated": false,
+      "bytes": 1459530,
+      "screenshot": null
     },
     {
       "id": "wirechewer",
