@@ -1,7 +1,7 @@
 {
   "format": 1,
   "repo": "A-Theme/RomM-Themes",
-  "count": 138,
+  "count": 139,
   "themes": [
     {
       "id": "abyssal-lantern",
@@ -786,6 +786,22 @@
       "animated": false,
       "bytes": 1227353,
       "screenshot": "screenshots/Gambit Glade.webp"
+    },
+    {
+      "id": "gandalfsax",
+      "folder": "Gandalfsax",
+      "name": "Gandalfsax",
+      "author": "FlyingPoo",
+      "version": "1.0.0",
+      "path": "themes/Gandalfsax",
+      "roles_set": 19,
+      "has_background": true,
+      "has_font": false,
+      "has_mascot": true,
+      "has_music": true,
+      "animated": true,
+      "bytes": 585894,
+      "screenshot": "screenshots/Gandalfsax.webp"
     },
     {
       "id": "ghoul-hollow",
