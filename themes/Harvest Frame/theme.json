@@ -1,0 +1,43 @@
+{
+  "name": "Harvest Frame",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#0F0603",
+    "surface": "#1C1008DC",
+    "surface_raised": "#2C1C13EB",
+    "surface_hover": "#422C20F5",
+    "border": "#5A4031B4",
+    "text": "#F2EBE7",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#AFA5A0",
+    "text_disabled": "#746D69",
+    "text_on_accent": "#0E0906",
+    "accent": "#FA7A00",
+    "accent_hover": "#FFA66F",
+    "accent_alt": "#29A4FF",
+    "focus_ring": "#FFCDB0",
+    "success": "#90C367",
+    "warning": "#E3A344",
+    "danger": "#FA8F7E",
+    "info": "#60B9FF",
+    "scrim": "#080201D4"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.45,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 29
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "smoke",
+      "speed": 0.9,
+      "amount": 66,
+      "color": "accent_hover"
+    }
+  }
+}

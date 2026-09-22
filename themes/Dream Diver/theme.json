@@ -1,0 +1,43 @@
+{
+  "name": "Dream Diver",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#0F0E19",
+    "surface": "#1A1926C2",
+    "surface_raised": "#272637D2",
+    "surface_hover": "#39384EDC",
+    "border": "#4D4D689F",
+    "text": "#ECECF3",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A7A7B0",
+    "text_disabled": "#717178",
+    "text_on_accent": "#0A090F",
+    "accent": "#9D93FF",
+    "accent_hover": "#B8B4FF",
+    "accent_alt": "#F76776",
+    "focus_ring": "#D5D4FF",
+    "success": "#5CCA8F",
+    "warning": "#EB9E4B",
+    "danger": "#FA8B98",
+    "info": "#56BBFD",
+    "scrim": "#05050DD4"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.22,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 27
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "fade",
+      "speed": 0.8,
+      "amount": 64,
+      "color": "accent_alt"
+    }
+  }
+}

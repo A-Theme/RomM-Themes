@@ -1,0 +1,43 @@
+{
+  "name": "Red Moon Lake",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#000909",
+    "surface": "#021514CB",
+    "surface_raised": "#092322DA",
+    "surface_hover": "#143634E4",
+    "border": "#254C4AA6",
+    "text": "#E6EFEE",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#9EABAA",
+    "text_disabled": "#677170",
+    "text_on_accent": "#0D0905",
+    "accent": "#DF8F00",
+    "accent_hover": "#FFA829",
+    "accent_alt": "#00B4AD",
+    "focus_ring": "#FFD099",
+    "success": "#8FC367",
+    "warning": "#E1A43F",
+    "danger": "#FA8F78",
+    "info": "#18C4EB",
+    "scrim": "#000404D4"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.34,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 29
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "fade",
+      "speed": 0.8,
+      "amount": 62,
+      "color": "accent_alt"
+    }
+  }
+}

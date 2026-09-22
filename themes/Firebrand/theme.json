@@ -1,0 +1,43 @@
+{
+  "name": "Firebrand",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#120707",
+    "surface": "#1F1110D5",
+    "surface_raised": "#301E1CE5",
+    "surface_hover": "#462E2BEF",
+    "border": "#5E413EAF",
+    "text": "#F3EBEA",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#B0A5A3",
+    "text_disabled": "#756C6B",
+    "text_on_accent": "#0E0906",
+    "accent": "#FD7837",
+    "accent_hover": "#FFA67F",
+    "accent_alt": "#CC9300",
+    "focus_ring": "#FFCCB7",
+    "success": "#91C269",
+    "warning": "#E3A349",
+    "danger": "#F99081",
+    "info": "#62B9FE",
+    "scrim": "#090202D4"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.4,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 24
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.3,
+      "amount": 94,
+      "color": "accent_alt"
+    }
+  }
+}

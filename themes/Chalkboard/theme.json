@@ -1,0 +1,43 @@
+{
+  "name": "Chalkboard",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#091112",
+    "surface": "#131C1DE0",
+    "surface_raised": "#1F2B2CEF",
+    "surface_hover": "#2E3E3FF9",
+    "border": "#415455B8",
+    "text": "#E9EEEE",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A3A9AA",
+    "text_disabled": "#6B7070",
+    "text_on_accent": "#050C0C",
+    "accent": "#4FBEC9",
+    "accent_hover": "#7ED7E0",
+    "accent_alt": "#D88F88",
+    "focus_ring": "#A5E7ED",
+    "success": "#75C691",
+    "warning": "#CCAE58",
+    "danger": "#EE987C",
+    "info": "#59BFE8",
+    "scrim": "#020607D4"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.48,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 29
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "shimmer",
+      "speed": 0.9,
+      "amount": 68,
+      "color": "accent_hover"
+    }
+  }
+}

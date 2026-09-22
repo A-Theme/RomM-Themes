@@ -1,0 +1,43 @@
+{
+  "name": "Night Drive",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#170C10",
+    "surface": "#24161CC6",
+    "surface_raised": "#34232AD6",
+    "surface_hover": "#4A333CE0",
+    "border": "#624752A3",
+    "text": "#F2EAED",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#AFA5A8",
+    "text_disabled": "#746C6F",
+    "text_on_accent": "#0E080A",
+    "accent": "#F66FAD",
+    "accent_hover": "#FF9CC6",
+    "accent_alt": "#6C9BFF",
+    "focus_ring": "#FFC7DC",
+    "success": "#91C26A",
+    "warning": "#E99F50",
+    "danger": "#F88E8D",
+    "info": "#63B9FD",
+    "scrim": "#0B0306D4"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.31,
+    "motion": {
+      "kind": "pan",
+      "speed": 0.25,
+      "amount": 18
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "glow",
+      "speed": 1.3,
+      "amount": 90,
+      "color": "accent_alt"
+    }
+  }
+}

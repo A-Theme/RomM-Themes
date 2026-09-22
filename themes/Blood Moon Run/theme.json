@@ -1,0 +1,43 @@
+{
+  "name": "Blood Moon Run",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#1C0D0B",
+    "surface": "#291715DA",
+    "surface_raised": "#3B2420E9",
+    "surface_hover": "#52342FF3",
+    "border": "#6C4842B2",
+    "text": "#F5EAE8",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#B2A4A1",
+    "text_disabled": "#766C6A",
+    "text_on_accent": "#0F0807",
+    "accent": "#FF6855",
+    "accent_hover": "#FF9B8B",
+    "accent_alt": "#C78E00",
+    "focus_ring": "#FFCBC2",
+    "success": "#8EC45F",
+    "warning": "#EA9F38",
+    "danger": "#FF8A7F",
+    "info": "#60B9FF",
+    "scrim": "#0E0403D4"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.43,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 21
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "smoke",
+      "speed": 1.0,
+      "amount": 74,
+      "color": "accent_alt"
+    }
+  }
+}

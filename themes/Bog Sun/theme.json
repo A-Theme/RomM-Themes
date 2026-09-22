@@ -1,0 +1,43 @@
+{
+  "name": "Bog Sun",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#121209",
+    "surface": "#1D1E13EB",
+    "surface_raised": "#2B2C1EFA",
+    "surface_hover": "#3E3F2CFA",
+    "border": "#53553EC0",
+    "text": "#EDEDE7",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A8A8A1",
+    "text_disabled": "#6F6F69",
+    "text_on_accent": "#0A0B06",
+    "accent": "#ACAF1B",
+    "accent_hover": "#C5CA5D",
+    "accent_alt": "#3ABB84",
+    "focus_ring": "#DCE090",
+    "success": "#86C477",
+    "warning": "#D7A94B",
+    "danger": "#F49476",
+    "info": "#39C3E6",
+    "scrim": "#060702D4"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.6,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 27
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "smoke",
+      "speed": 1.1,
+      "amount": 80,
+      "color": "accent_hover"
+    }
+  }
+}

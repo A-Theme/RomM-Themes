@@ -1,0 +1,43 @@
+{
+  "name": "Wickbearer",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#021313",
+    "surface": "#071F1FB8",
+    "surface_raised": "#0F2E2EC7",
+    "surface_hover": "#1A4242D1",
+    "border": "#2A595997",
+    "text": "#E4EFEF",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#9CABAB",
+    "text_disabled": "#667171",
+    "text_on_accent": "#0E0906",
+    "accent": "#FF741D",
+    "accent_hover": "#FF9E70",
+    "accent_alt": "#00AFB2",
+    "focus_ring": "#FFCDB5",
+    "success": "#8EC460",
+    "warning": "#E8A136",
+    "danger": "#FF8B7B",
+    "info": "#60B9FF",
+    "scrim": "#000708D4"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.0,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 22
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "glow",
+      "speed": 1.0,
+      "amount": 64,
+      "color": "accent_alt"
+    }
+  }
+}

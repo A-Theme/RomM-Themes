@@ -1,0 +1,43 @@
+{
+  "name": "Toad Crossing",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#150D0A",
+    "surface": "#221714E2",
+    "surface_raised": "#322420F1",
+    "surface_hover": "#47352FFA",
+    "border": "#5F4A42B9",
+    "text": "#F1EBE9",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#AEA6A3",
+    "text_disabled": "#736D6B",
+    "text_on_accent": "#0F0907",
+    "accent": "#F08862",
+    "accent_hover": "#FFAB8D",
+    "accent_alt": "#D29440",
+    "focus_ring": "#FFCCB9",
+    "success": "#94C170",
+    "warning": "#E0A454",
+    "danger": "#F49386",
+    "info": "#6AB9F8",
+    "scrim": "#0A0403D4"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.51,
+    "motion": {
+      "kind": "pan",
+      "speed": 0.25,
+      "amount": 18
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "shimmer",
+      "speed": 1.0,
+      "amount": 72,
+      "color": "accent_alt"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "Sky Whale",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#13100A",
+    "surface": "#1E1B14E4",
+    "surface_raised": "#2D291FF4",
+    "surface_hover": "#403B2EFA",
+    "border": "#575141BB",
+    "text": "#EEEDE9",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#AAA7A2",
+    "text_disabled": "#706E6B",
+    "text_on_accent": "#0D0905",
+    "accent": "#D2A156",
+    "accent_hover": "#E9BE7F",
+    "accent_alt": "#7AB681",
+    "focus_ring": "#F5D3A4",
+    "success": "#93C176",
+    "warning": "#D9A858",
+    "danger": "#F09681",
+    "info": "#4CC2E2",
+    "scrim": "#070602D4"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.52,
+    "motion": {
+      "kind": "pan",
+      "speed": 0.25,
+      "amount": 18
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "glow",
+      "speed": 1.0,
+      "amount": 72,
+      "color": "accent_hover"
+    }
+  }
+}

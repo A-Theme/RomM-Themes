@@ -1,0 +1,43 @@
+{
+  "name": "Jade Serpent",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#070C0B",
+    "surface": "#101816E9",
+    "surface_raised": "#1D2623F8",
+    "surface_hover": "#2C3835FA",
+    "border": "#3F4E4ABF",
+    "text": "#EAEEED",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A4A9A8",
+    "text_disabled": "#6C6F6F",
+    "text_on_accent": "#050C0A",
+    "accent": "#72BEAD",
+    "accent_hover": "#97D7C8",
+    "accent_alt": "#76B0CB",
+    "focus_ring": "#B5E5D9",
+    "success": "#7EC48D",
+    "warning": "#CBAE5D",
+    "danger": "#EB997F",
+    "info": "#5AC0E2",
+    "scrim": "#020504D4"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.55,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 25
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "smoke",
+      "speed": 1.2,
+      "amount": 84,
+      "color": "accent_hover"
+    }
+  }
+}

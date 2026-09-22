@@ -1,0 +1,43 @@
+{
+  "name": "Rec Room",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#130A08",
+    "surface": "#1F1512BA",
+    "surface_raised": "#2F221EC9",
+    "surface_hover": "#44322DD3",
+    "border": "#5C474198",
+    "text": "#F1EBEA",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#AEA6A3",
+    "text_disabled": "#756F6D",
+    "text_on_accent": "#0E0906",
+    "accent": "#ED8C56",
+    "accent_hover": "#FFAD82",
+    "accent_alt": "#62A7EC",
+    "focus_ring": "#FFCDB3",
+    "success": "#94C170",
+    "warning": "#DFA554",
+    "danger": "#F49384",
+    "info": "#6AB9F8",
+    "scrim": "#090302D4"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.06,
+    "motion": {
+      "kind": "zoom",
+      "speed": 0.25,
+      "amount": 6
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "pulse",
+      "speed": 1.1,
+      "amount": 80,
+      "color": "accent_hover"
+    }
+  }
+}

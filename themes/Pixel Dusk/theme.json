@@ -1,0 +1,43 @@
+{
+  "name": "Pixel Dusk",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#1A0D13",
+    "surface": "#28171FD7",
+    "surface_raised": "#39232DE7",
+    "surface_hover": "#4F3340F1",
+    "border": "#684756B1",
+    "text": "#F4EAEE",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#B1A3A9",
+    "text_disabled": "#756C70",
+    "text_on_accent": "#0E080B",
+    "accent": "#FB58B2",
+    "accent_hover": "#FF91C7",
+    "accent_alt": "#CC6AE2",
+    "focus_ring": "#FFC6E0",
+    "success": "#8DC45F",
+    "warning": "#EF9C3F",
+    "danger": "#FF898A",
+    "info": "#60B9FF",
+    "scrim": "#0D0307D4"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.4,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 24
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "pulse",
+      "speed": 1.2,
+      "amount": 76,
+      "color": "accent_hover"
+    }
+  }
+}

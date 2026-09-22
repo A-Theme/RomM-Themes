@@ -1,0 +1,43 @@
+{
+  "name": "Cattle Call",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#180F0B",
+    "surface": "#251A15E6",
+    "surface_raised": "#362721F6",
+    "surface_hover": "#4C3830FA",
+    "border": "#644C43BD",
+    "text": "#F2EBE9",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#AEA6A2",
+    "text_disabled": "#736D6B",
+    "text_on_accent": "#0F0907",
+    "accent": "#F58251",
+    "accent_hover": "#FFA987",
+    "accent_alt": "#BF9D18",
+    "focus_ring": "#FFCCB8",
+    "success": "#93C26D",
+    "warning": "#E1A450",
+    "danger": "#F69183",
+    "info": "#67B9FA",
+    "scrim": "#0B0503D4"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.55,
+    "motion": {
+      "kind": "pan",
+      "speed": 0.25,
+      "amount": 18
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "pulse",
+      "speed": 1.0,
+      "amount": 70,
+      "color": "accent_alt"
+    }
+  }
+}

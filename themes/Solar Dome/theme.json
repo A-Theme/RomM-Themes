@@ -1,0 +1,43 @@
+{
+  "name": "Solar Dome",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#00080E",
+    "surface": "#03131BD3",
+    "surface_raised": "#0B212BE2",
+    "surface_hover": "#163440ED",
+    "border": "#274A58AD",
+    "text": "#E6EEF2",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#9EAAAF",
+    "text_disabled": "#687074",
+    "text_on_accent": "#0F0907",
+    "accent": "#FF703A",
+    "accent_hover": "#FFA181",
+    "accent_alt": "#00ADD3",
+    "focus_ring": "#FFCCBA",
+    "success": "#8FC364",
+    "warning": "#E6A140",
+    "danger": "#FC8D7F",
+    "info": "#60B9FF",
+    "scrim": "#000407D4"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.38,
+    "motion": {
+      "kind": "zoom",
+      "speed": 0.3,
+      "amount": 8
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "glow",
+      "speed": 0.9,
+      "amount": 70,
+      "color": "accent_hover"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "Signal Rain",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#091006",
+    "surface": "#131C0EC4",
+    "surface_raised": "#1F2A19D4",
+    "surface_hover": "#2E3E26DE",
+    "border": "#425438A1",
+    "text": "#EAEFE7",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A3AAA0",
+    "text_disabled": "#6B7069",
+    "text_on_accent": "#0F0807",
+    "accent": "#FF7145",
+    "accent_hover": "#FF9F82",
+    "accent_alt": "#63B314",
+    "focus_ring": "#FFCCBC",
+    "success": "#8FC462",
+    "warning": "#E8A13D",
+    "danger": "#FD8C7F",
+    "info": "#60B9FF",
+    "scrim": "#030601D4"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.3,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 20
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "shimmer",
+      "speed": 1.4,
+      "amount": 88,
+      "color": "accent_alt"
+    }
+  }
+}

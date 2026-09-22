@@ -1,0 +1,43 @@
+{
+  "name": "Pumpkin Wood",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#041018",
+    "surface": "#0B1C25C0",
+    "surface_raised": "#152A36CF",
+    "surface_hover": "#213D4DDA",
+    "border": "#3254669D",
+    "text": "#E6EEF3",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#9EAAB0",
+    "text_disabled": "#6A7378",
+    "text_on_accent": "#0E0906",
+    "accent": "#F2840D",
+    "accent_hover": "#FFA35A",
+    "accent_alt": "#00ABD6",
+    "focus_ring": "#FFCEAA",
+    "success": "#8FC363",
+    "warning": "#E4A33A",
+    "danger": "#FD8D79",
+    "info": "#00C5EC",
+    "scrim": "#00060CD4"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.2,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 28
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.0,
+      "amount": 76,
+      "color": "accent_hover"
+    }
+  }
+}

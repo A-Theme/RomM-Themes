@@ -1,0 +1,43 @@
+{
+  "name": "Crimson Keep",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#170B08",
+    "surface": "#241512D1",
+    "surface_raised": "#35211DE0",
+    "surface_hover": "#4B322CEB",
+    "border": "#64453FAB",
+    "text": "#F3EBE9",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#B0A5A2",
+    "text_disabled": "#756C6A",
+    "text_on_accent": "#0F0907",
+    "accent": "#FF7335",
+    "accent_hover": "#FFA37F",
+    "accent_alt": "#C89300",
+    "focus_ring": "#FFCCB8",
+    "success": "#90C366",
+    "warning": "#E5A244",
+    "danger": "#FB8E80",
+    "info": "#60B9FF",
+    "scrim": "#0B0302D4"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.36,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 28
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "embers",
+      "speed": 1.1,
+      "amount": 78,
+      "color": "accent_alt"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "Lilac Ridge",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#110D14",
+    "surface": "#1D1721DE",
+    "surface_raised": "#2B2530ED",
+    "surface_hover": "#3F3645F7",
+    "border": "#554A5DB6",
+    "text": "#EEEBF0",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#AAA6AD",
+    "text_disabled": "#706D72",
+    "text_on_accent": "#0F0808",
+    "accent": "#F47F89",
+    "accent_hover": "#FFA6AB",
+    "accent_alt": "#DE8B49",
+    "focus_ring": "#FFCACB",
+    "success": "#93C16F",
+    "warning": "#E4A256",
+    "danger": "#F5918B",
+    "info": "#69B9F9",
+    "scrim": "#070409D4"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.46,
+    "motion": {
+      "kind": "pan",
+      "speed": 0.25,
+      "amount": 18
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "fade",
+      "speed": 0.9,
+      "amount": 60,
+      "color": "accent_hover"
+    }
+  }
+}

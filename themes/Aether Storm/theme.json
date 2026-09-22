@@ -1,0 +1,43 @@
+{
+  "name": "Aether Storm",
+  "author": "Aramaki",
+  "version": "1.0.0",
+  "colors": {
+    "bg": "#0D0C15",
+    "surface": "#171723BC",
+    "surface_raised": "#252433CB",
+    "surface_hover": "#363549D5",
+    "border": "#4B4A629A",
+    "text": "#ECECF3",
+    "text_strong": "#FDFDFD",
+    "text_muted": "#A7A7AF",
+    "text_disabled": "#706F76",
+    "text_on_accent": "#0F0907",
+    "accent": "#FD7944",
+    "accent_hover": "#FFA685",
+    "accent_alt": "#EE708C",
+    "focus_ring": "#FFCCB9",
+    "success": "#92C26A",
+    "warning": "#E3A34A",
+    "danger": "#F89082",
+    "info": "#63B9FD",
+    "scrim": "#04040BD4"
+  },
+  "background": {
+    "image": "bg.png",
+    "dim": 0.16,
+    "motion": {
+      "kind": "drift",
+      "speed": 0.3,
+      "amount": 24
+    }
+  },
+  "effects": {
+    "focus": {
+      "kind": "glow",
+      "speed": 1.2,
+      "amount": 82,
+      "color": "accent_alt"
+    }
+  }
+}
