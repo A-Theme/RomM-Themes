@@ -33,7 +33,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1574933,
-      "screenshot": null
+      "screenshot": "screenshots/Aether Storm.webp"
     },
     {
       "id": "amber-requiem",
@@ -209,7 +209,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1237614,
-      "screenshot": null
+      "screenshot": "screenshots/Blood Moon Run.webp"
     },
     {
       "id": "bloodhouse",
@@ -273,7 +273,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1034514,
-      "screenshot": null
+      "screenshot": "screenshots/Bog Sun.webp"
     },
     {
       "id": "borbs-lair",
@@ -369,7 +369,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1295557,
-      "screenshot": null
+      "screenshot": "screenshots/Cattle Call.webp"
     },
     {
       "id": "chalkboard",
@@ -385,7 +385,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1411847,
-      "screenshot": null
+      "screenshot": "screenshots/Chalkboard.webp"
     },
     {
       "id": "chitin-amber",
@@ -577,7 +577,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1579728,
-      "screenshot": null
+      "screenshot": "screenshots/Crimson Keep.webp"
     },
     {
       "id": "crimson-thicket",
@@ -673,7 +673,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1013636,
-      "screenshot": null
+      "screenshot": "screenshots/Dream Diver.webp"
     },
     {
       "id": "duat",
@@ -833,7 +833,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1499093,
-      "screenshot": null
+      "screenshot": "screenshots/Firebrand.webp"
     },
     {
       "id": "forest-gourd",
@@ -1089,7 +1089,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 940694,
-      "screenshot": null
+      "screenshot": "screenshots/Harvest Frame.webp"
     },
     {
       "id": "hatchling",
@@ -1233,7 +1233,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1502477,
-      "screenshot": null
+      "screenshot": "screenshots/Jade Serpent.webp"
     },
     {
       "id": "jellyglass",
@@ -1313,7 +1313,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1337312,
-      "screenshot": null
+      "screenshot": "screenshots/Lilac Ridge.webp"
     },
     {
       "id": "luckdragon",
@@ -1553,7 +1553,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1206240,
-      "screenshot": null
+      "screenshot": "screenshots/Night Drive.webp"
     },
     {
       "id": "orbital-lance",
@@ -1665,7 +1665,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 881374,
-      "screenshot": null
+      "screenshot": "screenshots/Pixel Dusk.webp"
     },
     {
       "id": "planet-eater",
@@ -1729,7 +1729,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1165306,
-      "screenshot": null
+      "screenshot": "screenshots/Pumpkin Wood.webp"
     },
     {
       "id": "quiet-blue",
@@ -1761,7 +1761,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1365903,
-      "screenshot": null
+      "screenshot": "screenshots/Rec Room.webp"
     },
     {
       "id": "red-moon-lake",
@@ -1777,7 +1777,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1164477,
-      "screenshot": null
+      "screenshot": "screenshots/Red Moon Lake.webp"
     },
     {
       "id": "rift-mouth",
@@ -1953,7 +1953,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1276682,
-      "screenshot": null
+      "screenshot": "screenshots/Signal Rain.webp"
     },
     {
       "id": "silk-wing",
@@ -2033,7 +2033,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1405305,
-      "screenshot": null
+      "screenshot": "screenshots/Sky Whale.webp"
     },
     {
       "id": "sleigh-drive",
@@ -2097,7 +2097,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 470109,
-      "screenshot": null
+      "screenshot": "screenshots/Solar Dome.webp"
     },
     {
       "id": "specimen",
@@ -2289,7 +2289,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1447137,
-      "screenshot": null
+      "screenshot": "screenshots/Toad Crossing.webp"
     },
     {
       "id": "torch-tree",
@@ -2481,7 +2481,7 @@
       "has_music": false,
       "animated": false,
       "bytes": 1459530,
-      "screenshot": null
+      "screenshot": "screenshots/Wickbearer.webp"
     },
     {
       "id": "wirechewer",
