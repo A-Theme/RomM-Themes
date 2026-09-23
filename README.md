@@ -81,8 +81,47 @@ tint one thing without restating the other eighteen colours.
 
 ## Themes here
 
-See [`manifest.json`](manifest.json) for the machine-readable index — it is
-generated, one entry per theme, with what each one changes and how big it is.
+**160 themes**, every one with a focus effect. See
+[`manifest.json`](manifest.json) for the machine-readable index — it is
+generated, one entry per theme, with what each one changes and how big it is,
+and [`screenshots/`](screenshots) for a card per theme drawn by the client's
+own rendering code.
+
+Where they stand today:
+
+| | |
+|---|---|
+| A focus effect | all 160 |
+| Border treatments | 21 themes, covering all eleven kinds |
+| A bundled font | 18 themes |
+| An animated background | 6 themes |
+
+### Focus effects
+
+A theme decorates whatever is selected. Seventeen kinds, all procedural — no
+art and no texture memory — and the colour is a palette role rather than a hex,
+so the effect moves with the theme:
+
+- **Particles** — `smoke`, `embers`
+- **The focus ring, lit** — `glow`, `shimmer`, `pulse`, `fade`
+- **Border treatments**, which *replace* the ring — `ring`, `runner`,
+  `gradient`, `notched`, `ticks`, `breathe`, `rails`, `sidebar`, `brackets`,
+  `inner_glow`, `lift`
+
+`amount` means density for the particle kinds and a percentage of that kind's
+own range for the border treatments, so a value carried across from `embers`
+is wrong for `rails`. The editor previews all seventeen live, and its maths is
+diffed against the client's C++ rather than reimplemented by eye.
+
+### Fonts
+
+A theme can ship a `.ttf` or `.otf`. The console's shared font stays loaded
+behind it and is used for any string the theme's face has no glyph for, so a
+Latin-only typeface does not turn Japanese titles into empty boxes. That needs
+a client at 2.4.5 or newer.
+
+Bundle the licence with the font — the SIL OFL and Apache 2.0 both require it,
+and the validator expects a `FONT-LICENSE.txt` beside it.
 
 ## Make one without writing JSON
 
@@ -158,9 +197,11 @@ There is a still-image mode too: pan, rotate, pulse, mirror, bounce or fade a
 single image into an N-frame loop, for when you want motion and have one piece
 of art.
 
-Two themes here already use a sheet, if you want something to compare against or
-to open in the slicer: [`themes/Pulse`](themes/Pulse) and
-[`themes/Overdrive`](themes/Overdrive).
+Six themes here use a sheet, if you want something to compare against or to
+open in the slicer: [`Aramaki`](themes/Aramaki),
+[`Gandalfsax`](themes/Gandalfsax), [`Moonwake`](themes/Moonwake),
+[`Overdrive`](themes/Overdrive), [`Pulse`](themes/Pulse) and
+[`Sunlit Deep`](themes/Sunlit%20Deep).
 
 ## Contributing a theme
 
