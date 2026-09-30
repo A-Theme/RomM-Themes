@@ -1,0 +1,132 @@
+{
+  "_comment": [
+    "What each animated background is made of, so a sheet can be rebuilt or retuned",
+    "without reconstructing the command that made it: ./scripts/animate-background.py --all",
+    "",
+    "Effects are chosen for what motion cannot do. drift/pan/zoom are free and already",
+    "on every theme, so a sheet only earns its texture budget by changing light or by",
+    "moving something independently of the frame.",
+    "",
+    "amount is a ceiling: each build turns it down if the frames would dim brighter than",
+    "the catalogue allows, since the frames are what text sits on."
+  ],
+  "themes": [
+    {
+      "theme": "Jellyglass",
+      "effect": "glow_pulse",
+      "why": "bioluminescent bell against near-black water",
+      "frames": 24,
+      "fps": 10,
+      "amount": 0.65,
+      "threshold": 60,
+      "blur": 7
+    },
+    {
+      "theme": "Abyssal Lantern",
+      "effect": "glow_pulse,motes",
+      "why": "anglerfish lure, with marine snow in the water",
+      "frames": 32,
+      "fps": 10,
+      "amount": 0.55,
+      "threshold": 70,
+      "blur": 6,
+      "count": 40,
+      "tint": "150,190,230",
+      "size_min": 0.4,
+      "size_max": 1.2
+    },
+    {
+      "theme": "Candlelit Eve",
+      "effect": "flicker",
+      "why": "candle flames, which never burn at one level",
+      "frames": 24,
+      "fps": 12,
+      "amount": 0.8,
+      "threshold": 95,
+      "blur": 6
+    },
+    {
+      "theme": "Beam Alignment",
+      "effect": "beam_sweep",
+      "why": "light beams over the pyramids, travelling",
+      "frames": 32,
+      "fps": 12,
+      "amount": 0.5,
+      "threshold": 120,
+      "blur": 6,
+      "band": 110
+    },
+    {
+      "theme": "Wormhole Drift",
+      "effect": "hue_drift,glow_pulse",
+      "why": "nebula colour crawl, no brightness change at all",
+      "frames": 32,
+      "fps": 10,
+      "amount": 0.8,
+      "degrees": 26,
+      "threshold": 95,
+      "blur": 7
+    },
+    {
+      "theme": "Impact Event",
+      "effect": "glow_pulse,embers",
+      "why": "molten cracks breathing, sparks rising off them",
+      "frames": 32,
+      "fps": 12,
+      "amount": 0.5,
+      "threshold": 110,
+      "blur": 6,
+      "count": 45,
+      "tint": "255,170,70;255,110,40",
+      "size_min": 0.4,
+      "size_max": 1.1
+    },
+    {
+      "theme": "Frostbitten",
+      "effect": "snow",
+      "why": "snowfall the still only implies",
+      "frames": 32,
+      "fps": 12,
+      "amount": 0.6,
+      "count": 80,
+      "tint": "235,245,255",
+      "size_min": 0.5,
+      "size_max": 1.4
+    },
+    {
+      "theme": "Cobalt Sprawl",
+      "effect": "twinkle",
+      "why": "a city's windows do not hold a single level",
+      "frames": 32,
+      "fps": 10,
+      "amount": 0.75,
+      "threshold": 95,
+      "blur": 3,
+      "count": 26,
+      "size_min": 1.0,
+      "size_max": 3.0
+    },
+    {
+      "theme": "Moth Hour",
+      "effect": "motes",
+      "why": "pollen drifting through the bokeh",
+      "frames": 32,
+      "fps": 10,
+      "amount": 0.5,
+      "count": 35,
+      "tint": "220,240,215",
+      "size_min": 0.5,
+      "size_max": 1.6
+    },
+    {
+      "theme": "Lantern Bloom",
+      "effect": "glow_pulse",
+      "why": "the creature's lure, pulsing",
+      "frames": 24,
+      "fps": 10,
+      "amount": 0.6,
+      "threshold": 80,
+      "blur": 7
+    }
+  ]
+}

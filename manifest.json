@@ -15,8 +15,8 @@
       "has_font": false,
       "has_mascot": false,
       "has_music": false,
-      "animated": false,
-      "bytes": 1018570,
+      "animated": true,
+      "bytes": 2054301,
       "screenshot": "screenshots/Abyssal Lantern.webp"
     },
     {
@@ -159,8 +159,8 @@
       "has_font": true,
       "has_mascot": false,
       "has_music": false,
-      "animated": false,
-      "bytes": 1367718,
+      "animated": true,
+      "bytes": 2258420,
       "screenshot": "screenshots/Beam Alignment.webp"
     },
     {
@@ -335,8 +335,8 @@
       "has_font": false,
       "has_mascot": false,
       "has_music": false,
-      "animated": false,
-      "bytes": 1133879,
+      "animated": true,
+      "bytes": 1871864,
       "screenshot": "screenshots/Candlelit Eve.webp"
     },
     {
@@ -463,8 +463,8 @@
       "has_font": false,
       "has_mascot": false,
       "has_music": false,
-      "animated": false,
-      "bytes": 1357021,
+      "animated": true,
+      "bytes": 2433950,
       "screenshot": "screenshots/Cobalt Sprawl.webp"
     },
     {
@@ -879,8 +879,8 @@
       "has_font": false,
       "has_mascot": false,
       "has_music": false,
-      "animated": false,
-      "bytes": 1238889,
+      "animated": true,
+      "bytes": 2343848,
       "screenshot": "screenshots/Frostbitten.webp"
     },
     {
@@ -1167,8 +1167,8 @@
       "has_font": false,
       "has_mascot": false,
       "has_music": false,
-      "animated": false,
-      "bytes": 1363495,
+      "animated": true,
+      "bytes": 2513236,
       "screenshot": "screenshots/Impact Event.webp"
     },
     {
@@ -1247,8 +1247,8 @@
       "has_font": false,
       "has_mascot": false,
       "has_music": false,
-      "animated": false,
-      "bytes": 576977,
+      "animated": true,
+      "bytes": 1032207,
       "screenshot": "screenshots/Jellyglass.webp"
     },
     {
@@ -1295,8 +1295,8 @@
       "has_font": false,
       "has_mascot": false,
       "has_music": false,
-      "animated": false,
-      "bytes": 1235083,
+      "animated": true,
+      "bytes": 2322668,
       "screenshot": "screenshots/Lantern Bloom.webp"
     },
     {
@@ -1455,8 +1455,8 @@
       "has_font": false,
       "has_mascot": false,
       "has_music": false,
-      "animated": false,
-      "bytes": 1024367,
+      "animated": true,
+      "bytes": 1572491,
       "screenshot": "screenshots/Moth Hour.webp"
     },
     {
@@ -2559,8 +2559,8 @@
       "has_font": false,
       "has_mascot": false,
       "has_music": false,
-      "animated": false,
-      "bytes": 1249986,
+      "animated": true,
+      "bytes": 3444602,
       "screenshot": "screenshots/Wormhole Drift.webp"
     }
   ]

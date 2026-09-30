@@ -30,6 +30,15 @@
       "kind": "zoom",
       "speed": 0.25,
       "amount": 6
+    },
+    "animation": {
+      "kind": "sheet",
+      "file": "sheet.png",
+      "frame_width": 320,
+      "frame_height": 180,
+      "frames": 24,
+      "fps": 12,
+      "loop": true
     }
   },
   "effects": {

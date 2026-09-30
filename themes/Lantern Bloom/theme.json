@@ -30,6 +30,15 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 22
+    },
+    "animation": {
+      "kind": "sheet",
+      "file": "sheet.png",
+      "frame_width": 320,
+      "frame_height": 180,
+      "frames": 24,
+      "fps": 10,
+      "loop": true
     }
   },
   "effects": {
