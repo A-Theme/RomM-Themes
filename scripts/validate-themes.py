@@ -29,6 +29,7 @@ REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 THEMES_DIR = os.path.join(REPO, "themes")
 MANIFEST = os.path.join(REPO, "manifest.json")
 SHOTS_DIR = "screenshots"
+THUMBS_DIR = "thumbs"
 
 # --- Limits, mirroring theme_spec.h -----------------------------------------
 try:
@@ -698,6 +699,16 @@ def validate_theme(folder_name):
             screenshot = f"{SHOTS_DIR}/{candidate}"
             break
 
+    # The thumbnail is the background art alone, small enough to put one on
+    # every row of a catalog list. scripts/make-thumbs.py writes them; a theme
+    # without one is listed the old way rather than not listed.
+    thumb = None
+    for ext in (".webp", ".png", ".jpg", ".jpeg"):
+        candidate = f"{folder_name}{ext}"
+        if os.path.isfile(os.path.join(REPO, THUMBS_DIR, candidate)):
+            thumb = f"{THUMBS_DIR}/{candidate}"
+            break
+
     entry = {
         "id": re.sub(r"[^a-z0-9]+", "-", folder_name.lower()).strip("-"),
         "folder": folder_name,
@@ -713,6 +724,7 @@ def validate_theme(folder_name):
         "animated": animated,
         "bytes": total_bytes,
         "screenshot": screenshot,
+        "thumb": thumb,
     }
     return entry, problems
 
