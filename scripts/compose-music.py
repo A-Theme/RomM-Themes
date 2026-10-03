@@ -748,6 +748,239 @@ def clank(vel=0.5, seed=0):
     return s * 0.06 * vel
 
 
+# --- second round: what the review asked for --------------------------------
+
+def piano(note, dur, vel=0.7, release=0.4):
+    """Struck string: stretched partials (piano inharmonicity), the high ones
+    dying first, and a short felt-hammer knock."""
+    f = float(hz(note))
+    n_hold, n = _hold(dur, release)
+    t = np.arange(n) / SR
+    out = np.zeros(n)
+    for k in range(1, int(min(18, 9000 / f)) + 1):
+        fk = f * k * np.sqrt(1 + 0.00025 * k * k)
+        dec = (1.8 if f < 300 else 1.1) / (1 + 0.18 * k)
+        out += np.sin(TAU * fk * t + 0.3 * k) / k ** 1.1 * np.exp(-t / dec)
+    knock = oneshot_filter(np.random.default_rng(int(f * 10)).standard_normal(n), lo=1500, hi=6000) * np.exp(-t / 0.006)
+    return (out * 0.13 * vel + knock * 0.03 * vel) * env(n_hold, 0.002, release, n)
+
+
+def ocarina(note, dur, vel=0.7, seed=0):
+    f = float(hz(note))
+    rng = np.random.default_rng(seed)
+    n_hold, n = _hold(dur, 0.12)
+    fc = f * vibrato(n, rate=5.5, depth=0.004, delay=0.3, seed=seed)
+    tone = osc(fc, n, [1, 0.04, 0.02])
+    air = oneshot_filter(rng.standard_normal(n), lo=f, hi=f * 2.5) * 0.05
+    return (tone + air) * env(n_hold, 0.03, 0.12, n) * 0.17 * vel
+
+
+def harp_gliss(notes, step=0.035, vel=0.5):
+    n = int((len(notes) * step + 2.0) * SR)
+    out = np.zeros(n)
+    for i, nt in enumerate(notes):
+        p = pluck(nt, 2.0, vel=vel, brightness=0.6)
+        o = int(i * step * SR)
+        out[o:o + p.shape[0]] += p[: n - o]
+    return out
+
+
+def cymbal(vel=0.6, length=2.2, seed=0):
+    rng = np.random.default_rng(seed)
+    n = int(length * SR)
+    t = np.arange(n) / SR
+    wash = oneshot_filter(rng.standard_normal(n), lo=3000, hi=13000) * np.exp(-t / (length * 0.35))
+    ring = sum(np.sin(TAU * f * t + rng.uniform(0, TAU)) for f in rng.uniform(3000, 9000, 12)) * np.exp(-t / (length * 0.25)) * 0.02
+    return (wash + ring) * 0.14 * vel
+
+
+def snare_roll(dur, vel=0.6, seed=0, crescendo=True):
+    n = int((dur + 0.4) * SR)
+    out = np.zeros(n)
+    hits = int(dur * 22)
+    for i in range(hits):
+        g = (0.3 + 0.7 * i / max(hits - 1, 1)) if crescendo else 0.7
+        s = snare(vel * g * 0.6, seed=seed * 97 + i, march=True)
+        o = int(i / 22 * SR)
+        out[o:o + s.shape[0]] += s[: n - o]
+    return out
+
+
+def tuba(note, dur, vel=0.8):
+    f = float(hz(note))
+    n_hold, n = _hold(dur, 0.08)
+    s = osc(f, n, [1, 0.7, 0.45, 0.25, 0.12, 0.06])
+    return np.tanh(1.2 * s) * env(n_hold, 0.02, 0.08, n) * 0.22 * vel
+
+
+def war_horn(note, dur, vel=0.8, seed=0):
+    """A long animal horn: slow swell, a scoop up into pitch, dark and wide."""
+    f = float(hz(note))
+    n_hold, n = _hold(dur, 0.6)
+    t = np.arange(n) / SR
+    fc = f * (1 - 0.04 * np.exp(-t / 0.25)) * vibrato(n, rate=4.5, depth=0.003, delay=0.8, seed=seed)
+    s = osc(fc, n, [1, 0.8, 0.55, 0.35, 0.2, 0.12, 0.07])
+    return np.tanh(1.5 * s) * env(n_hold, 0.35, 0.6, n) * 0.1 * vel
+
+
+def chant(note, vel=0.8, vowel="oh", seed=0):
+    vw = {"oh": "oo", "hey": "eh"}.get(vowel, vowel)
+    return choir(note, 0.32, vowel=vw, attack=0.02, release=0.22, seed=seed) * 1.6 * vel
+
+
+def slide_whistle(f0, f1, dur=0.6, vel=0.6):
+    n = int(dur * SR)
+    t = np.arange(n) / SR
+    f = f0 * (f1 / f0) ** (t / dur)
+    s = np.sin(TAU * np.cumsum(f) / SR) + 0.05 * np.random.default_rng(3).standard_normal(n)
+    return s * np.sin(np.pi * t / dur) ** 0.6 * 0.12 * vel
+
+
+def buzz(dur=1.6, vel=0.6, seed=0):
+    """An insect passing: a wingbeat-modulated rasp that swells and drifts."""
+    rng = np.random.default_rng(seed)
+    n = int(dur * SR)
+    t = np.arange(n) / SR
+    f = rng.uniform(170, 260) * (1 + 0.06 * np.sin(TAU * rng.uniform(0.5, 1.5) * t))
+    rasp = osc(f, n, SAW[:30])
+    beat = 0.55 + 0.45 * np.sin(TAU * rng.uniform(24, 38) * t)
+    s = oneshot_filter(rasp * beat, lo=300, hi=3500)
+    return s * np.sin(np.pi * t / dur) ** 1.5 * 0.12 * vel
+
+
+def chitter(vel=0.6, seed=0):
+    """Mandibles: a fast run of resonant clicks."""
+    rng = np.random.default_rng(seed)
+    n = int(0.5 * SR)
+    out = np.zeros(n)
+    rate = rng.uniform(35, 60)
+    k = int(rng.integers(8, 18))
+    f = rng.uniform(2500, 4500)
+    for i in range(k):
+        o = int(i / rate * SR)
+        m = int(0.012 * SR)
+        tt = np.arange(m) / SR
+        click = np.sin(TAU * f * tt) * np.exp(-tt / 0.0025)
+        out[o:o + m] += click[: n - o] * (1 - 0.5 * i / k)
+    return out * 0.18 * vel
+
+
+def wail(dur=2.4, vel=0.6, seed=0, base=None, vowel="oo"):
+    """A ghost: a wordless voice sliding between pitches, half breath."""
+    rng = np.random.default_rng(seed)
+    n = int(dur * SR)
+    t = np.arange(n) / SR
+    f0 = base or rng.uniform(380, 620)
+    contour = f0 * 2 ** ((rng.uniform(-5, 5) * np.sin(np.pi * t / dur) + rng.uniform(-3, 3) * t / dur) / 12)
+    contour = contour * (1 + 0.012 * np.sin(TAU * 5.0 * t))
+    voice = osc(contour, n, [1, 0.5, 0.3, 0.2, 0.12, 0.08])
+    breath = rng.standard_normal(n) * 0.6
+    peaks = {"oo": [(350, 1.0, 90), (850, 0.4, 140)], "ah": [(700, 1.0, 120), (1150, 0.5, 150)]}[vowel]
+    s = oneshot_filter(voice + breath, peaks=peaks)
+    return s * np.sin(np.pi * t / dur) ** 1.2 * 0.5 * vel
+
+
+def scream(dur=1.4, vel=0.7, seed=0):
+    """A scream, abstracted: a high, harsh voice that rises and breaks."""
+    rng = np.random.default_rng(seed)
+    n = int(dur * SR)
+    t = np.arange(n) / SR
+    f = rng.uniform(650, 950) * (1 + 0.25 * (t / dur) ** 0.5) * (1 + 0.03 * np.sin(TAU * 9 * t))
+    harsh = osc(f, n, SAW[:12]) + 0.8 * rng.standard_normal(n)
+    s = oneshot_filter(np.tanh(2.5 * harsh), peaks=[(900, 1.0, 200), (1800, 0.8, 300), (3000, 0.5, 400)])
+    e = np.clip(t / 0.06, 0, 1) * np.exp(-np.maximum(t - 0.35 * dur, 0) / (0.4 * dur))
+    return s * e * 0.28 * vel
+
+
+def roar(vel=0.8, seed=0, dur=2.2):
+    """A dragon: a low growl through an open throat, falling as it spends."""
+    rng = np.random.default_rng(seed)
+    n = int(dur * SR)
+    t = np.arange(n) / SR
+    f = 80 * (1.3 - 0.5 * t / dur) * (1 + 0.08 * rng.standard_normal(n).cumsum() / np.sqrt(np.arange(1, n + 1)) * 0.05)
+    growl = osc(f, n, SAW[:60]) + 0.7 * rng.standard_normal(n)
+    s = oneshot_filter(np.tanh(2.0 * growl), peaks=[(400, 1.0, 150), (1100, 0.7, 250), (2400, 0.3, 400)])
+    e = np.clip(t / 0.15, 0, 1) * np.exp(-np.maximum(t - 0.6, 0) / 0.6)
+    return s * e * 0.3 * vel
+
+
+def chimes(vel=0.5, seed=0, notes=None):
+    rng = np.random.default_rng(seed)
+    n = int(3.5 * SR)
+    out = np.zeros(n)
+    pool = notes or [84, 86, 88, 91, 93, 96]
+    for _ in range(int(rng.integers(4, 8))):
+        o = int(rng.uniform(0, 0.9) * SR)
+        b = bell(int(rng.choice(pool)), 2.5, vel=rng.uniform(0.3, 0.7), ratio=2.0, decay=1.2)
+        out[o:o + b.shape[0]] += b[: n - o]
+    return out * vel
+
+
+def ringmod(note, dur=2.0, vel=0.5, ratio=1.37):
+    f = float(hz(note))
+    n = int(dur * SR)
+    t = np.arange(n) / SR
+    s = np.sin(TAU * f * t) * np.sin(TAU * f * ratio * t + 2 * np.sin(TAU * 3 * t))
+    return s * env(n - int(0.5 * SR), 0.2, 0.5, n) * 0.18 * vel
+
+
+def ufo(dur=2.5, vel=0.5, seed=0):
+    rng = np.random.default_rng(seed)
+    n = int(dur * SR)
+    t = np.arange(n) / SR
+    f = rng.uniform(500, 900) * (1 + 0.3 * np.sin(TAU * rng.uniform(5, 8) * t)) * (1 + 0.4 * t / dur)
+    s = np.sin(TAU * np.cumsum(f) / SR) * np.sin(TAU * 31 * t)
+    return s * np.sin(np.pi * t / dur) * 0.12 * vel
+
+
+def violin_screech(note, dur=1.2, vel=0.6, seed=0):
+    f = float(hz(note))
+    n = int(dur * SR)
+    t = np.arange(n) / SR
+    fc = f * 2 ** (np.clip(t / dur, 0, 1) * 7 / 12) * vibrato(n, rate=7, depth=0.01, delay=0.0, seed=seed)
+    s = osc(fc, n, SAW[:20]) * (0.6 + 0.4 * np.sin(TAU * 13 * t))
+    return oneshot_filter(s, lo=900) * env(n - int(0.2 * SR), 0.05, 0.2, n) * 0.11 * vel
+
+
+def cat_mew(vel=0.5, seed=0):
+    rng = np.random.default_rng(seed)
+    n = int(0.45 * SR)
+    t = np.arange(n) / SR
+    f = rng.uniform(650, 800) * (1 + 0.35 * np.sin(np.pi * t / 0.45))
+    s = oneshot_filter(osc(f, n, [1, 0.6, 0.35, 0.2]), peaks=[(900, 1.0, 200), (2200, 0.5, 300)])
+    return s * np.sin(np.pi * t / 0.45) ** 0.8 * 0.35 * vel
+
+
+def tick(vel=0.4, pitch=1.0):
+    n = int(0.05 * SR)
+    t = np.arange(n) / SR
+    return np.sin(TAU * 3200 * pitch * t) * np.exp(-t / 0.004) * 0.12 * vel
+
+
+def loop_crossfade(x, L, X):
+    """Close a long render into a loop of L samples by fading its overrun in."""
+    out = x[:L].copy()
+    fade = np.linspace(0, 1, X)[:, None] if x.ndim == 2 else np.linspace(0, 1, X)
+    out[:X] = out[:X] * fade + x[L:L + X] * (1 - fade)
+    return out
+
+
+def shepard_bed(L, octaves_per_loop=-2, base=40.0, voices=8, gain=0.3):
+    """The endlessly falling tone: octave-spaced voices glide down together and
+    fade in at the top and out at the bottom, so the fall never arrives."""
+    X = int(1.0 * SR)
+    n = L + X
+    t = np.arange(n) / L
+    out = np.zeros(n)
+    for k in range(voices):
+        pos = (k + octaves_per_loop * t) % voices
+        f = base * 2 ** pos
+        amp = np.exp(-0.5 * ((pos - voices / 2) / (voices / 5)) ** 2)
+        out += np.sin(TAU * np.cumsum(f) / SR) * amp
+    out = loop_crossfade(out, L, X) / voices * gain
+    return np.stack([out, np.roll(out, int(0.012 * SR))], 1)
+
+
 # ---------------------------------------------------------------------------
 # beds: full-loop ambience, circular so they close on themselves
 # ---------------------------------------------------------------------------
@@ -965,7 +1198,9 @@ class Track:
         return master(out, rms_db)
 
 
-def master(x, target_rms_db=-21.0, ceiling=0.89, knee=0.6):
+def master(x, target_rms_db=-21.0, ceiling=0.79, knee=0.55):
+    # ceiling -2 dBFS, not -1: Vorbis overshoots peaks on decode by up to a dB,
+    # and at -1 six tracks decoded a few samples past full scale.
     rms = np.sqrt(np.mean(x ** 2))
     x = x * (10 ** (target_rms_db / 20) / max(rms, 1e-9))
     over = np.abs(x) > knee
@@ -1000,10 +1235,29 @@ def style_ominous(r):
         tr.place("drone", tr.at(bar), drone(root, 4 * tr.bpb * tr.beat, bright=0.12, seed=bar))
         tr.place("drone", tr.at(bar), drone(root + 7 if bar % 8 == 0 else root + 6, 4 * tr.bpb * tr.beat,
                                             bright=0.08, seed=bar + 1), gain=0.6)
-    for bar in range(2, tr.bars, 4):
-        top = key.note(int(rng.integers(3, 7)), 4)
-        for j, nt in enumerate((top, top + 1)):          # the semitone rub
-            tr.place("cluster", tr.at(bar), strings(nt, 2 * tr.bpb * tr.beat, attack=2.5, release=2.5, seed=bar * 3 + j))
+    if "nostrings" not in w:
+        for bar in range(2, tr.bars, 4):
+            top = key.note(int(rng.integers(3, 7)), 4)
+            for j, nt in enumerate((top, top + 1)):          # the semitone rub
+                tr.place("cluster", tr.at(bar), strings(nt, 2 * tr.bpb * tr.beat, attack=2.5, release=2.5, seed=bar * 3 + j))
+    if "buzz" in w:
+        for i in range(tr.bars):
+            tr.place("air", rng.uniform(0, tr.L / SR), buzz(rng.uniform(1.0, 2.4), vel=rng.uniform(0.5, 1.0), seed=i),
+                     pan=rng.uniform(0.1, 0.9))
+    if "chitter" in w:
+        for i in range(tr.bars * 2):
+            tr.place("air", rng.uniform(0, tr.L / SR), chitter(rng.uniform(0.5, 1.0), seed=i + 500), pan=rng.uniform(0.1, 0.9))
+    if "screams" in w:
+        for i, bar in enumerate(range(1, tr.bars, 3)):
+            tr.place("voices", tr.at(bar, rng.uniform(0, tr.bpb)), scream(rng.uniform(1.0, 1.8), vel=rng.uniform(0.5, 0.9), seed=i),
+                     pan=rng.uniform(0.15, 0.85))
+    if "wails" in w:
+        for i in range(tr.bars // 2 + 2):
+            tr.place("voices", rng.uniform(0, tr.L / SR), wail(rng.uniform(2.0, 4.0), vel=rng.uniform(0.4, 0.8), seed=i + 70,
+                                                             vowel="oo" if i % 2 else "ah"), pan=rng.uniform(0.1, 0.9))
+    if "reverse" in w:
+        for bar in range(3, tr.bars, 4):
+            tr.place("fx", tr.at(bar + 1) - 2.5, riser(2.5, 0.8, seed=bar))
     for bar in range(0, tr.bars, 8):
         tr.place("fx", tr.at(bar) - 0.05, boom(0.8, seed=bar))
         tr.place("fx", tr.at(bar + 4, 2), scrape(root + 24 + int(rng.integers(0, 6)), 4.0, seed=bar), pan=rng.uniform(0.2, 0.8))
@@ -1078,7 +1332,8 @@ def style_ominous(r):
     tr.bus("choir", gain=0.8, reverb=0.8)
     tr.bus("bed", gain=1.0, reverb=0.1)
     tr.bus("organ", gain=0.6, reverb=0.7)
-    return tr.mix(ir=4.0, wet=1.2, hi=8000, rms_db=-22.5)
+    tr.bus("voices", gain=0.8, reverb=0.85)
+    return tr.mix(ir=4.0, wet=1.2, hi=8000 if "buzz" not in w and "screams" not in w else 11000, rms_db=-22.5)
 
 
 CAROL_TUNE = [  # an original carol-like line in scale degrees, bars of 3
@@ -1843,18 +2098,728 @@ def style_hearth(r):
     return tr.mix(ir=1.8, hi=9000)
 
 
+
+# ---------------------------------------------------------------------------
+# second round: styles written to the review's notes
+# ---------------------------------------------------------------------------
+
+def _line(tr, bus, tune, inst, octave_shift=0, gain=1.0, pan=0.5):
+    """Place a hand-written line: [(bar, beat, 'G5', beats), ...]."""
+    for bar, beat, name, beats in tune:
+        nt = 12 * (int(name[-1]) + 1) + NOTE[name[:-1]] + octave_shift
+        tr.place(bus, tr.at(bar, beat), inst(nt, beats * tr.beat), pan=pan, gain=gain)
+
+
+def _mn(name):
+    return 12 * (int(name[-1]) + 1) + NOTE[name[:-1]]
+
+
+def style_scifi_fanfare(r):
+    """Starship, setting out: a brass fanfare that leaps by fifths and octaves,
+    the lydian raised fourth for wonder, strings and timpani underneath."""
+    tr = Track(bpm=r.get("bpm", 84), bars=16, seed=r.get("seed", 1))
+    chords = [("G3", (0, 4, 7)), ("D3", (0, 4, 7)), ("A3", (0, 4, 7)), ("D3", (0, 4, 7, 10)),
+              ("G3", (0, 4, 7)), ("E3", (0, 3, 7)), ("C3", (0, 4, 7, 11)), ("G3", (0, 4, 7))]
+    fanfare = [(0, 0, "G4", 1), (0, 1, "D5", 1), (0, 2, "G5", 2), (1, 0, "A5", 1.5), (1, 1.5, "G5", 0.5),
+               (1, 2, "F#5", 1), (1, 3, "E5", 1), (2, 0, "D5", 1), (2, 1, "C#5", 1), (2, 2, "E5", 2), (3, 0, "D5", 4),
+               (4, 0, "G4", 1), (4, 1, "D5", 1), (4, 2, "A5", 2), (5, 0, "B5", 1.5), (5, 1.5, "A5", 0.5),
+               (5, 2, "G5", 1), (5, 3, "E5", 1), (6, 0, "F#5", 1), (6, 1, "A5", 1), (6, 2, "D6", 2), (7, 0, "G5", 4)]
+    for bar in range(16):
+        root, shape = chords[bar % 8]
+        for j, iv in enumerate(shape):
+            tr.place("strings", tr.at(bar), strings(_mn(root) + iv + 12, 4 * tr.beat * 0.98, attack=0.8 if bar < 8 else 0.3,
+                                                    bright=0.5, seed=bar * 4 + j))
+        tr.place("strings", tr.at(bar), strings(_mn(root) - 12 + 12, 4 * tr.beat * 0.98, attack=0.5, bright=0.35, seed=bar + 90))
+        tr.place("perc", tr.at(bar), timpani(_mn(root) - 12 if _mn(root) > 50 else _mn(root), 0.7 if bar >= 8 else 0.45))
+        if bar >= 8:
+            for e in range(8):
+                tr.place("ost", tr.at(bar, e * 0.5), strings(_mn(root) + 12 + (7 if e % 2 else 0), 0.45 * tr.beat, attack=0.01,
+                                                            release=0.12, bright=0.6, seed=bar * 8 + e), gain=0.45)
+    for rep, vel, shift in ((0, 0.55, -12), (8, 0.9, 0)):
+        for bar, beat, name, beats in fanfare:
+            nt = _mn(name) + shift
+            tr.place("brass", tr.at(rep + bar, beat), brass(nt, beats * tr.beat * 0.94, vel=vel, seed=bar), pan=0.5)
+            if rep == 8:
+                tr.place("brass", tr.at(rep + bar, beat), brass(nt - 12, beats * tr.beat * 0.94, vel=0.55, seed=bar + 7), pan=0.4)
+                tr.place("choir", tr.at(rep + bar, beat), choir(nt, beats * tr.beat, vowel="ah", attack=0.15, seed=bar), gain=0.35)
+    for bar in (0, 8):
+        tr.place("perc", tr.at(bar), cymbal(0.8, 3.0, seed=bar))
+        tr.place("harp", tr.at(bar), harp_gliss([_mn("G3") + d for d in (0, 2, 4, 7, 9, 12, 14, 16, 19, 21, 24, 26, 28, 31)], vel=0.4))
+    tr.place("perc", tr.at(7, 2), snare_roll(2 * tr.beat, 0.7, seed=7))
+    tr.place("perc", tr.at(15, 2), snare_roll(2 * tr.beat, 0.7, seed=15))
+    if "storm" in r.get("with", []):
+        for bar in range(2, 16, 5):
+            tr.place("perc", tr.at(bar, 1.5), boom(0.4, seed=bar), pan=0.3 + 0.1 * bar % 0.6)
+    shimmer = loop_noise(tr.L, 9, lo=5000, hi=9000, gain=0.012) * (0.5 + 0.5 * lfo(tr.L, 2))[:, None]
+    tr.bed("bed", shimmer)
+    tr.bus("strings", gain=0.7, reverb=0.5); tr.bus("ost", gain=0.6, reverb=0.35)
+    tr.bus("brass", gain=0.9, reverb=0.5); tr.bus("choir", gain=0.6, reverb=0.7)
+    tr.bus("perc", gain=0.8, reverb=0.4); tr.bus("harp", gain=0.7, reverb=0.6); tr.bus("bed", gain=1.0, reverb=0.4)
+    return tr.mix(ir=3.2, hi=12000)
+
+
+def style_alien(r):
+    """They are here: whole-tone harmony that never settles, ring-modulated
+    tones, craft warbling overhead, and the desert still faintly underneath."""
+    key, tr, rng, w = _setup(r, "major", 80, seconds=50)
+    root = key.note(0, 2)
+    whole = [root + 24 + 2 * i for i in range(6)]
+    for bar in range(0, tr.bars, 2):
+        tr.place("drone", tr.at(bar), drone(root, 2 * tr.bpb * tr.beat, bright=0.25, seed=bar))
+        for j, nt in enumerate((whole[(bar // 2) % 6], whole[(bar // 2 + 2) % 6], whole[(bar // 2 + 4) % 6])):
+            tr.place("pad", tr.at(bar), pad(nt, 2 * tr.bpb * tr.beat, attack=1.5, release=2.0, bright=0.6, detune=15, seed=bar * 3 + j))
+    for i, bar in enumerate(range(0, tr.bars, 2)):
+        tr.place("fx", tr.at(bar, 1), ringmod(int(rng.choice(whole)) + 12, 2.5, vel=0.7, ratio=rng.uniform(1.2, 1.6)), pan=rng.uniform(0.2, 0.8))
+        tr.place("fx", tr.at(bar + 1, 2), ufo(rng.uniform(2.0, 3.0), vel=0.8, seed=i), pan=rng.uniform(0.2, 0.8))
+    events = []
+    for k in range(0, tr.bars * tr.bpb, 3):
+        events.append((k, int(rng.choice(whole)) + 12, 2.5))
+    tr.place("lead", 0.0, theremin_line(events, tr.beat, vel=0.7), pan=0.55)
+    scale = whole + [n + 12 for n in whole]
+    for _ in range(tr.bars * 4):
+        bar, sx = int(rng.integers(0, tr.bars)), int(rng.integers(0, 16))
+        tr.place("fx", tr.at(bar, sx * 0.25), beep(int(rng.choice(scale)) + 12, 0.04, vel=0.35), pan=rng.uniform(0.1, 0.9))
+    for bar in range(tr.bars):
+        for stroke, b, v in (("doum", 0, 0.5), ("tek", 1.5, 0.3), ("doum", 2, 0.4), ("tek", 3, 0.35)):
+            tr.place("perc", tr.at(bar, b), darbuka(stroke, v, seed=bar * 4 + int(b * 2)), pan=0.4)
+    tr.bed("bed", wind_bed(tr.L, r.get("seed", 1), gain=0.22))
+    tr.bus("drone", gain=0.7, reverb=0.4); tr.bus("pad", gain=0.5, reverb=0.7); tr.bus("fx", gain=0.7, reverb=0.7)
+    tr.bus("lead", gain=0.8, reverb=0.6); tr.bus("perc", gain=0.45, reverb=0.3); tr.bus("bed", gain=1.0, reverb=0.1)
+    return tr.mix(ir=3.6, wet=1.2, hi=11000)
+
+
+def style_space_horror(r):
+    """Something out there is coming: sub swells, a dissonant choir, metal
+    groaning, and a pulse that quickens as it closes in, then falls away."""
+    key, tr, rng, w = _setup(r, "phrygian", 60, seconds=52, multiple=8)
+    root = key.note(0, 1)
+    shepard = "shepard" in w
+    if shepard:
+        tr.bed("bed", shepard_bed(tr.L, octaves_per_loop=-3, base=35.0, gain=0.5))
+    for bar in range(0, tr.bars, 4):
+        tr.place("drone", tr.at(bar), drone(root + 12, 4 * tr.bpb * tr.beat, bright=0.1, seed=bar))
+        top = key.note(int(rng.integers(2, 6)), 4)
+        for j, nt in enumerate((top, top + 1, top + 6)):
+            tr.place("choir", tr.at(bar + 1), choir(nt, 3 * tr.bpb * tr.beat, vowel="oo", attack=2.0, release=2.5, seed=bar * 3 + j),
+                     gain=0.55)
+    # the approach: pulses that crowd together, then thin out again
+    total = tr.bars * tr.bpb
+    pos = 0.0
+    while pos < total:
+        phase = pos / total
+        gap = 2.0 - 1.6 * np.sin(np.pi * phase)        # widest at the seam, tightest mid-loop
+        tr.place("pulse", pos * tr.beat, heartbeat(0.5 + 0.4 * np.sin(np.pi * phase)) if not shepard
+                 else kick(0.5 + 0.3 * np.sin(np.pi * phase)), pan=0.5)
+        pos += gap
+    for bar in range(0, tr.bars, 4):
+        tr.place("fx", tr.at(bar) - 0.05, boom(0.8, seed=bar))
+        tr.place("fx", tr.at(bar + 2, 1), scrape(root + 24 + int(rng.integers(0, 6)), 5.0, vel=0.8, seed=bar), pan=rng.uniform(0.2, 0.8))
+        tr.place("fx", tr.at(bar + 4) - 2.5, riser(2.5, 0.7, seed=bar))
+    if shepard:
+        for bar in range(0, tr.bars, 2):
+            tr.place("warp", tr.at(bar), pad(key.note(0, 3) + int(rng.integers(-1, 2)), 2 * tr.bpb * tr.beat, attack=1.2,
+                                             release=1.5, bright=0.5, detune=40, vib=0.02, seed=bar), gain=0.6)
+    shimmer = loop_noise(tr.L, 9, lo=4000, hi=8000, gain=0.02) * (0.5 + 0.5 * lfo(tr.L, 3))[:, None]
+    tr.bed("bed", shimmer)
+    tr.bus("drone", gain=0.85, reverb=0.4); tr.bus("choir", gain=0.75, reverb=0.85); tr.bus("pulse", gain=0.85, reverb=0.25)
+    tr.bus("fx", gain=0.8, reverb=0.7); tr.bus("warp", gain=0.6, reverb=0.7); tr.bus("bed", gain=1.0, reverb=0.3)
+    return tr.mix(ir=4.5, wet=1.3, hi=10000, rms_db=-22.5)
+
+
+def style_horror_movie(r):
+    """A horror film's cue: violin harmonics trembling high, a piano note left
+    alone in the low register, stingers, and screeches that climb."""
+    key, tr, rng, w = _setup(r, "phrygian", 60, seconds=52, multiple=8)
+    root = key.note(0, 2)
+    for bar in range(0, tr.bars, 4):
+        tr.place("drone", tr.at(bar), drone(root, 4 * tr.bpb * tr.beat, bright=0.1, seed=bar))
+        hi_note = key.note(int(rng.integers(0, 5)), 6)
+        trem = strings(hi_note, 4 * tr.bpb * tr.beat * 0.9, attack=2.0, release=1.5, bright=0.8, seed=bar)
+        lfo_t = np.arange(trem.shape[0]) / SR
+        trem = trem * (0.6 + 0.4 * np.sin(TAU * 11 * lfo_t))[:, None]
+        tr.place("strings", tr.at(bar), trem, gain=0.5)
+    creepy = [0, 1, 0, 5, 4, 1, 0, 1]
+    for i, bar in enumerate(range(0, tr.bars, 1)):
+        if bar % 2 == 0:
+            tr.place("piano", tr.at(bar, 0), piano(key.note(creepy[(bar // 2) % len(creepy)], 5), 3.0, vel=0.45), pan=0.6)
+    for bar in range(2, tr.bars, 4):
+        for j, nt in enumerate((root, root + 1, root + 2, root + 6)):
+            tr.place("piano", tr.at(bar, 2), piano(nt, 3.5, vel=0.9), pan=0.4)
+    for i, bar in enumerate(range(3, tr.bars, 4)):
+        tr.place("fx", tr.at(bar + 1) - 2.0, riser(2.0, 0.8, seed=bar))
+        tr.place("fx", tr.at(bar + 1), boom(0.9, seed=bar))
+        top = key.note(4, 5)
+        for j, nt in enumerate((top, top + 1, top + 6, top + 11)):
+            tr.place("fx", tr.at(bar + 1), strings(nt, 0.35, attack=0.005, release=0.4, bright=0.95, seed=bar * 4 + j), gain=0.9)
+        tr.place("fx", tr.at(bar + 1, 2), violin_screech(key.note(2, 6), 1.4, vel=0.9, seed=i), pan=rng.uniform(0.2, 0.8))
+    if "crickets" in w:
+        for _ in range(tr.bars * 2):
+            tr.place("air", rng.uniform(0, tr.L / SR), cricket(rng.uniform(0.3, 0.7), seed=int(rng.integers(1e6))), pan=rng.uniform(0.1, 0.9))
+    tr.bed("bed", wind_bed(tr.L, r.get("seed", 1), gain=0.2))
+    tr.bus("drone", gain=0.8, reverb=0.4); tr.bus("strings", gain=0.6, reverb=0.7); tr.bus("piano", gain=0.9, reverb=0.6)
+    tr.bus("fx", gain=0.85, reverb=0.6); tr.bus("air", gain=0.6, reverb=0.5); tr.bus("bed", gain=1.0, reverb=0.1)
+    return tr.mix(ir=3.8, wet=1.2, hi=11000, rms_db=-22.5)
+
+
+def style_circus(r):
+    """The big top, with something wrong in the ring: oom-pah tuba, a calliope
+    tune in harmonic minor with chromatic slips, snare rolls and cymbals."""
+    key, tr, rng, w = _setup(r, "harmonic", 132, multiple=8)
+    degs = [0, 4, 0, 4, 3, 0, 4, 0]
+    ch = progression(key, degs, 3)
+    for bar in range(tr.bars):
+        c = ch[bar % 8]
+        tr.place("oompah", tr.at(bar, 0), tuba(c[0] - 12, 0.4 * tr.beat))
+        tr.place("oompah", tr.at(bar, 2), tuba(c[2] - 24, 0.4 * tr.beat, vel=0.7))
+        for b in (1, 3):
+            for nt in c:
+                tr.place("oompah", tr.at(bar, b), calliope(nt + 12, 0.35 * tr.beat, warp=0.4, seed=bar * 4 + b), gain=0.5)
+        tr.place("perc", tr.at(bar, 0), kick(0.6))
+        tr.place("perc", tr.at(bar, 2), snare(0.45, seed=bar))
+        if bar % 4 == 0:
+            tr.place("perc", tr.at(bar), cymbal(0.55, 1.6, seed=bar))
+        if bar % 8 == 7:
+            tr.place("perc", tr.at(bar, 2), snare_roll(2 * tr.beat, 0.7, seed=bar))
+    for bar, bb, nt, d in melody(key, ch, tr.bars, 4, rng, octave=5, density=0.75, leap=0.4):
+        tr.place("lead", tr.at(bar, bb), calliope(nt, d * tr.beat * 0.85, warp=0.6, seed=bar * 8 + int(bb * 2)), pan=0.55)
+        if d >= 1 and rng.random() < 0.3:     # a chromatic slip into the next note
+            tr.place("lead", tr.at(bar, bb) - 0.08, calliope(nt - 1, 0.08, warp=0.6, seed=bar), pan=0.55, gain=0.7)
+    for i, bar in enumerate(range(3, tr.bars, 8)):
+        tr.place("fx", tr.at(bar, 3), slide_whistle(500, 1400, 0.5, vel=0.8), pan=0.7)
+        tr.place("fx", tr.at(bar + 4, 3), slide_whistle(1400, 450, 0.6, vel=0.8), pan=0.3)
+    tr.bus("oompah", gain=0.75, reverb=0.25); tr.bus("perc", gain=0.7, reverb=0.25)
+    tr.bus("lead", gain=0.9, reverb=0.35); tr.bus("fx", gain=0.6, reverb=0.4)
+    return tr.mix(ir=2.2, hi=12000)
+
+
+def style_march(r):
+    """A column on the move at dusk: snare cadence with rolls and accents,
+    bass drum on the strong beats, tuba, and a minor-key brass tune."""
+    key, tr, rng, w = _setup(r, "minor", 112, multiple=8)
+    degs = [0, 5, 3, 4, 0, 5, 6, 4]
+    ch = progression(key, degs, 3)
+    cadence = [1, 0, 0.5, 0.5, 1, 0, 0.5, 0, 0.8, 0, 0.5, 0.5, 1, 0.5, 0.5, 0.5]
+    for bar in range(tr.bars):
+        c = ch[bar % 8]
+        tr.place("drums", tr.at(bar, 0), taiko(0.7, pitch=1.4, seed=bar)); tr.place("drums", tr.at(bar, 2), taiko(0.6, pitch=1.4, seed=bar + 9))
+        for sx, v in enumerate(cadence):
+            if v:
+                tr.place("snare", tr.at(bar, sx * 0.25), snare(0.25 + 0.45 * v, seed=bar * 16 + sx, march=True), pan=0.55)
+        if bar % 4 == 3:
+            tr.place("snare", tr.at(bar, 3), snare_roll(tr.beat, 0.6, seed=bar))
+        if bar % 4 == 0:
+            tr.place("drums", tr.at(bar), cymbal(0.5, 1.5, seed=bar))
+        tr.place("low", tr.at(bar, 0), tuba(c[0] - 12, 0.6 * tr.beat))
+        tr.place("low", tr.at(bar, 2), tuba(c[2] - 24, 0.6 * tr.beat, vel=0.7))
+        for j, nt in enumerate(c):
+            tr.place("strings", tr.at(bar), strings(nt + 12, 4 * tr.beat * 0.98, attack=0.2, bright=0.45, seed=bar * 3 + j), gain=0.5)
+    for bar, bb, nt, d in melody(key, ch, tr.bars, 4, rng, octave=4, density=0.55, leap=0.3):
+        tr.place("brass", tr.at(bar, bb), brass(nt, d * tr.beat * 0.88, vel=0.85, seed=bar), pan=0.5)
+        tr.place("brass", tr.at(bar, bb), brass(nt + 7 if (nt + 7) % 12 in {x % 12 for x in ch[bar % 8]} else nt - 5,
+                                               d * tr.beat * 0.88, vel=0.5, seed=bar + 3), pan=0.62)
+    tr.bus("drums", gain=0.8, reverb=0.3); tr.bus("snare", gain=0.75, reverb=0.2); tr.bus("low", gain=0.8, reverb=0.1)
+    tr.bus("strings", gain=0.6, reverb=0.4); tr.bus("brass", gain=0.85, reverb=0.4)
+    return tr.mix(ir=2.6, hi=12000)
+
+
+def style_whimsy(r):
+    """A storybook tune: pizzicato, celesta, a bassoon and a flute trading
+    phrases, glockenspiel runs. 'gallop' rides it in 6/8; 'cat' adds a mew."""
+    w = set(r.get("with", []))
+    bpb = 6 if "gallop" in w else 3
+    key, tr, rng, w = _setup(r, "major", 150 if bpb == 6 else 138, bpb=bpb, multiple=8)
+    degs = [0, 3, 4, 0, 5, 1, 4, 0]
+    ch = progression(key, degs, 3)
+    for bar in range(tr.bars):
+        c = ch[bar % 8]
+        tr.place("pizz", tr.at(bar, 0), pluck(c[0] - 12, 0.6, vel=0.8, brightness=0.3, decay=0.4))
+        offs = (1, 2) if bpb == 3 else (2, 3, 5)
+        for b in offs:
+            for nt in c:
+                tr.place("pizz", tr.at(bar, b), pluck(nt + 12, 0.35, vel=0.35, brightness=0.4, decay=0.35), pan=0.6)
+        if bpb == 6:
+            for b, v in ((0, 0.6), (2, 0.35), (3, 0.55), (5, 0.35)):
+                tr.place("perc", tr.at(bar, b), frame_drum(v, seed=bar * 6 + b))
+    lead = melody(key, ch, tr.bars, bpb, rng, octave=5, density=0.6, leap=0.35)
+    for i, (bar, bb, nt, d) in enumerate(lead):
+        if (bar // 2) % 2 == 0:
+            tr.place("lead", tr.at(bar, bb), musicbox(nt, vel=0.8) if bpb == 3 else flute(nt, d * tr.beat * 0.85, vel=0.75, seed=i), pan=0.55)
+        else:
+            tr.place("lead", tr.at(bar, bb), reed(nt - 12, d * tr.beat, vel=0.75, staccato=True), pan=0.45)
+    for _ in range(tr.bars // 2):
+        t0 = rng.uniform(0, tr.L / SR)
+        for k in range(5):
+            tr.place("fx", t0 + k * 0.06, glock(key.note(4 + k, 6), vel=0.3), pan=0.7)
+    if "cat" in w:
+        for i in range(tr.bars // 4):
+            tr.place("fx", rng.uniform(0, tr.L / SR), cat_mew(0.7, seed=i), pan=rng.uniform(0.3, 0.7))
+        shimmer = loop_noise(tr.L, 9, lo=5000, hi=9000, gain=0.012)
+        tr.bed("bed", shimmer)
+    tr.bus("pizz", gain=0.75, reverb=0.3); tr.bus("perc", gain=0.6, reverb=0.2); tr.bus("lead", gain=0.9, reverb=0.4)
+    tr.bus("fx", gain=0.6, reverb=0.6); tr.bus("bed", gain=1.0, reverb=0.4)
+    return tr.mix(ir=2.4, hi=12000)
+
+
+def style_adventure(r):
+    """Setting out across the fields: harp arpeggios, an ocarina tune, a light
+    march underneath, and a heroic lift when the brass joins halfway."""
+    key, tr, rng, w = _setup(r, "major", 100, multiple=8)
+    degs = [0, 4, 5, 3, 0, 4, 3, 4]
+    ch = progression(key, degs, 3, size=4)
+    for bar in range(tr.bars):
+        c = ch[bar % 8]
+        fig = [c[0], c[1], c[2], c[3] if len(c) > 3 else c[0] + 12, c[2] + 12, c[3] if len(c) > 3 else c[1] + 12, c[2], c[1]]
+        for e, nt in enumerate(fig):
+            tr.place("harp", tr.at(bar, e * 0.5), pluck(nt + 12, 1.8, vel=0.55, brightness=0.6), pan=0.35 + 0.04 * e)
+        tr.place("low", tr.at(bar), bass(c[0], 1.8, vel=0.6))
+        for b in range(8):
+            tr.place("perc", tr.at(bar, b * 0.5), shaker(0.5 if b % 2 else 0.3, seed=bar * 8 + b), pan=0.7)
+        tr.place("perc", tr.at(bar, 0), snare(0.3, seed=bar, march=True), pan=0.5)
+        if bar >= tr.bars // 2:
+            for j, nt in enumerate(c[:3]):
+                tr.place("strings", tr.at(bar), strings(nt + 12, 4 * tr.beat * 0.98, attack=0.3, seed=bar * 3 + j), gain=0.55)
+    lead = melody(key, ch, tr.bars, 4, rng, octave=5, density=0.5, leap=0.3)
+    for i, (bar, bb, nt, d) in enumerate(lead):
+        tr.place("lead", tr.at(bar, bb), ocarina(nt, d * tr.beat * 0.9, vel=0.85, seed=i), pan=0.55)
+        if bar >= tr.bars // 2:
+            tr.place("brass", tr.at(bar, bb), brass(nt - 12, d * tr.beat * 0.9, vel=0.55, seed=i), pan=0.45)
+    if "stream" in w:
+        tr.bed("bed", stream_bed(tr.L, r.get("seed", 1), gain=0.15))
+    if "birds" in w:
+        for i in range(tr.bars // 2):
+            tr.place("fx", rng.uniform(0, tr.L / SR), chirp(int(rng.integers(98, 106)), notes=int(rng.integers(2, 4)), seed=i), pan=rng.uniform(0.1, 0.9))
+    tr.bus("harp", gain=0.75, reverb=0.35); tr.bus("low", gain=0.6, reverb=0.05); tr.bus("perc", gain=0.5, reverb=0.2)
+    tr.bus("strings", gain=0.6, reverb=0.45); tr.bus("lead", gain=0.95, reverb=0.4); tr.bus("brass", gain=0.6, reverb=0.45)
+    tr.bus("fx", gain=0.5, reverb=0.6); tr.bus("bed", gain=1.0, reverb=0.05)
+    return tr.mix(ir=2.4, hi=12000)
+
+
+def style_angelic(r):
+    """Light from above: a major-key choir in long chords, harp glissandos,
+    bells, high strings, and nothing ominous anywhere."""
+    key, tr, rng, w = _setup(r, "lydian", 60, seconds=52)
+    ch = progression(key, [0, 1, 4, 0] if key.mode == "lydian" else [0, 3, 4, 0], 3, size=4)
+    for bar in range(tr.bars):
+        c = ch[bar % len(ch)]
+        for j, nt in enumerate(c):
+            tr.place("choir", tr.at(bar), choir(nt + 12, tr.bpb * tr.beat, vowel="ah", attack=1.2, release=1.8, seed=bar * 4 + j))
+        for j, nt in enumerate(c[:3]):
+            tr.place("strings", tr.at(bar), strings(nt + 24, tr.bpb * tr.beat, attack=1.0, release=1.5, bright=0.4, seed=bar * 3 + j), gain=0.45)
+        if bar % 2 == 0:
+            run = [c[k % len(c)] + 12 * (k // len(c)) + 12 for k in range(12)]
+            tr.place("harp", tr.at(bar), harp_gliss(run, step=0.045, vel=0.45), pan=0.35)
+        tr.place("bells", tr.at(bar, 2), bell(c[0] + 36, 4.0, vel=0.35, ratio=2.0, decay=2.0), pan=0.7)
+    for bar, bb, nt, d in melody(key, ch, tr.bars // 2, 4, rng, octave=5, density=0.3, start_bar=tr.bars // 2):
+        tr.place("lead", tr.at(bar, bb), choir(nt + 12, d * tr.beat, vowel="oo", attack=0.3, release=1.0, seed=bar), gain=0.8)
+    shimmer = loop_noise(tr.L, 11, lo=6000, hi=11000, gain=0.015) * (0.6 + 0.4 * lfo(tr.L, 2))[:, None]
+    tr.bed("bed", shimmer)
+    tr.bus("choir", gain=0.8, reverb=0.8); tr.bus("strings", gain=0.6, reverb=0.7); tr.bus("harp", gain=0.7, reverb=0.7)
+    tr.bus("bells", gain=0.6, reverb=0.9); tr.bus("lead", gain=0.75, reverb=0.8); tr.bus("bed", gain=1.0, reverb=0.4)
+    return tr.mix(ir=5.0, wet=1.3, hi=12000, rms_db=-22.0)
+
+
+def style_minimal(r):
+    """A white reading room: broken piano chords turning over in three, soft
+    strings, and a clock ticking somewhere in the stacks."""
+    key, tr, rng, w = _setup(r, "major", 84, bpb=3, multiple=8)
+    ch = progression(key, [0, 5, 3, 4, 0, 5, 1, 4], 3, size=4)
+    for bar in range(tr.bars):
+        c = ch[bar % 8]
+        fig = [c[0], c[2], c[3] if len(c) > 3 else c[1] + 12, c[1] + 12, c[2], c[1]]
+        for e, nt in enumerate(fig):
+            tr.place("piano", tr.at(bar, e * 0.5), piano(nt + 12, 1.2, vel=0.55 if e else 0.7), pan=0.35 + 0.05 * e)
+        tr.place("piano", tr.at(bar), piano(c[0], 2.6, vel=0.6), pan=0.4)
+        for j, nt in enumerate(c[:3]):
+            tr.place("strings", tr.at(bar), strings(nt + 12, 3 * tr.beat * 0.98, attack=0.8, release=1.2, bright=0.3, seed=bar * 3 + j), gain=0.35)
+        for b in range(3):
+            tr.place("tick", tr.at(bar, b), tick(0.5 if b == 0 else 0.35, pitch=1.0 if b == 0 else 1.15), pan=0.75)
+    for bar, bb, nt, d in melody(key, ch, tr.bars // 2, 3, rng, octave=5, density=0.3, start_bar=tr.bars // 2):
+        tr.place("lead", tr.at(bar, bb), piano(nt + 12, d * tr.beat * 1.2, vel=0.6), pan=0.6)
+    tr.bus("piano", gain=0.85, reverb=0.4); tr.bus("strings", gain=0.5, reverb=0.6); tr.bus("tick", gain=0.5, reverb=0.3)
+    tr.bus("lead", gain=0.85, reverb=0.5)
+    return tr.mix(ir=2.8, hi=12000, rms_db=-22.0)
+
+
+def style_battle(r):
+    """Steel on steel: a driving string ostinato, brass stabs on the offbeat,
+    taiko and timpani at full tilt, and - for a dragon - its roar."""
+    key, tr, rng, w = _setup(r, "minor", 132, multiple=8)
+    ch = progression(key, [0, 0, 5, 6, 0, 0, 3, 4], 3)
+    for bar in range(tr.bars):
+        c = ch[bar % 8]
+        for sx in range(16):
+            nt = c[0] + (12 if sx % 4 == 2 else 0) + (7 if sx % 8 == 6 else 0)
+            tr.place("ost", tr.at(bar, sx * 0.25), strings(nt + 12, 0.22 * tr.beat, attack=0.005, release=0.08, bright=0.7,
+                                                         seed=bar * 16 + sx), gain=0.55 + 0.25 * (sx % 4 == 0))
+        for b in (0, 0.75, 1.5, 2, 2.75, 3.5):
+            tr.place("drums", tr.at(bar, b), taiko(0.85 if b in (0, 2) else 0.55, seed=bar * 8 + int(b * 4)), pan=0.45)
+        tr.place("drums", tr.at(bar, 0), timpani(c[0] - 12 if c[0] > 50 else c[0], 0.8))
+        for b in (1.5, 3.5):
+            for nt in c:
+                tr.place("brass", tr.at(bar, b), brass(nt, 0.35 * tr.beat, vel=0.8, seed=bar + int(b)), pan=0.55)
+        if bar % 4 == 0:
+            tr.place("drums", tr.at(bar), cymbal(0.7, 2.0, seed=bar))
+            for j, nt in enumerate(c):
+                tr.place("choir", tr.at(bar), chant(nt + 12, vel=0.8, vowel="ah", seed=bar * 3 + j))
+    for bar, bb, nt, d in melody(key, ch, tr.bars // 2, 4, rng, octave=4, density=0.45, start_bar=tr.bars // 2):
+        tr.place("brass", tr.at(bar, bb), brass(nt, d * tr.beat * 0.9, vel=0.9, seed=bar), pan=0.5)
+    if "dragon" in w:
+        for i, bar in enumerate(range(2, tr.bars, 8)):
+            tr.place("fx", tr.at(bar, 1), roar(0.9, seed=i), pan=0.4 + 0.2 * (i % 2))
+    tr.bus("ost", gain=0.7, reverb=0.25); tr.bus("drums", gain=0.85, reverb=0.3); tr.bus("brass", gain=0.85, reverb=0.4)
+    tr.bus("choir", gain=0.6, reverb=0.6); tr.bus("fx", gain=0.75, reverb=0.5)
+    return tr.mix(ir=2.6, hi=12000)
+
+
+def style_grand(r):
+    """Gods at war, at full scale: choir in every bar, brass doubling the
+    tune in octaves, taiko and timpani, cymbal swells, fire beneath."""
+    key, tr, rng, w = _setup(r, "minor", 96, multiple=8)
+    ch = progression(key, r.get("chords", [0, 5, 3, 4, 0, 5, 6, 4]), 3)
+    for bar in range(tr.bars):
+        c = ch[bar % len(ch)]
+        for j, nt in enumerate(c):
+            tr.place("strings", tr.at(bar), strings(nt, 4 * tr.beat * 0.98, attack=0.25, bright=0.55, seed=bar * 3 + j))
+            tr.place("choir", tr.at(bar), choir(nt + 12, 4 * tr.beat, vowel="ah", attack=0.3, seed=bar * 3 + j), gain=0.6)
+        for e in range(8):
+            tr.place("ost", tr.at(bar, e * 0.5), strings(c[0] + 12 + (7 if e % 2 else 0), 0.45 * tr.beat, attack=0.01,
+                                                        release=0.1, bright=0.6, seed=bar * 8 + e), gain=0.45)
+        for b, v in ((0, 0.9), (1.5, 0.55), (2, 0.8), (3, 0.6), (3.5, 0.5)):
+            tr.place("drums", tr.at(bar, b), taiko(v, seed=bar * 6 + int(b * 2)), pan=0.45)
+        tr.place("drums", tr.at(bar, 0), timpani(c[0] - 12 if c[0] > 50 else c[0], 0.85))
+        if bar % 4 == 3:
+            tr.place("drums", tr.at(bar + 1) - 2.0, riser(2.0, 0.6, seed=bar))
+            tr.place("drums", tr.at(bar + 1), cymbal(0.8, 2.5, seed=bar))
+    for bar, bb, nt, d in melody(key, ch, tr.bars, 4, rng, octave=4, density=0.4, leap=0.35):
+        tr.place("brass", tr.at(bar, bb), brass(nt, d * tr.beat * 0.92, vel=0.9, seed=bar), pan=0.5)
+        tr.place("brass", tr.at(bar, bb), brass(nt - 12, d * tr.beat * 0.92, vel=0.65, seed=bar + 5), pan=0.42)
+    if "fire" in w:
+        tr.bed("bed", fire_bed(tr.L, r.get("seed", 1), gain=0.35))
+    tr.bus("strings", gain=0.7, reverb=0.45); tr.bus("choir", gain=0.75, reverb=0.65); tr.bus("ost", gain=0.55, reverb=0.3)
+    tr.bus("drums", gain=0.85, reverb=0.35); tr.bus("brass", gain=0.9, reverb=0.45); tr.bus("bed", gain=1.0, reverb=0.05)
+    return tr.mix(ir=3.4, hi=12000)
+
+
+def style_viking(r):
+    """A longship's song: a drone on the open fifth, war horns calling, a
+    crew's chant on the off-beats, frame drums and taiko for the oars."""
+    key, tr, rng, w = _setup(r, "dorian", 84, multiple=8)
+    root = key.note(0, 2)
+    for bar in range(0, tr.bars, 2):
+        tr.place("drone", tr.at(bar), drone(root, 2 * tr.bpb * tr.beat, bright=0.45, seed=bar))
+        tr.place("drone", tr.at(bar), drone(root + 7, 2 * tr.bpb * tr.beat, bright=0.4, seed=bar + 1), gain=0.6)
+    ch = progression(key, [0, 6, 5, 6, 0, 3, 6, 0], 3)
+    for bar in range(tr.bars):
+        c = ch[bar % 8]
+        tr.place("drums", tr.at(bar, 0), taiko(0.9, seed=bar)); tr.place("drums", tr.at(bar, 2), taiko(0.75, seed=bar + 40))
+        for b in (1, 3):
+            tr.place("drums", tr.at(bar, b), frame_drum(0.6, seed=bar * 4 + b))
+        if bar >= 4:
+            for b in (1, 3):
+                for j, nt in enumerate(c[:2]):
+                    tr.place("chant", tr.at(bar, b), chant(nt + 12, vel=0.7, vowel="hey" if b == 3 else "oh", seed=bar * 4 + b + j))
+        for j, nt in enumerate(c):
+            tr.place("strings", tr.at(bar), strings(nt + 12, 4 * tr.beat * 0.98, attack=0.4, bright=0.45, seed=bar * 3 + j), gain=0.5)
+    for i, bar in enumerate(range(0, tr.bars, 4)):
+        tr.place("horn", tr.at(bar), war_horn(root + 12, 2.6 * tr.beat, vel=0.9, seed=i), pan=0.35)
+        tr.place("horn", tr.at(bar, 2.5), war_horn(root + 19, 1.4 * tr.beat, vel=0.8, seed=i + 9), pan=0.65)
+    for bar, bb, nt, d in melody(key, ch, tr.bars // 2, 4, rng, octave=4, density=0.35, start_bar=tr.bars // 2):
+        tr.place("lead", tr.at(bar, bb), brass(nt, d * tr.beat * 0.9, vel=0.85, seed=bar), pan=0.5)
+    tr.bed("bed", wind_bed(tr.L, r.get("seed", 1), gain=0.2))
+    tr.bus("drone", gain=0.7, reverb=0.4); tr.bus("drums", gain=0.85, reverb=0.35); tr.bus("chant", gain=0.75, reverb=0.5)
+    tr.bus("strings", gain=0.6, reverb=0.45); tr.bus("horn", gain=0.85, reverb=0.6); tr.bus("lead", gain=0.85, reverb=0.45)
+    tr.bus("bed", gain=1.0, reverb=0.1)
+    return tr.mix(ir=3.4, hi=11000)
+
+
+def style_samurai_battle(r):
+    """Two blades drawn: a fast koto ostinato, a taiko ensemble driving it,
+    shakuhachi cries that bend into pitch, and wind between the strikes."""
+    key, tr, rng, w = _setup(r, "insen", 128, multiple=8)
+    for bar in range(tr.bars):
+        for sx in range(16):
+            d = [0, 2, 1, 2, 0, 3, 2, 1][sx % 8] + (0 if bar % 4 < 2 else 1)
+            tr.place("koto", tr.at(bar, sx * 0.25), pluck(key.note(d, 4), 0.6, vel=0.45 + 0.25 * (sx % 4 == 0), brightness=0.9,
+                                                         decay=0.5, bend=0.006), pan=0.35 + 0.02 * (sx % 8))
+        for b, v in ((0, 0.95), (0.5, 0.5), (1.5, 0.7), (2, 0.9), (2.75, 0.6), (3.5, 0.75)):
+            tr.place("drums", tr.at(bar, b), taiko(v, pitch=1.0 + 0.25 * (b % 1 > 0), seed=bar * 8 + int(b * 4)), pan=0.45)
+        if bar % 4 == 3:
+            for k, b in enumerate((3, 3.25, 3.5, 3.75)):
+                tr.place("drums", tr.at(bar, b), taiko(0.5 + 0.12 * k, pitch=1.4, seed=bar * 9 + k))
+        tr.place("drone", tr.at(bar), drone(key.note(0, 2), 4 * tr.beat, bright=0.2, seed=bar), gain=0.5)
+    for i, bar in enumerate(range(1, tr.bars, 2)):
+        tr.place("lead", tr.at(bar, 1), flute(key.note(int(rng.integers(2, 5)), 6), 1.6 * tr.beat, vel=0.9, breath=0.35,
+                                             scoop=0.06, seed=i), pan=0.6)
+    tr.bed("bed", wind_bed(tr.L, r.get("seed", 1), gain=0.25))
+    tr.bus("koto", gain=0.8, reverb=0.25); tr.bus("drums", gain=0.9, reverb=0.3); tr.bus("drone", gain=0.6, reverb=0.4)
+    tr.bus("lead", gain=0.85, reverb=0.6); tr.bus("bed", gain=1.0, reverb=0.1)
+    return tr.mix(ir=2.6, hi=12000)
+
+
+def style_mystic(r):
+    """A shrine at night: wind chimes in the eaves, a temple bell, a choir
+    held like breath, koto notes left to ring, a shakuhachi far off."""
+    key, tr, rng, w = _setup(r, "hirajoshi", 60, seconds=52)
+    harm = Key(r.get("key", "D"), "minor")
+    ch = progression(harm, [0, 5, 3, 0], 3)
+    for bar in range(tr.bars):
+        c = ch[bar % 4]
+        for j, nt in enumerate(c):
+            tr.place("choir", tr.at(bar), choir(nt + 12, tr.bpb * tr.beat, vowel="oo", attack=1.5, release=2.0, seed=bar * 3 + j), gain=0.6)
+        for k in range(3):
+            if rng.random() < 0.7:
+                tr.place("koto", tr.at(bar, k * 1.33), pluck(key.note(int(rng.integers(0, 7)), 4), 3.0, vel=0.45, brightness=0.8,
+                                                            decay=1.4, bend=0.005), pan=0.3 + 0.15 * k)
+        tr.place("drone", tr.at(bar), drone(harm.note(0, 2), tr.bpb * tr.beat, bright=0.12, seed=bar), gain=0.6)
+    for i, bar in enumerate(range(0, tr.bars, 4)):
+        tr.place("bells", tr.at(bar), bell(harm.note(0, 4), 7.0, vel=0.6, ratio=2.76, decay=3.5), pan=0.4)
+    for i in range(tr.bars):
+        tr.place("chimes", rng.uniform(0, tr.L / SR), chimes(0.6, seed=i, notes=[key.note(d, 6) for d in range(5)]), pan=rng.uniform(0.2, 0.8))
+    for bar, bb, nt, d in melody(key, [[key.note(0, 3), key.note(2, 3), key.note(4, 3)]], tr.bars // 2, 4, rng, octave=5,
+                                 density=0.25, start_bar=tr.bars // 2):
+        tr.place("lead", tr.at(bar, bb), flute(nt, d * tr.beat * 0.95, vel=0.75, breath=0.35, scoop=0.04, seed=bar), pan=0.6)
+    tr.bed("bed", wind_bed(tr.L, r.get("seed", 1), gain=0.15))
+    tr.bus("choir", gain=0.75, reverb=0.85); tr.bus("koto", gain=0.8, reverb=0.7); tr.bus("drone", gain=0.6, reverb=0.4)
+    tr.bus("bells", gain=0.6, reverb=0.9); tr.bus("chimes", gain=0.55, reverb=0.8); tr.bus("lead", gain=0.8, reverb=0.85)
+    tr.bus("bed", gain=1.0, reverb=0.1)
+    return tr.mix(ir=5.0, wet=1.4, hi=11000, rms_db=-22.0)
+
+
+def style_lullaby(r):
+    """Asleep in the moss: a slow music-box lullaby in three, a pad like
+    breathing, a harp barely touched, the stream and a far-off bird."""
+    key, tr, rng, w = _setup(r, "major", 60, bpb=3, seconds=54, multiple=8)
+    ch = progression(key, [0, 3, 0, 4, 5, 3, 1, 4], 3)
+    for bar in range(tr.bars):
+        c = ch[bar % 8]
+        for j, nt in enumerate(c):
+            tr.place("pad", tr.at(bar), pad(nt + 12, 3 * tr.beat, attack=1.5, release=2.0, bright=0.15, detune=5, seed=bar * 3 + j), gain=0.8)
+        for k, nt in enumerate((c[0] + 12, c[1] + 12, c[2] + 12)):
+            tr.place("harp", tr.at(bar, k), pluck(nt, 2.5, vel=0.3, brightness=0.35, decay=1.5), pan=0.35 + 0.1 * k)
+    for bar, bb, nt, d in melody(key, ch, tr.bars, 3, rng, octave=5, density=0.3):
+        tr.place("box", tr.at(bar, bb), musicbox(nt + 12, vel=0.55, decay=1.6), pan=0.55, humanize=0.01)
+    tr.bed("bed", stream_bed(tr.L, r.get("seed", 1), gain=0.08))
+    for i in range(3):
+        tr.place("fx", rng.uniform(0, tr.L / SR), chirp(int(rng.integers(98, 104)), notes=2, vel=0.25, seed=i), pan=rng.uniform(0.1, 0.9))
+    tr.bus("pad", gain=0.6, reverb=0.6); tr.bus("harp", gain=0.6, reverb=0.6); tr.bus("box", gain=0.95, reverb=0.6)
+    tr.bus("fx", gain=0.4, reverb=0.8); tr.bus("bed", gain=1.0, reverb=0.1)
+    return tr.mix(ir=3.5, wet=1.2, hi=9000, rms_db=-23.0)
+
+
+def style_borb_theme(r):
+    """Borb's own theme song: bouncy and a little silly. Marimba and ukulele
+    over a hopping bass, a music-box tune, and the borb answering it - its
+    croaks pitched to the tune, call and response. The fire still crackles."""
+    key = Key("F", "major")
+    tr = Track(bpm=112, bars=32, seed=r.get("seed", 11))
+    rng = np.random.default_rng(23)
+    a = progression(key, [0, 5, 3, 4], 3)
+    b = progression(key, [3, 4, 2, 5], 3)
+    plan = a * 2 + b * 2 + a * 2 + b + [progression(key, [3, 4, 0, 0], 3)[i] for i in range(4)]
+    for bar, c in enumerate(plan):
+        for b_ in (0, 2):
+            tr.place("bass", tr.at(bar, b_), bass(c[0], 0.35, vel=0.85))
+        tr.place("bass", tr.at(bar, 1.5), bass(c[0] + 7, 0.25, vel=0.6))
+        tr.place("bass", tr.at(bar, 3), bass(c[0] + 12, 0.25, vel=0.6))
+        for b_ in (0.5, 1.5, 2.5, 3.5):
+            tr.place("uke", tr.at(bar, b_), strum([n + 12 for n in c], 0.4, vel=0.4, brightness=0.75, spread=0.012), pan=0.35)
+        if bar >= 2:
+            tr.place("drums", tr.at(bar, 0), kick(0.6)); tr.place("drums", tr.at(bar, 2), kick(0.5))
+            tr.place("drums", tr.at(bar, 1), rim(0.5, seed=bar)); tr.place("drums", tr.at(bar, 3), rim(0.55, seed=bar + 50))
+            for k in range(8):
+                tr.place("drums", tr.at(bar, k * 0.5), shaker(0.5 if k % 2 else 0.3, seed=bar * 8 + k), pan=0.65)
+    tune = melody(key, plan, 32, 4, rng, octave=5, density=0.55, leap=0.35)
+    for i, (bar, bb, nt, d) in enumerate(tune):
+        if bar % 4 < 2:     # the tune states a phrase...
+            tr.place("lead", tr.at(bar, bb), marimba(nt, vel=0.85, bright=0.5), pan=0.55)
+            tr.place("lead", tr.at(bar, bb), musicbox(nt + 12, vel=0.35), pan=0.6)
+        else:               # ...and the borb answers it
+            tr.place("borb", tr.at(bar, bb), croak(vel=0.9, seed=i, pitch=float(hz(nt) / hz(72))), pan=0.45)
+    for i, bar in enumerate((7, 15, 23, 31)):
+        tr.place("fx", tr.at(bar, 3), slide_whistle(700, 1300, 0.35, vel=0.6), pan=0.7)
+    tr.bed("fire", fire_bed(tr.L, 3, gain=1.0))
+    tr.bus("fire", gain=0.12, reverb=0.05); tr.bus("bass", gain=0.8, reverb=0.05); tr.bus("uke", gain=0.7, reverb=0.25)
+    tr.bus("drums", gain=0.7, reverb=0.12); tr.bus("lead", gain=0.9, reverb=0.3); tr.bus("borb", gain=0.9, reverb=0.35)
+    tr.bus("fx", gain=0.5, reverb=0.4)
+    return tr.mix(ir=1.8, hi=12000)
+
+
+def style_underwater_bubbly(r):
+    """Jellyfish drifting: bright marimba ripples, soft pads, and bubbles
+    everywhere - big slow ones and quick fizzing strings of small ones."""
+    key, tr, rng, w = _setup(r, "lydian", 72, seconds=48)
+    ch = progression(key, [0, 1, 0, 4], 3, size=4)
+    for bar in range(tr.bars):
+        c = ch[bar % 4]
+        for j, nt in enumerate(c):
+            tr.place("pad", tr.at(bar), pad(nt + 12, tr.bpb * tr.beat, attack=1.2, release=1.8, bright=0.35, detune=10, seed=bar * 4 + j), gain=0.7)
+        for e in range(8):
+            nt = c[[0, 2, 1, 3, 2, 1, 3, 2][e]] + 24 + (12 if e == 4 else 0)
+            tr.place("mar", tr.at(bar, e * 0.5), marimba(nt, vel=0.45 + 0.15 * (e == 0), bright=0.3), pan=0.3 + 0.05 * e)
+    for i in range(tr.bars * 10):
+        tr.place("bubbles", rng.uniform(0, tr.L / SR), blip(int(rng.integers(72, 98)), vel=rng.uniform(0.3, 0.8),
+                                                           length=rng.uniform(0.06, 0.16), rise=rng.uniform(0.8, 2.0)), pan=rng.uniform(0.1, 0.9))
+    for i in range(tr.bars):
+        t0 = rng.uniform(0, tr.L / SR)
+        for k in range(int(rng.integers(5, 10))):
+            tr.place("bubbles", t0 + k * rng.uniform(0.03, 0.06), blip(int(rng.integers(88, 100)), vel=0.35, length=0.05, rise=1.5),
+                     pan=rng.uniform(0.3, 0.7))
+    for bar, bb, nt, d in melody(key, ch, tr.bars // 2, 4, rng, octave=5, density=0.3, start_bar=tr.bars // 2):
+        tr.place("lead", tr.at(bar, bb), bell(nt + 12, 3.0, vel=0.45, ratio=2.0, decay=1.4), pan=0.6)
+    tr.bed("deep", loop_noise(tr.L, 12, lo=60, hi=400, gain=0.15) * (0.6 + 0.4 * lfo(tr.L, 3))[:, None])
+    tr.bus("pad", gain=0.7, reverb=0.6); tr.bus("mar", gain=0.7, reverb=0.5); tr.bus("bubbles", gain=0.75, reverb=0.6)
+    tr.bus("lead", gain=0.7, reverb=0.7); tr.bus("deep", gain=0.5, reverb=0.3)
+    return tr.mix(ir=3.0, hi=12000, rms_db=-22.0)
+
+
+def style_synth_shark(r):
+    """Something big under the neon water: a low pulse that starts slow and
+    crowds closer until the drums and the bass hit, then sinks away again."""
+    key, tr, rng, w = _setup(r, "minor", 100, multiple=8)
+    root = key.note(0, 2)
+    half = tr.bars // 2
+    total = half * 4
+    pos = 0.0
+    while pos < total:
+        gap = 1.5 - 1.25 * (pos / total) ** 1.4            # closing in
+        tr.place("pulse", pos * tr.beat, fm_bass(root, min(gap, 0.6) * tr.beat * 0.8, vel=0.6 + 0.35 * pos / total, ratio=0.5, bite=2.0))
+        pos += gap
+    ch = progression(key, [0, 5, 0, 6], 3)
+    for bar in range(half, tr.bars):
+        c = ch[bar % 4]
+        for e in range(16):
+            tr.place("bass", tr.at(bar, e * 0.25), fm_bass(c[0] - 12, 0.2, vel=0.9 if e % 4 == 0 else 0.65, ratio=0.5, bite=3.0))
+        for b in range(4):
+            tr.place("drums", tr.at(bar, b), kick(0.85, tight=True))
+        for b in (1, 3):
+            tr.place("drums", tr.at(bar, b), snare(0.6, seed=bar * 2 + b))
+        for j, nt in enumerate(c):
+            tr.place("pad", tr.at(bar), pad(nt + 12, 4 * tr.beat, attack=0.1, release=0.6, bright=0.55, seed=bar * 3 + j))
+    for bar, bb, nt, d in melody(key, ch, half, 4, rng, octave=4, density=0.4, start_bar=half):
+        tr.place("lead", tr.at(bar, bb), saw_lead(nt, d * tr.beat * 0.92, vel=0.75, release=0.3, bright=0.6), pan=0.5)
+    tr.place("fx", tr.at(half) - 2.5, riser(2.5, 0.8, seed=1)); tr.place("fx", tr.at(half), boom(0.9, seed=2))
+    for bar in range(0, tr.bars, 2):
+        tr.place("fx", tr.at(bar, 3), bell(key.note(4, 6), 3.0, vel=0.35, ratio=1.0, decay=1.2), pan=0.75)   # sonar ping
+    tr.bed("bed", surf_bed(tr.L, max(1, tr.bars // 4), r.get("seed", 1), gain=0.15))
+    tr.bus("pulse", gain=0.9, reverb=0.2); tr.bus("bass", gain=0.75, reverb=0.03); tr.bus("drums", gain=0.75, reverb=0.15)
+    tr.bus("pad", gain=0.5, reverb=0.45); tr.bus("lead", gain=0.8, reverb=0.45); tr.bus("fx", gain=0.7, reverb=0.6)
+    tr.bus("bed", gain=1.0, reverb=0.05)
+    return tr.mix(ir=2.4, hi=11000)
+
+
+def style_drive(r):
+    """Foot down: four-on-the-floor, a sixteenth bass that pumps against the
+    kick, claps, open hats on the off-beat, an arp, and a lead on top."""
+    key, tr, rng, w = _setup(r, "minor", 124, multiple=8)
+    ch = progression(key, r.get("chords", [0, 6, 5, 6]), 3)
+    pump = np.ones(int(tr.beat * SR))
+    k = len(pump)
+    pump[: int(0.35 * k)] = np.linspace(0.25, 1, int(0.35 * k)) ** 2
+    for bar in range(tr.bars):
+        c = ch[bar % len(ch)]
+        for e in range(16):
+            tr.place("bass", tr.at(bar, e * 0.25), bass(c[0] - 12 + (12 if e % 4 == 2 else 0), 0.2 * tr.beat, vel=0.85))
+        for j, nt in enumerate(c):
+            p = pad(nt + 12, 4 * tr.beat, attack=0.05, release=0.3, bright=0.6, seed=bar * 3 + j)
+            env_p = np.tile(pump, int(np.ceil(p.shape[0] / k)))[: p.shape[0]]
+            tr.place("pad", tr.at(bar), p * env_p[:, None])
+        for s in range(16):
+            arp = [c[0] + 24, c[2] + 24, c[1] + 24, c[2] + 36]
+            tr.place("arp", tr.at(bar, s * 0.25), saw_lead(arp[s % 4], 0.12, vel=0.45, release=0.04, bright=0.5), pan=0.4 if s % 2 else 0.6)
+        for b in range(4):
+            tr.place("drums", tr.at(bar, b), kick(0.95, tight=True))
+            tr.place("drums", tr.at(bar, b + 0.5), hat(0.6, open_=True, seed=bar * 4 + b), pan=0.6)
+            for q in (0.25, 0.75):
+                tr.place("drums", tr.at(bar, b + q), hat(0.3, seed=bar * 8 + b), pan=0.6)
+        for b in (1, 3):
+            tr.place("drums", tr.at(bar, b), clap(0.7, seed=bar * 2 + b))
+    for bar, bb, nt, d in melody(key, ch, tr.bars // 2, 4, rng, octave=5, density=0.5, start_bar=tr.bars // 2):
+        tr.place("lead", tr.at(bar, bb), saw_lead(nt, d * tr.beat * 0.9, vel=0.8, release=0.3, bright=0.85), pan=0.5)
+    tr.bus("bass", gain=0.75, reverb=0.03); tr.bus("pad", gain=0.5, reverb=0.35); tr.bus("arp", gain=0.5, reverb=0.3)
+    tr.bus("drums", gain=0.85, reverb=0.12); tr.bus("lead", gain=0.8, reverb=0.4)
+    return tr.mix(ir=2.0, hi=13000)
+
+
+def style_chip_variant(r):
+    """Chiptune, two ways: 'eastern' is a pentatonic festival tune with a
+    woodblock noise channel; 'aquatic' is a swaying underwater level in three."""
+    w = set(r.get("with", []))
+    aquatic = "aquatic" in w
+    bpb = 3 if aquatic else 4
+    key, tr, rng, w = _setup(r, "major", 96 if aquatic else 138, bpb=bpb, multiple=8)
+    tune_key = Key(r.get("key", "C"), "pent_major") if not aquatic else key
+    ch = progression(key, [0, 5, 3, 4] if not aquatic else [0, 3, 4, 0], 3)
+    for bar in range(tr.bars):
+        c = ch[bar % len(ch)]
+        steps = 6 if aquatic else 8
+        for e in range(steps):
+            tr.place("tri", tr.at(bar, e * 0.5), chip_tri(c[0] - 12 + (12 if e % 2 else 0) + (7 if e % 4 == 2 else 0), 0.42 * tr.beat))
+        for s in range(bpb * 4):
+            tr.place("arp", tr.at(bar, s * 0.25), chip(c[s % 3] + 24 + (12 if aquatic and s % 6 == 3 else 0), 0.2 * tr.beat,
+                                                       vel=0.4, duty=0.125 if not aquatic else 0.5), pan=0.4)
+        if aquatic:
+            tr.place("noise", tr.at(bar, 0), chip_noise(0.5, length=0.06, seed=bar, tone=20))
+            for b in (1, 2):
+                tr.place("noise", tr.at(bar, b), chip_noise(0.25, length=0.03, seed=bar + b, tone=2))
+        else:
+            for b in range(4):
+                tr.place("noise", tr.at(bar, b), chip_noise(0.7 if b % 2 == 0 else 0.45, length=0.05, seed=bar * 4 + b, tone=24 if b % 2 == 0 else 3))
+                tr.place("noise", tr.at(bar, b + 0.5), beep(96 if b % 2 else 91, 0.03, vel=0.5, square=True))   # woodblock-ish
+    for bar, bb, nt, d in melody(tune_key, ch, tr.bars, bpb, rng, octave=5, density=0.6 if not aquatic else 0.45):
+        tr.place("lead", tr.at(bar, bb), chip(nt, d * tr.beat * 0.9, vel=0.8, duty=0.25 if not aquatic else 0.5,
+                                              slide=-0.02 if bb == 0 else 0), pan=0.6)
+    if aquatic:
+        for _ in range(tr.bars * 3):
+            tr.place("fx", rng.uniform(0, tr.L / SR), chip(int(rng.integers(84, 96)), 0.05, vel=0.4, duty=0.5, slide=0.3), pan=rng.uniform(0.2, 0.8))
+    tr.bus("tri", gain=0.8, reverb=0.02); tr.bus("arp", gain=0.5, reverb=0.15 if aquatic else 0.1); tr.bus("noise", gain=0.55, reverb=0.05)
+    tr.bus("lead", gain=0.85, reverb=0.25 if aquatic else 0.15); tr.bus("fx", gain=0.5, reverb=0.3)
+    return tr.mix(ir=1.6 if aquatic else 1.2, wet=0.7, hi=12000)
+
 STYLES = {
     "ominous": style_ominous, "twisted_carol": style_twisted_carol, "festive": style_festive,
     "halloween": style_halloween, "synthwave": style_synthwave, "cyber": style_cyber, "lab": style_lab,
     "chiptune": style_chiptune, "space": style_space, "underwater": style_underwater, "epic": style_epic,
     "eastern": style_eastern, "forest": style_forest, "quirky": style_quirky, "desert": style_desert,
     "ice": style_ice, "shanty": style_shanty, "hearth": style_hearth,
+    "scifi_fanfare": style_scifi_fanfare, "alien": style_alien, "space_horror": style_space_horror,
+    "horror_movie": style_horror_movie, "circus": style_circus, "march": style_march, "whimsy": style_whimsy,
+    "adventure": style_adventure, "angelic": style_angelic, "minimal": style_minimal, "battle": style_battle,
+    "grand": style_grand, "viking": style_viking, "samurai_battle": style_samurai_battle, "mystic": style_mystic,
+    "lullaby": style_lullaby, "borb_theme": style_borb_theme, "underwater_bubbly": style_underwater_bubbly,
+    "synth_shark": style_synth_shark, "drive": style_drive, "chip_variant": style_chip_variant,
 }
 
 
 # ---------------------------------------------------------------------------
 # checks, output, theme wiring
 # ---------------------------------------------------------------------------
+
+def place_seam(x, search=0.025, window=0.002):
+    """Start the file at its smoothest moment within the first 25 ms.
+
+    The track is periodic, so any sample can be the loop point and the music
+    is unchanged - only where the first play begins moves, by milliseconds.
+    Choosing it matters because the seam is also the one place the encoder
+    sees a hard edge: put it on a click (Arachnid Red's mandibles landed
+    exactly on sample 0) and every repeat sounds like a glitch."""
+    n, w = int(search * SR), int(window * SR)
+    d2 = np.abs(np.diff(x, n=2, axis=0)).max(axis=1)
+    best, best_v = 0, np.inf
+    for r in range(n):
+        v = d2[np.arange(r - w, r + w) % d2.shape[0]].max()
+        if v < best_v:
+            best, best_v = r, v
+    return np.roll(x, -best, axis=0)
+
+
+def seam_ratio(x, around=0.05):
+    """Step across the loop point over the 99th-percentile step within 50 ms
+    of it. Above 1 the seam stands out from the music right beside it."""
+    w = int(around * SR)
+    near = np.concatenate([x[-w:], x[:w]])
+    steps = np.abs(np.diff(near, axis=0)).max(axis=1)
+    return float(steps[w - 1] / max(np.percentile(np.delete(steps, w - 1), 99), 1e-9))
+
 
 def check_loop(x):
     steps = np.abs(np.diff(x, axis=0)).max(axis=1)
@@ -1869,22 +2834,40 @@ def describe(x):
 
 def render(recipe, ogg_path, preview_path=None, quality=0.35):
     import soundfile as sf
-    x = STYLES[recipe["style"]](recipe)
+    x = place_seam(STYLES[recipe["style"]](recipe))
     seam, typical = check_loop(x)
     if seam > typical:
         raise SystemExit(f"loop seam step {seam:.4f} > typical step {typical:.4f} - would click")
     if not np.all(np.isfinite(x)):
         raise SystemExit("non-finite samples")
     os.makedirs(os.path.dirname(os.path.abspath(ogg_path)), exist_ok=True)
-    # One-second blocks: libsndfile 1.2.2's Vorbis writer segfaults when a single
-    # write call carries more than about a minute of audio.
-    data = x.astype(np.float32)
-    with sf.SoundFile(ogg_path, "w", SR, 2, format="OGG", subtype="VORBIS",
-                      compression_level=1.0 - quality) as out:
-        for i in range(0, data.shape[0], SR):
-            out.write(data[i:i + SR])
+
+    def encode(data):
+        # One-second blocks: libsndfile 1.2.2's Vorbis writer segfaults when a
+        # single write call carries more than about a minute of audio.
+        with sf.SoundFile(ogg_path, "w", SR, 2, format="OGG", subtype="VORBIS",
+                          compression_level=1.0 - quality) as out:
+            for i in range(0, data.shape[0], SR):
+                out.write(data[i:i + SR].astype(np.float32))
+        y, _ = sf.read(ogg_path)
+        return y, float(20 * np.log10(np.abs(y).max()))
+
+    # Vorbis overshoots transient-heavy peaks on decode - by 2.7 dB on Demon
+    # Chorus - so no fixed ceiling is safe. Measure the decoded peak and, if it
+    # is hot, turn the whole track down by the overshoot and encode again.
+    y, peak = encode(x)
+    for _ in range(3):
+        if peak <= -0.5:
+            break
+        x = x * 10 ** (-(peak + 0.7) / 20)
+        y, peak = encode(x)
     info = describe(x)
     info["kib"] = round(os.path.getsize(ogg_path) / 1024)
+    # check what ships, not what went in: the decoded file's seam and peak
+    info["decoded_peak_dbfs"] = round(peak, 2)
+    info["seam_ratio"] = round(seam_ratio(y), 2)
+    if info["decoded_peak_dbfs"] > -0.5 or info["seam_ratio"] > 1.0:
+        raise SystemExit(f"decoded file fails: peak {info['decoded_peak_dbfs']} dBFS, seam ratio {info['seam_ratio']}")
     if preview_path:
         import lameenc
         enc = lameenc.Encoder()
@@ -1892,7 +2875,7 @@ def render(recipe, ogg_path, preview_path=None, quality=0.35):
         enc.set_in_sample_rate(SR)
         enc.set_channels(2)
         enc.set_quality(2)
-        pcm = (np.clip(x, -1, 1) * 32767).astype("<i2").tobytes()
+        pcm = (np.clip(y, -1, 1) * 32767).astype("<i2").tobytes()      # preview what ships
         with open(preview_path, "wb") as f:
             f.write(enc.encode(pcm) + enc.flush())
     return info
