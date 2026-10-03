@@ -1,7 +1,7 @@
 {
   "name": "Collapse Well",
   "author": "Aramaki",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "colors": {
     "bg": "#131109",
     "surface": "#1F1C12E0",
@@ -39,5 +39,9 @@
       "amount": 80,
       "color": "accent_alt"
     }
+  },
+  "audio": {
+    "bgm": "music.ogg",
+    "volume": 0.5
   }
 }

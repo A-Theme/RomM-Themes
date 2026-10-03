@@ -1,7 +1,7 @@
 {
   "name": "Borb's Lair",
   "author": "Aramaki",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "colors": {
     "bg": "#0C0705",
     "surface": "#150D0AB8",
@@ -30,6 +30,15 @@
       "kind": "drift",
       "speed": 0.3,
       "amount": 28
+    },
+    "animation": {
+      "kind": "sheet",
+      "file": "sheet.png",
+      "frame_width": 320,
+      "frame_height": 180,
+      "frames": 32,
+      "fps": 12,
+      "loop": true
     }
   },
   "effects": {
@@ -39,5 +48,15 @@
       "amount": 65,
       "color": "accent_alt"
     }
+  },
+  "font": {
+    "file": "Quicksand-Medium.ttf"
+  },
+  "assets": {
+    "mascot": "borb.png"
+  },
+  "audio": {
+    "bgm": "music.ogg",
+    "volume": 0.55
   }
 }

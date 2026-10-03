@@ -1,7 +1,7 @@
 {
   "name": "Toad Crossing",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#150D0A",
     "surface": "#221714E2",
@@ -39,5 +39,12 @@
       "amount": 72,
       "color": "accent_alt"
     }
+  },
+  "audio": {
+    "bgm": "music.ogg",
+    "volume": 0.5
+  },
+  "font": {
+    "file": "Quicksand-Bold.ttf"
   }
 }

@@ -1,7 +1,7 @@
 {
   "name": "Fear Incarnate",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#140905",
     "surface": "#21130CD6",
@@ -39,5 +39,12 @@
       "amount": 90,
       "color": "accent_alt"
     }
+  },
+  "audio": {
+    "bgm": "music.ogg",
+    "volume": 0.5
+  },
+  "font": {
+    "file": "Vollkorn-Medium.ttf"
   }
 }

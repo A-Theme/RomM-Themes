@@ -1,7 +1,7 @@
 {
   "name": "Jade Serpent",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#070C0B",
     "surface": "#101816E9",
@@ -39,5 +39,9 @@
       "amount": 84,
       "color": "accent_hover"
     }
+  },
+  "audio": {
+    "bgm": "music.ogg",
+    "volume": 0.5
   }
 }

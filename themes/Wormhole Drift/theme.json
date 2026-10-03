@@ -1,7 +1,7 @@
 {
   "name": "Wormhole Drift",
   "author": "Aramaki",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "colors": {
     "bg": "#0A070D",
     "surface": "#15101ACC",
@@ -48,5 +48,12 @@
       "amount": 90,
       "color": "accent_hover"
     }
+  },
+  "audio": {
+    "bgm": "music.ogg",
+    "volume": 0.5
+  },
+  "font": {
+    "file": "Jura-Regular.otf"
   }
 }

@@ -1,7 +1,7 @@
 {
   "name": "Candlelit Eve",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#080C11",
     "surface": "#11171DD6",
@@ -48,5 +48,12 @@
       "amount": 87,
       "color": "accent_alt"
     }
+  },
+  "audio": {
+    "bgm": "music.ogg",
+    "volume": 0.5
+  },
+  "font": {
+    "file": "EBGaramond12-Regular.otf"
   }
 }

@@ -1,7 +1,7 @@
 {
   "name": "Wirechewer",
   "author": "Aramaki",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "colors": {
     "bg": "#070A0E",
     "surface": "#11141AC2",
@@ -42,5 +42,9 @@
   },
   "font": {
     "file": "JetBrainsMono-Regular.ttf"
+  },
+  "audio": {
+    "bgm": "music.ogg",
+    "volume": 0.5
   }
 }

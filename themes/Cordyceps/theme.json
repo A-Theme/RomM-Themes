@@ -1,7 +1,7 @@
 {
   "name": "Cordyceps",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#0C100C",
     "surface": "#171B17D6",
@@ -39,5 +39,9 @@
       "amount": 53,
       "color": "text_muted"
     }
+  },
+  "audio": {
+    "bgm": "music.ogg",
+    "volume": 0.5
   }
 }

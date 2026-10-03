@@ -1,7 +1,7 @@
 {
   "name": "Mossling",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#090905",
     "surface": "#14140EB8",
@@ -39,5 +39,12 @@
       "amount": 53,
       "color": "text_muted"
     }
+  },
+  "audio": {
+    "bgm": "music.ogg",
+    "volume": 0.5
+  },
+  "font": {
+    "file": "Cabin-Regular.otf"
   }
 }

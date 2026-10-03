@@ -1,7 +1,7 @@
 {
   "name": "Night Drive",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#170C10",
     "surface": "#24161CC6",
@@ -39,5 +39,12 @@
       "amount": 90,
       "color": "accent_alt"
     }
+  },
+  "audio": {
+    "bgm": "music.ogg",
+    "volume": 0.5
+  },
+  "font": {
+    "file": "Jura-Regular.otf"
   }
 }

@@ -1,7 +1,7 @@
 {
   "name": "White Library",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#0E1115",
     "surface": "#191C21D6",
@@ -42,5 +42,9 @@
   },
   "font": {
     "file": "EBGaramond-Regular.otf"
+  },
+  "audio": {
+    "bgm": "music.ogg",
+    "volume": 0.5
   }
 }

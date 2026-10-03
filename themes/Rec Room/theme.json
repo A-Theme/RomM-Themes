@@ -1,7 +1,7 @@
 {
   "name": "Rec Room",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#130A08",
     "surface": "#1F1512BA",
@@ -39,5 +39,9 @@
       "amount": 80,
       "color": "accent_hover"
     }
+  },
+  "audio": {
+    "bgm": "music.ogg",
+    "volume": 0.5
   }
 }

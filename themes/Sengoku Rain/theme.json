@@ -1,7 +1,7 @@
 {
   "name": "Sengoku Rain",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#160B0A",
     "surface": "#231614CC",
@@ -39,5 +39,9 @@
       "amount": 90,
       "color": "accent_alt"
     }
+  },
+  "audio": {
+    "bgm": "music.ogg",
+    "volume": 0.5
   }
 }

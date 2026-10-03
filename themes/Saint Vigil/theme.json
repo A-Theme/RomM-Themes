@@ -1,7 +1,7 @@
 {
   "name": "Saint Vigil",
   "author": "Aramaki",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "colors": {
     "bg": "#0F0606",
     "surface": "#1B100FC2",
@@ -39,5 +39,12 @@
       "amount": 90,
       "color": "accent_hover"
     }
+  },
+  "audio": {
+    "bgm": "music.ogg",
+    "volume": 0.5
+  },
+  "font": {
+    "file": "LinLibertine_R.otf"
   }
 }

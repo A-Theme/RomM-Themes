@@ -1,7 +1,7 @@
 {
   "name": "Pumpkin Wood",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#041018",
     "surface": "#0B1C25C0",
@@ -39,5 +39,9 @@
       "amount": 76,
       "color": "accent_hover"
     }
+  },
+  "audio": {
+    "bgm": "music.ogg",
+    "volume": 0.5
   }
 }

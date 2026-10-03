@@ -1,7 +1,7 @@
 {
   "name": "The Crowd",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#0B0C07",
     "surface": "#151711CC",
@@ -39,5 +39,9 @@
       "amount": 48,
       "color": "text_muted"
     }
+  },
+  "audio": {
+    "bgm": "music.ogg",
+    "volume": 0.5
   }
 }

@@ -1,7 +1,7 @@
 {
   "name": "Contract Work",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#1A0D10",
     "surface": "#28171BE0",
@@ -39,5 +39,12 @@
       "amount": 90,
       "color": "accent_alt"
     }
+  },
+  "audio": {
+    "bgm": "music.ogg",
+    "volume": 0.5
+  },
+  "font": {
+    "file": "Hack-Regular.ttf"
   }
 }

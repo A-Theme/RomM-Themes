@@ -127,6 +127,21 @@
       "amount": 0.6,
       "threshold": 80,
       "blur": 7
+    },
+    {
+      "theme": "Borbs Lair",
+      "effect": "flicker,embers",
+      "why": "the fire along the lair floor breathing, sparks rising off it",
+      "frames": 32,
+      "fps": 12,
+      "amount": 0.6,
+      "threshold": 40,
+      "blur": 8,
+      "count": 55,
+      "tint": "255,170,70;255,110,40",
+      "size_min": 0.4,
+      "size_max": 1.2,
+      "seed": 11
     }
   ]
 }

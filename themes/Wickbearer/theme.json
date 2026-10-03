@@ -1,7 +1,7 @@
 {
   "name": "Wickbearer",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#021313",
     "surface": "#071F1FB8",
@@ -39,5 +39,12 @@
       "amount": 64,
       "color": "accent_alt"
     }
+  },
+  "audio": {
+    "bgm": "music.ogg",
+    "volume": 0.5
+  },
+  "font": {
+    "file": "EBGaramond12-Regular.otf"
   }
 }

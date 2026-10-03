@@ -1,7 +1,7 @@
 {
   "name": "Crimson Thicket",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#130C07",
     "surface": "#201610D6",
@@ -39,5 +39,9 @@
       "amount": 89,
       "color": "accent_alt"
     }
+  },
+  "audio": {
+    "bgm": "music.ogg",
+    "volume": 0.5
   }
 }

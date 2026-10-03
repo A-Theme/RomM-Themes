@@ -1,7 +1,7 @@
 {
   "name": "Mystic Ninja",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#0A0E13",
     "surface": "#141920CC",
@@ -39,5 +39,9 @@
       "amount": 90,
       "color": "accent_alt"
     }
+  },
+  "audio": {
+    "bgm": "music.ogg",
+    "volume": 0.5
   }
 }

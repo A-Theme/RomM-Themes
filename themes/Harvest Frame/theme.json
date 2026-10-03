@@ -1,7 +1,7 @@
 {
   "name": "Harvest Frame",
   "author": "Aramaki",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "colors": {
     "bg": "#0F0603",
     "surface": "#1C1008DC",
@@ -39,5 +39,12 @@
       "amount": 66,
       "color": "accent_hover"
     }
+  },
+  "audio": {
+    "bgm": "music.ogg",
+    "volume": 0.5
+  },
+  "font": {
+    "file": "Quicksand-Bold.ttf"
   }
 }

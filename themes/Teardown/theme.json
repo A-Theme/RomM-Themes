@@ -1,7 +1,7 @@
 {
   "name": "Teardown",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#170F15",
     "surface": "#231921E0",
@@ -42,5 +42,9 @@
   },
   "font": {
     "file": "Hack-Regular.ttf"
+  },
+  "audio": {
+    "bgm": "music.ogg",
+    "volume": 0.5
   }
 }

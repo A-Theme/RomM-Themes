@@ -1,7 +1,7 @@
 {
   "name": "Arachnid Red",
   "author": "Aramaki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "colors": {
     "bg": "#120707",
     "surface": "#1F1110CC",
@@ -39,5 +39,9 @@
       "amount": 87,
       "color": "accent_alt"
     }
+  },
+  "audio": {
+    "bgm": "music.ogg",
+    "volume": 0.5
   }
 }

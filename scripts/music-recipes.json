@@ -1,0 +1,94 @@
+{
+  "about": "Which theme gets which music. Read by scripts/compose-music.py: style picks the instruments and harmony, key/mode/bpm the setting, 'with' the signature sounds that tie a track to its art. Change a line and rerun --theme <name> --apply to rebuild that one track.",
+  "themes": {
+    "Bloodhouse":        {"style": "ominous", "key": "C#", "bpm": 64, "seed": 101, "with": ["heartbeat", "wind"]},
+    "Fear Incarnate":    {"style": "ominous", "key": "F", "bpm": 52, "seed": 102, "with": ["shriek", "fire"]},
+    "Ghoul Hollow":      {"style": "ominous", "key": "D", "bpm": 58, "seed": 103, "with": ["musicbox", "wind"]},
+    "Bedside Things":    {"style": "ominous", "key": "A", "bpm": 60, "seed": 104, "with": ["musicbox", "whispers"]},
+    "The Crowd":         {"style": "ominous", "key": "G", "bpm": 50, "seed": 105, "with": ["whispers", "shriek"]},
+    "Rotten Porch":      {"style": "ominous", "key": "E", "mode": "phrygian", "bpm": 62, "seed": 106, "with": ["banjo", "crickets"]},
+    "Greasepaint":       {"style": "ominous", "key": "Bb", "bpm": 120, "seed": 107, "with": ["calliope"]},
+    "Crimson Thicket":   {"style": "ominous", "key": "C", "bpm": 56, "seed": 108, "with": ["skitter", "crickets"]},
+    "Arachnid Red":      {"style": "ominous", "key": "F#", "bpm": 60, "seed": 109, "with": ["skitter", "heartbeat"]},
+    "Cordyceps":         {"style": "ominous", "key": "Eb", "mode": "locrian", "bpm": 54, "seed": 110, "with": ["choir", "skitter"]},
+    "Rift Mouth":        {"style": "ominous", "key": "B", "bpm": 50, "seed": 111, "with": ["shriek", "heartbeat"]},
+    "Wickbearer":        {"style": "ominous", "key": "G#", "bpm": 56, "seed": 112, "with": ["toll", "wind", "crickets"]},
+    "Demon Chorus":      {"style": "ominous", "key": "D", "bpm": 58, "seed": 113, "with": ["choir", "organ", "fire"]},
+
+    "Sinister Claus":    {"style": "twisted_carol", "key": "E", "bpm": 84, "seed": 201, "with": ["wind"]},
+    "Saint Vigil":       {"style": "twisted_carol", "key": "C", "bpm": 92, "seed": 202, "with": ["stabs"]},
+    "Candlelit Eve":     {"style": "festive", "key": "F", "bpm": 132, "seed": 203, "with": ["strings", "fire"]},
+    "Sleigh Drive":      {"style": "festive", "key": "A", "bpm": 124, "seed": 204, "with": ["drive"]},
+    "Iron Saint":        {"style": "festive", "key": "D", "bpm": 108, "seed": 205, "with": ["epic"]},
+
+    "Harvest Frame":     {"style": "halloween", "key": "E", "bpm": 150, "seed": 301, "with": ["theremin"]},
+    "Pumpkin Wood":      {"style": "halloween", "key": "C", "bpm": 120, "seed": 302, "with": ["theremin", "wind"]},
+    "Witching Whiskers": {"style": "halloween", "key": "G", "bpm": 144, "seed": 303, "with": ["sparkle"]},
+    "Sugar Skull Night": {"style": "halloween", "key": "A", "bpm": 156, "seed": 304, "with": ["mariachi"]},
+
+    "Night Drive":       {"style": "synthwave", "key": "A", "bpm": 96, "seed": 401},
+    "Overdrive":         {"style": "synthwave", "key": "E", "bpm": 118, "seed": 402, "chords": [0, 6, 5, 6]},
+    "Neon Simian":       {"style": "synthwave", "key": "F#", "bpm": 110, "seed": 403, "chords": [0, 3, 5, 4]},
+    "Neon Jaws":         {"style": "synthwave", "key": "D", "bpm": 100, "seed": 404, "with": ["dark", "growl"], "chords": [0, 5, 0, 6]},
+    "Neon Crusade":      {"style": "synthwave", "key": "C", "bpm": 90, "seed": 405, "chords": [0, 5, 2, 6]},
+    "Blue Shift":        {"style": "synthwave", "key": "Eb", "mode": "dorian", "bpm": 84, "seed": 406, "with": ["chill"], "chords": [0, 3, 0, 4]},
+
+    "Circuit Dawn":      {"style": "cyber", "key": "C#", "bpm": 120, "seed": 501, "with": ["glitch"]},
+    "Chrome Clerk":      {"style": "cyber", "key": "F", "mode": "dorian", "bpm": 104, "seed": 502, "with": ["typing", "chatter"]},
+    "Console Room":      {"style": "cyber", "key": "A", "bpm": 100, "seed": 503, "with": ["chatter", "hum"]},
+    "Wirechewer":        {"style": "cyber", "key": "G", "bpm": 126, "seed": 504, "with": ["glitch", "chatter"]},
+    "Wobbegong":         {"style": "cyber", "key": "D", "bpm": 112, "seed": 505, "with": ["dark", "hum"]},
+    "Signal Rain":       {"style": "cyber", "key": "B", "bpm": 96, "seed": 506, "with": ["rain", "dark"]},
+    "Contract Work":     {"style": "cyber", "key": "E", "mode": "phrygian", "bpm": 112, "seed": 507, "with": ["dark", "glitch"]},
+
+    "Quiet Blue":        {"style": "lab", "key": "E", "bpm": 80, "seed": 601},
+    "White Library":     {"style": "lab", "key": "A", "mode": "major", "bpm": 76, "seed": 602},
+
+    "Pixel Dusk":        {"style": "chiptune", "key": "D", "mode": "minor", "bpm": 104, "seed": 701, "with": ["melancholy"], "chords": [0, 5, 2, 6]},
+    "Teardown":          {"style": "chiptune", "key": "C", "bpm": 144, "seed": 702},
+    "Rec Room":          {"style": "chiptune", "key": "G", "bpm": 118, "seed": 703, "chords": [0, 4, 5, 3]},
+
+    "Event Horizon":     {"style": "space", "key": "A", "bpm": 56, "seed": 801},
+    "Singularity":       {"style": "space", "key": "C#", "mode": "phrygian", "bpm": 50, "seed": 802, "with": ["ominous"]},
+    "Wormhole Drift":    {"style": "space", "key": "F", "mode": "lydian", "bpm": 60, "seed": 803, "with": ["pulse"], "chords": [0, 1, 4, 0]},
+    "Nebula Cat":        {"style": "space", "key": "Eb", "mode": "major", "bpm": 58, "seed": 804, "with": ["twinkle"], "chords": [0, 3, 5, 4]},
+    "The Overseer":      {"style": "space", "key": "D", "bpm": 52, "seed": 805, "with": ["awe"]},
+    "Aether Storm":      {"style": "space", "key": "G", "mode": "dorian", "bpm": 62, "seed": 806, "with": ["storm"]},
+
+    "Abyssal Lantern":   {"style": "underwater", "key": "D", "bpm": 56, "seed": 901, "with": ["lure"]},
+    "Jellyglass":        {"style": "underwater", "key": "F", "mode": "lydian", "bpm": 60, "seed": 902, "chords": [0, 1, 0, 4]},
+    "Sunlit Deep":       {"style": "underwater", "key": "C", "mode": "major", "bpm": 80, "seed": 903, "with": ["bright"], "chords": [0, 3, 4, 0]},
+    "Anglerlight":       {"style": "underwater", "key": "Bb", "mode": "phrygian", "bpm": 52, "seed": 904, "with": ["eerie", "lure"]},
+
+    "Collapse Well":     {"style": "epic", "key": "D", "bpm": 96, "seed": 1001, "with": ["choir"]},
+    "Godfall":           {"style": "epic", "key": "C", "bpm": 84, "seed": 1002, "with": ["choir", "fire"], "chords": [0, 5, 3, 4]},
+    "Shieldmaiden":      {"style": "epic", "key": "E", "mode": "dorian", "bpm": 80, "seed": 1003, "with": ["nordic"]},
+    "Twilight March":    {"style": "epic", "key": "G", "bpm": 88, "seed": 1004, "with": ["march"]},
+    "Wolfrider":         {"style": "epic", "key": "A", "bpm": 168, "seed": 1005, "with": ["gallop"]},
+    "Crimson Keep":      {"style": "epic", "key": "F", "mode": "harmonic", "bpm": 72, "seed": 1006, "with": ["organ", "fire"]},
+
+    "Sengoku Rain":      {"style": "eastern", "key": "E", "bpm": 70, "seed": 1101, "with": ["rain"]},
+    "Two Blades":        {"style": "eastern", "key": "A", "mode": "insen", "bpm": 64, "seed": 1102, "with": ["tense", "wind"]},
+    "Jade Serpent":      {"style": "eastern", "key": "D", "bpm": 60, "seed": 1103, "with": ["ominous", "wind"]},
+    "Paper Dragon":      {"style": "eastern", "key": "G", "bpm": 112, "seed": 1104, "with": ["festive"]},
+    "Mystic Ninja":      {"style": "eastern", "key": "C#", "bpm": 76, "seed": 1105, "with": ["bells"]},
+
+    "Emerald Smoke":     {"style": "forest", "key": "Eb", "bpm": 80, "seed": 1201, "with": ["magic"]},
+    "Mossling":          {"style": "forest", "key": "D", "bpm": 72, "seed": 1202, "with": ["birds"], "chords": [0, 3, 0, 4]},
+    "Gambit Glade":      {"style": "forest", "key": "A", "mode": "dorian", "bpm": 96, "seed": 1203, "with": ["playful", "magic"], "chords": [0, 3, 6, 4]},
+    "River Fox":         {"style": "forest", "key": "G", "bpm": 84, "seed": 1204, "with": ["stream", "birds", "shaker"]},
+    "Gold at the End":   {"style": "forest", "key": "D", "bpm": 330, "seed": 1205, "with": ["jig"]},
+
+    "Big Cheese":        {"style": "quirky", "key": "F", "bpm": 124, "seed": 1301, "lead": "ukulele"},
+    "Gnaw":              {"style": "quirky", "key": "C", "mode": "harmonic", "bpm": 112, "seed": 1302, "lead": "bassoon", "with": ["squeak"], "chords": [0, 3, 4, 0]},
+    "Kitchen Fire":      {"style": "quirky", "key": "Bb", "bpm": 150, "seed": 1303, "lead": "whistle", "with": ["frantic", "clank", "fire"]},
+    "Toad Crossing":     {"style": "quirky", "key": "G", "bpm": 108, "seed": 1304, "lead": "marimba"},
+
+    "Dusk Visitation":   {"style": "desert", "key": "D", "bpm": 84, "seed": 1401, "with": ["alien"]},
+    "Sands of War":      {"style": "desert", "key": "E", "bpm": 112, "seed": 1402, "with": ["war"]},
+
+    "Frost Arrow":       {"style": "ice", "key": "B", "bpm": 66, "seed": 1501},
+    "Tall Ship":         {"style": "shanty", "key": "D", "bpm": 200, "seed": 1601},
+    "Borbs Lair":        {"style": "hearth", "seed": 11, "volume": 0.55}
+  }
+}
