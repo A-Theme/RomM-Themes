@@ -32,9 +32,9 @@ validated in CI against the rules the client itself enforces.
 
 <!-- SCREENSHOTS:START -->
 <div align="center">
-<img src="https://raw.githubusercontent.com/A-Theme/RomM-Themes/main/screenshots/The%20Overseer.webp" width="320" alt="The Overseer" title="The Overseer"/>
-<img src="https://raw.githubusercontent.com/A-Theme/RomM-Themes/main/screenshots/Chalkboard.webp" width="320" alt="Chalkboard" title="Chalkboard"/>
-<img src="https://raw.githubusercontent.com/A-Theme/RomM-Themes/main/screenshots/Duat.webp" width="320" alt="Duat" title="Duat"/>
+<img src="https://raw.githubusercontent.com/A-Theme/RomM-Themes/main/screenshots/Glass%20Cascade.webp" width="320" alt="Glass Cascade" title="Glass Cascade"/>
+<img src="https://raw.githubusercontent.com/A-Theme/RomM-Themes/main/screenshots/Solar%20Dome.webp" width="320" alt="Solar Dome" title="Solar Dome"/>
+<img src="https://raw.githubusercontent.com/A-Theme/RomM-Themes/main/screenshots/Understudy.webp" width="320" alt="Understudy" title="Understudy"/>
 </div>
 <!-- SCREENSHOTS:END -->
 
