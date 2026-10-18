@@ -32,8 +32,8 @@ validated in CI against the rules the client itself enforces.
 
 <!-- SCREENSHOTS:START -->
 <div align="center">
-<img src="https://raw.githubusercontent.com/A-Theme/RomM-Themes/main/screenshots/Bedside%20Things.webp" width="320" alt="Bedside Things" title="Bedside Things"/>
-<img src="https://raw.githubusercontent.com/A-Theme/RomM-Themes/main/screenshots/Crimson%20Thicket.webp" width="320" alt="Crimson Thicket" title="Crimson Thicket"/>
+<img src="https://raw.githubusercontent.com/A-Theme/RomM-Themes/main/screenshots/Sands%20of%20War.webp" width="320" alt="Sands of War" title="Sands of War"/>
+<img src="https://raw.githubusercontent.com/A-Theme/RomM-Themes/main/screenshots/Understudy.webp" width="320" alt="Understudy" title="Understudy"/>
 <img src="https://raw.githubusercontent.com/A-Theme/RomM-Themes/main/screenshots/Galley%20Rat.webp" width="320" alt="Galley Rat" title="Galley Rat"/>
 </div>
 <!-- SCREENSHOTS:END -->
