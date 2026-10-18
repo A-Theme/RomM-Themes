@@ -2,7 +2,7 @@
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:4C8DFF,50:8A6BFF,100:9CC2FF&height=190&section=header&text=RomM-Themes&fontSize=56&fontColor=07080F&animation=fadeIn&fontAlignY=38&desc=themes%20for%20the%20RomM%20Switch%20client&descAlignY=58&descSize=18" width="100%"/>
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1200&color=4C8DFF&center=true&vCenter=true&width=640&lines=19+semantic+colour+roles.;Backgrounds%2C+motion%2C+sprite-sheet+animation.;Your+own+font%2C+mascot+and+music.;One+folder+on+the+SD+card.;Validated+in+CI+before+it+ever+boots.)](#)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1200&color=4C8DFF&center=true&vCenter=true&width=640&lines=19+semantic+colour+roles.;Backgrounds%2C+motion%2C+sprite-sheet+animation.;Your+own+font%2C+mascot+and+music.;One+folder+on+the+SD+card.;Validated+in+CI+before+it+ever+boots.;Every+one+converts+for+CyberFoil.)](#)
 
 <img src="assets/hero.svg" alt="The RomM client library screen in the Midnight Borb theme, with the focus ring travelling between cards" width="100%"/>
 
