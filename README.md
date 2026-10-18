@@ -13,6 +13,7 @@
 [![validated in CI](https://img.shields.io/github/actions/workflow/status/A-Theme/RomM-Themes/validate.yml?branch=main&label=validated&style=for-the-badge&color=4FC08D&labelColor=141A2C)](../../actions/workflows/validate.yml)
 [![editor](https://img.shields.io/badge/visual-editor-9CC2FF?style=for-the-badge&labelColor=141A2C)](https://github.com/A-Theme/Theme-App/blob/main/romm-theme-editor.html)
 [![sprite sheet maker](https://img.shields.io/badge/sprite%20sheet-maker-8A6BFF?style=for-the-badge&labelColor=141A2C)](tools/spritesheet-maker)
+[![CyberFoil](https://img.shields.io/badge/CyberFoil-convertible-9D4EDD?style=for-the-badge&labelColor=141A2C)](#use-them-in-cyberfoil)
 [![licence](https://img.shields.io/badge/licence-MIT-5AA9E6?style=for-the-badge&labelColor=141A2C)](LICENSE)
 
 </div>
@@ -203,6 +204,38 @@ open in the slicer: [`Aramaki`](themes/Aramaki),
 [`Overdrive`](themes/Overdrive), [`Pulse`](themes/Pulse) and
 [`Sunlit Deep`](themes/Sunlit%20Deep).
 
+## Use them in CyberFoil
+
+[CyberFoil](https://github.com/luketanti/CyberFoil) 1.5.0 reads themes too, but
+in its own format — and **a folder from here copied into CyberFoil's theme
+directory does not show up at all.** CyberFoil skips any theme whose `version`
+is not the number `1`, and every theme here carries a version string. Run
+against CyberFoil's own loader, it lists none of the 160 as they stand.
+
+The **[CyberFoil editor](https://github.com/A-Theme/Theme-App/blob/main/cyberfoil-theme-editor.html)**
+in Theme-App converts them. **Convert a RomM theme** lists this catalog; pick one
+and download the pack. Converted, CyberFoil lists all 160, every one keeping
+its colours and art and passing the readability checks.
+
+<div align="center">
+
+<img src="assets/cyberfoil.webp" alt="Three themes from this repo side by side: on the left as the RomM client draws them, on the right converted and previewed on CyberFoil's main menu" width="100%"/>
+
+</div>
+
+What comes across, and what cannot:
+
+| | in CyberFoil |
+|---|---|
+| **Colours** | 19 roles mapped onto CyberFoil's 11, keeping the pairs that decide legibility together — focused text on `surface_hover`, body text on `surface_raised` |
+| **Background** | the still image, **darkened by the theme's own `dim`** in the pixels, since CyberFoil has no dim setting |
+| **Font** | CyberFoil keeps its own UI font, so the theme's font draws a banner with the theme's name instead |
+| **Mascot** | carried across; CyberFoil's own anime mascots are hidden for themes without one |
+| **Motion, animation, focus effects, music** | not in CyberFoil's format — the editor lists each one it leaves behind |
+
+Unzip the pack into `sdmc:/switch/CyberFoil/theme/` and pick it in
+**Settings → System → Theme**. It applies at once.
+
 ## Contributing a theme
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md). The short version:
@@ -257,7 +290,7 @@ Two things worth knowing before you build something ambitious:
 |---|---|---|
 | **RomM-Themes** | you are here — themes for the RomM Switch client | **active** |
 | [`tools/spritesheet-maker`](tools/spritesheet-maker) | builds the animated backgrounds in this repo | **active** |
-| [Theme-App](https://github.com/A-Theme/Theme-App) | the visual editors — [the RomM one](https://github.com/A-Theme/Theme-App/blob/main/romm-theme-editor.html) is the one for this format | active |
+| [Theme-App](https://github.com/A-Theme/Theme-App) | the visual editors — [the RomM one](https://github.com/A-Theme/Theme-App/blob/main/romm-theme-editor.html) is the one for this format, and [the CyberFoil one](https://github.com/A-Theme/Theme-App/blob/main/cyberfoil-theme-editor.html) converts these themes for CyberFoil | active |
 | [Tinfoil-Themes](https://github.com/A-Theme/Tinfoil-Themes) | the Tinfoil theme database, a separate and older format | stable |
 | [Switch-Theme-Installer](https://github.com/A-Theme/Switch-Theme-Installer) | on-console installer for Tinfoil themes | stable |
 | [A-Theme](https://github.com/A-Theme) | the org | |
