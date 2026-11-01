@@ -321,6 +321,32 @@ recoloured. A role the theme does not set is a warning.
 > newer than the validator still lands. Structural mistakes — a bad type, an
 > out-of-range number, a colour that names nothing — are always errors.
 
+## Icons
+
+```json
+"icons": { "color": "accent", "chip": "accent", "chip_text": "text_on_accent" }
+```
+
+Colours the UI's small glyphs: the **chevron** at the end of a list row, and
+the **button prompts** (`A`, `B`, `+`) in the hint bar and on buttons. Off
+unless a theme asks, and meant for light-panel themes: the built-in treatment
+draws chevrons in `text_muted` and prompts on a `surface_hover` pill, both of
+which can fade into a pale panel.
+
+| key | what it colours | unset |
+|---|---|---|
+| `color` | chevrons, and prompt letters unless `chip_text` is set | `text_muted` chevron (`text` when focused), `text_strong` letter |
+| `chip` | the pill behind a prompt letter | `surface_hover` in the hint bar, faint `text_strong` on buttons |
+| `chip_text` | the prompt letter on that pill | `color`, then the built-in letter |
+
+`"icons": "accent"` is shorthand for `{"color": "accent"}`.
+
+Every value is a **colour role**, never a hex — the same rule, and the same
+warning, as `effects.focus.color` — so icons keep following the palette when a
+theme is recoloured. `chip_text` is separate from `color` because a letter sits
+on the pill and a chevron sits on the panel: a light letter that reads on an
+accent pill is an invisible chevron on a pale panel.
+
 ## Font
 
 ```json

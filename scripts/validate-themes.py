@@ -42,6 +42,10 @@ MAX_ANIMATION_FRAMES = 240
 MAX_ANIMATION_FPS = 60
 
 # The 19 semantic roles, in the order theme_spec.cpp lists them.
+# Keys of the top-level "icons" block. Mirrors ThemeIcons in the client's
+# source/ui/theme_spec.h.
+ICON_KEYS = ("color", "chip", "chip_text")
+
 ROLES = [
     "bg", "surface", "surface_raised", "surface_hover", "border",
     "text", "text_strong", "text_muted", "text_disabled", "text_on_accent",
@@ -602,6 +606,43 @@ def validate_theme(folder_name):
                         f'which this theme does not set', fatal=False))
     elif effects is not None:
         problems.append(Problem(folder_name, "effects must be an object"))
+
+    # --- icons -------------------------------------------------------------
+    # "icons": {"color", "chip", "chip_text"} - each a colour ROLE, for the
+    # same reason as effects.*.color. "icons": "<role>" is shorthand for
+    # color alone. The client warns and keeps its built-in icon colour for
+    # anything that is not a role, so a hex here quietly does nothing.
+    icons = doc.get("icons")
+    if isinstance(icons, str):
+        icons = {"color": icons}
+        icon_label = "icons"
+    else:
+        icon_label = None
+    if isinstance(icons, dict):
+        for key, role in icons.items():
+            where = icon_label or f"icons.{key}"
+            if key not in ICON_KEYS:
+                problems.append(Problem(
+                    folder_name,
+                    f'icons: "{key}" is not an icon key the validator knows '
+                    f'({", ".join(ICON_KEYS)}) - the client ignores it',
+                    fatal=False))
+                continue
+            if not isinstance(role, str):
+                problems.append(Problem(folder_name, f"{where} must be a string"))
+            elif role not in ROLES:
+                hexish = " - a hex is not accepted here, only a role" \
+                         if HEX_RE.match(role) else ""
+                problems.append(Problem(
+                    folder_name,
+                    f'{where}: "{role}" is not a colour role{hexish}'))
+            elif isinstance(colors, dict) and role not in colors:
+                problems.append(Problem(
+                    folder_name,
+                    f'{where} references role "{role}", which this theme '
+                    f'does not set', fatal=False))
+    elif icons is not None:
+        problems.append(Problem(folder_name, "icons must be an object or a role name"))
 
     # --- font, assets, audio ----------------------------------------------
     has_font = False
