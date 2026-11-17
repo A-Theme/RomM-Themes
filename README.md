@@ -33,9 +33,9 @@ validated in CI against the rules the client itself enforces.
 
 <!-- SCREENSHOTS:START -->
 <div align="center">
-<img src="https://raw.githubusercontent.com/A-Theme/RomM-Themes/main/screenshots/Magenta%20Stacks.webp" width="320" alt="Magenta Stacks" title="Magenta Stacks"/>
+<img src="https://raw.githubusercontent.com/A-Theme/RomM-Themes/main/screenshots/Starborn%20Cat.webp" width="320" alt="Starborn Cat" title="Starborn Cat"/>
+<img src="https://raw.githubusercontent.com/A-Theme/RomM-Themes/main/screenshots/Glass%20Cascade.webp" width="320" alt="Glass Cascade" title="Glass Cascade"/>
 <img src="https://raw.githubusercontent.com/A-Theme/RomM-Themes/main/screenshots/Anglerlight.webp" width="320" alt="Anglerlight" title="Anglerlight"/>
-<img src="https://raw.githubusercontent.com/A-Theme/RomM-Themes/main/screenshots/Wolfrider.webp" width="320" alt="Wolfrider" title="Wolfrider"/>
 </div>
 <!-- SCREENSHOTS:END -->
 
